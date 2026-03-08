@@ -1,0 +1,1504 @@
+import torch
+import json
+import numpy as np
+import faiss
+import os
+import re
+import sys
+import random
+import time
+from datetime import datetime
+from collections import defaultdict
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, AutoModel
+from torch.utils.tensorboard import SummaryWriter
+from difflib import SequenceMatcher
+
+# ====================== 1. 初始化output目录 ======================
+def init_output_dir(test_mode="with_prompt"):
+    """根据测试模式初始化输出目录
+"""
+    if test_mode == "with_prompt":
+        output_dir = "./output_internlm2.5_with_prompt"
+    else:
+        output_dir = "./output_internlm2.5_without_prompt"
+    
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    tb_log_dir = os.path.join(output_dir, f"tb_logs_{timestamp}")
+    os.makedirs(tb_log_dir, exist_ok=True)
+    result_dir = os.path.join(output_dir, "test_results")
+    os.makedirs(result_dir, exist_ok=True)
+    log_dir = os.path.join(output_dir, "run_logs")
+    os.makedirs(log_dir, exist_ok=True)
+    cache_dir = os.path.join(output_dir, "cache")
+    os.makedirs(cache_dir, exist_ok=True)
+    
+    return output_dir, tb_log_dir, result_dir, log_dir, cache_dir, timestamp
+
+# ====================== 2. 日志重定向 ======================
+class LoggerRedirect:
+    def __init__(self, log_file_path):
+        self.terminal = sys.stdout
+        self.log = open(log_file_path, "a", encoding="utf-8")
+    
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+        self.log.flush()
+    
+    def flush(self):
+        self.terminal.flush()
+        self.log.flush()
+
+# ====================== 3. TensorBoard初始化 ======================
+def init_tensorboard(tb_log_dir):
+    writer = SummaryWriter(log_dir=tb_log_dir)
+    print(f"✅ TensorBoard日志已初始化，存储路径：{tb_log_dir}")
+    return writer
+
+def log_to_tensorboard(writer, step, metrics):
+    if "precision" in metrics:
+        writer.add_scalar("准确率-Precision/单条用例", metrics["precision"], step)
+    if "recall" in metrics:
+        writer.add_scalar("召回率-Recall/单条用例", metrics["recall"], step)
+    if "f1_score" in metrics:
+        writer.add_scalar("F1分数/单条用例", metrics["f1_score"], step)
+    if "f2_score" in metrics:
+        writer.add_scalar("F2分数/单条用例", metrics["f2_score"], step)
+    if "answer_length" in metrics:
+        writer.add_scalar("回答长度/模型生成", metrics["answer_length"], step)
+    if "reference_length" in metrics:
+        writer.add_scalar("回答长度/标准答案", metrics["reference_length"], step)
+    if "retrieved_count" in metrics:
+        writer.add_scalar("检索文档数", metrics["retrieved_count"], step)
+    
+    # 添加更多tensorboard日志
+    if "generation_time" in metrics:
+        writer.add_scalar("时间/生成时间", metrics["generation_time"], step)
+    if "retrieval_time" in metrics:
+        writer.add_scalar("时间/检索时间", metrics["retrieval_time"], step)
+    if "total_time" in metrics:
+        writer.add_scalar("时间/总时间", metrics["total_time"], step)
+
+# ====================== 4. 配置量化参数 ======================
+def get_bnb_config():
+    return BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.bfloat16
+    )
+
+# ====================== 5. 加载InternLM2.5模型 ======================
+def load_internlm2_5_model(model_path, cache_dir=None):
+    """专门加载InternLM2.5模型，适配InternLM2.5的特殊设置
+"""
+    print(f"正在加载InternLM2.5模型：{model_path}")
+    
+    try:
+        # 设置缓存路径
+        if cache_dir:
+            os.environ['TRANSFORMERS_CACHE'] = cache_dir
+        
+        # InternLM2.5的tokenizer加载
+        tokenizer = AutoTokenizer.from_pretrained(
+            model_path,
+            trust_remote_code=True,
+            padding_side="right",
+            local_files_only=True if os.path.exists(model_path) else False
+        )
+        
+        # InternLM2.5需要设置pad_token
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token if tokenizer.eos_token else "[PAD]"
+        
+        print(f"✅ InternLM2.5 Tokenizer加载成功，pad_token: {tokenizer.pad_token}")
+        
+        # InternLM2.5模型加载
+        llm_model = AutoModelForCausalLM.from_pretrained(
+            model_path,
+            trust_remote_code=True,
+            device_map="auto",
+            quantization_config=get_bnb_config(),
+            torch_dtype=torch.bfloat16,
+            low_cpu_mem_usage=True,
+            local_files_only=True if os.path.exists(model_path) else False
+        )
+        
+        llm_model.eval()
+        print(f"✅ InternLM2.5模型加载成功")
+        
+        return tokenizer, llm_model
+        
+    except Exception as e:
+        print(f"❌ InternLM2.5模型加载失败，错误信息：{e}")
+        import traceback
+        traceback.print_exc()
+        return None, None
+
+# ====================== 5b. 加载BGE Embedding模型 ======================
+def load_bge_embedding_model(embedding_path, cache_dir=None):
+    """加载BGE Embedding模型
+"""
+    print(f"正在加载BGE Embedding模型：{embedding_path}")
+    
+    try:
+        # 设置缓存路径
+        if cache_dir:
+            os.environ['TRANSFORMERS_CACHE'] = cache_dir
+        
+        embedding_tokenizer = AutoTokenizer.from_pretrained(
+            embedding_path,
+            trust_remote_code=True,
+            local_files_only=True if os.path.exists(embedding_path) else False
+        )
+        
+        embedding_model = AutoModel.from_pretrained(
+            embedding_path,
+            trust_remote_code=True,
+            device_map="auto",
+            torch_dtype=torch.float16,
+            low_cpu_mem_usage=True,
+            local_files_only=True if os.path.exists(embedding_path) else False
+        )
+        
+        embedding_model.eval()
+        print(f"✅ BGE Embedding模型加载成功")
+        
+        return embedding_tokenizer, embedding_model
+        
+    except Exception as e:
+        print(f"❌ BGE Embedding模型加载失败，错误信息：{e}")
+        import traceback
+        traceback.print_exc()
+        return None, None
+
+# ====================== 6. BGE文本转向量函数 ======================
+def bge_embedding_encode(embedding_models, text, batch_mode=False):
+    """BGE文本转向量，支持批量处理
+"""
+    embedding_tokenizer, embedding_model = embedding_models
+    
+    if embedding_tokenizer is None or embedding_model is None:
+        return np.array([])
+    
+    if isinstance(text, list):
+        text_list = [str(t).strip() for t in text if str(t).strip()]
+        if not text_list:
+            return np.array([])
+    else:
+        text = str(text).strip()
+        if not text:
+            return np.array([])
+        text_list = [text]
+    
+    max_length = 512
+    
+    try:
+        if batch_mode and len(text_list) > 1:
+            inputs = embedding_tokenizer(
+                text_list,
+                return_tensors="pt",
+                padding=True,
+                truncation=True,
+                max_length=max_length
+            ).to(embedding_model.device)
+            
+            with torch.no_grad():
+                outputs = embedding_model(**inputs)
+                # 使用CLS pooling
+                embeddings = outputs.last_hidden_state[:, 0]
+                embeddings = embeddings / embeddings.norm(dim=1, keepdim=True)
+            
+            return embeddings.cpu().numpy()
+        else:
+            # 单条处理
+            embeddings_list = []
+            for t in text_list:
+                inputs = embedding_tokenizer(
+                    t,
+                    return_tensors="pt",
+                    padding=True,
+                    truncation=True,
+                    max_length=max_length
+                ).to(embedding_model.device)
+                
+                with torch.no_grad():
+                    outputs = embedding_model(**inputs)
+                    hidden_state = outputs.last_hidden_state[:, 0]
+                    vec = hidden_state.cpu().numpy().squeeze()
+                
+                # 归一化
+                norm = np.linalg.norm(vec)
+                if norm > 0:
+                    vec = vec / norm
+                embeddings_list.append(vec)
+            
+            if len(embeddings_list) == 1:
+                return embeddings_list[0]
+            else:
+                return np.array(embeddings_list)
+    except Exception as e:
+        print(f"❌ 向量编码失败：{e}")
+        return np.array([])
+
+# ====================== 7. 分析问题类型 ======================
+def analyze_question_type(question):
+    """分析问题类型，返回对应的类型标签
+"""
+    question_lower = question.lower()
+    
+    # 法定代表人查询
+    if any(keyword in question_lower for keyword in ["法定代表人", "法人", "法人代表", "负责人"]):
+        return "company_legal_representative"
+    
+    # 价格查询
+    elif any(keyword in question_lower for keyword in ["价格", "多少钱", "费用", "成本", "价格是", "价格为"]):
+        return "price_info"
+    
+    # 供应商查询
+    elif any(keyword in question_lower for keyword in ["供应商", "供应", "提供", "供货", "供应商是", "供应商为"]):
+        return "supplier_info"
+    
+    # 采购方查询
+    elif any(keyword in question_lower for keyword in ["采购方", "采购", "购买", "买方", "采购方是", "采购方为"]):
+        return "buyer_info"
+    
+    # 中标方查询
+    elif any(keyword in question_lower for keyword in ["中标", "中标供应商", "中标方", "中标公司", "中标单位"]):
+        return "bid_winner_info"
+    
+    # 基本信息查询
+    elif any(keyword in question_lower for keyword in ["基本信息", "公司信息", "是什么", "基本情况", "介绍"]):
+        return "basic_info"
+    
+    # 项目信息查询
+    elif any(keyword in question_lower for keyword in ["项目", "招标", "投标", "项目基本情况", "采购项目"]):
+        return "project_info"
+    
+    # 产品信息查询
+    elif any(keyword in question_lower for keyword in ["产品", "设备", "仪器", "系统", "服务"]):
+        return "product_info"
+    
+    # 法规类型查询
+    elif any(keyword in question_lower for keyword in ["法规", "条例", "法", "属于什么", "类型"]):
+        return "regulation_type"
+    
+    else:
+        return "general_info"
+
+# ====================== 8. 增强的实体提取函数 ======================
+def extract_all_entities(text):
+    """提取文本中的所有关键实体
+"""
+    entities = []
+    
+    # 提取完整公司名称（包含"有限公司"）
+    company_patterns = [
+        r'([\u4e00-\u9fa5a-zA-Z0-9（）()]{2,}有限公司)',
+        r'([\u4e00-\u9fa5a-zA-Z0-9（）()]{2,}公司)',
+        r'([\u4e00-\u9fa5a-zA-Z0-9（）()]{2,}集团)',
+    ]
+    
+    for pattern in company_patterns:
+        matches = re.findall(pattern, text)
+        entities.extend([m for m in matches if isinstance(m, str) and len(m) > 1])
+    
+    # 提取公司名中的关键词（不含"有限公司"等后缀）
+    if "有限公司" in text:
+        # 尝试提取"XXX有限公司"中的XXX部分
+        name_match = re.search(r'([\u4e00-\u9fa5a-zA-Z0-9]{2,})有限公司', text)
+        if name_match:
+            company_keyword = name_match.group(1)
+            entities.append(company_keyword)
+    
+    # 提取产品/项目名称
+    product_project_patterns = [
+        r'([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-]{3,})的价格',
+        r'介绍([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-]{3,})',
+        r'产品名称为([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-]{3,})',
+        r'项目名称为([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-]{3,})'
+    ]
+    
+    for pattern in product_project_patterns:
+        matches = re.findall(pattern, text)
+        entities.extend([m for m in matches if isinstance(m, str) and len(m) > 2])
+    
+    # 提取人名（法定代表人）
+    name_patterns = [
+        r'法定代表人是([\u4e00-\u9fa5]{2,4})',
+        r'法定代表人([\u4e00-\u9fa5]{2,4})',
+        r'法人代表是([\u4e00-\u9fa5]{2,4})'
+    ]
+    
+    for pattern in name_patterns:
+        matches = re.findall(pattern, text)
+        entities.extend(matches)
+    
+    # 提取地名
+    location_matches = re.findall(r'([\u4e00-\u9fa5]{2,6}市|[\u4e00-\u9fa5]{2,6}省|[\u4e00-\u9fa5]{2,6}区|[\u4e00-\u9fa5]{2,6}县)', text)
+    entities.extend(location_matches)
+    
+    # 去重
+    unique_entities = []
+    for entity in entities:
+        if entity not in unique_entities and len(entity) > 1:
+            unique_entities.append(entity)
+    
+    return unique_entities
+
+# ====================== 9. 多路召回检索系统 ======================
+class MultiPathRetrievalSystem:
+    def __init__(self, embedding_models, docs):
+        self.embedding_models = embedding_models
+        self.docs = docs
+        self.doc_vectors = None
+        self.faiss_index = None
+        self.build_vector_index()
+        
+        # 构建倒排索引
+        self.inverted_index = self.build_inverted_index()
+    
+    def build_vector_index(self):
+        """构建向量索引
+"""
+        print("正在构建向量索引...")
+        doc_vectors = []
+        
+        for i, doc in enumerate(self.docs):
+            vec = bge_embedding_encode(self.embedding_models, doc)
+            if vec.size > 0:
+                doc_vectors.append(vec)
+            
+            if (i + 1) % 100 == 0:
+                print(f"  已编码 {i+1}/{len(self.docs)} 条文档")
+        
+        if not doc_vectors:
+            print("❌ 无有效文档向量")
+            return
+        
+        self.doc_vectors = np.array(doc_vectors, dtype=np.float32)
+        vector_dim = self.doc_vectors.shape[1]
+        
+        # 使用内积相似度
+        self.faiss_index = faiss.IndexFlatIP(vector_dim)
+        self.faiss_index.add(self.doc_vectors)
+        
+        print(f"✅ 向量索引构建完成，维度：{vector_dim}，文档数：{len(doc_vectors)}")
+    
+    def build_inverted_index(self):
+        """构建倒排索引（关键词->文档索引）
+"""
+        print("正在构建倒排索引...")
+        inverted_index = defaultdict(set)
+        
+        for idx, doc in enumerate(self.docs):
+            # 提取关键词
+            keywords = self.extract_keywords_from_doc(doc)
+            for keyword in keywords:
+                inverted_index[keyword].add(idx)
+            
+            if (idx + 1) % 500 == 0:
+                print(f"  已处理 {idx+1}/{len(self.docs)} 条文档")
+        
+        print(f"✅ 倒排索引构建完成，关键词数：{len(inverted_index)}")
+        return inverted_index
+    
+    def extract_keywords_from_doc(self, doc):
+        """从文档中提取关键词
+"""
+        keywords = []
+        
+        # 提取公司名
+        company_matches = re.findall(r'([\u4e00-\u9fa5a-zA-Z0-9]{2,})(?:有限公司|公司|集团)', doc)
+        keywords.extend(company_matches)
+        
+        # 提取人名
+        name_matches = re.findall(r'法定代表人是([\u4e00-\u9fa5]{2,4})', doc)
+        keywords.extend(name_matches)
+        
+        # 提取产品/项目名
+        product_matches = re.findall(r'产品名称为([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-]{3,})', doc)
+        keywords.extend(product_matches)
+        
+        project_matches = re.findall(r'项目名称为([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-]{3,})', doc)
+        keywords.extend(project_matches)
+        
+        # 提取价格
+        price_matches = re.findall(r'价格为?(\d+\.?\d*)元', doc)
+        keywords.extend([f"{price}元" for price in price_matches])
+        
+        # 去除空关键词
+        keywords = [k for k in keywords if k and len(k) > 1]
+        
+        return list(set(keywords))
+    
+    def vector_retrieval(self, query, top_k=10, similarity_threshold=0.05):
+        """向量检索
+"""
+        if self.faiss_index is None or self.doc_vectors is None:
+            return []
+        
+        query_vector = bge_embedding_encode(self.embedding_models, query)
+        if query_vector.size == 0:
+            return []
+        
+        # 搜索更多候选，后续会重排序
+        search_k = min(top_k * 5, len(self.docs))
+        distances, indices = self.faiss_index.search(query_vector.reshape(1, -1), search_k)
+        
+        results = []
+        for dist, idx in zip(distances[0], indices[0]):
+            if idx < len(self.docs) and dist > similarity_threshold:
+                results.append({
+                    "doc": self.docs[idx],
+                    "score": float(dist),
+                    "type": "vector",
+                    "index": idx
+                })
+        
+        return results
+    
+    def keyword_retrieval(self, query, top_k=10):
+        """关键词检索
+"""基于规则的检索"""results = []
+        question_type = analyze_question_type(query)
+        
+        # 根据问题类型匹配特定模式
+        patterns = {
+            "company_legal_representative": ["法定代表人是", "法人代表是"],
+            "price_info": ["价格为", "价格是", "价格为?", "价格是?"],
+            "supplier_info": ["供应商是", "供应商为", "由.*?提供", "供应"],
+            "bid_winner_info": ["中标供应商为", "中标供应商是", "中标方为", "中标方是"],
+            "buyer_info": ["采购方为", "采购方是", "采购人为", "采购人是"],
+            "project_info": ["项目名称为", "项目名称是", "采购项目"],
+            "product_info": ["产品名称为", "产品名称是", "属于.*?类别"],
+            "basic_info": ["产品名称为", "供应商是", "由.*?提供"]
+        }
+        
+        if question_type in patterns:
+            target_patterns = patterns[question_type]
+            for idx, doc in enumerate(self.docs):
+                for pattern in target_patterns:
+                    if re.search(pattern, doc):
+                        results.append({
+                            "doc": doc,
+                            "score": 1.0,  # 规则匹配给最高分
+                            "type": "rule",
+                            "index": idx
+                        })
+                        break  # 一个文档匹配一个模式即可
+                
+                if len(results) >= top_k * 3:
+                    break
+        
+        return results
+    
+    def hybrid_retrieval(self, query, top_k=10, weights=None):
+"""
+        混合检索：结合向量、关键词和规则检索
+        """if weights is None:
+            weights = {"vector": 0.4, "keyword": 0.3, "rule": 0.3}
+        
+        # 并行执行多种检索
+        vector_results = self.vector_retrieval(query, top_k=top_k*3)
+        keyword_results = self.keyword_retrieval(query, top_k=top_k*3)
+        rule_results = self.rule_based_retrieval(query, top_k=top_k*2)
+        
+        # 合并结果
+        all_results = {}
+        
+        # 处理向量结果
+        for result in vector_results:
+            doc_idx = result["index"]
+            if doc_idx not in all_results:
+                all_results[doc_idx] = {
+                    "doc": result["doc"],
+                    "scores": defaultdict(float),
+                    "types": set()
+                }
+            all_results[doc_idx]["scores"]["vector"] = result["score"]
+            all_results[doc_idx]["types"].add("vector")
+        
+        # 处理关键词结果
+        for result in keyword_results:
+            doc_idx = result["index"]
+            if doc_idx not in all_results:
+                all_results[doc_idx] = {
+                    "doc": result["doc"],
+                    "scores": defaultdict(float),
+                    "types": set()
+                }
+            all_results[doc_idx]["scores"]["keyword"] = result["score"]
+            all_results[doc_idx]["types"].add("keyword")
+        
+        # 处理规则结果
+        for result in rule_results:
+            doc_idx = result["index"]
+            if doc_idx not in all_results:
+                all_results[doc_idx] = {
+                    "doc": result["doc"],
+                    "scores": defaultdict(float),
+                    "types": set()
+                }
+            all_results[doc_idx]["scores"]["rule"] = result["score"]
+            all_results[doc_idx]["types"].add("rule")
+        
+        # 计算加权分数
+        scored_results = []
+        for doc_idx, data in all_results.items():
+            total_score = 0
+            for score_type, weight in weights.items():
+                if score_type in data["scores"]:
+                    total_score += data["scores"][score_type] * weight
+            
+            # 类型多样性奖励
+            type_count = len(data["types"])
+            if type_count > 1:
+                total_score *= (1.0 + 0.1 * (type_count
+"""重排序结果
+"""安全地生成InternLM2.5回答，完全重构以避免维度错误
+"""try:
+        # InternLM2.5的官方对话格式
+        formatted_prompt = f"<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"
+        
+        # 编码输入
+"""简化的生成方法，完全避免复杂操作
+"""try:
+        # 最简单的prompt格式
+        simple_prompt = f"问题：{prompt}\n回答："
+        
+        # 手动处理输入
+        input_text = simple_prompt
+        inputs = tokenizer.encode(input_text, return_tensors="pt").to(model.device)
+        
+        # 最小化的生成参数
+        with torch.no_grad():
+            outputs = model.generate(
+                inputs,
+                max_new_tokens=min(max_new_tokens, 150),
+                temperature=0.1,
+                do_sample=False,
+                eos_token_id=tokenizer.eos_token_id,
+                pad_token_id=tokenizer.eos_token_id,
+                repetition_penalty=1.2,
+                no_repeat_ngram_size=4,
+                use_cache=False
+            )
+        
+        # 解码
+        response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        
+        # 移除输入部分
+        if response.startswith(input_text):
+            response = response[len(input_text):].strip()
+        
+        return response if response else "未知"
+    
+    except Exception as e:
+        print(f"❌ 简化生成方法失败: {e}")
+        return "未知"
+
+def optimized_internlm2_5_rag_inference(tokenizer, model, retrieval_system, question, test_mode="with_prompt", max_new_tokens=100):
+    """优化的InternLM2.5 RAG推理函数
+    test_mode:
+"""
+    # 检索文档
+    retrieved_items = retrieval_system.hybrid_retrieval(question, top_k=5)  # 减少检索文档数量
+    retrieved_docs = [item["doc"] for item in retrieved_items]
+    
+    if not retrieved_docs:
+        return "未知", []
+    
+    # 根据测试模式选择不同的prompt构建方式
+    if test_mode == "with_prompt":
+        # 使用提示词模板（第二个调研方向）
+        prompt = get_prompt_with_template(question, retrieved_docs)
+    else:
+        # 不使用提示词模板（第一个调研方向）
+        prompt = get_prompt_without_template(question, retrieved_docs)
+    
+    # 生成回答
+    model_answer = safe_internlm2_5_generation(tokenizer, model, prompt, max_new_tokens)
+    
+    return model_answer, retrieved_docs
+
+def get_prompt_with_template(question, retrieved_docs):
+    """获取使用提示词模板的prompt（第二个调研方向）
+"""
+    # 分析问题类型
+    question_type = analyze_question_type(question)
+    
+    # 构建上下文（限制文档数量和长度）
+    context_parts = []
+    for i, doc in enumerate(retrieved_docs[:3]):  # 最多3个文档
+        # 截断文档长度
+        if len(doc) > 300:
+            doc = doc[:300] + "..."
+        context_parts.append(f"信息{i+1}: {doc}")
+    
+    context = "\n".join(context_parts)
+    
+    # 根据问题类型定制指令
+    instruction_templates = {
+        "company_legal_representative": "请从上下文中提取法定代表人的姓名。如果找到，直接回答人名，如'张三'。如果没找到或上下文显示'未知'，回答'未知'。",
+        "price_info": "请从上下文中提取价格信息。如果找到，直接回答'XX元'。如果没找到或上下文显示'未知'，回答'未知'。",
+        "supplier_info": "请从上下文中提取供应商名称。如果找到，直接回答公司名。如果没找到或上下文显示'未知'，回答'未知'。",
+        "bid_winner_info": "请从上下文中提取中标供应商。如果找到，直接回答公司名。如果上下文显示'中标供应商为未知'，回答'未知'。",
+        "buyer_info": "请从上下文中提取采购方。如果找到，直接回答单位名。如果没找到或上下文显示'未知'，回答'未知'。",
+        "project_info": "请从上下文中提取项目基本信息。如果找到，简洁回答项目名称、中标方、采购方、合同金额等关键信息。",
+        "product_info": "请从上下文中提取产品基本信息。如果找到，简洁回答产品名称、供应商、类别等关键信息。",
+        "regulation_type": "请从上下文中提取法规类型。如果找到，直接回答类型，如'条例'、'法'等。",
+        "basic_info": "请从上下文中提取基本信息。如果找到，简洁回答。",
+        "general_info": "请根据上下文回答问题。如果找到答案，简洁回答。如果没找到，回答'未知'。"
+    }
+    
+    instruction = instruction_templates.get(question_type, instruction_templates["general_info"])
+    
+    # 构建用户消息
+"""获取不使用提示词模板的prompt（第一个调研方向）
+"""
+    # 构建上下文（限制文档数量和长度）
+    context_parts = []
+    for i, doc in enumerate(retrieved_docs[:2]):  # 最多2个文档
+        # 截断文档长度
+        if len(doc) > 300:
+            doc = doc[:300] + "..."
+        context_parts.append(doc)
+    
+    context = "\n".join(context_parts)
+    
+    # 简化的prompt，只提供上下文和问题，不添加任何指令
+    prompt = f"""以下是相关信息：
+
+{context}
+
+问题：{question}
+
+请根据以上信息回答问题：
+"""
+    
+    return prompt
+
+# ====================== 11. 加载问答对 ======================
+def load_and_prepare_test_data(qa_file_path="qa_data/520_qa.json", kb_file_path="qa_data/knowledge_base.txt"):
+    """加载和准备测试数据
+"""
+    print("正在加载测试数据...")
+    
+    try:
+        # 1. 加载知识库文档
+        knowledge_docs = []
+        if os.path.exists(kb_file_path):
+            with open(kb_file_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and len(line) > 10:  # 过滤太短的文档
+                        knowledge_docs.append(line)
+            
+            print(f"✅ 加载 {len(knowledge_docs)} 条知识库文档")
+        
+        # 2. 加载问答对
+        test_cases = []
+        
+        if os.path.exists(qa_file_path):
+            with open(qa_file_path, "r", encoding="utf-8") as f:
+                qa_data = json.load(f)
+            
+            for idx, item in enumerate(qa_data):
+                question = str(item.get("question", "")).strip()
+                answer = str(item.get("answer", "")).strip()
+                
+                if not question or not answer:
+                    continue
+                
+                # 获取相关文档
+                relevant_docs = []
+                
+                if "relevant_documents" in item:
+                    relevant_docs = item["relevant_documents"]
+                elif "relevant_doc_indices" in item and knowledge_docs:
+                    for doc_idx in item["relevant_doc_indices"]:
+                        if doc_idx < len(knowledge_docs):
+                            relevant_docs.append(knowledge_docs[doc_idx])
+                
+                # 如果没有相关文档，使用答案作为备选
+                if not relevant_docs:
+                    relevant_docs = [answer]
+                
+                test_cases.append({
+                    "test_case_id": idx + 1,
+                    "question": question,
+                    "reference_answer": answer,
+                    "relevant_docs": relevant_docs,
+                    "question_type": analyze_question_type(question)
+                })
+            
+            print(f"✅ 加载 {len(test_cases)} 条有效测试用例")
+        
+        else:
+            print(f"❌ 未找到问答对文件: {qa_file_path}")
+            # 创建示例测试用例
+            test_cases = create_sample_test_cases()
+            print(f"⚠️  创建 {len(test_cases)} 条示例测试用例")
+        
+        # 3. 如果知识库为空，从测试用例构建
+        if not knowledge_docs:
+            all_docs_set = set()
+            for case in test_cases:
+                for doc in case["relevant_docs"]:
+                    all_docs_set.add(doc)
+            knowledge_docs = list(all_docs_set)
+            print(f"📚 从测试用例构建 {len(knowledge_docs)} 条知识库文档")
+        
+        # 4. 统计问题类型分布
+        type_stats = defaultdict(int)
+        for case in test_cases:
+            type_stats[case["question_type"]] += 1
+        
+        print("\n📊 问题类型分布:")
+        for q_type, count in sorted(type_stats.items(), key=lambda x: x[1], reverse=True):
+            percentage = count / len(test_cases) * 100
+            print(f"  {q_type}: {count} 条 ({percentage:.1f}%)")
+        
+        return test_cases, knowledge_docs
+    
+    except Exception as e:
+        print(f"❌ 加载测试数据失败: {e}")
+        import traceback
+        traceback.print_exc()
+        return [], []
+
+def create_sample_test_cases():
+    """创建示例测试用例（用于测试）
+"""
+    return [
+        {
+            "test_case_id": 1,
+            "question": "亳州朗朗生物科技有限公司的法定代表人是谁？",
+            "reference_answer": "亳州朗朗生物科技有限公司的法定代表人是刘超",
+            "relevant_docs": ["亳州朗朗生物科技有限公司的法定代表人是刘超，该公司注册于安徽亳州，具有合法的企业资质"],
+            "question_type": "company_legal_representative"
+        },
+        {
+            "test_case_id": 2,
+            "question": "37平米网架卫生帐篷的价格是多少？",
+            "reference_answer": "霸州市森汛安消防护用品提供的37平米网架卫生帐篷的价格为22900.0元",
+            "relevant_docs": ["霸州市森汛安消防护用品提供的37平米网架卫生帐篷 网架式救灾援外帐篷 野外拱型救援帐篷的价格为22900.0元，该价格包含了产品的成本及合理利润"],
+            "question_type": "price_info"
+        }
+    ]
+
+# ====================== 12. 评估函数（包含F1和F2指标）======================
+def calculate_enhanced_recall(retrieved_docs, relevant_docs):
+    """增强版召回率计算
+"""
+    if not retrieved_docs or not relevant_docs:
+        return 0
+    
+    # 检查每个相关文档是否在检索到的文档中（或高度相关）
+    for relevant_doc in relevant_docs:
+        for retrieved_doc in retrieved_docs:
+            if is_document_match(retrieved_doc, relevant_doc):
+                return 1
+    
+    return 0
+
+def is_document_match(doc1, doc2):
+    """判断两个文档是否匹配
+"""
+    # 直接包含关系
+    if doc1 in doc2 or doc2 in doc1:
+        return True
+    
+    # 提取关键实体比较
+    entities1 = extract_key_entities(doc1)
+    entities2 = extract_key_entities(doc2)
+    
+    # 如果有共同实体，认为匹配
+    common_entities = set(entities1) & set(entities2)
+    if common_entities:
+        return True
+    
+    # 文本相似度
+    similarity = calculate_text_similarity(doc1, doc2)
+    return similarity > 0.7
+
+def extract_key_entities(text):
+    """提取关键实体
+"""
+    entities = []
+    
+    # 公司名
+    company_matches = re.findall(r'([\u4e00-\u9fa5a-zA-Z0-9]{2,})(?:有限公司|公司|集团)', text)
+    entities.extend(company_matches)
+    
+    # 人名
+    name_matches = re.findall(r'法定代表人是([\u4e00-\u9fa5]{2,4})', text)
+    entities.extend(name_matches)
+    
+    # 产品/项目名
+    product_matches = re.findall(r'产品名称为([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-]{3,})', text)
+    entities.extend(product_matches)
+    
+    project_matches = re.findall(r'项目名称为([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-]{3,})', text)
+    entities.extend(project_matches)
+    
+    # 价格
+    price_matches = re.findall(r'价格为?(\d+\.?\d*)元', text)
+    entities.extend([f"{price}元" for price in price_matches])
+    
+    return list(set(entities))
+
+def calculate_text_similarity(text1, text2):
+    """计算文本相似度
+"""
+    # 简单实现：使用SequenceMatcher
+    return SequenceMatcher(None, text1, text2).ratio()
+
+def calculate_enhanced_accuracy(model_answer, reference_answer, question):
+    """增强版准确率计算
+"""
+    if not model_answer or not reference_answer:
+        return 0
+    
+    # 预处理
+    model_answer_clean = preprocess_answer(model_answer)
+    reference_answer_clean = preprocess_answer(reference_answer)
+    
+    # 1. 完全匹配
+    if reference_answer == model_answer or reference_answer in model_answer or model_answer in reference_answer:
+        return 1
+    
+    # 2. 清洗后匹配
+    if reference_answer_clean == model_answer_clean:
+        return 1
+    
+    # 3. 处理"未知"情况
+    if is_unknown_answer(reference_answer):
+        if is_unknown_answer(model_answer):
+            return 1
+    
+    # 4. 根据问题类型使用不同的评估策略
+    question_type = analyze_question_type(question)
+    
+    if question_type == "basic_info":
+        # 对于基本信息类问题，使用更宽松的评估
+        return calculate_basic_info_accuracy(model_answer, reference_answer)
+    elif question_type == "company_legal_representative":
+        # 对于法定代表人问题，比较人名
+        model_name = extract_name(model_answer)
+        ref_name = extract_name(reference_answer)
+        if model_name and ref_name and model_name == ref_name:
+            return 1
+    elif question_type == "price_info":
+        # 对于价格问题，比较价格数字
+        model_price = extract_price(model_answer)
+        ref_price = extract_price(reference_answer)
+        if model_price and ref_price and model_price == ref_price:
+            return 1
+    elif question_type == "supplier_info":
+        # 对于供应商问题，比较供应商名称
+        model_supplier = extract_supplier(model_answer)
+        ref_supplier = extract_supplier(reference_answer)
+        if model_supplier and ref_supplier and model_supplier == ref_supplier:
+            return 1
+    elif question_type == "buyer_info":
+        # 对于采购方问题，比较采购方名称
+        model_buyer = extract_buyer(model_answer)
+        ref_buyer = extract_buyer(reference_answer)
+        if model_buyer and ref_buyer and model_buyer == ref_buyer:
+            return 1
+    elif question_type == "bid_winner_info":
+        # 对于中标方问题，比较中标方名称
+        model_winner = extract_winner(model_answer)
+        ref_winner = extract_winner(reference_answer)
+        if model_winner and ref_winner and model_winner == ref_winner:
+            return 1
+    
+    # 5. 相似度阈值（对于基本信息类问题更宽松）
+    similarity_threshold = 0.7 if question_type == "basic_info" else 0.8
+    similarity = calculate_text_similarity(model_answer_clean, reference_answer_clean)
+    if similarity > similarity_threshold:
+        return 1
+    
+    return 0
+
+def calculate_basic_info_accuracy(model_answer, reference_answer):
+    """计算基本信息类问题的准确率（更宽松的评估）
+"""
+    # 提取关键信息进行比较
+    key_info_pairs = [
+        # (模型提取函数, 参考提取函数, 权重)
+        (extract_product_name, extract_product_name, 0.3),
+        (extract_company_name, extract_company_name, 0.3),
+        (extract_product_category, extract_product_category, 0.2),
+        (extract_price, extract_price, 0.1),
+        (extract_standard_info, extract_standard_info, 0.1),
+    ]
+    
+    total_score = 0
+    total_weight = 0
+    
+    for model_extract_func, ref_extract_func, weight in key_info_pairs:
+        model_info = model_extract_func(model_answer)
+        ref_info = ref_extract_func(reference_answer)
+        
+        if model_info and ref_info:
+            # 检查信息是否匹配
+            if is_info_match(model_info, ref_info):
+                total_score += weight
+        
+        total_weight += weight
+    
+    # 如果匹配度超过60%，认为正确
+    accuracy_score = total_score / total_weight if total_weight > 0 else 0
+    return 1 if accuracy_score > 0.6 else 0
+
+def extract_product_name(text):
+    """提取产品名称
+"""
+    patterns = [
+        r'产品名称为([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-\s]{3,})',
+        r'([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-\s]{3,})是一款',
+        r'介绍([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-\s]{3,})',
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            return match.group(1).strip()
+    
+    # 尝试提取可能的产品型号
+    model_match = re.search(r'([A-Za-z]{2,}\s*\d{3,})', text)
+    if model_match:
+        return model_match.group(1)
+    
+    return None
+
+def extract_company_name(text):
+    """提取公司名称
+"""
+    patterns = [
+        r'由([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})提供',
+        r'供应商是([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
+        r'([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})供应',
+        r'([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,}公司)',
+        r'([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,}科技有限公司)',
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            return match.group(1).strip()
+    
+    return None
+
+def extract_product_category(text):
+    """提取产品类别
+"""
+    categories = ["其他类别", "仪器仪表", "测试仪器", "水质测试", "电导率仪表"]
+    
+    for category in categories:
+        if category in text:
+            return category
+    
+    return None
+
+def extract_standard_info(text):
+    """提取标准信息
+"""
+    if "符合" in text and ("标准" in text or "规格" in text):
+        # 简化处理：只要有"符合标准"相关表述
+        return "符合标准"
+    return None
+
+def is_info_match(info1, info2):
+    """判断两个信息是否匹配（允许部分匹配）
+"""
+    if not info1 or not info2:
+        return False
+    
+    # 完全匹配
+    if info1 == info2:
+        return True
+    
+    # 互相包含
+    if info1 in info2 or info2 in info1:
+        return True
+    
+    # 对于公司名，允许简写匹配
+    if ("科技" in info1 and "科技" in info2) or ("公司" in info1 and "公司" in info2):
+        # 提取核心名称部分
+        core1 = re.sub(r'[省市县区]', '', info1)
+        core2 = re.sub(r'[省市县区]', '', info2)
+        
+        # 检查是否有共同的关键词
+        words1 = set(re.findall(r'[\u4e00-\u9fa5]{2,}', core1))
+        words2 = set(re.findall(r'[\u4e00-\u9fa5]{2,}', core2))
+        
+        common_words = words1 & words2
+        if len(common_words) >= 2:  # 至少有2个共同关键词
+            return True
+    
+    # 文本相似度
+    similarity = calculate_text_similarity(info1, info2)
+    return similarity > 0.7
+
+def preprocess_answer(answer):
+    """预处理答案
+"""
+    if not answer:
+        return ""
+    
+    # 移除标点符号和空格
+    answer = re.sub(r'[，。；：、\s]', '', answer)
+    
+    # 转换为小写（对于中文影响不大，但处理可能存在的英文）
+    answer = answer.lower()
+    
+    return answer
+
+def is_unknown_answer(answer):
+    """判断是否为未知答案
+"""
+    unknown_keywords = ["未知", "无法确定", "不能确定", "不清楚", "不明确", "暂无", "没有", "无"]
+    return any(keyword in answer for keyword in unknown_keywords)
+
+def extract_name(text):
+    """提取人名
+"""
+    match = re.search(r'([\u4e00-\u9fa5]{2,4})', text)
+    return match.group(1) if match else None
+
+def extract_price(text):
+    """提取价格
+"""
+    match = re.search(r'(\d+\.?\d*)元', text)
+    return match.group(1) if match else None
+
+def extract_supplier(text):
+    """提取供应商
+"""
+    # 尝试多种模式
+    patterns = [
+        r'供应商是([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
+        r'由([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})提供',
+        r'([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})提供'
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            return match.group(1)
+    
+    return None
+
+def extract_winner(text):
+    """提取中标方
+"""
+    patterns = [
+        r'中标供应商为([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
+        r'中标供应商是([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
+        r'中标方为([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
+        r'中标方是([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})'
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            return match.group(1)
+    
+    return None
+
+def extract_buyer(text):
+    """提取采购方
+"""
+    patterns = [
+        r'采购方为([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
+        r'采购方是([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
+        r'采购人为([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
+        r'采购人是([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})'
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            return match.group(1)
+    
+    return None
+
+# ====================== 12b. F1和F2指标计算函数 ======================
+def calculate_f1_score(precision, recall):
+    """计算F1分数
+"""
+    if precision + recall == 0:
+        return 0
+    return 2 * precision * recall / (precision + recall)
+
+def calculate_f2_score(precision, recall):
+    """计算F2分数（更重视召回率）
+"""
+    if precision + recall == 0:
+        return 0
+    return 5 * precision * recall / (4 * precision + recall)
+
+def calculate_all_metrics(model_answer, reference_answer, retrieved_docs, relevant_docs, question):
+    """计算所有评估指标
+    返回：precision, recall, f1, f2
+"""
+    # 计算准确率（作为precision）
+    precision = calculate_enhanced_accuracy(model_answer, reference_answer, question)
+    
+    # 计算召回率
+    recall = calculate_enhanced_recall(retrieved_docs, relevant_docs)
+    
+    # 计算F1和F2
+    f1 = calculate_f1_score(precision, recall)
+    f2 = calculate_f2_score(precision, recall)
+    
+    return {
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
+        "f2": f2
+    }
+
+# ====================== 13. 主测试流程 ======================
+def run_optimized_internlm2_5_test(test_mode="with_prompt"):
+    """优化的InternLM2.5模型测试流程
+    test_mode:
+"""
+    # 根据测试模式初始化
+    if test_mode == "with_prompt":
+        print("="*60)
+        print("模式：使用提示词模板（第二个调研方向）")
+        print("描述：构建提示词模板对大模型加以训练，以此方式来告诉大模型该如何回答问题")
+        print("="*60)
+    else:
+        print("="*60)
+        print("模式：不使用提示词模板（第一个调研方向）")
+        print("描述：不做任何处理情况下，观察各模型的回答情况")
+        print("="*60)
+    
+    output_dir, tb_log_dir, result_dir, log_dir, cache_dir, timestamp = init_output_dir(test_mode)
+    log_file_path = os.path.join(log_dir, f"internlm2_5_run_log_{timestamp}.txt")
+    sys.stdout = LoggerRedirect(log_file_path)
+    tb_writer = init_tensorboard(tb_log_dir)
+    
+    # 模型配置
+    test_config = {
+        "llm_name": "internlm2_5-7b-chat",
+        "model_local_path": "/mnt/workspace/data/modelscope/cache/Shanghai_AI_Laboratory/internlm2_5-7b-chat",
+        "embedding_local_path": "/mnt/workspace/data/modelscope/cache/bge-large-zh-
+"""生成详细统计报告，包含F1和F2指标
+"""
+    if not test_results:
+        print("❌ 无测试结果，无法生成统计")
+        return
+    
+    if test_mode == "with_prompt":
+        stats_file = os.path.join(output_dir, "detailed_statistics_with_prompt.txt")
+    else:
+        stats_file = os.path.join(output_dir, "detailed_statistics_without_prompt.txt")
+    
+    with open(stats_file, "w", encoding="utf-8") as f:
+        f.write("="*60 + "\n")
+        if test_mode == "with_prompt":
+            f.write("InternLM2.5模型测试详细统计（使用提示词模板）\n")
+        else:
+            f.write("InternLM2.5模型测试详细统计（不使用提示词模板）\n")
+        f.write("="*60 + "\n\n")
+        
+        # 总体统计
+        total_cases = len(test_results)
+        avg_precision = sum([r.get("precision", 0) for r in test_results]) / total_cases
+        avg_recall = sum([r.get("recall", 0) for r in test_results]) / total_cases
+        avg_f1 = sum([r.get("f1_score", 0) for r in test_results]) / total_cases
+        avg_f2 = sum([r.get("f2_score", 0) for r in test_results]) / total_cases
+        avg_retrieved = sum([r["retrieved_count"] for r in test_results]) / total_cases
+        avg_generation_time = sum([r["generation_time"] for r in test_results]) / total_cases
+        avg_total_time = sum([r["total_time"] for r in test_results]) / total_cases
+        
+        f.write("📊 总体统计（包含F1和F2指标）:\n")
+        f.write(f"   总测试用例: {total_cases}\n")
+        f.write(f"   平均准确率(Precision): {avg_precision:.4f}\n")
+        f.write(f"   平均召回率(Recall): {avg_recall:.4f}\n")
+        f.write(f"   平均F1分数: {avg_f1:.4f}\n")
+        f.write(f"   平均F2分数: {avg_f2:.4f}\n")
+        f.write(f"   平均检索文档数: {avg_retrieved:.1f}\n")
+        f.write(f"   平均生成时间: {avg_generation_time:.2f}s\n")
+        f.write(f"   平均总时间: {avg_total_time:.2f}s\n")
+        f.write(f"   生成成功率: {successful_generations}/{total_cases} ({successful_generations/total_cases*100:.1f}%)\n\n")
+        
+        # 记录到TensorBoard
+        if tb_writer:
+            tb_writer.add_scalar("最终统计/平均准确率", avg_precision, 0)
+            tb_writer.add_scalar("最终统计/平均召回率", avg_recall, 0)
+            tb_writer.add_scalar("最终统计/平均F1分数", avg_f1, 0)
+            tb_writer.add_scalar("最终统计/平均F2分数", avg_f2, 0)
+            tb_writer.add_scalar("最终统计/平均生成时间", avg_generation_time, 0)
+            tb_writer.add_scalar("最终统计/生成成功率", successful_generations/total_cases*100, 0)
+        
+        # 计算micro和macro平均
+        f.write(f"📈 综合指标:\n")
+        
+        # 计算micro F1: 使用平均precision和recall计算
+        if avg_precision + avg_recall > 0:
+            f1_micro = 2 * avg_precision * avg_recall / (avg_precision + avg_recall)
+            f2_micro = 5 * avg_precision * avg_recall / (4 * avg_precision + avg_recall)
+            f.write(f"   Micro F1: {f1_micro:.4f}\n")
+            f.write(f"   Micro F2: {f2_micro:.4f}\n")
+            f.write(f"   Macro F1: {avg_f1:.4f}\n")
+            f.write(f"   Macro F2: {avg_f2:.4f}\n")
+        
+        f.write("\n")
+        
+        # 准确率分布
+        precision_dist = defaultdict(int)
+        for res in test_results:
+            precision_score = res.get("precision", 0)
+            precision_dist[precision_score] += 1
+        
+        f.write("📈 准确率分布:\n")
+        for score in sorted(precision_dist.keys()):
+            count = precision_dist[score]
+            percentage = count / total_cases * 100
+            f.write(f"   准确率 {score}: {count} 条 ({percentage:.1f}%)\n")
+        
+        f.write("\n")
+        
+        # 召回率分布
+        recall_dist = defaultdict(int)
+        for res in test_results:
+            recall_score = res.get("recall", 0)
+            recall_dist[recall_score] += 1
+        
+        f.write("📈 召回率分布:\n")
+        for score in sorted(recall_dist.keys()):
+            count = recall_dist[score]
+            percentage = count / total_cases * 100
+            f.write(f"   召回率 {score}: {count} 条 ({percentage:.1f}%)\n")
+        
+        f.write("\n")
+        
+        # F1分数分布
+        f1_dist = defaultdict(int)
+        for res in test_results:
+            f1_score = res.get("f1_score", 0)
+            # 将F1分数四舍五入到小数点后1位进行分组
+            f1_group = round(f1_score, 1)
+            f1_dist[f1_group] += 1
+        
+        f.write("📈 F1分数分布:\n")
+        for score in sorted(f1_dist.keys()):
+            count = f1_dist[score]
+            percentage = count / total_cases * 100
+            f.write(f"   F1 {score:.1f}: {count} 条 ({percentage:.1f}%)\n")
+        
+        f.write("\n")
+        
+        # 按问题类型统计
+        type_stats = defaultdict(lambda: {
+            "total": 0, 
+            "precision_sum": 0, 
+            "recall_sum": 0, 
+            "f1_sum": 0,
+            "f2_sum": 0,
+            "gen_time": []
+        })
+        
+        for res in test_results:
+            q_type = res["question_type"]
+            type_stats[q_type]["total"] += 1
+            type_stats[q_type]["precision_sum"] += res.get("precision", 0)
+            type_stats[q_type]["recall_sum"] += res.get("recall", 0)
+            type_stats[q_type]["f1_sum"] += res.get("f1_score", 0)
+            type_stats[q_type]["f2_sum"] += res.get("f2_score", 0)
+            type_stats[q_type]["gen_time"].append(res["generation_time"])
+        
+        f.write("🔍 按问题类型统计（包含F1和F2）:\n")
+        for q_type, stats in sorted(type_stats.items()):
+            total = stats["total"]
+            precision_avg = stats["precision_sum"] / total if total > 0 else 0
+            recall_avg = stats["recall_sum"] / total if total > 0 else 0
+            f1_avg = stats["f1_sum"] / total if total > 0 else 0
+            f2_avg = stats["f2_sum"] / total if total > 0 else 0
+            avg_gen_time = sum(stats["gen_time"]) / total if total > 0 else 0
+            
+            f.write(f"\n   {q_type}:\n")
+            f.write(f"       用例数: {total}\n")
+            f.write(f"       准确率: {precision_avg:.4f}\n")
+            f.write(f"       召回率: {recall_avg:.4f}\n")
+            f.write(f"       F1分数: {f1_avg:.4f}\n")
+            f.write(f"       F2分数: {f2_avg:.4f}\n")
+            f.write(f"       平均生成时间: {avg_gen_time:.2f}s\n")
+        
+        f.write("\n")
+        
+        # 错误案例分析
+        f.write("⚠️  错误案例分析:\n")
+        error_cases = [r for r in test_results if r.get("precision", 0) == 0]
+        
+        if error_cases:
+            # 按问题类型分组
+            error_by_type = defaultdict(list)
+            for case in error_cases:
+                error_by_type[case["question_type"]].append(case)
+            
+            for q_type, cases in error_by_type.items():
+                f.write(f"\n   {q_type} 错误 ({len(cases)} 条):\n")
+                for case in cases[:3]:  # 每个类型显示前3条
+                    f.write(f"
+"""对比两种模式的结果
+"""print("\n" + "="*80)
+    print("两种调研模式对比分析")
+    print("="*80)
+    
+    if not results_without_prompt or not results_with_prompt:
+        print("❌ 无法对比，至少需要两种模式的结果")
+        return
+    
+    # 创建对比目录
+    compare_dir = "./output_compare"
+    os.makedirs(compare_dir, exist_ok=True)
+    
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    compare_file = os.path.join(compare_dir, f"对比报告_{timestamp}.txt")
+    
+    # 计算总体指标
+    total_cases = len(results_without_prompt)
+    
+    # 计算平均指标
+    avg_precision_without = sum([r.get("precision", 0) for r in results_without_prompt]) / total_cases
+    avg_recall_without = sum([r.get("recall", 0) for r in results_without_prompt]) / total_cases
+    avg_f1_without = sum([r.get("f1_score", 0) for r in results_without_prompt]) / total_cases
+    avg_f2_without = sum([r.get("f2_score", 0) for r in results_without_prompt]) / total_cases
+    avg_gen_time_without = sum([r["generation_time"] for r in results_without_prompt]) / total_cases
+    
+    avg_precision_with = sum([r.get("precision", 0) for r in results_with_prompt]) / total_cases
+    avg_recall_with = sum([r.get("recall", 0) for r in results_with_prompt]) / total_cases
+    avg_f1_with = sum([r.get("f1_score", 0) for r in results_with_prompt]) / total_cases
+    avg_f2_with = sum([r.get("f2_score", 0) for r in results_with_prompt]) / total_cases
+    avg_gen_time_with = sum([r["generation_time"] for r in results_with_prompt]) / total_cases
+    
+    # 计算提升
+    precision_improvement = avg_precision_with
+"""主函数：支持三种运行模式
+    1. 只运行第一种调研（不使用提示词）
+    2. 只运行第二种调研（使用提示词）
+    3. 同时运行两种调研并进行对比
+"""
+    print("="*80)
+    print("InternLM2.5 模型调研测试")
+    print("="*80)
+    print("\n请选择运行模式：")
+    print("1. 第一种调研：不使用提示词模板（观察原始模型表现）")
+    print("2. 第二种调研：使用提示词模板（测试提示词效果）")
+    print("3. 同时运行两种调研并进行对比分析")
+    print("0. 退出")
+    
+    while True:
+        try:
+            choice = input("\n请输入选择 (0-3): ").strip()
+            
+            if choice == "0":
+                print("程序退出")
+                break
+            elif choice == "1":
+                # 只运行第一种调研
+                print("\n" + "="*80)
+                print("开始第一种调研：不使用提示词模板")
+                print("="*80)
+                
+                start_time = time.time()
+                results_without_prompt = run_optimized_internlm2_5_test(test_mode="without_prompt")
+                end_time = time.time()
+                
+                print(f"\n⏱️  第一种调研完成，耗时: {end_time - start_time:.2f} 秒")
+                
+                # 输出TensorBoard使用说明
+                print("\n📊 TensorBoard使用说明:")
+                print("1. 打开新的终端窗口")
+                print("2. 运行命令: tensorboard --logdir=./output_internlm2.5_without_prompt/tb_logs_*")
+                print("3. 在浏览器中访问: http://localhost:6006")
+                break
+                
+            elif choice == "2":
+                # 只运行第二种调研
+                print("\n" + "="*80)
+                print("开始第二种调研：使用提示词模板")
+                print("="*80)
+                
+                start_time = time.time()
+                results_with_prompt = run_optimized_internlm2_5_test(test_mode="with_prompt")
+                end_time = time.time()
+                
+                print(f"\n⏱️  第二种调研完成，耗时: {end_time - start_time:.2f} 秒")
+                
+                # 输出TensorBoard使用说明
+                print("\n📊 TensorBoard使用说明:")
+                print("1. 打开新的终端窗口")
+                print("2. 运行命令: tensorboard --logdir=./output_internlm2.5_with_prompt/tb_logs_*")
+                print("3. 在浏览器中访问: http://localhost:6006")
+                break
+                
+            elif choice == "3":
+                # 同时运行两种调研
+                print("\n" + "="*80)
+                print("开始同时运行两种调研模式")
+                print("="*80)
+                
+                # 运行第一种调研
+                print("\n>>> 第一阶段：运行第一种调研（不使用提示词）")
+                start_time1 = time.time()
+                results_without_prompt = run_optimized_internlm2_5_test(test_mode="without_prompt")
+                end_time1 = time.time()
+                
+                print(f"\n⏱️  第一种调研完成，耗时: {end_time1 - start_time1:.2f} 秒")
+                
+                # 等待2秒，让资源释放
+                print("\n等待2秒，准备开始第二种调研...")
+                time.sleep(2)
+                
+                # 运行第二种调研
+                print("\n>>> 第二阶段：运行第二种调研（使用提示词）")
+                start_time2 = time.time()
+                results_with_prompt = run_optimized_internlm2_5_test(test_mode="with_prompt")
+                end_time2 = time.time()
+                
+                print(f"\n⏱️  第二种调研完成，耗时: {end_time2 - start_time2:.2f} 秒")
+                
+                # 对比分析
+                print("\n>>> 第三阶段：对比分析两种模式")
+                compare_two_modes(results_without_prompt, results_with_prompt)
+                
+                total_time = (end_time1 - start_time1) + (end_time2 - start_time2)
+                print(f"\n⏱️  总耗时: {total_time:.2f} 秒")
+                
+                # 输出TensorBoard使用说明
+                print("\n📊 TensorBoard使用说明:")
+                print("1. 第一种调研TensorBoard:")
+                print("   tensorboard --logdir=./output_internlm2.5_without_prompt/tb_logs_*")
+                print("2. 第二种调研TensorBoard:")
+                print("   tensorboard --logdir=./output_internlm2.5_with_prompt/tb_logs_*")
+                print("3. 在浏览器中访问: http://localhost:6006")
+                break
+                
+            else:
+                print("❌ 无效选择，请输入0-3之间的数字")
+                
+        except KeyboardInterrupt:
+            print("\n\n程序被用户中断")
+            break
+        except Exception as e:
+            print(f"\n❌ 运行出错: {e}")
+            import traceback
+            traceback.print_exc()
+            break
+    
+    print("\n" + "="*80)
+    print("程序运行结束")
+    print("="*80)

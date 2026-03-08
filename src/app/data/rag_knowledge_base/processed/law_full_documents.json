@@ -1,0 +1,371 @@
+{
+  "type": "law_full",
+  "count": 28,
+  "weight": 1.0,
+  "documents": [
+    {
+      "content": "《中华人民共和国财政部》，类型: 国务院令，文号: 第110号",
+      "type": "law_full",
+      "doc_id": "3044159baac29761",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国财政部令第110号《政府采购框架协议采购方式管理暂行办法》",
+        "law_name": "中华人民共和国财政部",
+        "law_type": "国务院令",
+        "law_code": "第110号",
+        "publish_date": ""
+      }
+    },
+    {
+      "content": "《中华人民共和国财政部》，类型: 国务院令，文号: 第102号",
+      "type": "law_full",
+      "doc_id": "7f76f31b4a2f4dd9",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国财政部令第102号《政府购买服务管理办法》",
+        "law_name": "中华人民共和国财政部",
+        "law_type": "国务院令",
+        "law_code": "第102号",
+        "publish_date": ""
+      }
+    },
+    {
+      "content": "《中华人民共和国财政部》，类型: 国务院令，文号: 第101号",
+      "type": "law_full",
+      "doc_id": "6a2f6c94d976b258",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国财政部令第101号《政府采购信息发布管理办法》",
+        "law_name": "中华人民共和国财政部",
+        "law_type": "国务院令",
+        "law_code": "第101号",
+        "publish_date": ""
+      }
+    },
+    {
+      "content": "《中华人民共和国财政部》，类型: 国务院令，文号: 第94号",
+      "type": "law_full",
+      "doc_id": "46a24ab0c337a96c",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国财政部令第94号《政府采购质疑和投诉办法》",
+        "law_name": "中华人民共和国财政部",
+        "law_type": "国务院令",
+        "law_code": "第94号",
+        "publish_date": ""
+      }
+    },
+    {
+      "content": "《中华人民共和国财政部》，类型: 国务院令，文号: 第87号",
+      "type": "law_full",
+      "doc_id": "8ede9b268f420be3",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国财政部令第87号《政府采购货物和服务招标投标管理办法》",
+        "law_name": "中华人民共和国财政部",
+        "law_type": "国务院令",
+        "law_code": "第87号",
+        "publish_date": ""
+      }
+    },
+    {
+      "content": "《中华人民共和国财政部》，类型: 国务院令，文号: 第74号",
+      "type": "law_full",
+      "doc_id": "3eeceba62b39ecfc",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国财政部令第74号《政府采购非招标采购方式管理办法》",
+        "law_name": "中华人民共和国财政部",
+        "law_type": "国务院令",
+        "law_code": "第74号",
+        "publish_date": ""
+      }
+    },
+    {
+      "content": "《中华人民共和国财政部》，类型: 国务院令，文号: 第61号",
+      "type": "law_full",
+      "doc_id": "98ec1718080a5fd0",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国财政部令第61号《政府采购代理机构资格认定办法》",
+        "law_name": "中华人民共和国财政部",
+        "law_type": "国务院令",
+        "law_code": "第61号",
+        "publish_date": ""
+      }
+    },
+    {
+      "content": "《中华人民共和国财政部》，类型: 国务院令，文号: 第19号",
+      "type": "law_full",
+      "doc_id": "dc5378ce88c359e6",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国财政部令第19号《政府采购信息公告管理办法》",
+        "law_name": "中华人民共和国财政部",
+        "law_type": "国务院令",
+        "law_code": "第19号",
+        "publish_date": ""
+      }
+    },
+    {
+      "content": "《中华人民共和国财政部》，类型: 国务院令，文号: 第31号",
+      "type": "law_full",
+      "doc_id": "2c51a35a3cfd0906",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国财政部令第31号《政府采购代理机构资格认定办法》",
+        "law_name": "中华人民共和国财政部",
+        "law_type": "国务院令",
+        "law_code": "第31号",
+        "publish_date": ""
+      }
+    },
+    {
+      "content": "《中华人民共和国行政复议法》，类型: 其他，文号: 未知，发布日期: 2023-09-01",
+      "type": "law_full",
+      "doc_id": "91c2644329676c07",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国行政复议法",
+        "law_name": "中华人民共和国行政复议法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2023-09-01"
+      }
+    },
+    {
+      "content": "《中华人民共和国反间谍法》，类型: 其他，文号: 未知，发布日期: 2023-04-26",
+      "type": "law_full",
+      "doc_id": "847a09f076da837c",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国反间谍法",
+        "law_name": "中华人民共和国反间谍法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2023-04-26"
+      }
+    },
+    {
+      "content": "《中华人民共和国审计法》，类型: 其他，文号: 未知，发布日期: 2021-10-23",
+      "type": "law_full",
+      "doc_id": "5c3d684caa20adac",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国审计法",
+        "law_name": "中华人民共和国审计法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2021-10-23"
+      }
+    },
+    {
+      "content": "《中华人民共和国个人信息保护法》，类型: 其他，文号: 未知，发布日期: 2021-08-20",
+      "type": "law_full",
+      "doc_id": "9e261db6c5d8ace8",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国个人信息保护法",
+        "law_name": "中华人民共和国个人信息保护法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2021-08-20"
+      }
+    },
+    {
+      "content": "《中华人民共和国数据安全法》，类型: 其他，文号: 未知，发布日期: 2021-06-10",
+      "type": "law_full",
+      "doc_id": "71188fff2c0fa21c",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国数据安全法",
+        "law_name": "中华人民共和国数据安全法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2021-06-10"
+      }
+    },
+    {
+      "content": "《中华人民共和国行政处罚法》，类型: 其他，文号: 未知，发布日期: 2021-01-22",
+      "type": "law_full",
+      "doc_id": "b4f0a28b61cb40f6",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国行政处罚法",
+        "law_name": "中华人民共和国行政处罚法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2021-01-22"
+      }
+    },
+    {
+      "content": "《中华人民共和国预算法实施条例》，类型: 条例，文号: 未知，发布日期: 2020-08-03",
+      "type": "law_full",
+      "doc_id": "31c5ee07934d1f3c",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国预算法实施条例",
+        "law_name": "中华人民共和国预算法实施条例",
+        "law_type": "条例",
+        "law_code": "未知",
+        "publish_date": "2020-08-03"
+      }
+    },
+    {
+      "content": "《中华人民共和国保守国家秘密法》，类型: 其他，文号: 未知，发布日期: 2019-10-26",
+      "type": "law_full",
+      "doc_id": "b09efc45e9a088e2",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国保守国家秘密法",
+        "law_name": "中华人民共和国保守国家秘密法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2019-10-26"
+      }
+    },
+    {
+      "content": "《中华人民共和国反不正当竞争法》，类型: 其他，文号: 未知，发布日期: 2019-04-23",
+      "type": "law_full",
+      "doc_id": "919ade92deee08d2",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国反不正当竞争法",
+        "law_name": "中华人民共和国反不正当竞争法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2019-04-23"
+      }
+    },
+    {
+      "content": "《中华人民共和国电子签名法》，类型: 其他，文号: 未知，发布日期: 2019-04-23",
+      "type": "law_full",
+      "doc_id": "af12f36593c57ce7",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国电子签名法",
+        "law_name": "中华人民共和国电子签名法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2019-04-23"
+      }
+    },
+    {
+      "content": "《中华人民共和国招标投标法实施条例》，类型: 条例，文号: 未知，发布日期: 2019-03-02",
+      "type": "law_full",
+      "doc_id": "c0fc47a1bd3cc653",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国招标投标法实施条例",
+        "law_name": "中华人民共和国招标投标法实施条例",
+        "law_type": "条例",
+        "law_code": "未知",
+        "publish_date": "2019-03-02"
+      }
+    },
+    {
+      "content": "《中华人民共和国产品质量法》，类型: 其他，文号: 未知，发布日期: 2018-12-29",
+      "type": "law_full",
+      "doc_id": "9b08e58c2353d7e5",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国产品质量法",
+        "law_name": "中华人民共和国产品质量法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2018-12-29"
+      }
+    },
+    {
+      "content": "《中华人民共和国预算法》，类型: 其他，文号: 未知，发布日期: 2018-12-29",
+      "type": "law_full",
+      "doc_id": "6d6cc99a93e32948",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国预算法",
+        "law_name": "中华人民共和国预算法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2018-12-29"
+      }
+    },
+    {
+      "content": "《中华人民共和国监察法》，类型: 其他，文号: 未知，发布日期: 2018-03-20",
+      "type": "law_full",
+      "doc_id": "6aafb3855d39659b",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国监察法",
+        "law_name": "中华人民共和国监察法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2018-03-20"
+      }
+    },
+    {
+      "content": "《中华人民共和国招标投标法》，类型: 其他，文号: 未知，发布日期: 2017-12-27",
+      "type": "law_full",
+      "doc_id": "e41757b002d6747e",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国招标投标法",
+        "law_name": "中华人民共和国招标投标法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2017-12-27"
+      }
+    },
+    {
+      "content": "《中华人民共和国仲裁法》，类型: 其他，文号: 未知，发布日期: 2017-09-01",
+      "type": "law_full",
+      "doc_id": "88f3f8dd23fd9b3d",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国仲裁法",
+        "law_name": "中华人民共和国仲裁法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2017-09-01"
+      }
+    },
+    {
+      "content": "《中华人民共和国行政诉讼法》，类型: 其他，文号: 未知，发布日期: 2017-06-27",
+      "type": "law_full",
+      "doc_id": "c059cb2c8a2bb3c4",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国行政诉讼法",
+        "law_name": "中华人民共和国行政诉讼法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2017-06-27"
+      }
+    },
+    {
+      "content": "《中华人民共和国网络安全法》，类型: 其他，文号: 未知，发布日期: 2016-11-07",
+      "type": "law_full",
+      "doc_id": "86743a8c4d24deb7",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国网络安全法",
+        "law_name": "中华人民共和国网络安全法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2016-11-07"
+      }
+    },
+    {
+      "content": "《中华人民共和国国家安全法》，类型: 其他，文号: 未知，发布日期: 2015-07-01",
+      "type": "law_full",
+      "doc_id": "e83072e01791a67d",
+      "weight": 1.0,
+      "metadata": {
+        "title": "中华人民共和国国家安全法",
+        "law_name": "中华人民共和国国家安全法",
+        "law_type": "其他",
+        "law_code": "未知",
+        "publish_date": "2015-07-01"
+      }
+    }
+  ]
+}

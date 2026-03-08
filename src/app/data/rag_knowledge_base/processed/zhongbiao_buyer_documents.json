@@ -1,0 +1,1007 @@
+{
+  "type": "zhongbiao_buyer",
+  "count": 1091,
+  "weight": 0.9,
+  "documents": [
+    {
+      "content": "忠山院区第二住院大楼暨明康楼医疗辅助与环境消杀服务(二次)的采购方是西南医科大学附属医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "a04e5f17c955bfd6",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "忠山院区第二住院大楼暨明康楼医疗辅助与环境消杀服务(二次)",
+        "buyer": "西南医科大学附属医院"
+      }
+    },
+    {
+      "content": "2025年医疗设备第十五批(二次)的采购方是西南医科大学附属医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "64094ceecde78b3e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年医疗设备第十五批(二次)",
+        "buyer": "西南医科大学附属医院"
+      }
+    },
+    {
+      "content": "国家税务总局陕西省税务局2025年互联网不动产登记集成办税、纳税缴费服务热线等系统运行维护项目的采购方是国家税务总局陕西省税务局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "9f62014f2f00adba",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "国家税务总局陕西省税务局2025年互联网不动产登记集成办税、纳税缴费服务热线等系统运行维护项目",
+        "buyer": "国家税务总局陕西省税务局"
+      }
+    },
+    {
+      "content": "咸宁国家高新区集成电路低碳产业园项目产业规划中标成交公告的采购方是咸宁高新技术产业开发区管理委员会本级",
+      "type": "zhongbiao_buyer",
+      "doc_id": "0dd1231f108bed78",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "咸宁国家高新区集成电路低碳产业园项目产业规划中标成交公告",
+        "buyer": "咸宁高新技术产业开发区管理委员会本级"
+      }
+    },
+    {
+      "content": "交管支队公安经费警务辅助人员服务采购项目中标结果公告的采购方是鄂州市公安局交通管理局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "fd71f0ea119043ef",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "交管支队公安经费警务辅助人员服务采购项目中标结果公告",
+        "buyer": "鄂州市公安局交通管理局"
+      }
+    },
+    {
+      "content": "国家税务总局陕西省税务局2025年电子税务局坐席服务项目的采购方是国家税务总局陕西省税务局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "c2f2884273e7ce92",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "国家税务总局陕西省税务局2025年电子税务局坐席服务项目",
+        "buyer": "国家税务总局陕西省税务局"
+      }
+    },
+    {
+      "content": "云南省五华监狱2026年罪犯生活物资采购（肉副食类）的采购方是云南省五华监狱",
+      "type": "zhongbiao_buyer",
+      "doc_id": "14ffd66a14bb9756",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "云南省五华监狱2026年罪犯生活物资采购（肉副食类）",
+        "buyer": "云南省五华监狱"
+      }
+    },
+    {
+      "content": "国家税务总局陕西省税务局2025年管理决策支持核算与分析等系统运行维护项目的采购方是国家税务总局陕西省税务局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "c13698713f76a6a2",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "国家税务总局陕西省税务局2025年管理决策支持核算与分析等系统运行维护项目",
+        "buyer": "国家税务总局陕西省税务局"
+      }
+    },
+    {
+      "content": "横琴粤澳深度合作区经济发展局2026年横琴口岸安检服务项目的采购方是横琴粤澳深度合作区经济发展局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "a98870b7694dd290",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "横琴粤澳深度合作区经济发展局2026年横琴口岸安检服务项目",
+        "buyer": "横琴粤澳深度合作区经济发展局"
+      }
+    },
+    {
+      "content": "吕梁市吕梁山西麓三北工程林草湿荒一体化保护修复项目方山县2025年中幼林抚育的采购方是方山县林业局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "f67d02425d7646e1",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "吕梁市吕梁山西麓三北工程林草湿荒一体化保护修复项目方山县2025年中幼林抚育",
+        "buyer": "方山县林业局"
+      }
+    },
+    {
+      "content": "国家税务总局濮阳市税务局2026年物业管理服务项目的采购方是国家税务总局濮阳市税务局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "aa4d8ed9e9c0cb3b",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "国家税务总局濮阳市税务局2026年物业管理服务项目",
+        "buyer": "国家税务总局濮阳市税务局"
+      }
+    },
+    {
+      "content": "揭阳市惠来县惠城镇墩高片区人居环境综合整治项目-机械式停车场、成品屋的采购方是惠来县惠城镇人民政府",
+      "type": "zhongbiao_buyer",
+      "doc_id": "089b5b11dfc157bd",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "揭阳市惠来县惠城镇墩高片区人居环境综合整治项目-机械式停车场、成品屋",
+        "buyer": "惠来县惠城镇人民政府"
+      }
+    },
+    {
+      "content": "兴宾区2025年耕地保护暨国土日常变更调查服务工作项目的采购方是来宾市兴宾区自然资源局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "9f499ec43fd543b0",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "兴宾区2025年耕地保护暨国土日常变更调查服务工作项目",
+        "buyer": "来宾市兴宾区自然资源局"
+      }
+    },
+    {
+      "content": "行政辅助事项的采购方是上海市浦东新区城市管理综合行政执法局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "ef85be7549dfbdaa",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "行政辅助事项",
+        "buyer": "上海市浦东新区城市管理综合行政执法局"
+      }
+    },
+    {
+      "content": "吕梁市吕梁山西麓三北工程林草湿荒一体化保护修复项目方山县2025年退化林修复的采购方是方山县林业局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "03d0aa2e2fa27f33",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "吕梁市吕梁山西麓三北工程林草湿荒一体化保护修复项目方山县2025年退化林修复",
+        "buyer": "方山县林业局"
+      }
+    },
+    {
+      "content": "抚松县2025年农村供水保障巩固提升工程的采购方是抚松县农村饮水工程建设和科技服务中心",
+      "type": "zhongbiao_buyer",
+      "doc_id": "d0f7182821ba93b9",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "抚松县2025年农村供水保障巩固提升工程",
+        "buyer": "抚松县农村饮水工程建设和科技服务中心"
+      }
+    },
+    {
+      "content": "巫溪县数智健康中心信息化建设项目的采购方是巫溪县人民医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "858fb863f7336fc5",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "巫溪县数智健康中心信息化建设项目",
+        "buyer": "巫溪县人民医院"
+      }
+    },
+    {
+      "content": "滨海县2026年度残疾人居家托养项目的采购方是滨海县残疾人联合会（机关）",
+      "type": "zhongbiao_buyer",
+      "doc_id": "0c7037bb32ce43d8",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "滨海县2026年度残疾人居家托养项目",
+        "buyer": "滨海县残疾人联合会（机关）"
+      }
+    },
+    {
+      "content": "江苏省镇江技师学院飞机制造与装配专业国基地建设的采购方是江苏省镇江技师学院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "83b367c8d6af9fab",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "江苏省镇江技师学院飞机制造与装配专业国基地建设",
+        "buyer": "江苏省镇江技师学院"
+      }
+    },
+    {
+      "content": "天津市河北区机关事务服务中心2026年度食堂劳务服务项目的采购方是天津市河北区机关事务服务中心",
+      "type": "zhongbiao_buyer",
+      "doc_id": "7e209540985a38e7",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津市河北区机关事务服务中心2026年度食堂劳务服务项目",
+        "buyer": "天津市河北区机关事务服务中心"
+      }
+    },
+    {
+      "content": "天津市蓟州区人民医院电梯维保项目的采购方是天津市蓟州区人民医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "5007af05e1b08fed",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津市蓟州区人民医院电梯维保项目",
+        "buyer": "天津市蓟州区人民医院"
+      }
+    },
+    {
+      "content": "天津市肿瘤医院检测服务项目的采购方是天津市肿瘤医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "d4eb055b3a7f7f3e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津市肿瘤医院检测服务项目",
+        "buyer": "天津市肿瘤医院"
+      }
+    },
+    {
+      "content": "2025年津南区治超卸载地场地租赁的采购方是天津市津南区交通运输综合行政执法支队",
+      "type": "zhongbiao_buyer",
+      "doc_id": "96f4a821a3ae8ece",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年津南区治超卸载地场地租赁",
+        "buyer": "天津市津南区交通运输综合行政执法支队"
+      }
+    },
+    {
+      "content": "天津市教育科学研究院天津市中学（南开区化学）实验室仪器设备更新项目的采购方是天津市教育科学研究院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "e01fb733f2de2c88",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津市教育科学研究院天津市中学（南开区化学）实验室仪器设备更新项目",
+        "buyer": "天津市教育科学研究院"
+      }
+    },
+    {
+      "content": "2026年西青区普通公路日常养护项目（北片上半年）的采购方是天津市西青区公路建设养护中心机关",
+      "type": "zhongbiao_buyer",
+      "doc_id": "f3e6722b0aa45656",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026年西青区普通公路日常养护项目（北片上半年）",
+        "buyer": "天津市西青区公路建设养护中心机关"
+      }
+    },
+    {
+      "content": "天津医科大学校园绿化及环境卫生养护项目的采购方是天津医科大学",
+      "type": "zhongbiao_buyer",
+      "doc_id": "2a35594d396a321d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津医科大学校园绿化及环境卫生养护项目",
+        "buyer": "天津医科大学"
+      }
+    },
+    {
+      "content": "天津医科大学总医院污水站运行维保项目的采购方是天津医科大学总医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "92224dd281b871d1",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津医科大学总医院污水站运行维保项目",
+        "buyer": "天津医科大学总医院"
+      }
+    },
+    {
+      "content": "军粮城街新市镇内外环境保障项目的采购方是天津市东丽区人民政府军粮城街道办事处机关",
+      "type": "zhongbiao_buyer",
+      "doc_id": "60ef170201553654",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "军粮城街新市镇内外环境保障项目",
+        "buyer": "天津市东丽区人民政府军粮城街道办事处机关"
+      }
+    },
+    {
+      "content": "天津市东丽区教育局2026年编外人员服务项目的采购方是天津市东丽区教育局机关",
+      "type": "zhongbiao_buyer",
+      "doc_id": "2a02934ca1825e59",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津市东丽区教育局2026年编外人员服务项目",
+        "buyer": "天津市东丽区教育局机关"
+      }
+    },
+    {
+      "content": "天津市疾病预防控制中心食堂餐饮服务项目的采购方是天津市疾病预防控制中心",
+      "type": "zhongbiao_buyer",
+      "doc_id": "1b42581a497cbd5d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津市疾病预防控制中心食堂餐饮服务项目",
+        "buyer": "天津市疾病预防控制中心"
+      }
+    },
+    {
+      "content": "2025年养老服务评估项目的采购方是天津市民政局机关",
+      "type": "zhongbiao_buyer",
+      "doc_id": "f86a0dff6eac13a7",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年养老服务评估项目",
+        "buyer": "天津市民政局机关"
+      }
+    },
+    {
+      "content": "天津医科大学总医院滨海医院检验试剂及相关耗材采购项目的采购方是天津医科大学总医院滨海医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "9730fbe918b4fce7",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津医科大学总医院滨海医院检验试剂及相关耗材采购项目",
+        "buyer": "天津医科大学总医院滨海医院"
+      }
+    },
+    {
+      "content": "2026年区级机关办公中心及会议中心物业服务项目的采购方是天津市东丽区机关事务服务中心机关",
+      "type": "zhongbiao_buyer",
+      "doc_id": "f39b5541b78601d8",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026年区级机关办公中心及会议中心物业服务项目",
+        "buyer": "天津市东丽区机关事务服务中心机关"
+      }
+    },
+    {
+      "content": "天津商业大学浸没液冷高性能一体机及测试系统采购项目的采购方是天津商业大学",
+      "type": "zhongbiao_buyer",
+      "doc_id": "5540eef902e7265b",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津商业大学浸没液冷高性能一体机及测试系统采购项目",
+        "buyer": "天津商业大学"
+      }
+    },
+    {
+      "content": "天津市第二十五中学2026年保安服务项目的采购方是天津市第二十五中学",
+      "type": "zhongbiao_buyer",
+      "doc_id": "8dbeca246a24b384",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津市第二十五中学2026年保安服务项目",
+        "buyer": "天津市第二十五中学"
+      }
+    },
+    {
+      "content": "2026-2027年天津港保税区涉气污染源工况用电监控服务项目的采购方是天津港保税区城市环境管理局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "915b2e261cb462f2",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026-2027年天津港保税区涉气污染源工况用电监控服务项目",
+        "buyer": "天津港保税区城市环境管理局"
+      }
+    },
+    {
+      "content": "天津市蓟州区人工影响天气办公室炮站作业人员劳务派遣服务项目的采购方是天津市蓟州区人工影响天气办公室机关",
+      "type": "zhongbiao_buyer",
+      "doc_id": "e51cfdbb6d0c3efc",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津市蓟州区人工影响天气办公室炮站作业人员劳务派遣服务项目",
+        "buyer": "天津市蓟州区人工影响天气办公室机关"
+      }
+    },
+    {
+      "content": "天津公安警官职业学院物业管理项目的采购方是天津公安警官职业学院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "607b26ed211b29ba",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津公安警官职业学院物业管理项目",
+        "buyer": "天津公安警官职业学院"
+      }
+    },
+    {
+      "content": "12345政务服务便民热线服务项目的采购方是天津市津南区网格化管理中心机关",
+      "type": "zhongbiao_buyer",
+      "doc_id": "288b328def2daab4",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "12345政务服务便民热线服务项目",
+        "buyer": "天津市津南区网格化管理中心机关"
+      }
+    },
+    {
+      "content": "天津中医药大学第一附属医院中医药传承创新工程暨北院区提升改造工程食堂设备采购项目的采购方是天津中医药大学第一附属医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "07ae166818e7340e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津中医药大学第一附属医院中医药传承创新工程暨北院区提升改造工程食堂设备采购项目",
+        "buyer": "天津中医药大学第一附属医院"
+      }
+    },
+    {
+      "content": "天津市津南区生态环境局-津南区生态环境一体化智慧监管平台项目的采购方是天津市津南区生态环境局机关",
+      "type": "zhongbiao_buyer",
+      "doc_id": "fea9082f6ab4d14d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津市津南区生态环境局-津南区生态环境一体化智慧监管平台项目",
+        "buyer": "天津市津南区生态环境局机关"
+      }
+    },
+    {
+      "content": "采编设备和办公设备购置项目(二包)二次中标公告的采购方是环县融媒体中心",
+      "type": "zhongbiao_buyer",
+      "doc_id": "6e10e7cab9479022",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "采编设备和办公设备购置项目(二包)二次中标公告",
+        "buyer": "环县融媒体中心"
+      }
+    },
+    {
+      "content": "重庆市应急管理系统综合行政执法制式服装和标志采购的采购方是重庆市应急管理局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "c6602cc8d2fa8c6c",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "重庆市应急管理系统综合行政执法制式服装和标志采购",
+        "buyer": "重庆市应急管理局"
+      }
+    },
+    {
+      "content": "青海省住房公积金数字化监督管理和服务赋能平台建设项目的采购方是青海省住房和城乡建设厅",
+      "type": "zhongbiao_buyer",
+      "doc_id": "e3449c9bdb180a8a",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "青海省住房公积金数字化监督管理和服务赋能平台建设项目",
+        "buyer": "青海省住房和城乡建设厅"
+      }
+    },
+    {
+      "content": "武汉市公安局江夏区分局本级2025-2026年度江夏区交通设施及智能交通设施维护维修项目中标(成交)结果公告的采购方是武汉市公安局江夏区分局本级",
+      "type": "zhongbiao_buyer",
+      "doc_id": "db462332d9971789",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "武汉市公安局江夏区分局本级2025-2026年度江夏区交通设施及智能交通设施维护维修项目中标(成交)结果公告",
+        "buyer": "武汉市公安局江夏区分局本级"
+      }
+    },
+    {
+      "content": "武汉市公安局硚口区分局分局2026辅警及禁毒社工劳务派遣服务结果公告的采购方是武汉市公安局硚口区分局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "df36ed7e2d88b905",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "武汉市公安局硚口区分局分局2026辅警及禁毒社工劳务派遣服务结果公告",
+        "buyer": "武汉市公安局硚口区分局"
+      }
+    },
+    {
+      "content": "中共濮阳市委政法委员会濮阳市社会治安综合治理信息平台优化提升项目的采购方是中共濮阳市委政法委员会",
+      "type": "zhongbiao_buyer",
+      "doc_id": "3e21af7f40eb4bd3",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "中共濮阳市委政法委员会濮阳市社会治安综合治理信息平台优化提升项目",
+        "buyer": "中共濮阳市委政法委员会"
+      }
+    },
+    {
+      "content": "2026年东莞市公安局松山湖分局高清治安视频图像扩建项目（第二期）光纤租赁服务采购项目的采购方是东莞市公安局松山湖分局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "5d9864894b94ae83",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026年东莞市公安局松山湖分局高清治安视频图像扩建项目（第二期）光纤租赁服务采购项目",
+        "buyer": "东莞市公安局松山湖分局"
+      }
+    },
+    {
+      "content": "吉林省吉林中西医结合医院购买布草租赁洗涤服务项目的采购方是吉林省吉林中西医结合医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "1f747883dd64861e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "吉林省吉林中西医结合医院购买布草租赁洗涤服务项目",
+        "buyer": "吉林省吉林中西医结合医院"
+      }
+    },
+    {
+      "content": "中国共产党宁夏回族自治区委员会党校（宁夏行政学院）应用系统迁移适配项目（一、三、四、五标段）的采购方是中国共产党宁夏回族自治区委员会党校",
+      "type": "zhongbiao_buyer",
+      "doc_id": "ec396b83c6f39e43",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "中国共产党宁夏回族自治区委员会党校（宁夏行政学院）应用系统迁移适配项目（一、三、四、五标段）",
+        "buyer": "中国共产党宁夏回族自治区委员会党校"
+      }
+    },
+    {
+      "content": "金溪县2025年度国土变更调查项目的采购方是金溪县自然资源局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "8575cf43c074d62e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "金溪县2025年度国土变更调查项目",
+        "buyer": "金溪县自然资源局"
+      }
+    },
+    {
+      "content": "吉州区原林权登记成果清理规范及整合建库工作项目的采购方是吉安市自然资源局吉州分局综合服务中心",
+      "type": "zhongbiao_buyer",
+      "doc_id": "b2e52c77c85668b2",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "吉州区原林权登记成果清理规范及整合建库工作项目",
+        "buyer": "吉安市自然资源局吉州分局综合服务中心"
+      }
+    },
+    {
+      "content": "弋阳县城区环卫第三轮政府购买服务项目的采购方是弋阳县城市管理局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "e04f09e635c2993e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "弋阳县城区环卫第三轮政府购买服务项目",
+        "buyer": "弋阳县城市管理局"
+      }
+    },
+    {
+      "content": "修水县生活垃圾应急（飞灰固化物）填埋运营管理（第二次）的采购方是修水县城市管理局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "9eb6de54ba38dd14",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "修水县生活垃圾应急（飞灰固化物）填埋运营管理（第二次）",
+        "buyer": "修水县城市管理局"
+      }
+    },
+    {
+      "content": "2025年信丰县X065油山至深坑公路养护大中修工程项目的采购方是信丰县交通运输局本级",
+      "type": "zhongbiao_buyer",
+      "doc_id": "ea262ccf9e2d8e22",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年信丰县X065油山至深坑公路养护大中修工程项目",
+        "buyer": "信丰县交通运输局本级"
+      }
+    },
+    {
+      "content": "瑞金市2025年高素质农民培训服务（常规班）的采购方是瑞金市农业农村局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "26ad6bc7cd885bf0",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "瑞金市2025年高素质农民培训服务（常规班）",
+        "buyer": "瑞金市农业农村局"
+      }
+    },
+    {
+      "content": "抚州市临川区应急医疗救助体系建设项目智能化设备采购的采购方是抚州市临川区卫生健康委员会",
+      "type": "zhongbiao_buyer",
+      "doc_id": "6583b53bd83ab9dd",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "抚州市临川区应急医疗救助体系建设项目智能化设备采购",
+        "buyer": "抚州市临川区卫生健康委员会"
+      }
+    },
+    {
+      "content": "2025年瑞金市高素质农民教育培训服务(农机驾驶员培训专题班）的采购方是瑞金市农业农村局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "4f6b0f8ecbefb3c8",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年瑞金市高素质农民教育培训服务(农机驾驶员培训专题班）",
+        "buyer": "瑞金市农业农村局"
+      }
+    },
+    {
+      "content": "被服等租赁（含洗涤）服务采购项目的采购方是吉安市中心人民医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "b6a02764479f8539",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "被服等租赁（含洗涤）服务采购项目",
+        "buyer": "吉安市中心人民医院"
+      }
+    },
+    {
+      "content": "东华理工大学矢量网络分析仪采购项目的采购方是东华理工大学",
+      "type": "zhongbiao_buyer",
+      "doc_id": "f974344652b6349d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "东华理工大学矢量网络分析仪采购项目",
+        "buyer": "东华理工大学"
+      }
+    },
+    {
+      "content": "市直机关公务用车租赁服务项目的采购方是吕梁市机关事务服务中心",
+      "type": "zhongbiao_buyer",
+      "doc_id": "da5fdd85b7658e57",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "市直机关公务用车租赁服务项目",
+        "buyer": "吕梁市机关事务服务中心"
+      }
+    },
+    {
+      "content": "宜昌市点军区环卫设施更新改造升级项目（餐厨垃圾处理及配套设备购置）中标结果公告的采购方是宜昌市点军区城市管理执法局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "f32656d3d757be28",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "宜昌市点军区环卫设施更新改造升级项目（餐厨垃圾处理及配套设备购置）中标结果公告",
+        "buyer": "宜昌市点军区城市管理执法局"
+      }
+    },
+    {
+      "content": "厦门市公安局巡特警支队物业管理服务的采购方是厦门市公安局巡特警支队",
+      "type": "zhongbiao_buyer",
+      "doc_id": "ad2fbf547c2337aa",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "厦门市公安局巡特警支队物业管理服务",
+        "buyer": "厦门市公安局巡特警支队"
+      }
+    },
+    {
+      "content": "2025年度土地供应相关工作技术服务中标成交公告的采购方是襄阳市自然资源和城乡建设局本级",
+      "type": "zhongbiao_buyer",
+      "doc_id": "0d3fb3644c574158",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年度土地供应相关工作技术服务中标成交公告",
+        "buyer": "襄阳市自然资源和城乡建设局本级"
+      }
+    },
+    {
+      "content": "良渚街道社区卫生服务中心医用气体管道系统采购项目的采购方是杭州市余杭区人民政府良渚街道办事处",
+      "type": "zhongbiao_buyer",
+      "doc_id": "cf3f2b51d48e3ea3",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "良渚街道社区卫生服务中心医用气体管道系统采购项目",
+        "buyer": "杭州市余杭区人民政府良渚街道办事处"
+      }
+    },
+    {
+      "content": "青龙满族自治县林业局青龙板栗产业品牌建设项目的采购方是青龙满族自治县林业局本级",
+      "type": "zhongbiao_buyer",
+      "doc_id": "7de50731d7bd54f4",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "青龙满族自治县林业局青龙板栗产业品牌建设项目",
+        "buyer": "青龙满族自治县林业局本级"
+      }
+    },
+    {
+      "content": "2025年汉中市消防救援支队消防救援装备暨储备物资采购项目（第四批次）的采购方是汉中市消防救援支队",
+      "type": "zhongbiao_buyer",
+      "doc_id": "ca877aa405066e70",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年汉中市消防救援支队消防救援装备暨储备物资采购项目（第四批次）",
+        "buyer": "汉中市消防救援支队"
+      }
+    },
+    {
+      "content": "四川省妇女儿童中心儿童体验馆2期的采购方是四川省妇女联合会",
+      "type": "zhongbiao_buyer",
+      "doc_id": "3b2385df0a720ec8",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "四川省妇女儿童中心儿童体验馆2期",
+        "buyer": "四川省妇女联合会"
+      }
+    },
+    {
+      "content": "罗源县防汛应急抢险排水设备采购的采购方是罗源县住房和城乡建设局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "232b642a256b0897",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "罗源县防汛应急抢险排水设备采购",
+        "buyer": "罗源县住房和城乡建设局"
+      }
+    },
+    {
+      "content": "武汉市第二社会福利院2026年食材配送服务项目中标结果公告的采购方是武汉市第二社会福利院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "a89cbfc02c8c7233",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "武汉市第二社会福利院2026年食材配送服务项目中标结果公告",
+        "buyer": "武汉市第二社会福利院"
+      }
+    },
+    {
+      "content": "山西太行干部学院2026年学员食材采购的采购方是山西太行干部学院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "5f76ca2980cf93fd",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "山西太行干部学院2026年学员食材采购",
+        "buyer": "山西太行干部学院"
+      }
+    },
+    {
+      "content": "南涧县城环境卫生、园林绿化及乡镇集镇所在地生活垃圾转运市场化运营项目的采购方是南涧彝族自治县环境卫生管理站",
+      "type": "zhongbiao_buyer",
+      "doc_id": "1376a5fd12494b95",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "南涧县城环境卫生、园林绿化及乡镇集镇所在地生活垃圾转运市场化运营项目",
+        "buyer": "南涧彝族自治县环境卫生管理站"
+      }
+    },
+    {
+      "content": "武汉铁路公安局襄阳公安处转制后退休民警2026年春节慰问物资采购的采购方是武汉铁路公安局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "abceed9a185b587f",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "武汉铁路公安局襄阳公安处转制后退休民警2026年春节慰问物资采购",
+        "buyer": "武汉铁路公安局"
+      }
+    },
+    {
+      "content": "LED电影放映大屏的采购方是福清市退役军人事务局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "f46147e7eab4c1da",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "LED电影放映大屏",
+        "buyer": "福清市退役军人事务局"
+      }
+    },
+    {
+      "content": "执法记录采集设备采购项目的采购方是执法现场记录采集设备",
+      "type": "zhongbiao_buyer",
+      "doc_id": "0d1e4fc126549489",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "执法记录采集设备采购项目",
+        "buyer": "执法现场记录采集设备"
+      }
+    },
+    {
+      "content": "临汾市中医医院His系统接口项目的采购方是临汾市中医医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "a286e75483192bda",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "临汾市中医医院His系统接口项目",
+        "buyer": "临汾市中医医院"
+      }
+    },
+    {
+      "content": "武汉市新洲区水务和湖泊局武汉市新洲区6个湖泊蓝线保护规划修编服务结果公告的采购方是武汉市新洲区水务和湖泊局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "b0494f386ab75da9",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "武汉市新洲区水务和湖泊局武汉市新洲区6个湖泊蓝线保护规划修编服务结果公告",
+        "buyer": "武汉市新洲区水务和湖泊局"
+      }
+    },
+    {
+      "content": "武汉市汉阳区人民政府建桥街道办事处2026年环卫清扫保洁服务项目结果公告的采购方是武汉市汉阳区人民政府建桥街道办事处",
+      "type": "zhongbiao_buyer",
+      "doc_id": "379adba5985e5fc5",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "武汉市汉阳区人民政府建桥街道办事处2026年环卫清扫保洁服务项目结果公告",
+        "buyer": "武汉市汉阳区人民政府建桥街道办事处"
+      }
+    },
+    {
+      "content": "冗渡安置区基础设施维修维护项目的采购方是册亨县冗渡镇人民政府",
+      "type": "zhongbiao_buyer",
+      "doc_id": "f57f986ab4173e99",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "冗渡安置区基础设施维修维护项目",
+        "buyer": "册亨县冗渡镇人民政府"
+      }
+    },
+    {
+      "content": "市级储备粮（大米）组织采购、承储和轮换服务招标项目（专门面向中小企业）的采购方是哈尔滨市粮食和物资储备局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "b7e7ea61a7b76420",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "市级储备粮（大米）组织采购、承储和轮换服务招标项目（专门面向中小企业）",
+        "buyer": "哈尔滨市粮食和物资储备局"
+      }
+    },
+    {
+      "content": "陵川县城南友谊小学智慧黑板购置项目的采购方是陵川县崇文镇中心学校",
+      "type": "zhongbiao_buyer",
+      "doc_id": "232f7ed9b049c086",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "陵川县城南友谊小学智慧黑板购置项目",
+        "buyer": "陵川县崇文镇中心学校"
+      }
+    },
+    {
+      "content": "武汉理工大学2026年生日慰问品提货劵的采购方是武汉理工大学",
+      "type": "zhongbiao_buyer",
+      "doc_id": "27614ab63cedf5f0",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "武汉理工大学2026年生日慰问品提货劵",
+        "buyer": "武汉理工大学"
+      }
+    },
+    {
+      "content": "数据中心国产超融合私有云升级扩容项目的采购方是桂林市中西医结合医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "6d3c04668ad5dfc8",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "数据中心国产超融合私有云升级扩容项目",
+        "buyer": "桂林市中西医结合医院"
+      }
+    },
+    {
+      "content": "数据中心超融合私有云升级扩容采购的采购方是桂林市中西医结合医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "1688e29291bace83",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "数据中心超融合私有云升级扩容采购",
+        "buyer": "桂林市中西医结合医院"
+      }
+    },
+    {
+      "content": "实验室设备一批的采购方是福州大学附属省立医院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "7d70de7b8b7a23b9",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "实验室设备一批",
+        "buyer": "福州大学附属省立医院"
+      }
+    },
+    {
+      "content": "嘉峪关市城区人民法院审判业务信息化建设提升改造项目的采购方是嘉峪关市城区人民法院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "81244851580708ec",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "嘉峪关市城区人民法院审判业务信息化建设提升改造项目",
+        "buyer": "嘉峪关市城区人民法院"
+      }
+    },
+    {
+      "content": "巴南区城市道路照明节能改造项目（服务）的采购方是重庆市巴南区城市管理局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "cbcfea7ac2f339a3",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "巴南区城市道路照明节能改造项目（服务）",
+        "buyer": "重庆市巴南区城市管理局"
+      }
+    },
+    {
+      "content": "2026-2028年大农港泵站等12座闸泵站养护服务的采购方是杭州市上城区综合行政执法局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "d694cf8ae066d8c5",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026-2028年大农港泵站等12座闸泵站养护服务",
+        "buyer": "杭州市上城区综合行政执法局"
+      }
+    },
+    {
+      "content": "元江县因远镇中心卫生院云南省重点中心卫生院提质建设项目医疗设备采购项目的采购方是元江县因远镇中心卫生院",
+      "type": "zhongbiao_buyer",
+      "doc_id": "f3c93f17c0f4099a",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "元江县因远镇中心卫生院云南省重点中心卫生院提质建设项目医疗设备采购项目",
+        "buyer": "元江县因远镇中心卫生院"
+      }
+    },
+    {
+      "content": "博州边境管理支队2026年物业服务采购项目的采购方是博州边境管理支队",
+      "type": "zhongbiao_buyer",
+      "doc_id": "356eaa14f67988e2",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "博州边境管理支队2026年物业服务采购项目",
+        "buyer": "博州边境管理支队"
+      }
+    },
+    {
+      "content": "广州市司法局2025-2026年信息化运维项目的采购方是广州市司法局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "60ec223a2d2fd361",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "广州市司法局2025-2026年信息化运维项目",
+        "buyer": "广州市司法局"
+      }
+    },
+    {
+      "content": "宁波市公安局海曙区分局刑事诉讼涉案财物管理项目的采购方是宁波市公安局海曙区分局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "ae2bc0917761ccd9",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "宁波市公安局海曙区分局刑事诉讼涉案财物管理项目",
+        "buyer": "宁波市公安局海曙区分局"
+      }
+    },
+    {
+      "content": "武汉市青山区城市管理执法局青山区2025年开发边界优化规划编制结果公告的采购方是武汉市青山区城市管理执法局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "cdf9194b44deac11",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "武汉市青山区城市管理执法局青山区2025年开发边界优化规划编制结果公告",
+        "buyer": "武汉市青山区城市管理执法局"
+      }
+    },
+    {
+      "content": "阳新县农业农村局本级阳新县2025年和美乡村示范带建设项目监理服务中标（成交）结果公告的采购方是阳新县农业农村局本级",
+      "type": "zhongbiao_buyer",
+      "doc_id": "4ea10a32483b5eb4",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "阳新县农业农村局本级阳新县2025年和美乡村示范带建设项目监理服务中标（成交）结果公告",
+        "buyer": "阳新县农业农村局本级"
+      }
+    },
+    {
+      "content": "2026-2028年三堡排灌站等13座闸泵站养护服务的采购方是杭州市上城区综合行政执法局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "5cf529f6897ae05d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026-2028年三堡排灌站等13座闸泵站养护服务",
+        "buyer": "杭州市上城区综合行政执法局"
+      }
+    },
+    {
+      "content": "邓村乡2026年度集镇及压缩站垃圾清运清扫服务项目成交结果公告的采购方是宜昌市夷陵区邓村乡党群服务中心（宜昌市夷陵区邓村乡退役军人服务站）",
+      "type": "zhongbiao_buyer",
+      "doc_id": "00e9ad98a302c48f",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "邓村乡2026年度集镇及压缩站垃圾清运清扫服务项目成交结果公告",
+        "buyer": "宜昌市夷陵区邓村乡党群服务中心（宜昌市夷陵区邓村乡退役军人服务站）"
+      }
+    },
+    {
+      "content": "2026-2028年白石港闸等13座闸泵站养护服务的采购方是杭州市上城区综合行政执法局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "5fc82f4077907b71",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026-2028年白石港闸等13座闸泵站养护服务",
+        "buyer": "杭州市上城区综合行政执法局"
+      }
+    },
+    {
+      "content": "植土所汽车租赁服务中标（成交）结果公告的采购方是湖北省农业科学院植保土肥研究所",
+      "type": "zhongbiao_buyer",
+      "doc_id": "8e38dc84b13a6d75",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "植土所汽车租赁服务中标（成交）结果公告",
+        "buyer": "湖北省农业科学院植保土肥研究所"
+      }
+    },
+    {
+      "content": "湖北师范大学2026年零星维修项目（水电类）成交公告的采购方是湖北师范大学",
+      "type": "zhongbiao_buyer",
+      "doc_id": "605925e5992fc6f6",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "湖北师范大学2026年零星维修项目（水电类）成交公告",
+        "buyer": "湖北师范大学"
+      }
+    },
+    {
+      "content": "荆门市公路交通站运维服务竞争性磋商成交结果公告的采购方是荆门市生态环境局",
+      "type": "zhongbiao_buyer",
+      "doc_id": "6800470054183ec8",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "荆门市公路交通站运维服务竞争性磋商成交结果公告",
+        "buyer": "荆门市生态环境局"
+      }
+    }
+  ]
+}

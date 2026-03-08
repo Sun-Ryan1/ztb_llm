@@ -1,0 +1,1207 @@
+{
+  "type": "company_location",
+  "count": 64826,
+  "weight": 0.9,
+  "documents": [
+    {
+      "content": "上海仓祥绿化工程有限公司的注册地址是上海市松江区叶榭镇叶旺路1号三楼",
+      "type": "company_location",
+      "doc_id": "5ee79961a2da47a6",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仓祥绿化工程有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区叶榭镇叶旺路1号三楼"
+      }
+    },
+    {
+      "content": "上海仓祥绿化工程有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "34d77584c77fa909",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仓祥绿化工程有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区叶榭镇叶旺路1号三楼"
+      }
+    },
+    {
+      "content": "上海也兴网络科技合伙企业有限合伙的注册地址是上海市嘉定区真南路4268号2幢J7579室",
+      "type": "company_location",
+      "doc_id": "47067908b39ecce9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海也兴网络科技合伙企业有限合伙",
+        "province": "上海",
+        "city": "嘉定",
+        "registration_address": "上海市嘉定区真南路4268号2幢J7579室"
+      }
+    },
+    {
+      "content": "上海也兴网络科技合伙企业有限合伙位于上海嘉定",
+      "type": "company_location",
+      "doc_id": "b0ec9a673575c1f8",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海也兴网络科技合伙企业有限合伙",
+        "province": "上海",
+        "city": "嘉定",
+        "registration_address": "上海市嘉定区真南路4268号2幢J7579室"
+      }
+    },
+    {
+      "content": "上海伍戴实业有限公司的注册地址是上海市松江区九亭镇九新公路339号1幢14楼",
+      "type": "company_location",
+      "doc_id": "5d685401723909f9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伍戴实业有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区九亭镇九新公路339号1幢14楼"
+      }
+    },
+    {
+      "content": "上海伍戴实业有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "ba6e90d2b58ebf42",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伍戴实业有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区九亭镇九新公路339号1幢14楼"
+      }
+    },
+    {
+      "content": "上海丹铭电气科技有限公司的注册地址是上海市松江区小昆山镇港业路158弄2号B168幢",
+      "type": "company_location",
+      "doc_id": "186ec6c9c1df9dd6",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海丹铭电气科技有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区小昆山镇港业路158弄2号B168幢"
+      }
+    },
+    {
+      "content": "上海丹铭电气科技有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "ec44d44be0c76d08",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海丹铭电气科技有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区小昆山镇港业路158弄2号B168幢"
+      }
+    },
+    {
+      "content": "上海何衢贸易有限公司的注册地址是上海市闵行区金都路4299号6幢1楼X16室",
+      "type": "company_location",
+      "doc_id": "63a8276bb80106e0",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海何衢贸易有限公司",
+        "province": "上海",
+        "city": "闵行",
+        "registration_address": "上海市闵行区金都路4299号6幢1楼X16室"
+      }
+    },
+    {
+      "content": "上海何衢贸易有限公司位于上海闵行",
+      "type": "company_location",
+      "doc_id": "c8c0750db2e3cf7d",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海何衢贸易有限公司",
+        "province": "上海",
+        "city": "闵行",
+        "registration_address": "上海市闵行区金都路4299号6幢1楼X16室"
+      }
+    },
+    {
+      "content": "上海为晨教育科技有限公司的注册地址是上海市宝山区蕴川路1498弄69号",
+      "type": "company_location",
+      "doc_id": "58ffb8395332d782",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海为晨教育科技有限公司",
+        "province": "上海",
+        "city": "宝山",
+        "registration_address": "上海市宝山区蕴川路1498弄69号"
+      }
+    },
+    {
+      "content": "上海为晨教育科技有限公司位于上海宝山",
+      "type": "company_location",
+      "doc_id": "07fbd513dde44a02",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海为晨教育科技有限公司",
+        "province": "上海",
+        "city": "宝山",
+        "registration_address": "上海市宝山区蕴川路1498弄69号"
+      }
+    },
+    {
+      "content": "上海代居科技有限公司的注册地址是上海市嘉定区叶城路1288号6幢J1875室",
+      "type": "company_location",
+      "doc_id": "60acf6810a691325",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海代居科技有限公司",
+        "province": "上海",
+        "city": "嘉定",
+        "registration_address": "上海市嘉定区叶城路1288号6幢J1875室"
+      }
+    },
+    {
+      "content": "上海代居科技有限公司位于上海嘉定",
+      "type": "company_location",
+      "doc_id": "ecb1e36a690e302a",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海代居科技有限公司",
+        "province": "上海",
+        "city": "嘉定",
+        "registration_address": "上海市嘉定区叶城路1288号6幢J1875室"
+      }
+    },
+    {
+      "content": "上海七里街信息科技有限公司的注册地址是上海市嘉定区江桥镇沙河路337号1_203室J1561",
+      "type": "company_location",
+      "doc_id": "b4561cf5a27b965e",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海七里街信息科技有限公司",
+        "province": "上海",
+        "city": "嘉定",
+        "registration_address": "上海市嘉定区江桥镇沙河路337号1_203室J1561"
+      }
+    },
+    {
+      "content": "上海七里街信息科技有限公司位于上海嘉定",
+      "type": "company_location",
+      "doc_id": "cdf4d9164c1ecb4a",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海七里街信息科技有限公司",
+        "province": "上海",
+        "city": "嘉定",
+        "registration_address": "上海市嘉定区江桥镇沙河路337号1_203室J1561"
+      }
+    },
+    {
+      "content": "上海保铭机电科技有限公司的注册地址是上海市杨浦区翔殷路165号9幢五层集中登记地",
+      "type": "company_location",
+      "doc_id": "0938fa8ef401a6b9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海保铭机电科技有限公司",
+        "province": "上海",
+        "city": "杨浦",
+        "registration_address": "上海市杨浦区翔殷路165号9幢五层集中登记地"
+      }
+    },
+    {
+      "content": "上海保铭机电科技有限公司位于上海杨浦",
+      "type": "company_location",
+      "doc_id": "3b25eb907269e873",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海保铭机电科技有限公司",
+        "province": "上海",
+        "city": "杨浦",
+        "registration_address": "上海市杨浦区翔殷路165号9幢五层集中登记地"
+      }
+    },
+    {
+      "content": "上海仟禧猫贸易有限公司的注册地址是上海市奉贤区明城路1088弄7号1-2层",
+      "type": "company_location",
+      "doc_id": "a5acf91c6eaed0ef",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仟禧猫贸易有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区明城路1088弄7号1-2层"
+      }
+    },
+    {
+      "content": "上海仟禧猫贸易有限公司位于上海奉贤",
+      "type": "company_location",
+      "doc_id": "ddccfec0355fee29",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仟禧猫贸易有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区明城路1088弄7号1-2层"
+      }
+    },
+    {
+      "content": "上海二毛信息咨询有限公司的注册地址是上海市宝山区沪太路6397号1-2层F37区1055室",
+      "type": "company_location",
+      "doc_id": "0bf5352cb172c53b",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海二毛信息咨询有限公司",
+        "province": "上海",
+        "city": "宝山",
+        "registration_address": "上海市宝山区沪太路6397号1-2层F37区1055室"
+      }
+    },
+    {
+      "content": "上海二毛信息咨询有限公司位于上海宝山",
+      "type": "company_location",
+      "doc_id": "ecf538215cc21e86",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海二毛信息咨询有限公司",
+        "province": "上海",
+        "city": "宝山",
+        "registration_address": "上海市宝山区沪太路6397号1-2层F37区1055室"
+      }
+    },
+    {
+      "content": "上海万原市场营销策划有限公司的注册地址是上海市崇明区城桥镇乔松路492号一层4区9室上海城桥经济开发区",
+      "type": "company_location",
+      "doc_id": "913325401c87aa0c",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海万原市场营销策划有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区城桥镇乔松路492号一层4区9室上海城桥经济开发区"
+      }
+    },
+    {
+      "content": "上海万原市场营销策划有限公司位于上海崇明",
+      "type": "company_location",
+      "doc_id": "745c17cea49b4f4f",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海万原市场营销策划有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区城桥镇乔松路492号一层4区9室上海城桥经济开发区"
+      }
+    },
+    {
+      "content": "上海云佰科技发展有限公司的注册地址是上海市松江区泗泾镇文化路298号",
+      "type": "company_location",
+      "doc_id": "21854b7aed5af333",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海云佰科技发展有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区泗泾镇文化路298号"
+      }
+    },
+    {
+      "content": "上海云佰科技发展有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "14b5c0adc60fdc28",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海云佰科技发展有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区泗泾镇文化路298号"
+      }
+    },
+    {
+      "content": "上海二虎餐饮管理有限公司的注册地址是上海市松江区小昆山镇港业路216号",
+      "type": "company_location",
+      "doc_id": "47e9ffbb7e1daf91",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海二虎餐饮管理有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区小昆山镇港业路216号"
+      }
+    },
+    {
+      "content": "上海二虎餐饮管理有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "d4b4f352b4b498a9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海二虎餐饮管理有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区小昆山镇港业路216号"
+      }
+    },
+    {
+      "content": "上海三鼎房地产经纪有限公司的注册地址是上海市松江区小昆山镇港业路158弄2号B169幢",
+      "type": "company_location",
+      "doc_id": "e2418927fd1f576e",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海三鼎房地产经纪有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区小昆山镇港业路158弄2号B169幢"
+      }
+    },
+    {
+      "content": "上海三鼎房地产经纪有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "c329ee98ae509372",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海三鼎房地产经纪有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区小昆山镇港业路158弄2号B169幢"
+      }
+    },
+    {
+      "content": "上海代先国际物流有限公司的注册地址是上海市崇明区横沙乡富民支路58号A3-4262室上海横泰经济开发区",
+      "type": "company_location",
+      "doc_id": "8523bff82cfba8ab",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海代先国际物流有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区横沙乡富民支路58号A3-4262室上海横泰经济开发区"
+      }
+    },
+    {
+      "content": "上海代先国际物流有限公司位于上海崇明",
+      "type": "company_location",
+      "doc_id": "9e955f3797bd2d51",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海代先国际物流有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区横沙乡富民支路58号A3-4262室上海横泰经济开发区"
+      }
+    },
+    {
+      "content": "上海二郎农副产品有限公司的注册地址是上海市奉贤区航南公路6666号1幢5层972室",
+      "type": "company_location",
+      "doc_id": "34b8ba3b9ecd22e6",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海二郎农副产品有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区航南公路6666号1幢5层972室"
+      }
+    },
+    {
+      "content": "上海二郎农副产品有限公司位于上海奉贤",
+      "type": "company_location",
+      "doc_id": "7bff48e3af991bf6",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海二郎农副产品有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区航南公路6666号1幢5层972室"
+      }
+    },
+    {
+      "content": "上海万予文化发展有限公司的注册地址是上海市浦东新区黄赵路318号104C5室",
+      "type": "company_location",
+      "doc_id": "ac79d2e039c4e9b9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海万予文化发展有限公司",
+        "province": "上海",
+        "city": "浦东",
+        "registration_address": "上海市浦东新区黄赵路318号104C5室"
+      }
+    },
+    {
+      "content": "上海万予文化发展有限公司位于上海浦东",
+      "type": "company_location",
+      "doc_id": "5d62821c4301780a",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海万予文化发展有限公司",
+        "province": "上海",
+        "city": "浦东",
+        "registration_address": "上海市浦东新区黄赵路318号104C5室"
+      }
+    },
+    {
+      "content": "上海九锦企业管理咨询有限公司的注册地址是上海市宝山区淞滨路500号6幢B362室",
+      "type": "company_location",
+      "doc_id": "49be2cc55a30f2a9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海九锦企业管理咨询有限公司",
+        "province": "上海",
+        "city": "宝山",
+        "registration_address": "上海市宝山区淞滨路500号6幢B362室"
+      }
+    },
+    {
+      "content": "上海九锦企业管理咨询有限公司位于上海宝山",
+      "type": "company_location",
+      "doc_id": "1e884b9bdd54eb52",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海九锦企业管理咨询有限公司",
+        "province": "上海",
+        "city": "宝山",
+        "registration_address": "上海市宝山区淞滨路500号6幢B362室"
+      }
+    },
+    {
+      "content": "上海世秒信息技术有限公司的注册地址是上海市松江区小昆山镇港业路216号",
+      "type": "company_location",
+      "doc_id": "01e2056fc95efde0",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海世秒信息技术有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区小昆山镇港业路216号"
+      }
+    },
+    {
+      "content": "上海世秒信息技术有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "1fa4f27fad8e5b8a",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海世秒信息技术有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区小昆山镇港业路216号"
+      }
+    },
+    {
+      "content": "上海云伙计财务咨询有限公司的注册地址是上海市普陀区绥德路889弄5号281室",
+      "type": "company_location",
+      "doc_id": "c144f73101f92c53",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海云伙计财务咨询有限公司",
+        "province": "上海",
+        "city": "普陀",
+        "registration_address": "上海市普陀区绥德路889弄5号281室"
+      }
+    },
+    {
+      "content": "上海云伙计财务咨询有限公司位于上海普陀",
+      "type": "company_location",
+      "doc_id": "416bed3c432d604b",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海云伙计财务咨询有限公司",
+        "province": "上海",
+        "city": "普陀",
+        "registration_address": "上海市普陀区绥德路889弄5号281室"
+      }
+    },
+    {
+      "content": "上海佰毅特种材料有限公司的注册地址是上海市松江区车墩镇莘莘路32号4399",
+      "type": "company_location",
+      "doc_id": "36b8ce8f6a8e09b9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海佰毅特种材料有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区车墩镇莘莘路32号4399"
+      }
+    },
+    {
+      "content": "上海佰毅特种材料有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "f462a1e16109ccf9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海佰毅特种材料有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区车墩镇莘莘路32号4399"
+      }
+    },
+    {
+      "content": "上海京宛商贸有限公司的注册地址是上海市奉贤区大叶公路5225号5幢4204室",
+      "type": "company_location",
+      "doc_id": "5223ae672bce0f5d",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海京宛商贸有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区大叶公路5225号5幢4204室"
+      }
+    },
+    {
+      "content": "上海京宛商贸有限公司位于上海奉贤",
+      "type": "company_location",
+      "doc_id": "62e67ec892697b07",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海京宛商贸有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区大叶公路5225号5幢4204室"
+      }
+    },
+    {
+      "content": "上海中威展览展示有限公司的注册地址是上海市崇明区长兴镇潘园公路1800号3号楼53486室上海泰和经济发展区",
+      "type": "company_location",
+      "doc_id": "aabde5d63ba776c4",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海中威展览展示有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区长兴镇潘园公路1800号3号楼53486室上海泰和经济发展区"
+      }
+    },
+    {
+      "content": "上海中威展览展示有限公司位于上海崇明",
+      "type": "company_location",
+      "doc_id": "b208b007e926acbb",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海中威展览展示有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区长兴镇潘园公路1800号3号楼53486室上海泰和经济发展区"
+      }
+    },
+    {
+      "content": "上海一庭园林绿化工程有限公司的注册地址是上海市松江区石湖荡镇石湖新路95号",
+      "type": "company_location",
+      "doc_id": "0ff859cee5b80054",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海一庭园林绿化工程有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区石湖荡镇石湖新路95号"
+      }
+    },
+    {
+      "content": "上海一庭园林绿化工程有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "d3ef610e701ae0aa",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海一庭园林绿化工程有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区石湖荡镇石湖新路95号"
+      }
+    },
+    {
+      "content": "上海亚比机电设备有限公司的注册地址是上海市松江区佘山镇陶干路701号5幢",
+      "type": "company_location",
+      "doc_id": "8d1be73d686cf1e9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亚比机电设备有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区佘山镇陶干路701号5幢"
+      }
+    },
+    {
+      "content": "上海亚比机电设备有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "03e0e5f94c607aa9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亚比机电设备有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区佘山镇陶干路701号5幢"
+      }
+    },
+    {
+      "content": "上海亿凯文化传媒有限公司的注册地址是上海市奉贤区金汇工业路1390号4幢3225室",
+      "type": "company_location",
+      "doc_id": "a050aee7b21420e0",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亿凯文化传媒有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区金汇工业路1390号4幢3225室"
+      }
+    },
+    {
+      "content": "上海亿凯文化传媒有限公司位于上海奉贤",
+      "type": "company_location",
+      "doc_id": "a7c29b376c5472dc",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亿凯文化传媒有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区金汇工业路1390号4幢3225室"
+      }
+    },
+    {
+      "content": "上海万成餐饮管理有限公司的注册地址是上海市长宁区虹桥路1438号1幢7层07-02号店铺",
+      "type": "company_location",
+      "doc_id": "2c10e17456c499f0",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海万成餐饮管理有限公司",
+        "province": "上海",
+        "city": "长宁",
+        "registration_address": "上海市长宁区虹桥路1438号1幢7层07-02号店铺"
+      }
+    },
+    {
+      "content": "上海万成餐饮管理有限公司位于上海长宁",
+      "type": "company_location",
+      "doc_id": "7cb94361f21b6530",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海万成餐饮管理有限公司",
+        "province": "上海",
+        "city": "长宁",
+        "registration_address": "上海市长宁区虹桥路1438号1幢7层07-02号店铺"
+      }
+    },
+    {
+      "content": "上海仰东装饰设计有限公司的注册地址是上海市奉贤区金海公路3265号14幢12268室",
+      "type": "company_location",
+      "doc_id": "a6837908224a37f9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仰东装饰设计有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区金海公路3265号14幢12268室"
+      }
+    },
+    {
+      "content": "上海仰东装饰设计有限公司位于上海奉贤",
+      "type": "company_location",
+      "doc_id": "0346cce1ca84da55",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仰东装饰设计有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区金海公路3265号14幢12268室"
+      }
+    },
+    {
+      "content": "上海亿发洗涤服务有限公司的注册地址是上海市松江区叶榭镇叶旺路1号三楼",
+      "type": "company_location",
+      "doc_id": "a73ed09efa0547fc",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亿发洗涤服务有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区叶榭镇叶旺路1号三楼"
+      }
+    },
+    {
+      "content": "上海亿发洗涤服务有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "d2c156a43f794fc0",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亿发洗涤服务有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区叶榭镇叶旺路1号三楼"
+      }
+    },
+    {
+      "content": "上海习声建筑工程有限公司的注册地址是上海市奉贤区金海公路4808弄30号408室",
+      "type": "company_location",
+      "doc_id": "dd61cec6910937bc",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海习声建筑工程有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区金海公路4808弄30号408室"
+      }
+    },
+    {
+      "content": "上海习声建筑工程有限公司位于上海奉贤",
+      "type": "company_location",
+      "doc_id": "8d39c93f4ecadccf",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海习声建筑工程有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区金海公路4808弄30号408室"
+      }
+    },
+    {
+      "content": "上海乐蜀建筑工程有限公司的注册地址是上海市崇明区横沙乡富民支路58号D3-472室上海横泰经济开发区",
+      "type": "company_location",
+      "doc_id": "c5a5ce9a838d01a1",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海乐蜀建筑工程有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区横沙乡富民支路58号D3-472室上海横泰经济开发区"
+      }
+    },
+    {
+      "content": "上海乐蜀建筑工程有限公司位于上海崇明",
+      "type": "company_location",
+      "doc_id": "17318c65c5b25591",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海乐蜀建筑工程有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区横沙乡富民支路58号D3-472室上海横泰经济开发区"
+      }
+    },
+    {
+      "content": "上海上行线文化传播有限公司的注册地址是上海市嘉定区菊园新区环城路2222号1幢J3409室",
+      "type": "company_location",
+      "doc_id": "3cc8b4d611513326",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海上行线文化传播有限公司",
+        "province": "上海",
+        "city": "嘉定",
+        "registration_address": "上海市嘉定区菊园新区环城路2222号1幢J3409室"
+      }
+    },
+    {
+      "content": "上海上行线文化传播有限公司位于上海嘉定",
+      "type": "company_location",
+      "doc_id": "c521b2fbb43198df",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海上行线文化传播有限公司",
+        "province": "上海",
+        "city": "嘉定",
+        "registration_address": "上海市嘉定区菊园新区环城路2222号1幢J3409室"
+      }
+    },
+    {
+      "content": "上海乐必科企业发展有限公司的注册地址是上海市奉贤区庄行镇光明中心路68号4幢6层620室",
+      "type": "company_location",
+      "doc_id": "e857d3814373e046",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海乐必科企业发展有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区庄行镇光明中心路68号4幢6层620室"
+      }
+    },
+    {
+      "content": "上海乐必科企业发展有限公司位于上海奉贤",
+      "type": "company_location",
+      "doc_id": "69aa01d7007175d5",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海乐必科企业发展有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区庄行镇光明中心路68号4幢6层620室"
+      }
+    },
+    {
+      "content": "上海依图商贸有限公司的注册地址是上海市金山区卫昌路315号2幢1466室",
+      "type": "company_location",
+      "doc_id": "77d5121eee2d7fd8",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海依图商贸有限公司",
+        "province": "上海",
+        "city": "金山",
+        "registration_address": "上海市金山区卫昌路315号2幢1466室"
+      }
+    },
+    {
+      "content": "上海依图商贸有限公司位于上海金山",
+      "type": "company_location",
+      "doc_id": "0344062d8c0e232d",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海依图商贸有限公司",
+        "province": "上海",
+        "city": "金山",
+        "registration_address": "上海市金山区卫昌路315号2幢1466室"
+      }
+    },
+    {
+      "content": "上海体特宝体育发展有限公司浦东第二分公司的注册地址是上海市浦东新区东煦路666号101室",
+      "type": "company_location",
+      "doc_id": "0170d0ea2153c595",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海体特宝体育发展有限公司浦东第二分公司",
+        "province": "上海",
+        "city": "浦东",
+        "registration_address": "上海市浦东新区东煦路666号101室"
+      }
+    },
+    {
+      "content": "上海体特宝体育发展有限公司浦东第二分公司位于上海浦东",
+      "type": "company_location",
+      "doc_id": "70e659d1b9318c62",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海体特宝体育发展有限公司浦东第二分公司",
+        "province": "上海",
+        "city": "浦东",
+        "registration_address": "上海市浦东新区东煦路666号101室"
+      }
+    },
+    {
+      "content": "上海三顺咨询管理有限公司的注册地址是上海市奉贤区奉浦工业区奉浦大道111号6楼2478室",
+      "type": "company_location",
+      "doc_id": "163e4fb059bc6b0f",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海三顺咨询管理有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区奉浦工业区奉浦大道111号6楼2478室"
+      }
+    },
+    {
+      "content": "上海三顺咨询管理有限公司位于上海奉贤",
+      "type": "company_location",
+      "doc_id": "152a125652395dbd",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海三顺咨询管理有限公司",
+        "province": "上海",
+        "city": "奉贤",
+        "registration_address": "上海市奉贤区奉浦工业区奉浦大道111号6楼2478室"
+      }
+    },
+    {
+      "content": "上海主爱计算机信息技术有限公司的注册地址是上海市宝山区沪太路6397号1-2层A5224室",
+      "type": "company_location",
+      "doc_id": "e57bf8eebe241030",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海主爱计算机信息技术有限公司",
+        "province": "上海",
+        "city": "宝山",
+        "registration_address": "上海市宝山区沪太路6397号1-2层A5224室"
+      }
+    },
+    {
+      "content": "上海主爱计算机信息技术有限公司位于上海宝山",
+      "type": "company_location",
+      "doc_id": "7b9735a49c9aad60",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海主爱计算机信息技术有限公司",
+        "province": "上海",
+        "city": "宝山",
+        "registration_address": "上海市宝山区沪太路6397号1-2层A5224室"
+      }
+    },
+    {
+      "content": "上海众魁网络科技中心的注册地址是上海市崇明区长兴镇潘园公路1800号3号楼39818室上海泰和经济发展区",
+      "type": "company_location",
+      "doc_id": "78e0a9e9203dd122",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海众魁网络科技中心",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区长兴镇潘园公路1800号3号楼39818室上海泰和经济发展区"
+      }
+    },
+    {
+      "content": "上海众魁网络科技中心位于上海崇明",
+      "type": "company_location",
+      "doc_id": "ea262c50223cb317",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海众魁网络科技中心",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区长兴镇潘园公路1800号3号楼39818室上海泰和经济发展区"
+      }
+    },
+    {
+      "content": "上海亿塘信息技术有限公司的注册地址是上海市崇明区北沿公路2111号3幢225-25室上海崇明森林旅游园区",
+      "type": "company_location",
+      "doc_id": "a4a802d12c11492f",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亿塘信息技术有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区北沿公路2111号3幢225-25室上海崇明森林旅游园区"
+      }
+    },
+    {
+      "content": "上海亿塘信息技术有限公司位于上海崇明",
+      "type": "company_location",
+      "doc_id": "ae188505bd6bd415",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亿塘信息技术有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区北沿公路2111号3幢225-25室上海崇明森林旅游园区"
+      }
+    },
+    {
+      "content": "上海伊清斋清真餐饮管理有限公司闵行分公司的注册地址是上海市闵行区申长路1688弄1-12号地下1层05室",
+      "type": "company_location",
+      "doc_id": "d0708bfe00d89db0",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伊清斋清真餐饮管理有限公司闵行分公司",
+        "province": "上海",
+        "city": "闵行",
+        "registration_address": "上海市闵行区申长路1688弄1-12号地下1层05室"
+      }
+    },
+    {
+      "content": "上海伊清斋清真餐饮管理有限公司闵行分公司位于上海闵行",
+      "type": "company_location",
+      "doc_id": "44502f3b63e2071e",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伊清斋清真餐饮管理有限公司闵行分公司",
+        "province": "上海",
+        "city": "闵行",
+        "registration_address": "上海市闵行区申长路1688弄1-12号地下1层05室"
+      }
+    },
+    {
+      "content": "上海俏诸电子商务有限公司的注册地址是上海市崇明区庙镇宏海公路2052号B幢8198室上海庙镇经济开发区",
+      "type": "company_location",
+      "doc_id": "5ea3d0cdb1fa4659",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海俏诸电子商务有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区庙镇宏海公路2052号B幢8198室上海庙镇经济开发区"
+      }
+    },
+    {
+      "content": "上海俏诸电子商务有限公司位于上海崇明",
+      "type": "company_location",
+      "doc_id": "80a875f1e7b08560",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海俏诸电子商务有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区庙镇宏海公路2052号B幢8198室上海庙镇经济开发区"
+      }
+    },
+    {
+      "content": "上海佳猷医疗科技有限公司的注册地址是上海市崇明区横沙乡富民支路58号A3-4381室上海横泰经济开发区",
+      "type": "company_location",
+      "doc_id": "d73e9e942fa492fc",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海佳猷医疗科技有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区横沙乡富民支路58号A3-4381室上海横泰经济开发区"
+      }
+    },
+    {
+      "content": "上海佳猷医疗科技有限公司位于上海崇明",
+      "type": "company_location",
+      "doc_id": "d6a268b1de87af70",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海佳猷医疗科技有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区横沙乡富民支路58号A3-4381室上海横泰经济开发区"
+      }
+    },
+    {
+      "content": "上海众元建设项目管理有限公司的注册地址是上海市松江区佘山镇陶干路701号5幢",
+      "type": "company_location",
+      "doc_id": "3b2474442819ce82",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海众元建设项目管理有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区佘山镇陶干路701号5幢"
+      }
+    },
+    {
+      "content": "上海众元建设项目管理有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "1b03d5a9874c61e7",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海众元建设项目管理有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区佘山镇陶干路701号5幢"
+      }
+    },
+    {
+      "content": "上海伟利广告有限公司的注册地址是上海市松江区叶榭镇叶旺路1号1楼",
+      "type": "company_location",
+      "doc_id": "4edf105126650875",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伟利广告有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区叶榭镇叶旺路1号1楼"
+      }
+    },
+    {
+      "content": "上海伟利广告有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "f5d51cb7fda02c6b",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伟利广告有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区叶榭镇叶旺路1号1楼"
+      }
+    },
+    {
+      "content": "上海一线实业有限公司的注册地址是上海市宝山区沪太路6397号1-2层F8区1187室",
+      "type": "company_location",
+      "doc_id": "9002c1267288ac90",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海一线实业有限公司",
+        "province": "上海",
+        "city": "宝山",
+        "registration_address": "上海市宝山区沪太路6397号1-2层F8区1187室"
+      }
+    },
+    {
+      "content": "上海一线实业有限公司位于上海宝山",
+      "type": "company_location",
+      "doc_id": "6153e10cf732c3d7",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海一线实业有限公司",
+        "province": "上海",
+        "city": "宝山",
+        "registration_address": "上海市宝山区沪太路6397号1-2层F8区1187室"
+      }
+    },
+    {
+      "content": "上海三宛文化发展有限公司的注册地址是上海市松江区新松江路1800弄3号",
+      "type": "company_location",
+      "doc_id": "1b18a728f71e8994",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海三宛文化发展有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区新松江路1800弄3号"
+      }
+    },
+    {
+      "content": "上海三宛文化发展有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "402351b8b63c3ff7",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海三宛文化发展有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区新松江路1800弄3号"
+      }
+    },
+    {
+      "content": "上海众家房地产营销策划有限公司的注册地址是上海市松江区叶榭镇富成路1275号",
+      "type": "company_location",
+      "doc_id": "60dddd1775a84d54",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海众家房地产营销策划有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区叶榭镇富成路1275号"
+      }
+    },
+    {
+      "content": "上海众家房地产营销策划有限公司位于上海松江",
+      "type": "company_location",
+      "doc_id": "d0927f2e1b5038ad",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海众家房地产营销策划有限公司",
+        "province": "上海",
+        "city": "松江",
+        "registration_address": "上海市松江区叶榭镇富成路1275号"
+      }
+    },
+    {
+      "content": "上海东谷供应链管理有限公司的注册地址是上海市崇明区北沿公路2111号3幢131-57室上海崇明森林旅游园区",
+      "type": "company_location",
+      "doc_id": "14cc8b231f19ef21",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海东谷供应链管理有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区北沿公路2111号3幢131-57室上海崇明森林旅游园区"
+      }
+    },
+    {
+      "content": "上海东谷供应链管理有限公司位于上海崇明",
+      "type": "company_location",
+      "doc_id": "d9a9e9fb8300f83a",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海东谷供应链管理有限公司",
+        "province": "上海",
+        "city": "崇明",
+        "registration_address": "上海市崇明区北沿公路2111号3幢131-57室上海崇明森林旅游园区"
+      }
+    },
+    {
+      "content": "上海东喜文化传媒有限公司的注册地址是浦东新区大团镇东大公路2458号",
+      "type": "company_location",
+      "doc_id": "3887c76c4f97772e",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海东喜文化传媒有限公司",
+        "province": "上海",
+        "city": "浦东",
+        "registration_address": "浦东新区大团镇东大公路2458号"
+      }
+    },
+    {
+      "content": "上海东喜文化传媒有限公司位于上海浦东",
+      "type": "company_location",
+      "doc_id": "1f9080ad9de01d17",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海东喜文化传媒有限公司",
+        "province": "上海",
+        "city": "浦东",
+        "registration_address": "浦东新区大团镇东大公路2458号"
+      }
+    }
+  ]
+}

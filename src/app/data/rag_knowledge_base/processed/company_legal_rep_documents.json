@@ -1,0 +1,1007 @@
+{
+  "type": "company_legal_rep",
+  "count": 32413,
+  "weight": 0.9,
+  "documents": [
+    {
+      "content": "上海仓祥绿化工程有限公司的法定代表人是陈磊",
+      "type": "company_legal_rep",
+      "doc_id": "ae7df2ae8344b8ce",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仓祥绿化工程有限公司",
+        "legal_representative": "陈磊"
+      }
+    },
+    {
+      "content": "上海也兴网络科技合伙企业有限合伙的法定代表人是王皖秦",
+      "type": "company_legal_rep",
+      "doc_id": "8e156fa9db7d727a",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海也兴网络科技合伙企业有限合伙",
+        "legal_representative": "王皖秦"
+      }
+    },
+    {
+      "content": "上海伍戴实业有限公司的法定代表人是伍齐强",
+      "type": "company_legal_rep",
+      "doc_id": "7df8f5c711dafe8c",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伍戴实业有限公司",
+        "legal_representative": "伍齐强"
+      }
+    },
+    {
+      "content": "上海丹铭电气科技有限公司的法定代表人是潘光吉",
+      "type": "company_legal_rep",
+      "doc_id": "c7a475cb4348e0c5",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海丹铭电气科技有限公司",
+        "legal_representative": "潘光吉"
+      }
+    },
+    {
+      "content": "上海何衢贸易有限公司的法定代表人是刘慧彬",
+      "type": "company_legal_rep",
+      "doc_id": "7fd31acd958bacd8",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海何衢贸易有限公司",
+        "legal_representative": "刘慧彬"
+      }
+    },
+    {
+      "content": "上海为晨教育科技有限公司的法定代表人是位世华",
+      "type": "company_legal_rep",
+      "doc_id": "46adc484bb1040a0",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海为晨教育科技有限公司",
+        "legal_representative": "位世华"
+      }
+    },
+    {
+      "content": "上海代居科技有限公司的法定代表人是吴巨鹏",
+      "type": "company_legal_rep",
+      "doc_id": "58ab3f9d18705cc2",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海代居科技有限公司",
+        "legal_representative": "吴巨鹏"
+      }
+    },
+    {
+      "content": "上海七里街信息科技有限公司的法定代表人是肖爱峰",
+      "type": "company_legal_rep",
+      "doc_id": "798592d915e5a69c",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海七里街信息科技有限公司",
+        "legal_representative": "肖爱峰"
+      }
+    },
+    {
+      "content": "上海保铭机电科技有限公司的法定代表人是朱少宝",
+      "type": "company_legal_rep",
+      "doc_id": "9920ca47c6ddb919",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海保铭机电科技有限公司",
+        "legal_representative": "朱少宝"
+      }
+    },
+    {
+      "content": "上海仟禧猫贸易有限公司的法定代表人是郑书娟",
+      "type": "company_legal_rep",
+      "doc_id": "405d3379f933a5b4",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仟禧猫贸易有限公司",
+        "legal_representative": "郑书娟"
+      }
+    },
+    {
+      "content": "上海二毛信息咨询有限公司的法定代表人是唐晶晶",
+      "type": "company_legal_rep",
+      "doc_id": "c0b233153e9147e2",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海二毛信息咨询有限公司",
+        "legal_representative": "唐晶晶"
+      }
+    },
+    {
+      "content": "上海万原市场营销策划有限公司的法定代表人是赵研",
+      "type": "company_legal_rep",
+      "doc_id": "d21c429088345a2b",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海万原市场营销策划有限公司",
+        "legal_representative": "赵研"
+      }
+    },
+    {
+      "content": "上海云佰科技发展有限公司的法定代表人是季文武",
+      "type": "company_legal_rep",
+      "doc_id": "2d1d074b44446584",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海云佰科技发展有限公司",
+        "legal_representative": "季文武"
+      }
+    },
+    {
+      "content": "上海二虎餐饮管理有限公司的法定代表人是丁亚辉",
+      "type": "company_legal_rep",
+      "doc_id": "1358f522939878a2",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海二虎餐饮管理有限公司",
+        "legal_representative": "丁亚辉"
+      }
+    },
+    {
+      "content": "上海三鼎房地产经纪有限公司的法定代表人是刘帅",
+      "type": "company_legal_rep",
+      "doc_id": "675069338b49aff1",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海三鼎房地产经纪有限公司",
+        "legal_representative": "刘帅"
+      }
+    },
+    {
+      "content": "上海代先国际物流有限公司的法定代表人是代艳灵",
+      "type": "company_legal_rep",
+      "doc_id": "66922fe8b0285d49",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海代先国际物流有限公司",
+        "legal_representative": "代艳灵"
+      }
+    },
+    {
+      "content": "上海二郎农副产品有限公司的法定代表人是侯庆卓",
+      "type": "company_legal_rep",
+      "doc_id": "c2633cc0ce14df9f",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海二郎农副产品有限公司",
+        "legal_representative": "侯庆卓"
+      }
+    },
+    {
+      "content": "上海万予文化发展有限公司的法定代表人是待补充中文姓名",
+      "type": "company_legal_rep",
+      "doc_id": "fb4dc2989036a7f6",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海万予文化发展有限公司",
+        "legal_representative": "待补充中文姓名"
+      }
+    },
+    {
+      "content": "上海九锦企业管理咨询有限公司的法定代表人是程航",
+      "type": "company_legal_rep",
+      "doc_id": "de3303d21072b6c7",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海九锦企业管理咨询有限公司",
+        "legal_representative": "程航"
+      }
+    },
+    {
+      "content": "上海世秒信息技术有限公司的法定代表人是黄河",
+      "type": "company_legal_rep",
+      "doc_id": "2c0485f487db3711",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海世秒信息技术有限公司",
+        "legal_representative": "黄河"
+      }
+    },
+    {
+      "content": "上海云伙计财务咨询有限公司的法定代表人是黄建",
+      "type": "company_legal_rep",
+      "doc_id": "1f1537cbff0a26fb",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海云伙计财务咨询有限公司",
+        "legal_representative": "黄建"
+      }
+    },
+    {
+      "content": "上海佰毅特种材料有限公司的法定代表人是吴小伟",
+      "type": "company_legal_rep",
+      "doc_id": "2777273cce5128f3",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海佰毅特种材料有限公司",
+        "legal_representative": "吴小伟"
+      }
+    },
+    {
+      "content": "上海京宛商贸有限公司的法定代表人是关宪希",
+      "type": "company_legal_rep",
+      "doc_id": "5c815008025fdf4e",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海京宛商贸有限公司",
+        "legal_representative": "关宪希"
+      }
+    },
+    {
+      "content": "上海中威展览展示有限公司的法定代表人是王萍",
+      "type": "company_legal_rep",
+      "doc_id": "89b981df03cd52a2",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海中威展览展示有限公司",
+        "legal_representative": "王萍"
+      }
+    },
+    {
+      "content": "上海一庭园林绿化工程有限公司的法定代表人是蒋永旭",
+      "type": "company_legal_rep",
+      "doc_id": "e1ce99621a951061",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海一庭园林绿化工程有限公司",
+        "legal_representative": "蒋永旭"
+      }
+    },
+    {
+      "content": "上海亚比机电设备有限公司的法定代表人是彭琴",
+      "type": "company_legal_rep",
+      "doc_id": "81105c2090ebce2a",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亚比机电设备有限公司",
+        "legal_representative": "彭琴"
+      }
+    },
+    {
+      "content": "上海亿凯文化传媒有限公司的法定代表人是杜春凤",
+      "type": "company_legal_rep",
+      "doc_id": "50e0845445a73245",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亿凯文化传媒有限公司",
+        "legal_representative": "杜春凤"
+      }
+    },
+    {
+      "content": "上海万成餐饮管理有限公司的法定代表人是吴晓梅",
+      "type": "company_legal_rep",
+      "doc_id": "f9ff26d9c4badda9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海万成餐饮管理有限公司",
+        "legal_representative": "吴晓梅"
+      }
+    },
+    {
+      "content": "上海仰东装饰设计有限公司的法定代表人是王彪",
+      "type": "company_legal_rep",
+      "doc_id": "021d7e5db2e975ad",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仰东装饰设计有限公司",
+        "legal_representative": "王彪"
+      }
+    },
+    {
+      "content": "上海亿发洗涤服务有限公司的法定代表人是陈红燕",
+      "type": "company_legal_rep",
+      "doc_id": "af81750efbb0f505",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亿发洗涤服务有限公司",
+        "legal_representative": "陈红燕"
+      }
+    },
+    {
+      "content": "上海习声建筑工程有限公司的法定代表人是史武海",
+      "type": "company_legal_rep",
+      "doc_id": "eeb88ba3cafe5e8e",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海习声建筑工程有限公司",
+        "legal_representative": "史武海"
+      }
+    },
+    {
+      "content": "上海乐蜀建筑工程有限公司的法定代表人是张金妹",
+      "type": "company_legal_rep",
+      "doc_id": "d0943a51292a6028",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海乐蜀建筑工程有限公司",
+        "legal_representative": "张金妹"
+      }
+    },
+    {
+      "content": "上海上行线文化传播有限公司的法定代表人是王君",
+      "type": "company_legal_rep",
+      "doc_id": "11091c1cf42e7af6",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海上行线文化传播有限公司",
+        "legal_representative": "王君"
+      }
+    },
+    {
+      "content": "上海乐必科企业发展有限公司的法定代表人是孙根党",
+      "type": "company_legal_rep",
+      "doc_id": "860d4cda6ff943c9",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海乐必科企业发展有限公司",
+        "legal_representative": "孙根党"
+      }
+    },
+    {
+      "content": "上海依图商贸有限公司的法定代表人是屠文英",
+      "type": "company_legal_rep",
+      "doc_id": "e86b1d8747029d97",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海依图商贸有限公司",
+        "legal_representative": "屠文英"
+      }
+    },
+    {
+      "content": "上海体特宝体育发展有限公司浦东第二分公司的法定代表人是徐顺湖",
+      "type": "company_legal_rep",
+      "doc_id": "bd82b232dd00b03d",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海体特宝体育发展有限公司浦东第二分公司",
+        "legal_representative": "徐顺湖"
+      }
+    },
+    {
+      "content": "上海三顺咨询管理有限公司的法定代表人是待补充中文姓名",
+      "type": "company_legal_rep",
+      "doc_id": "a2806616afd16daf",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海三顺咨询管理有限公司",
+        "legal_representative": "待补充中文姓名"
+      }
+    },
+    {
+      "content": "上海主爱计算机信息技术有限公司的法定代表人是刘飞",
+      "type": "company_legal_rep",
+      "doc_id": "b91c966ec6dd6d32",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海主爱计算机信息技术有限公司",
+        "legal_representative": "刘飞"
+      }
+    },
+    {
+      "content": "上海众魁网络科技中心的法定代表人是李小平",
+      "type": "company_legal_rep",
+      "doc_id": "ea1d4282b2650bb8",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海众魁网络科技中心",
+        "legal_representative": "李小平"
+      }
+    },
+    {
+      "content": "上海亿塘信息技术有限公司的法定代表人是黄瑛",
+      "type": "company_legal_rep",
+      "doc_id": "9e5f8067c64f50da",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亿塘信息技术有限公司",
+        "legal_representative": "黄瑛"
+      }
+    },
+    {
+      "content": "上海伊清斋清真餐饮管理有限公司闵行分公司的法定代表人是马鸿斌",
+      "type": "company_legal_rep",
+      "doc_id": "b56bf5a98d0bd78e",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伊清斋清真餐饮管理有限公司闵行分公司",
+        "legal_representative": "马鸿斌"
+      }
+    },
+    {
+      "content": "上海俏诸电子商务有限公司的法定代表人是杨占全",
+      "type": "company_legal_rep",
+      "doc_id": "6a6f3344e6155da4",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海俏诸电子商务有限公司",
+        "legal_representative": "杨占全"
+      }
+    },
+    {
+      "content": "上海佳猷医疗科技有限公司的法定代表人是刘泽",
+      "type": "company_legal_rep",
+      "doc_id": "52cc49d8a38f3e7d",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海佳猷医疗科技有限公司",
+        "legal_representative": "刘泽"
+      }
+    },
+    {
+      "content": "上海众元建设项目管理有限公司的法定代表人是顾伟",
+      "type": "company_legal_rep",
+      "doc_id": "aa8fab39f9a94884",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海众元建设项目管理有限公司",
+        "legal_representative": "顾伟"
+      }
+    },
+    {
+      "content": "上海伟利广告有限公司的法定代表人是潘运波",
+      "type": "company_legal_rep",
+      "doc_id": "934e6b24295fbc5c",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伟利广告有限公司",
+        "legal_representative": "潘运波"
+      }
+    },
+    {
+      "content": "上海一线实业有限公司的法定代表人是唐海军",
+      "type": "company_legal_rep",
+      "doc_id": "1dafebd92537d34a",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海一线实业有限公司",
+        "legal_representative": "唐海军"
+      }
+    },
+    {
+      "content": "上海三宛文化发展有限公司的法定代表人是朱俊杰",
+      "type": "company_legal_rep",
+      "doc_id": "4cca83d03f1e8dc5",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海三宛文化发展有限公司",
+        "legal_representative": "朱俊杰"
+      }
+    },
+    {
+      "content": "上海众家房地产营销策划有限公司的法定代表人是马坤",
+      "type": "company_legal_rep",
+      "doc_id": "0d39843b3cbfa8ed",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海众家房地产营销策划有限公司",
+        "legal_representative": "马坤"
+      }
+    },
+    {
+      "content": "上海东谷供应链管理有限公司的法定代表人是罗翔宇",
+      "type": "company_legal_rep",
+      "doc_id": "f53dc26377575e4c",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海东谷供应链管理有限公司",
+        "legal_representative": "罗翔宇"
+      }
+    },
+    {
+      "content": "上海东喜文化传媒有限公司的法定代表人是陈玲娟",
+      "type": "company_legal_rep",
+      "doc_id": "6978f32a4eb469f5",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海东喜文化传媒有限公司",
+        "legal_representative": "陈玲娟"
+      }
+    },
+    {
+      "content": "上海仙豆文化传媒有限公司的法定代表人是许贞",
+      "type": "company_legal_rep",
+      "doc_id": "ef999902da0addc6",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仙豆文化传媒有限公司",
+        "legal_representative": "许贞"
+      }
+    },
+    {
+      "content": "上海冷酷网络科技中心的法定代表人是张昊",
+      "type": "company_legal_rep",
+      "doc_id": "1b7ce2503fd742fe",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海冷酷网络科技中心",
+        "legal_representative": "张昊"
+      }
+    },
+    {
+      "content": "上海云介建筑装潢有限公司的法定代表人是张云介",
+      "type": "company_legal_rep",
+      "doc_id": "306c4951c832d56b",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海云介建筑装潢有限公司",
+        "legal_representative": "张云介"
+      }
+    },
+    {
+      "content": "上海凝诺网络科技中心的法定代表人是周家超",
+      "type": "company_legal_rep",
+      "doc_id": "01c68b13519ef171",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海凝诺网络科技中心",
+        "legal_representative": "周家超"
+      }
+    },
+    {
+      "content": "上海伦达文化传播有限公司的法定代表人是刘畅",
+      "type": "company_legal_rep",
+      "doc_id": "e6ecef6efa0b517b",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伦达文化传播有限公司",
+        "legal_representative": "刘畅"
+      }
+    },
+    {
+      "content": "上海允焱文化传播有限公司的法定代表人是陆琰",
+      "type": "company_legal_rep",
+      "doc_id": "36f7d3af06182157",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海允焱文化传播有限公司",
+        "legal_representative": "陆琰"
+      }
+    },
+    {
+      "content": "上海全英信息科技有限公司的法定代表人是钱俊",
+      "type": "company_legal_rep",
+      "doc_id": "318137257c83b1d0",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海全英信息科技有限公司",
+        "legal_representative": "钱俊"
+      }
+    },
+    {
+      "content": "上海中纭实业有限公司的法定代表人是戴炎",
+      "type": "company_legal_rep",
+      "doc_id": "3e08fcce00f149c4",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海中纭实业有限公司",
+        "legal_representative": "戴炎"
+      }
+    },
+    {
+      "content": "上海享信建筑装饰有限公司的法定代表人是刘宁",
+      "type": "company_legal_rep",
+      "doc_id": "1a739f07a5d3f208",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海享信建筑装饰有限公司",
+        "legal_representative": "刘宁"
+      }
+    },
+    {
+      "content": "上海功著疏浚服务有限公司的法定代表人是邹华洪",
+      "type": "company_legal_rep",
+      "doc_id": "bbc9f26354d927a0",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海功著疏浚服务有限公司",
+        "legal_representative": "邹华洪"
+      }
+    },
+    {
+      "content": "上海厚望建筑工程有限公司的法定代表人是常光宇",
+      "type": "company_legal_rep",
+      "doc_id": "317ffa7a15daad55",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海厚望建筑工程有限公司",
+        "legal_representative": "常光宇"
+      }
+    },
+    {
+      "content": "上海中则信电子商务有限公司的法定代表人是冯学成",
+      "type": "company_legal_rep",
+      "doc_id": "dca8d1a3650320cc",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海中则信电子商务有限公司",
+        "legal_representative": "冯学成"
+      }
+    },
+    {
+      "content": "上海六居贸易有限公司的法定代表人是宋志明",
+      "type": "company_legal_rep",
+      "doc_id": "0e3db6ee7a339de5",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海六居贸易有限公司",
+        "legal_representative": "宋志明"
+      }
+    },
+    {
+      "content": "上海卓知国际贸易有限公司的法定代表人是崔文龙",
+      "type": "company_legal_rep",
+      "doc_id": "bf8eaf4c3b00890a",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海卓知国际贸易有限公司",
+        "legal_representative": "崔文龙"
+      }
+    },
+    {
+      "content": "上海久度文化传播有限公司的法定代表人是崔月明",
+      "type": "company_legal_rep",
+      "doc_id": "13cd2a2a9fe73d5f",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海久度文化传播有限公司",
+        "legal_representative": "崔月明"
+      }
+    },
+    {
+      "content": "上海丘竹贸易有限公司的法定代表人是杨琪",
+      "type": "company_legal_rep",
+      "doc_id": "edab7bb81eb4aa1b",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海丘竹贸易有限公司",
+        "legal_representative": "杨琪"
+      }
+    },
+    {
+      "content": "上海介盛实业有限公司的法定代表人是胡雄",
+      "type": "company_legal_rep",
+      "doc_id": "b78c3934210e6633",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海介盛实业有限公司",
+        "legal_representative": "胡雄"
+      }
+    },
+    {
+      "content": "上海其熙文化传播有限公司的法定代表人是周仲林",
+      "type": "company_legal_rep",
+      "doc_id": "8c063824771d8400",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海其熙文化传播有限公司",
+        "legal_representative": "周仲林"
+      }
+    },
+    {
+      "content": "上海世纪朵云文化发展有限公司思南路分公司的法定代表人是冯洁",
+      "type": "company_legal_rep",
+      "doc_id": "648d6170b308ca5b",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海世纪朵云文化发展有限公司思南路分公司",
+        "legal_representative": "冯洁"
+      }
+    },
+    {
+      "content": "上海华祝企业管理有限责任公司的法定代表人是苏正",
+      "type": "company_legal_rep",
+      "doc_id": "fcddc1921ae6e339",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海华祝企业管理有限责任公司",
+        "legal_representative": "苏正"
+      }
+    },
+    {
+      "content": "上海佳新环境管理有限公司的法定代表人是黄光群",
+      "type": "company_legal_rep",
+      "doc_id": "056969c54db355bc",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海佳新环境管理有限公司",
+        "legal_representative": "黄光群"
+      }
+    },
+    {
+      "content": "上海博帅商贸有限公司的法定代表人是付宏博",
+      "type": "company_legal_rep",
+      "doc_id": "a8a3bfef43ca3692",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海博帅商贸有限公司",
+        "legal_representative": "付宏博"
+      }
+    },
+    {
+      "content": "上海五乾餐饮管理有限公司的法定代表人是吴海波",
+      "type": "company_legal_rep",
+      "doc_id": "c5e6726ae9812342",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海五乾餐饮管理有限公司",
+        "legal_representative": "吴海波"
+      }
+    },
+    {
+      "content": "上海乾莘实业有限公司的法定代表人是赵国伟",
+      "type": "company_legal_rep",
+      "doc_id": "444cebe0964d74a3",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海乾莘实业有限公司",
+        "legal_representative": "赵国伟"
+      }
+    },
+    {
+      "content": "上海乐地信息科技有限公司的法定代表人是邹美亚",
+      "type": "company_legal_rep",
+      "doc_id": "059bf062227a7d65",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海乐地信息科技有限公司",
+        "legal_representative": "邹美亚"
+      }
+    },
+    {
+      "content": "上海启索建筑材料设备有限公司的法定代表人是郑兴茂",
+      "type": "company_legal_rep",
+      "doc_id": "1bd5c982016e8d96",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海启索建筑材料设备有限公司",
+        "legal_representative": "郑兴茂"
+      }
+    },
+    {
+      "content": "上海允星科技有限公司的法定代表人是许杨波",
+      "type": "company_legal_rep",
+      "doc_id": "97c56c5adb7dd4b7",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海允星科技有限公司",
+        "legal_representative": "许杨波"
+      }
+    },
+    {
+      "content": "上海亿峰龙家居用品有限公司的法定代表人是吴锋",
+      "type": "company_legal_rep",
+      "doc_id": "6d31ffc825e44004",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海亿峰龙家居用品有限公司",
+        "legal_representative": "吴锋"
+      }
+    },
+    {
+      "content": "上海仁龙网络科技有限公司的法定代表人是吴龙兴",
+      "type": "company_legal_rep",
+      "doc_id": "3038efab90fd00d5",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仁龙网络科技有限公司",
+        "legal_representative": "吴龙兴"
+      }
+    },
+    {
+      "content": "上海发富报关有限公司的法定代表人是万满香",
+      "type": "company_legal_rep",
+      "doc_id": "898098d98d4e622e",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海发富报关有限公司",
+        "legal_representative": "万满香"
+      }
+    },
+    {
+      "content": "上海勇传贸易有限公司的法定代表人是李坤宾",
+      "type": "company_legal_rep",
+      "doc_id": "23a5858980bd7910",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海勇传贸易有限公司",
+        "legal_representative": "李坤宾"
+      }
+    },
+    {
+      "content": "上海势易科技有限公司的法定代表人是叶志雄",
+      "type": "company_legal_rep",
+      "doc_id": "ddd9f261f7866f6a",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海势易科技有限公司",
+        "legal_representative": "叶志雄"
+      }
+    },
+    {
+      "content": "上海凯泰洗涤服务有限公司的法定代表人是韦爱群",
+      "type": "company_legal_rep",
+      "doc_id": "bf13aa45cb9d3a34",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海凯泰洗涤服务有限公司",
+        "legal_representative": "韦爱群"
+      }
+    },
+    {
+      "content": "上海仁章果蔬专业合作社的法定代表人是柳晨豪",
+      "type": "company_legal_rep",
+      "doc_id": "c0cfbeefac06aa5f",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仁章果蔬专业合作社",
+        "legal_representative": "柳晨豪"
+      }
+    },
+    {
+      "content": "上海千朵房地产开发有限公司的法定代表人是张巧凤",
+      "type": "company_legal_rep",
+      "doc_id": "685f008491b39cb8",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海千朵房地产开发有限公司",
+        "legal_representative": "张巧凤"
+      }
+    },
+    {
+      "content": "上海众锴实业有限公司的法定代表人是俞依风",
+      "type": "company_legal_rep",
+      "doc_id": "b1f260530e41adf6",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海众锴实业有限公司",
+        "legal_representative": "俞依风"
+      }
+    },
+    {
+      "content": "上海俱玢环保科技有限公司的法定代表人是范海峰",
+      "type": "company_legal_rep",
+      "doc_id": "a7d3a65be3758524",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海俱玢环保科技有限公司",
+        "legal_representative": "范海峰"
+      }
+    },
+    {
+      "content": "上海兴邺建筑工程有限公司的法定代表人是彭光瑞",
+      "type": "company_legal_rep",
+      "doc_id": "85de07ef4e03907b",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海兴邺建筑工程有限公司",
+        "legal_representative": "彭光瑞"
+      }
+    },
+    {
+      "content": "上海予福包装材料有限公司的法定代表人是滕福友",
+      "type": "company_legal_rep",
+      "doc_id": "c4f07f6ccfeb1a06",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海予福包装材料有限公司",
+        "legal_representative": "滕福友"
+      }
+    },
+    {
+      "content": "上海凯米体育文化传播有限公司的法定代表人是黄琴",
+      "type": "company_legal_rep",
+      "doc_id": "1b80ec58222dcbde",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海凯米体育文化传播有限公司",
+        "legal_representative": "黄琴"
+      }
+    },
+    {
+      "content": "上海卫德物业管理有限公司的法定代表人是谢文军",
+      "type": "company_legal_rep",
+      "doc_id": "b93a53ce0ad91a76",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海卫德物业管理有限公司",
+        "legal_representative": "谢文军"
+      }
+    },
+    {
+      "content": "上海八颗星实业有限公司的法定代表人是何赛玉",
+      "type": "company_legal_rep",
+      "doc_id": "fe3b5da36bac6c38",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海八颗星实业有限公司",
+        "legal_representative": "何赛玉"
+      }
+    },
+    {
+      "content": "上海典游通讯技术有限公司分公司的法定代表人是彭祥",
+      "type": "company_legal_rep",
+      "doc_id": "fcfc20fec04c7fb2",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海典游通讯技术有限公司分公司",
+        "legal_representative": "彭祥"
+      }
+    },
+    {
+      "content": "上海兴万装饰工程有限公司的法定代表人是王华",
+      "type": "company_legal_rep",
+      "doc_id": "f2daff5ccf5a2cfa",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海兴万装饰工程有限公司",
+        "legal_representative": "王华"
+      }
+    },
+    {
+      "content": "上海励来贸易有限公司的法定代表人是叶海平",
+      "type": "company_legal_rep",
+      "doc_id": "63d1572e6f8bf79d",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海励来贸易有限公司",
+        "legal_representative": "叶海平"
+      }
+    },
+    {
+      "content": "上海一湖景餐饮管理有限公司的法定代表人是姜仁健",
+      "type": "company_legal_rep",
+      "doc_id": "1f6f066c263ede6c",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海一湖景餐饮管理有限公司",
+        "legal_representative": "姜仁健"
+      }
+    },
+    {
+      "content": "上海匀浦企业管理有限公司的法定代表人是沈佳临",
+      "type": "company_legal_rep",
+      "doc_id": "2ed32c523ad68723",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海匀浦企业管理有限公司",
+        "legal_representative": "沈佳临"
+      }
+    },
+    {
+      "content": "上海伴侬国际旅行社有限公司营业部的法定代表人是韩亦平",
+      "type": "company_legal_rep",
+      "doc_id": "064ebefd49dd25a0",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海伴侬国际旅行社有限公司营业部",
+        "legal_representative": "韩亦平"
+      }
+    },
+    {
+      "content": "上海仁奥贸易有限公司的法定代表人是镇炜",
+      "type": "company_legal_rep",
+      "doc_id": "478db7b2ec13a22b",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海仁奥贸易有限公司",
+        "legal_representative": "镇炜"
+      }
+    },
+    {
+      "content": "上海北望棣机电有限公司的法定代表人是彭维红",
+      "type": "company_legal_rep",
+      "doc_id": "e6c122eb799f97e4",
+      "weight": 0.9,
+      "metadata": {
+        "company_name": "上海北望棣机电有限公司",
+        "legal_representative": "彭维红"
+      }
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "query": "宿州市 埇 桥 区润土 电子商务 有限公司",
+  "timestamp": "q_1770641886_9ea00a8b",
+  "result": {
+    "query": "宿州市 埇 桥 区润土 电子商务 有限公司",
+    "total_retrieved": 10,
+    "retrieval_time": 0.019582271575927734,
+    "embedding_time": 0.016106843948364258,
+    "query_time": 0.003317117691040039,
+    "avg_similarity": 0.5017509132623672,
+    "query_id": "q_1770641886_9ea00a8b",
+    "retrieved_documents": [
+      {
+        "id": "doc_0",
+        "content": "宿州市 埇 桥 区润土 电子商务 有限公司位于安徽宿州",
+        "similarity": 0.8770195245742798,
+        "metadata": {
+          "registration_address": "安徽省 宿州市 埇 桥区 顺河 乡顺 河村 19 - 1 号",
+          "total_chunks": 1,
+          "city": "宿州",
+          "province": "安徽",
+          "type": "company_location",
+          "chunk_index": 0,
+          "content_hash": "d3c37bbeb60fd45b",
+          "company_name": "宿州市 埇 桥 区润土 电子商务 有限公司",
+          "original_doc_id": "c1e5c630767d2a14"
+        },
+        "rank": 1,
+        "content_preview": "宿州市 埇 桥 区润土 电子商务 有限公司位于安徽宿州"
+      },
+      {
+        "id": "doc_1",
+        "content": "宿州市 埇 桥 区润土 电子商务 有限公司，公司名称: 宿州市 埇 桥 区润土 电子商务 有限公司，法定代表人: 武珊珊，统一社会信用代码: 91341302MA2TNTEB0L，注册地址: 安徽省 宿州市 埇 桥区 顺河 乡顺 河村 19 - 1 号，注册资本: 0.0，公司类型: 有限责任公司",
+        "similarity": 0.7446231245994568,
+        "metadata": {
+          "type": "company_full",
+          "content_hash": "385b3472b2b0e7e9",
+          "company_type": "有限责任公司",
+          "credit_code": "91341302MA2TNTEB0L",
+          "business_scope": "信息技术 咨询服务 , 人力资源 信息 服务 , 电子 信息技术 及 产品 研发 转让 , 企业 销售 信息 咨询 , 商务信息 咨询服务 , 企业 管理 咨询服务 , 市场 调查 , 第二类 增值 电信业务 中 的 国内 呼叫 中心 业务 。",
+          "province": "安徽",
+          "total_chunks": 1,
+          "chunk_index": 0,
+          "city": "宿州",
+          "company_id": "19590",
+          "company_name": "宿州市 埇 桥 区润土 电子商务 有限公司",
+          "original_doc_id": "8ff32b97f421bd1b",
+          "registration_address": "安徽省 宿州市 埇 桥区 顺河 乡顺 河村 19 - 1 号",
+          "legal_representative": "武珊珊"
+        },
+        "rank": 2,
+        "content_preview": "宿州市 埇 桥 区润土 电子商务 有限公司，公司名称: 宿州市 埇 桥 区润土 电子商务 有限公司，法定代表人: 武珊珊，统一社会信用代码: 91341302MA2TNTEB0L，注册地址: 安徽省 ..."
+      },
+      {
+        "id": "doc_2",
+        "content": "宿州市 埇 桥 区润土 电子商务 有限公司的统一社会信用代码是91341302MA2TNTEB0L",
+        "similarity": 0.7359156608581543,
+        "metadata": {
+          "credit_code": "91341302MA2TNTEB0L",
+          "original_doc_id": "45a20fc961962d92",
+          "chunk_index": 0,
+          "content_hash": "1140b1bfc0bfc3ad",
+          "total_chunks": 1,
+          "type": "company_credit_code",
+          "company_name": "宿州市 埇 桥 区润土 电子商务 有限公司"
+        },
+        "rank": 3,
+        "content_preview": "宿州市 埇 桥 区润土 电子商务 有限公司的统一社会信用代码是91341302MA2TNTEB0L"
+      },
+      {
+        "id": "doc_3",
+        "content": "宿州市 埇 桥 区润土 电子商务 有限公司的注册地址是安徽省 宿州市 埇 桥区 顺河 乡顺 河村 19 - 1 号",
+        "similarity": 0.7085103690624237,
+        "metadata": {
+          "city": "宿州",
+          "province": "安徽",
+          "company_name": "宿州市 埇 桥 区润土 电子商务 有限公司",
+          "original_doc_id": "5812918f0c0c2997",
+          "type": "company_location",
+          "total_chunks": 1,
+          "chunk_index": 0,
+          "registration_address": "安徽省 宿州市 埇 桥区 顺河 乡顺 河村 19 - 1 号",
+          "content_hash": "5e7c1c12d093d7c4"
+        },
+        "rank": 4,
+        "content_preview": "宿州市 埇 桥 区润土 电子商务 有限公司的注册地址是安徽省 宿州市 埇 桥区 顺河 乡顺 河村 19 - 1 号"
+      },
+      {
+        "id": "doc_4",
+        "content": "宿州市 埇 桥 区润土 电子商务 有限公司的法定代表人是武珊珊",
+        "similarity": 0.6398409605026245,
+        "metadata": {
+          "original_doc_id": "5b018f344ae93309",
+          "company_name": "宿州市 埇 桥 区润土 电子商务 有限公司",
+          "legal_representative": "武珊珊",
+          "content_hash": "0895b81bf878be7c",
+          "total_chunks": 1,
+          "type": "company_legal_rep",
+          "chunk_index": 0
+        },
+        "rank": 5,
+        "content_preview": "宿州市 埇 桥 区润土 电子商务 有限公司的法定代表人是武珊珊"
+      },
+      {
+        "id": "doc_5",
+        "content": "南京 润土 环保 科技 有限公司位于江苏南京",
+        "similarity": 0.2927452325820923,
+        "metadata": {
+          "chunk_index": 0,
+          "city": "南京",
+          "company_name": "南京 润土 环保 科技 有限公司",
+          "type": "company_location",
+          "registration_address": "南京市 江宁 开发区 迎翠路 7 号 江宁 开发区",
+          "original_doc_id": "9a31d8dc66ff55c0",
+          "content_hash": "cba59b26aa96ae4a",
+          "total_chunks": 1,
+          "province": "江苏"
+        },
+        "rank": 6,
+        "content_preview": "南京 润土 环保 科技 有限公司位于江苏南京"
+      },
+      {
+        "id": "doc_6",
+        "content": "南京 润土 环保 科技 有限公司，公司名称: 南京 润土 环保 科技 有限公司，法定代表人: 张晓群，统一社会信用代码: 91320115MA1XY0F77B，注册地址: 南京市 江宁 开发区 迎翠路 7 号 江宁 开发区，注册资本: 0.0，公司类型: 有限责任公司",
+        "similarity": 0.27503031492233276,
+        "metadata": {
+          "credit_code": "91320115MA1XY0F77B",
+          "company_type": "有限责任公司",
+          "content_hash": "4ef0d8ed36c98147",
+          "company_id": "28955",
+          "type": "company_full",
+          "registration_address": "南京市 江宁 开发区 迎翠路 7 号 江宁 开发区",
+          "company_name": "南京 润土 环保 科技 有限公司",
+          "city": "南京",
+          "legal_representative": "张晓群",
+          "original_doc_id": "53804fd17b0796e4",
+          "total_chunks": 1,
+          "province": "江苏",
+          "business_scope": "环保 设备 环保 新 材料 环保 产品 研发 销售 ； 环保 技术 研发 技术转让 ； 环保 工程 市政工程 机电工程 设计 施工 咨询服务 ； 压力容器 设备 水性 涂料 销售 ； 自营 和 代理 各类 商品 和 技术 的 进出口 业务 国家 限定 公司 经营 或 禁止 进出口 的 商品 及...",
+          "chunk_index": 0
+        },
+        "rank": 7,
+        "content_preview": "南京 润土 环保 科技 有限公司，公司名称: 南京 润土 环保 科技 有限公司，法定代表人: 张晓群，统一社会信用代码: 91320115MA1XY0F77B，注册地址: 南京市 江宁 开发区 迎翠路..."
+      },
+      {
+        "id": "doc_7",
+        "content": "宿州市 睿科 电子商务 有限公司位于安徽宿州",
+        "similarity": 0.25391340255737305,
+        "metadata": {
+          "company_name": "宿州市 睿科 电子商务 有限公司",
+          "original_doc_id": "1db868da803bb08c",
+          "chunk_index": 0,
+          "province": "安徽",
+          "city": "宿州",
+          "total_chunks": 1,
+          "registration_address": "安徽省 宿州市 埇 桥区 洪河 路 绿洲 嘉园 8 栋 508 室",
+          "content_hash": "f5932394b1975a0f",
+          "type": "company_location"
+        },
+        "rank": 8,
+        "content_preview": "宿州市 睿科 电子商务 有限公司位于安徽宿州"
+      },
+      {
+        "id": "doc_8",
+        "content": "宿州市 埇 桥区 博梦艺 旅 艺术 培训 有限公司位于安徽宿州",
+        "similarity": 0.2511584758758545,
+        "metadata": {
+          "chunk_index": 0,
+          "registration_address": "安徽省 宿州市 埇 桥区 宿州市 埇 桥区 汴河 路 181 号 1 # 楼 0417 室",
+          "original_doc_id": "0aae9c7ad6223498",
+          "content_hash": "675e75036424a127",
+          "type": "company_location",
+          "city": "宿州",
+          "province": "安徽",
+          "total_chunks": 1,
+          "company_name": "宿州市 埇 桥区 博梦艺 旅 艺术 培训 有限公司"
+        },
+        "rank": 9,
+        "content_preview": "宿州市 埇 桥区 博梦艺 旅 艺术 培训 有限公司位于安徽宿州"
+      },
+      {
+        "id": "doc_9",
+        "content": "东海县 润诚 物流 有限公司位于江苏连云港",
+        "similarity": 0.2387520670890808,
+        "metadata": {
+          "city": "连云港",
+          "total_chunks": 1,
+          "company_name": "东海县 润诚 物流 有限公司",
+          "registration_address": "连云港市 东海县 双店 镇 后昌村 10 号",
+          "content_hash": "746f31ab96f0cfbc",
+          "type": "company_location",
+          "chunk_index": 0,
+          "original_doc_id": "f2d8e24ec109b56b",
+          "province": "江苏"
+        },
+        "rank": 10,
+        "content_preview": "东海县 润诚 物流 有限公司位于江苏连云港"
+      }
+    ]
+  }
+}

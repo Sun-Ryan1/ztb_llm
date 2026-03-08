@@ -1,0 +1,131 @@
+{
+  "overview": {
+    "timestamp": "2026-02-11 13:37:49",
+    "total_cases": 496,
+    "success_rate": 1.0,
+    "valid_case_rate": 1.0,
+    "key_performance": {
+      "avg_retrieval_time": 0.0609202399369209,
+      "hit_at_1": 0.3064516129032258,
+      "avg_mrr": 0.4420853703867817,
+      "avg_recall": 0.717741935483871
+    }
+  },
+  "issues": [
+    "⚠️ 严重问题: Hit@1命中率较低(30.6%)，检索准确性不足"
+  ],
+  "recommendations": [
+    "📊 定期运行测试评估，建立性能基线",
+    "🔧 实现持续集成，每次代码变更都运行核心测试集",
+    "📈 建立监控系统，实时跟踪生产环境检索性能",
+    "🧪 增加压力测试，模拟高并发场景",
+    "📚 建立知识库，记录常见问题和解决方案",
+    "🎯 优化embedding模型：尝试更大尺寸或专门训练的模型",
+    "🔍 增强查询理解：添加查询扩展、同义词替换",
+    "📄 改进文档处理：优化分块策略和元数据提取",
+    "🔄 引入重排序：使用交叉编码器对初筛结果重排序",
+    "🏷️ 加强元数据过滤：对特殊查询类型实施精确匹配"
+  ],
+  "detailed_analysis": {
+    "by_query_type": {},
+    "by_difficulty": {},
+    "by_retrieval_method": {
+      "hybrid_search": {
+        "count": 434,
+        "hit_at_1": 0.25806451612903225,
+        "avg_time": 0.0320103695865051,
+        "avg_mrr": 0.39277608272423936
+      },
+      "credit_code_exact": {
+        "count": 31,
+        "hit_at_1": 0.7419354838709677,
+        "avg_time": 0.21982877485213742,
+        "avg_mrr": 0.8433179723502304
+      },
+      "address_optimized": {
+        "count": 31,
+        "hit_at_1": 0.5483870967741935,
+        "avg_time": 0.30674988992752567,
+        "avg_mrr": 0.7311827956989249
+      }
+    },
+    "failed_cases_analysis": {},
+    "performance_bottlenecks": {
+      "p95_high": {
+        "p95_time": 0.2859017848968506,
+        "avg_time": 0.0609202399369209,
+        "ratio": 4.693050867706431,
+        "insight": "部分查询耗时远高于平均值，可能存在性能瓶颈"
+      },
+      "slowest_cases": [
+        {
+          "test_id": "zb_contract_055e86bb_3",
+          "query_type": "zhaobiao_contract",
+          "retrieval_method": "address_optimized",
+          "time": 0.35668492317199707,
+          "query_preview": "关于澄城县应急管理局澄城县智慧应急消防救援站建设项目中标（成交）结果公告的招投标资料..."
+        },
+        {
+          "test_id": "natural_language_02cbdd87_1",
+          "query_type": "natural_language",
+          "retrieval_method": "address_optimized",
+          "time": 0.35364413261413574,
+          "query_preview": "请问东阳市 马武 拉丝 加工厂的注册地址在哪里？..."
+        },
+        {
+          "test_id": "zb_contract_7f8a2aca_2",
+          "query_type": "zhaobiao_contract",
+          "retrieval_method": "address_optimized",
+          "time": 0.3506314754486084,
+          "query_preview": "贞丰县永丰街道菜园社区养老服务站及老年助餐点建设项目的中标(成交)结果公告的投标情况..."
+        },
+        {
+          "test_id": "zb_buyer_014d82b5_0",
+          "query_type": "zhaobiao_buyer",
+          "retrieval_method": "address_optimized",
+          "time": 0.3392207622528076,
+          "query_preview": "阳新县富池镇人民政府本级发布的招标信息..."
+        },
+        {
+          "test_id": "zb_contract_871e2665_3",
+          "query_type": "zhaobiao_contract",
+          "retrieval_method": "address_optimized",
+          "time": 0.33872556686401367,
+          "query_preview": "关于南涧县城环境卫生、园林绿化及乡镇集镇所在地生活垃圾转运市场化运营项目中标结果公告的招投标资料..."
+        }
+      ]
+    },
+    "worst_performing_types": [
+      {
+        "type": "business_scope",
+        "hit_at_1": 0.0,
+        "count": 18,
+        "issue": "business_scope类型查询命中率过低"
+      },
+      {
+        "type": "product_supplier",
+        "hit_at_1": 0.0,
+        "count": 13,
+        "issue": "product_supplier类型查询命中率过低"
+      },
+      {
+        "type": "product_keyword",
+        "hit_at_1": 0.0,
+        "count": 5,
+        "issue": "product_keyword类型查询命中率过低"
+      },
+      {
+        "type": "law_title",
+        "hit_at_1": 0.12658227848101267,
+        "count": 79,
+        "issue": "law_title类型查询命中率过低"
+      },
+      {
+        "type": "natural_language",
+        "hit_at_1": 0.1724137931034483,
+        "count": 29,
+        "issue": "natural_language类型查询命中率过低"
+      }
+    ]
+  }
+}

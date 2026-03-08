@@ -1,0 +1,207 @@
+{
+  "type": "law_type",
+  "count": 20,
+  "weight": 0.7,
+  "documents": [
+    {
+      "content": "《中华人民共和国财政部》属于国务院令",
+      "type": "law_type",
+      "doc_id": "c9b625786b22702a",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国财政部令第110号《政府采购框架协议采购方式管理暂行办法》",
+        "law_type": "国务院令"
+      }
+    },
+    {
+      "content": "《中华人民共和国行政复议法》属于其他",
+      "type": "law_type",
+      "doc_id": "09787d6ecda3535b",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国行政复议法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国反间谍法》属于其他",
+      "type": "law_type",
+      "doc_id": "3bdd26c8bfe45f41",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国反间谍法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国审计法》属于其他",
+      "type": "law_type",
+      "doc_id": "1e8334d2cce736c9",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国审计法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国个人信息保护法》属于其他",
+      "type": "law_type",
+      "doc_id": "b5b9db0c4fba661e",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国个人信息保护法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国数据安全法》属于其他",
+      "type": "law_type",
+      "doc_id": "f415fd1e9a2fad92",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国数据安全法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国行政处罚法》属于其他",
+      "type": "law_type",
+      "doc_id": "0300e4d775808d7c",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国行政处罚法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国预算法实施条例》属于条例",
+      "type": "law_type",
+      "doc_id": "48621257d366c370",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国预算法实施条例",
+        "law_type": "条例"
+      }
+    },
+    {
+      "content": "《中华人民共和国保守国家秘密法》属于其他",
+      "type": "law_type",
+      "doc_id": "db0d8c8436d52056",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国保守国家秘密法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国反不正当竞争法》属于其他",
+      "type": "law_type",
+      "doc_id": "ade82084ef0c28b0",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国反不正当竞争法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国电子签名法》属于其他",
+      "type": "law_type",
+      "doc_id": "56cb3a3defaccd6e",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国电子签名法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国招标投标法实施条例》属于条例",
+      "type": "law_type",
+      "doc_id": "65f6040ab0992711",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国招标投标法实施条例",
+        "law_type": "条例"
+      }
+    },
+    {
+      "content": "《中华人民共和国产品质量法》属于其他",
+      "type": "law_type",
+      "doc_id": "a498dc0bcf37a78e",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国产品质量法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国预算法》属于其他",
+      "type": "law_type",
+      "doc_id": "6fb09fc532a0bcde",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国预算法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国监察法》属于其他",
+      "type": "law_type",
+      "doc_id": "e5db1b6d8783ec0e",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国监察法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国招标投标法》属于其他",
+      "type": "law_type",
+      "doc_id": "30c898d26cfae15e",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国招标投标法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国仲裁法》属于其他",
+      "type": "law_type",
+      "doc_id": "3af223009a27bf00",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国仲裁法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国行政诉讼法》属于其他",
+      "type": "law_type",
+      "doc_id": "28610a3a990a5352",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国行政诉讼法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国网络安全法》属于其他",
+      "type": "law_type",
+      "doc_id": "5e96e51ff745ce5a",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国网络安全法",
+        "law_type": "其他"
+      }
+    },
+    {
+      "content": "《中华人民共和国国家安全法》属于其他",
+      "type": "law_type",
+      "doc_id": "23af83b4a92c4672",
+      "weight": 0.7,
+      "metadata": {
+        "title": "中华人民共和国国家安全法",
+        "law_type": "其他"
+      }
+    }
+  ]
+}

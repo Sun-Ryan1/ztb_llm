@@ -1,0 +1,16 @@
+# 查询扩展配置
+enabled: true
+
+expander:
+  # 可选: synonym, prf, compose
+  type: compose
+  expanders:
+    - type: synonym
+      synonym_path: ./data/synonyms.txt
+      max_synonyms: 2
+      expand_all_tokens: true
+    - type: prf
+      top_k: 3
+      top_terms: 5
+      min_term_freq: 1
+      use_tfidf: true

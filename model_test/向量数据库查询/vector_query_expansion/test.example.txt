@@ -1,0 +1,50 @@
+# RAG检索系统评估配置文件
+# 使用YAML格式，需要安装pyyaml库
+
+chroma:
+  persist_dir: /mnt/workspace/data/model/llm_test/qa_data/rag_knowledge_base_20260208_224240/chroma_backups/chroma_backup_20260208_232250/
+
+model:
+  embedding_path: /mnt/workspace/data/modelscope/cache/bge-m3/BAAI/bge-m3
+  device: cuda  # 可选值: cuda, cpu
+
+evaluation:
+  num_queries: 50
+  top_k_values: [1, 3, 5, 10]
+  similarity_threshold: 0.7
+
+output:
+  output_dir: ./evaluation_results
+
+
+# 评估向量数据库的检索性能
+python evaluate_retrieval.py \
+  --chroma-dir /tmp/chroma_db_dsw \
+  --embedding-path /mnt/workspace/data/modelscope/cache/bge-m3/BAAI/bge-m3 \
+  --num-queries 100 \
+  --output-dir ./evaluation_results \
+  --device cuda
+
+
+cd data/model/llm_test/qa_data
+cd data/model/vector_query/stage2
+cd data/model/vector_query/vector_query/core
+
+python backup_chromadb.py restore \
+  --backup-dir "/mnt/workspace/data/model/llm_test/qa_data/rag_knowledge_base_20260208_224240/chroma_backups/chroma_backup_20260208_232250" \
+  --target "/tmp/chroma_db_dsw" \
+  --overwrite
+
+python test_evaluator.py --test_data test_data.json --max_cases 496
+
+
+python test_evaluator.py --test_data test_data.json --expander synonym --synonym_path ./data/synonyms.txt
+
+
+python test_evaluator.py \
+    --test_data test_data.json\
+    --expander synonym \
+    --synonym_path ./data/synonyms.txt \
+    --max_synonyms 1 \
+    --query_type product_keyword business_scope natural_language
+

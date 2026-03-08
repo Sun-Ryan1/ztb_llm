@@ -1,0 +1,39 @@
+{
+  "total_documents": 187091,
+  "tables_processed": 6,
+  "documents_by_table": {
+    "company": 162065,
+    "product": 10877,
+    "price": 7292,
+    "zhaobiao": 3456,
+    "zhongbiao": 3305,
+    "law": 96
+  },
+  "documents_by_type": {
+    "company_full": 32413,
+    "company_legal_rep": 32413,
+    "company_location": 64826,
+    "company_credit_code": 32413,
+    "product_full": 1890,
+    "product_supplier": 3772,
+    "supplier_address": 1506,
+    "product_price": 1820,
+    "product_keyword": 1889,
+    "price_full": 1825,
+    "supplier_price": 1821,
+    "price_structured": 1821,
+    "keyword_price": 1825,
+    "zhaobiao_full": 1157,
+    "zhaobiao_supplier": 1148,
+    "zhaobiao_buyer": 1151,
+    "zhongbiao_full": 1113,
+    "zhongbiao_supplier": 1101,
+    "zhongbiao_buyer": 1091,
+    "law_full": 28,
+    "law_title": 20,
+    "law_type": 20,
+    "law_summary": 28
+  },
+  "invalid_records": 65,
+  "duplicate_documents": 642
+}

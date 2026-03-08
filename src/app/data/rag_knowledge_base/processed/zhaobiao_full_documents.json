@@ -1,0 +1,1307 @@
+{
+  "type": "zhaobiao_full",
+  "count": 1157,
+  "weight": 1.0,
+  "documents": [
+    {
+      "content": "招标项目信息公告，采购方: 未知，供应商: 未知",
+      "type": "zhaobiao_full",
+      "doc_id": "6ae5525ae78f24a2",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "信息公告",
+        "buyer": "未知",
+        "supplier": "未知",
+        "contract_amount": "",
+        "contract_name": "信息公告"
+      }
+    },
+    {
+      "content": "招标项目中山大学航空航天学院空间装备精密基准校验平台单元采购项目，采购方: 中山大学，供应商: 未知，合同金额: 2386.8元",
+      "type": "zhaobiao_full",
+      "doc_id": "576709eb4b258ff1",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "中山大学航空航天学院空间装备精密基准校验平台单元采购项目",
+        "buyer": "中山大学",
+        "supplier": "未知",
+        "contract_amount": "2386.8",
+        "contract_name": "中山大学航空航天学院空间装备精密基准校验平台单元采购项目"
+      }
+    },
+    {
+      "content": "招标项目2025年超长期特别国债医疗设备（双能X射线骨密度仪），采购方: 泸州市中医医院，供应商: 未知，合同金额: 117.8元",
+      "type": "zhaobiao_full",
+      "doc_id": "124f74ccf90719e5",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2025年超长期特别国债医疗设备（双能X射线骨密度仪）",
+        "buyer": "泸州市中医医院",
+        "supplier": "未知",
+        "contract_amount": "117.8",
+        "contract_name": "2025年超长期特别国债医疗设备（双能X射线骨密度仪）"
+      }
+    },
+    {
+      "content": "招标项目2025年超长期特别国债医疗设备（数字化医用X射线摄影系统（DR）），采购方: 泸州市中医医院，供应商: 未知，合同金额: 107.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "26a391936ebc1dd3",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2025年超长期特别国债医疗设备（数字化医用X射线摄影系统（DR））",
+        "buyer": "泸州市中医医院",
+        "supplier": "未知",
+        "contract_amount": "107.0",
+        "contract_name": "2025年超长期特别国债医疗设备（数字化医用X射线摄影系统（DR））"
+      }
+    },
+    {
+      "content": "招标项目诸暨市老旧房屋动态监测服务采购，采购方: 诸暨市住房和城乡建设局，供应商: 未知，合同金额: 600.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "d17d330160ee5282",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "诸暨市老旧房屋动态监测服务采购",
+        "buyer": "诸暨市住房和城乡建设局",
+        "supplier": "未知",
+        "contract_amount": "600.0",
+        "contract_name": "诸暨市老旧房屋动态监测服务采购"
+      }
+    },
+    {
+      "content": "招标项目腹腔镜及配套设备采购，采购方: 辽宁省肿瘤医院，供应商: 未知，合同金额: 260.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "41dbc7b9dc010221",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "腹腔镜及配套设备采购",
+        "buyer": "辽宁省肿瘤医院",
+        "supplier": "未知",
+        "contract_amount": "260.0",
+        "contract_name": "腹腔镜及配套设备采购"
+      }
+    },
+    {
+      "content": "招标项目部分省道桥梁定期检查一标，采购方: 上海市道路运输事业发展中心，供应商: 未知，合同金额: 207.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "b43920aaad251708",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "部分省道桥梁定期检查一标",
+        "buyer": "上海市道路运输事业发展中心",
+        "supplier": "未知",
+        "contract_amount": "207.0",
+        "contract_name": "部分省道桥梁定期检查一标"
+      }
+    },
+    {
+      "content": "招标项目福建省环境监测中心站应急监测能力提升项目，采购方: 福建省环境监测中心站，供应商: 未知，合同金额: 190.5元",
+      "type": "zhaobiao_full",
+      "doc_id": "23a534e68d0035e8",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "福建省环境监测中心站应急监测能力提升项目",
+        "buyer": "福建省环境监测中心站",
+        "supplier": "未知",
+        "contract_amount": "190.5",
+        "contract_name": "福建省环境监测中心站应急监测能力提升项目"
+      }
+    },
+    {
+      "content": "招标项目超长期国债高水平公共研究平台设备更新项目-中医药创新研究科研平台创研采购项目1(二次)，采购方: 成都中医药大学，供应商: 未知，合同金额: 1708.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "32c752e58e5d8d12",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "超长期国债高水平公共研究平台设备更新项目-中医药创新研究科研平台创研采购项目1(二次)",
+        "buyer": "成都中医药大学",
+        "supplier": "未知",
+        "contract_amount": "1708.0",
+        "contract_name": "超长期国债高水平公共研究平台设备更新项目-中医药创新研究科研平台创研采购项目1(二次)"
+      }
+    },
+    {
+      "content": "招标项目宁夏回族自治区森林病虫防治检疫总站宁夏林业有害生物监测预警及应急防控体系能力提升更新补充采购项目，采购方: 宁夏回族自治区森林病虫防治检疫总站，供应商: 未知，合同金额: 91.95元",
+      "type": "zhaobiao_full",
+      "doc_id": "85ad3965125e5772",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "宁夏回族自治区森林病虫防治检疫总站宁夏林业有害生物监测预警及应急防控体系能力提升更新补充采购项目",
+        "buyer": "宁夏回族自治区森林病虫防治检疫总站",
+        "supplier": "未知",
+        "contract_amount": "91.95",
+        "contract_name": "宁夏回族自治区森林病虫防治检疫总站宁夏林业有害生物监测预警及应急防控体系能力提升更新补充采购项目"
+      }
+    },
+    {
+      "content": "招标项目绩效智算中心预算绩效数据治理服务(二次)，采购方: 四川财经职业学院，供应商: 未知，合同金额: 28.5元",
+      "type": "zhaobiao_full",
+      "doc_id": "f40acaac840a28d4",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "绩效智算中心预算绩效数据治理服务(二次)",
+        "buyer": "四川财经职业学院",
+        "supplier": "未知",
+        "contract_amount": "28.5",
+        "contract_name": "绩效智算中心预算绩效数据治理服务(二次)"
+      }
+    },
+    {
+      "content": "招标项目天津大学精密仪器与光电子工程学院低压化学气相沉积采购项目（第三次），采购方: 天津大学，供应商: 未知，合同金额: 140.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "75c80cf73673dbc1",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "天津大学精密仪器与光电子工程学院低压化学气相沉积采购项目（第三次）",
+        "buyer": "天津大学",
+        "supplier": "未知",
+        "contract_amount": "140.0",
+        "contract_name": "天津大学精密仪器与光电子工程学院低压化学气相沉积采购项目（第三次）"
+      }
+    },
+    {
+      "content": "招标项目玉溪市公立医院改革与高质量发展示范项目--红塔区紧密型县域医共体医疗卫生服务能力提升项目有创呼吸机等设备采购，采购方: 玉溪市红塔区医疗共同体，供应商: 未知，合同金额: 264.25元",
+      "type": "zhaobiao_full",
+      "doc_id": "65820492ed28c5c4",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "玉溪市公立医院改革与高质量发展示范项目--红塔区紧密型县域医共体医疗卫生服务能力提升项目有创呼吸机等设备采购",
+        "buyer": "玉溪市红塔区医疗共同体",
+        "supplier": "未知",
+        "contract_amount": "264.25",
+        "contract_name": "玉溪市公立医院改革与高质量发展示范项目--红塔区紧密型县域医共体医疗卫生服务能力提升项目有创呼吸机等设备采购"
+      }
+    },
+    {
+      "content": "招标项目曲靖市沾益区花山街道中心幼儿园教玩具、厨房设备采购（二次），采购方: 曲靖市沾益区花山街道中心学校，供应商: 未知，合同金额: 88.26元",
+      "type": "zhaobiao_full",
+      "doc_id": "05c12a03b6ab69d3",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "曲靖市沾益区花山街道中心幼儿园教玩具、厨房设备采购（二次）",
+        "buyer": "曲靖市沾益区花山街道中心学校",
+        "supplier": "未知",
+        "contract_amount": "88.26",
+        "contract_name": "曲靖市沾益区花山街道中心幼儿园教玩具、厨房设备采购（二次）"
+      }
+    },
+    {
+      "content": "招标项目四川省人工影响天气水资源保障工程人工影响天气指挥能力建设音视频调度服务系统建设(二次)，采购方: 四川省人工影响天气办公室，供应商: 未知，合同金额: 1080.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "b7d6ee5ced7c51e3",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "四川省人工影响天气水资源保障工程人工影响天气指挥能力建设音视频调度服务系统建设(二次)",
+        "buyer": "四川省人工影响天气办公室",
+        "supplier": "未知",
+        "contract_amount": "1080.0",
+        "contract_name": "四川省人工影响天气水资源保障工程人工影响天气指挥能力建设音视频调度服务系统建设(二次)"
+      }
+    },
+    {
+      "content": "招标项目石嘴山市公安局大武口区分局及派出所食堂食材集中配送项目第一标包，采购方: 石嘴山市公安局大武口区分局，供应商: 未知，合同金额: 42.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "e33338571193c2b1",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "石嘴山市公安局大武口区分局及派出所食堂食材集中配送项目第一标包",
+        "buyer": "石嘴山市公安局大武口区分局",
+        "supplier": "未知",
+        "contract_amount": "42.0",
+        "contract_name": "石嘴山市公安局大武口区分局及派出所食堂食材集中配送项目第一标包"
+      }
+    },
+    {
+      "content": "招标项目察布查尔锡伯自治县人民医院数据中心基础设备项目，采购方: 察布查尔锡伯自治县人民医院，供应商: 未知，合同金额: 600.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "541c9eca02d5e14e",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "察布查尔锡伯自治县人民医院数据中心基础设备项目",
+        "buyer": "察布查尔锡伯自治县人民医院",
+        "supplier": "未知",
+        "contract_amount": "600.0",
+        "contract_name": "察布查尔锡伯自治县人民医院数据中心基础设备项目"
+      }
+    },
+    {
+      "content": "招标项目2026年龙岩市政务云服务项目，采购方: 龙岩市大数据中心，供应商: 未知，合同金额: 1350.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "7a0cfea41f7b1adb",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2026年龙岩市政务云服务项目",
+        "buyer": "龙岩市大数据中心",
+        "supplier": "未知",
+        "contract_amount": "1350.0",
+        "contract_name": "2026年龙岩市政务云服务项目"
+      }
+    },
+    {
+      "content": "招标项目江海区礼乐中学保安及宿管服务采购项目招标公告，采购方: 未知，供应商: 未知",
+      "type": "zhaobiao_full",
+      "doc_id": "2ccf2f0ff2541227",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "江海区礼乐中学保安及宿管服务采购项目招标公告",
+        "buyer": "未知",
+        "supplier": "未知",
+        "contract_amount": "",
+        "contract_name": "江海区礼乐中学保安及宿管服务采购项目招标公告"
+      }
+    },
+    {
+      "content": "招标项目购买医疗制氧系统，采购方: 广元市利州区大石镇卫生院，供应商: 未知，合同金额: 33.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "9a0517422c6348f6",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "购买医疗制氧系统",
+        "buyer": "广元市利州区大石镇卫生院",
+        "supplier": "未知",
+        "contract_amount": "33.0",
+        "contract_name": "购买医疗制氧系统"
+      }
+    },
+    {
+      "content": "招标项目博士后公寓家电采购，采购方: 武汉理工大学，供应商: 未知，合同金额: 114.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "f842f0e23f500db6",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "博士后公寓家电采购",
+        "buyer": "武汉理工大学",
+        "supplier": "未知",
+        "contract_amount": "114.0",
+        "contract_name": "博士后公寓家电采购"
+      }
+    },
+    {
+      "content": "招标项目宜昌市12345热线运营项目第二次，采购方: 宜昌市城市运行管理中心，供应商: 未知，合同金额: 137.7元",
+      "type": "zhaobiao_full",
+      "doc_id": "a0d06d7df4560fbd",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "宜昌市12345热线运营项目第二次",
+        "buyer": "宜昌市城市运行管理中心",
+        "supplier": "未知",
+        "contract_amount": "137.7",
+        "contract_name": "宜昌市12345热线运营项目第二次"
+      }
+    },
+    {
+      "content": "招标项目江门市财政局职工食堂食材配送服务项目招标公告，采购方: 未知，供应商: 未知",
+      "type": "zhaobiao_full",
+      "doc_id": "51412d0b7d461843",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "江门市财政局职工食堂食材配送服务项目招标公告",
+        "buyer": "未知",
+        "supplier": "未知",
+        "contract_amount": "",
+        "contract_name": "江门市财政局职工食堂食材配送服务项目招标公告"
+      }
+    },
+    {
+      "content": "招标项目西吉县机关事务服务中心2025年-2026年1号餐厅、2号餐厅食材采购项目（一至三标段），采购方: 西吉县机关事务服务中心，供应商: 未知，合同金额: 130.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "ad01f9988d5017a6",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "西吉县机关事务服务中心2025年-2026年1号餐厅、2号餐厅食材采购项目（一至三标段）",
+        "buyer": "西吉县机关事务服务中心",
+        "supplier": "未知",
+        "contract_amount": "130.0",
+        "contract_name": "西吉县机关事务服务中心2025年-2026年1号餐厅、2号餐厅食材采购项目（一至三标段）"
+      }
+    },
+    {
+      "content": "招标项目凤庆县应急管理局登高平台消防车采购项目，采购方: 凤庆县应急管理局，供应商: 未知，合同金额: 236.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "367961a1012d8766",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "凤庆县应急管理局登高平台消防车采购项目",
+        "buyer": "凤庆县应急管理局",
+        "supplier": "未知",
+        "contract_amount": "236.0",
+        "contract_name": "凤庆县应急管理局登高平台消防车采购项目"
+      }
+    },
+    {
+      "content": "招标项目牟定县人民医院全民健康管护体系建设--全民健康筛查管理系统、硬件及软件服务采购项目，采购方: 牟定县人民医院，供应商: 未知，合同金额: 160.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "fbafed3104c6157a",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "牟定县人民医院全民健康管护体系建设--全民健康筛查管理系统、硬件及软件服务采购项目",
+        "buyer": "牟定县人民医院",
+        "supplier": "未知",
+        "contract_amount": "160.0",
+        "contract_name": "牟定县人民医院全民健康管护体系建设--全民健康筛查管理系统、硬件及软件服务采购项目"
+      }
+    },
+    {
+      "content": "招标项目西吉县机关事务服务中心2025年-2026年1号餐厅、2号餐厅食材采购项目（四至五标段），采购方: 西吉县机关事务服务中心，供应商: 未知，合同金额: 50.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "8f0064181e3912ef",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "西吉县机关事务服务中心2025年-2026年1号餐厅、2号餐厅食材采购项目（四至五标段）",
+        "buyer": "西吉县机关事务服务中心",
+        "supplier": "未知",
+        "contract_amount": "50.0",
+        "contract_name": "西吉县机关事务服务中心2025年-2026年1号餐厅、2号餐厅食材采购项目（四至五标段）"
+      }
+    },
+    {
+      "content": "招标项目嘉定区妇幼保健院产后健康管理病区月嫂服务，采购方: 上海市嘉定区妇幼保健院，供应商: 未知，合同金额: 216.8元",
+      "type": "zhaobiao_full",
+      "doc_id": "93c67cff0d1f612e",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "嘉定区妇幼保健院产后健康管理病区月嫂服务",
+        "buyer": "上海市嘉定区妇幼保健院",
+        "supplier": "未知",
+        "contract_amount": "216.8",
+        "contract_name": "嘉定区妇幼保健院产后健康管理病区月嫂服务"
+      }
+    },
+    {
+      "content": "招标项目嘉闵高架定期检查一标，采购方: 上海市道路运输事业发展中心，供应商: 未知，合同金额: 162.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "35bed8cc91465f61",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "嘉闵高架定期检查一标",
+        "buyer": "上海市道路运输事业发展中心",
+        "supplier": "未知",
+        "contract_amount": "162.0",
+        "contract_name": "嘉闵高架定期检查一标"
+      }
+    },
+    {
+      "content": "招标项目夏阳街道文体分中心、司法所、征收办物业管理服务项目，采购方: 上海市青浦区人民政府夏阳街道办事处，供应商: 未知，合同金额: 121.88元",
+      "type": "zhaobiao_full",
+      "doc_id": "95c32ebd37fe523f",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "夏阳街道文体分中心、司法所、征收办物业管理服务项目",
+        "buyer": "上海市青浦区人民政府夏阳街道办事处",
+        "supplier": "未知",
+        "contract_amount": "121.88",
+        "contract_name": "夏阳街道文体分中心、司法所、征收办物业管理服务项目"
+      }
+    },
+    {
+      "content": "招标项目北翟、崧泽高架定期检查，采购方: 上海市道路运输事业发展中心，供应商: 未知，合同金额: 136.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "78e8620e1c0d4b69",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "北翟、崧泽高架定期检查",
+        "buyer": "上海市道路运输事业发展中心",
+        "supplier": "未知",
+        "contract_amount": "136.0",
+        "contract_name": "北翟、崧泽高架定期检查"
+      }
+    },
+    {
+      "content": "招标项目夏阳街道办事处物业管理服务项目，采购方: 上海市青浦区人民政府夏阳街道办事处，供应商: 未知，合同金额: 188.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "bd1c961b7765ae12",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "夏阳街道办事处物业管理服务项目",
+        "buyer": "上海市青浦区人民政府夏阳街道办事处",
+        "supplier": "未知",
+        "contract_amount": "188.0",
+        "contract_name": "夏阳街道办事处物业管理服务项目"
+      }
+    },
+    {
+      "content": "招标项目林州市交通运输综合行政执法大队林州市治超非现场执法系统后期运维服务项目，采购方: 林州市交通运输综合行政执法大队，供应商: 未知，合同金额: 619.2元",
+      "type": "zhaobiao_full",
+      "doc_id": "70aaa95eca01a64f",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "林州市交通运输综合行政执法大队林州市治超非现场执法系统后期运维服务项目",
+        "buyer": "林州市交通运输综合行政执法大队",
+        "supplier": "未知",
+        "contract_amount": "619.2",
+        "contract_name": "林州市交通运输综合行政执法大队林州市治超非现场执法系统后期运维服务项目"
+      }
+    },
+    {
+      "content": "招标项目南通市经济技术开发区新一代电子政务外网建设项目，采购方: 南通市经济技术开发区管理委员会办公室（本级），供应商: 未知，合同金额: 528.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "5b3789564b21c8ca",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "南通市经济技术开发区新一代电子政务外网建设项目",
+        "buyer": "南通市经济技术开发区管理委员会办公室（本级）",
+        "supplier": "未知",
+        "contract_amount": "528.0",
+        "contract_name": "南通市经济技术开发区新一代电子政务外网建设项目"
+      }
+    },
+    {
+      "content": "招标项目图书馆2026年中文纸质图书，采购方: 重庆师范大学，供应商: 未知，合同金额: 90.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "8470ee70e70d0f50",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "图书馆2026年中文纸质图书",
+        "buyer": "重庆师范大学",
+        "supplier": "未知",
+        "contract_amount": "90.0",
+        "contract_name": "图书馆2026年中文纸质图书"
+      }
+    },
+    {
+      "content": "招标项目整体搬迁项目污水处理站设备及安装服务采购项目，采购方: 贵港市中西医结合骨科医院，供应商: 未知，合同金额: 236.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "d5db2b975a25f0bb",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "整体搬迁项目污水处理站设备及安装服务采购项目",
+        "buyer": "贵港市中西医结合骨科医院",
+        "supplier": "未知",
+        "contract_amount": "236.0",
+        "contract_name": "整体搬迁项目污水处理站设备及安装服务采购项目"
+      }
+    },
+    {
+      "content": "招标项目昆明医科大学第二附属医院3D4K荧光三合一影像系统等设备采购项目，采购方: 昆明医科大学第二附属医院，供应商: 未知，合同金额: 280.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "4458e2d565b65fce",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "昆明医科大学第二附属医院3D4K荧光三合一影像系统等设备采购项目",
+        "buyer": "昆明医科大学第二附属医院",
+        "supplier": "未知",
+        "contract_amount": "280.0",
+        "contract_name": "昆明医科大学第二附属医院3D4K荧光三合一影像系统等设备采购项目"
+      }
+    },
+    {
+      "content": "招标项目昆明医科大学第二附属医院危重孕产妇救治中心建设设备采购项目二，采购方: 昆明医科大学第二附属医院，供应商: 未知，合同金额: 89.6元",
+      "type": "zhaobiao_full",
+      "doc_id": "c26ad977e384f14f",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "昆明医科大学第二附属医院危重孕产妇救治中心建设设备采购项目二",
+        "buyer": "昆明医科大学第二附属医院",
+        "supplier": "未知",
+        "contract_amount": "89.6",
+        "contract_name": "昆明医科大学第二附属医院危重孕产妇救治中心建设设备采购项目二"
+      }
+    },
+    {
+      "content": "招标项目昆明医科大学第二附属医院血气电解质分析仪等设备采购项目，采购方: 昆明医科大学第二附属医院，供应商: 未知，合同金额: 46.5元",
+      "type": "zhaobiao_full",
+      "doc_id": "59969dec937d9a98",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "昆明医科大学第二附属医院血气电解质分析仪等设备采购项目",
+        "buyer": "昆明医科大学第二附属医院",
+        "supplier": "未知",
+        "contract_amount": "46.5",
+        "contract_name": "昆明医科大学第二附属医院血气电解质分析仪等设备采购项目"
+      }
+    },
+    {
+      "content": "招标项目2026年春节元宵灯光亮化项目，采购方: 水富市综合行政执法局，供应商: 未知，合同金额: 75.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "156a520f404197a1",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2026年春节元宵灯光亮化项目",
+        "buyer": "水富市综合行政执法局",
+        "supplier": "未知",
+        "contract_amount": "75.0",
+        "contract_name": "2026年春节元宵灯光亮化项目"
+      }
+    },
+    {
+      "content": "招标项目2026年度区级社会工作服务指导中心及各街道（乡镇）社会工作服务站运营项目，采购方: 武汉市新洲区民政局，供应商: 未知，合同金额: 200.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "6a1b219d4714c9c1",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2026年度区级社会工作服务指导中心及各街道（乡镇）社会工作服务站运营项目",
+        "buyer": "武汉市新洲区民政局",
+        "supplier": "未知",
+        "contract_amount": "200.0",
+        "contract_name": "2026年度区级社会工作服务指导中心及各街道（乡镇）社会工作服务站运营项目"
+      }
+    },
+    {
+      "content": "招标项目海南省统计大数据平台2025年升级改造项目，采购方: 海南省统计局资料管理中心，供应商: 未知，合同金额: 397.43元",
+      "type": "zhaobiao_full",
+      "doc_id": "7d5e8b5b0da9f9b4",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "海南省统计大数据平台2025年升级改造项目",
+        "buyer": "海南省统计局资料管理中心",
+        "supplier": "未知",
+        "contract_amount": "397.43",
+        "contract_name": "海南省统计大数据平台2025年升级改造项目"
+      }
+    },
+    {
+      "content": "招标项目宜昌市12345热线运营项目第二次，采购方: 宜昌市城市运行管理中心，供应商: 未知，合同金额: 641.1元",
+      "type": "zhaobiao_full",
+      "doc_id": "3807a25095e23bba",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "宜昌市12345热线运营项目第二次",
+        "buyer": "宜昌市城市运行管理中心",
+        "supplier": "未知",
+        "contract_amount": "641.1",
+        "contract_name": "宜昌市12345热线运营项目第二次"
+      }
+    },
+    {
+      "content": "招标项目激光和脉冲光工作站等医疗设备(二次)，采购方: 福建医科大学附属第二医院，供应商: 未知，合同金额: 197.3元",
+      "type": "zhaobiao_full",
+      "doc_id": "b20ffb1ffc0b93c4",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "激光和脉冲光工作站等医疗设备(二次)",
+        "buyer": "福建医科大学附属第二医院",
+        "supplier": "未知",
+        "contract_amount": "197.3",
+        "contract_name": "激光和脉冲光工作站等医疗设备(二次)"
+      }
+    },
+    {
+      "content": "招标项目咸宁市第一人民医院全院医疗设备整体维保服务项目，采购方: 咸宁市第一人民医院，供应商: 未知，合同金额: 885.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "a0b5668479641173",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "咸宁市第一人民医院全院医疗设备整体维保服务项目",
+        "buyer": "咸宁市第一人民医院",
+        "supplier": "未知",
+        "contract_amount": "885.0",
+        "contract_name": "咸宁市第一人民医院全院医疗设备整体维保服务项目"
+      }
+    },
+    {
+      "content": "招标项目孝昌县环卫设施设备更新项目（一期）四标段，采购方: 孝昌县城市管理执法局本级，供应商: 未知，合同金额: 938.3元",
+      "type": "zhaobiao_full",
+      "doc_id": "a81aec27ee518d45",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "孝昌县环卫设施设备更新项目（一期）四标段",
+        "buyer": "孝昌县城市管理执法局本级",
+        "supplier": "未知",
+        "contract_amount": "938.3",
+        "contract_name": "孝昌县环卫设施设备更新项目（一期）四标段"
+      }
+    },
+    {
+      "content": "招标项目西南交通大学犀浦校区环境与生物材料交叉技术创新中心第三方检测服务采购项目（第二次），采购方: 西南交通大学，供应商: 未知，合同金额: 220.69元",
+      "type": "zhaobiao_full",
+      "doc_id": "1247a6c9111c8f16",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "西南交通大学犀浦校区环境与生物材料交叉技术创新中心第三方检测服务采购项目（第二次）",
+        "buyer": "西南交通大学",
+        "supplier": "未知",
+        "contract_amount": "220.69",
+        "contract_name": "西南交通大学犀浦校区环境与生物材料交叉技术创新中心第三方检测服务采购项目（第二次）"
+      }
+    },
+    {
+      "content": "招标项目南京鼓楼医院集成应用门户系统，采购方: 南京鼓楼医院，供应商: 未知，合同金额: 30.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "3302f0917c3f8b67",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "南京鼓楼医院集成应用门户系统",
+        "buyer": "南京鼓楼医院",
+        "supplier": "未知",
+        "contract_amount": "30.0",
+        "contract_name": "南京鼓楼医院集成应用门户系统"
+      }
+    },
+    {
+      "content": "招标项目花果山水帘洞内多维体验营造项目，采购方: 连云港市花果山风景区管理处（本级），供应商: 未知，合同金额: 1350.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "29c5e6b59fdcd2f3",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "花果山水帘洞内多维体验营造项目",
+        "buyer": "连云港市花果山风景区管理处（本级）",
+        "supplier": "未知",
+        "contract_amount": "1350.0",
+        "contract_name": "花果山水帘洞内多维体验营造项目"
+      }
+    },
+    {
+      "content": "招标项目江苏省省级机关医院中药饮片及代煎服务项目，采购方: 江苏省省级机关医院，供应商: 未知，合同金额: 5286.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "412a9efd7492b0f3",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "江苏省省级机关医院中药饮片及代煎服务项目",
+        "buyer": "江苏省省级机关医院",
+        "supplier": "未知",
+        "contract_amount": "5286.0",
+        "contract_name": "江苏省省级机关医院中药饮片及代煎服务项目"
+      }
+    },
+    {
+      "content": "招标项目2025年儿科医疗服务能力建设基础医疗设备采购项目(二次)，采购方: 眉山市人民医院，供应商: 未知，合同金额: 51.45元",
+      "type": "zhaobiao_full",
+      "doc_id": "274f0e4e5d070129",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2025年儿科医疗服务能力建设基础医疗设备采购项目(二次)",
+        "buyer": "眉山市人民医院",
+        "supplier": "未知",
+        "contract_amount": "51.45",
+        "contract_name": "2025年儿科医疗服务能力建设基础医疗设备采购项目(二次)"
+      }
+    },
+    {
+      "content": "招标项目中山市坦洲人民医院（中山市中西医结合医院）外送检验及病理共建服务采购项目(五次)公开招标公告，采购方: 未知，供应商: 未知",
+      "type": "zhaobiao_full",
+      "doc_id": "d5d2bfe13afe07c8",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "中山市坦洲人民医院（中山市中西医结合医院）外送检验及病理共建服务采购项目(五次)公开招标公告",
+        "buyer": "未知",
+        "supplier": "未知",
+        "contract_amount": "",
+        "contract_name": "中山市坦洲人民医院（中山市中西医结合医院）外送检验及病理共建服务采购项目(五次)公开招标公告"
+      }
+    },
+    {
+      "content": "招标项目2026年度实验材料及办公用品政府采购提前采购项目，采购方: 四川省药品检验研究院（四川省医疗器械检测中心、四川养麝研究所），供应商: 未知，合同金额: 600.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "c5e6d7abdeabc660",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2026年度实验材料及办公用品政府采购提前采购项目",
+        "buyer": "四川省药品检验研究院（四川省医疗器械检测中心、四川养麝研究所）",
+        "supplier": "未知",
+        "contract_amount": "600.0",
+        "contract_name": "2026年度实验材料及办公用品政府采购提前采购项目"
+      }
+    },
+    {
+      "content": "招标项目海原县教育体育局2025年海原县薄弱环节改善和能力提升设备采购项目(二)四标段，采购方: 海原县教育体育局，供应商: 未知，合同金额: 1122.5元",
+      "type": "zhaobiao_full",
+      "doc_id": "4d80a87743142f83",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "海原县教育体育局2025年海原县薄弱环节改善和能力提升设备采购项目(二)四标段",
+        "buyer": "海原县教育体育局",
+        "supplier": "未知",
+        "contract_amount": "1122.5",
+        "contract_name": "海原县教育体育局2025年海原县薄弱环节改善和能力提升设备采购项目(二)四标段"
+      }
+    },
+    {
+      "content": "招标项目中国科学院深圳先进技术研究院实验动物服务采购项目，采购方: 中国科学院深圳先进技术研究院，供应商: 未知，合同金额: 695.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "c9ea23c615a8fe3e",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "中国科学院深圳先进技术研究院实验动物服务采购项目",
+        "buyer": "中国科学院深圳先进技术研究院",
+        "supplier": "未知",
+        "contract_amount": "695.0",
+        "contract_name": "中国科学院深圳先进技术研究院实验动物服务采购项目"
+      }
+    },
+    {
+      "content": "招标项目2026年厅政府网站运行维护与内容监测服务，采购方: 四川省交通运输厅信息中心，供应商: 未知，合同金额: 103.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "1c945d5fcfe5a014",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2026年厅政府网站运行维护与内容监测服务",
+        "buyer": "四川省交通运输厅信息中心",
+        "supplier": "未知",
+        "contract_amount": "103.0",
+        "contract_name": "2026年厅政府网站运行维护与内容监测服务"
+      }
+    },
+    {
+      "content": "招标项目南宁市城市更新规划（2025-2030年），采购方: 南宁市住房和城乡建设局，供应商: 未知，合同金额: 776.84元",
+      "type": "zhaobiao_full",
+      "doc_id": "2488c4f6b97fdd69",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "南宁市城市更新规划（2025-2030年）",
+        "buyer": "南宁市住房和城乡建设局",
+        "supplier": "未知",
+        "contract_amount": "776.84",
+        "contract_name": "南宁市城市更新规划（2025-2030年）"
+      }
+    },
+    {
+      "content": "招标项目电子鼻咽喉镜，采购方: 秦皇岛市第一医院，供应商: 未知，合同金额: 105.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "17654fbac7920218",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "电子鼻咽喉镜",
+        "buyer": "秦皇岛市第一医院",
+        "supplier": "未知",
+        "contract_amount": "105.0",
+        "contract_name": "电子鼻咽喉镜"
+      }
+    },
+    {
+      "content": "招标项目保定市市级成品粮油储备承储服务项目，采购方: 保定市发展和改革委员会本级，供应商: 未知，合同金额: 85.5元",
+      "type": "zhaobiao_full",
+      "doc_id": "aacdcd52ee2b5caf",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "保定市市级成品粮油储备承储服务项目",
+        "buyer": "保定市发展和改革委员会本级",
+        "supplier": "未知",
+        "contract_amount": "85.5",
+        "contract_name": "保定市市级成品粮油储备承储服务项目"
+      }
+    },
+    {
+      "content": "招标项目保定市“好房子”优选地块及2025年度“土地云选”平台运维工作项目，采购方: 保定市土地储备中心，供应商: 未知，合同金额: 168.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "9a9500cb5d4f3bcc",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "保定市“好房子”优选地块及2025年度“土地云选”平台运维工作项目",
+        "buyer": "保定市土地储备中心",
+        "supplier": "未知",
+        "contract_amount": "168.0",
+        "contract_name": "保定市“好房子”优选地块及2025年度“土地云选”平台运维工作项目"
+      }
+    },
+    {
+      "content": "招标项目百色市田阳区环卫清扫保洁政府购买服务项目，采购方: 百色市田阳区城市管理监督局，供应商: 未知，合同金额: 9535.89元",
+      "type": "zhaobiao_full",
+      "doc_id": "e991c6fd36399fa2",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "百色市田阳区环卫清扫保洁政府购买服务项目",
+        "buyer": "百色市田阳区城市管理监督局",
+        "supplier": "未知",
+        "contract_amount": "9535.89",
+        "contract_name": "百色市田阳区环卫清扫保洁政府购买服务项目"
+      }
+    },
+    {
+      "content": "招标项目顺昌县2025年第三期死亡松树专业化除害处理服务采购项目，采购方: 顺昌县林业局，供应商: 未知，合同金额: 198.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "0205e20f353142e3",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "顺昌县2025年第三期死亡松树专业化除害处理服务采购项目",
+        "buyer": "顺昌县林业局",
+        "supplier": "未知",
+        "contract_amount": "198.0",
+        "contract_name": "顺昌县2025年第三期死亡松树专业化除害处理服务采购项目"
+      }
+    },
+    {
+      "content": "招标项目庆阳市人民医院数字化医用X线摄影系统等医疗设备采购项目(二次)，采购方: 庆阳市人民医院，供应商: 未知，合同金额: 299.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "d7bc00ca073cf317",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "庆阳市人民医院数字化医用X线摄影系统等医疗设备采购项目(二次)",
+        "buyer": "庆阳市人民医院",
+        "supplier": "未知",
+        "contract_amount": "299.0",
+        "contract_name": "庆阳市人民医院数字化医用X线摄影系统等医疗设备采购项目(二次)"
+      }
+    },
+    {
+      "content": "招标项目保山市隆阳区2026年校园学生食堂大宗食品及配送服务采购，采购方: 保山市隆阳区教育体育局，供应商: 未知，合同金额: 4186.95元",
+      "type": "zhaobiao_full",
+      "doc_id": "0648e0dd1e69f049",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "保山市隆阳区2026年校园学生食堂大宗食品及配送服务采购",
+        "buyer": "保山市隆阳区教育体育局",
+        "supplier": "未知",
+        "contract_amount": "4186.95",
+        "contract_name": "保山市隆阳区2026年校园学生食堂大宗食品及配送服务采购"
+      }
+    },
+    {
+      "content": "招标项目弥渡县中医医院医疗设备维修保养服务采购项目，采购方: 弥渡县中医医院，供应商: 未知，合同金额: 120.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "ad0399eb4fb62bea",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "弥渡县中医医院医疗设备维修保养服务采购项目",
+        "buyer": "弥渡县中医医院",
+        "supplier": "未知",
+        "contract_amount": "120.0",
+        "contract_name": "弥渡县中医医院医疗设备维修保养服务采购项目"
+      }
+    },
+    {
+      "content": "招标项目元谋县第一人民医院洗涤外包社会化服务采购项目，采购方: 元谋县第一人民医院，供应商: 未知，合同金额: 160.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "f1ec314bf7e081da",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "元谋县第一人民医院洗涤外包社会化服务采购项目",
+        "buyer": "元谋县第一人民医院",
+        "supplier": "未知",
+        "contract_amount": "160.0",
+        "contract_name": "元谋县第一人民医院洗涤外包社会化服务采购项目"
+      }
+    },
+    {
+      "content": "招标项目曲靖市中医医院磁刺激仪等设备采购项目，采购方: 曲靖市中医医院，供应商: 未知，合同金额: 186.5元",
+      "type": "zhaobiao_full",
+      "doc_id": "11d474b8ef5472ba",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "曲靖市中医医院磁刺激仪等设备采购项目",
+        "buyer": "曲靖市中医医院",
+        "supplier": "未知",
+        "contract_amount": "186.5",
+        "contract_name": "曲靖市中医医院磁刺激仪等设备采购项目"
+      }
+    },
+    {
+      "content": "招标项目2025年韶关市卫生健康系统医用设备采购项目（第二批）-彩色超声诊断系统采购项目招标公告，采购方: 未知，供应商: 未知",
+      "type": "zhaobiao_full",
+      "doc_id": "85429533e23aca6b",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2025年韶关市卫生健康系统医用设备采购项目（第二批）-彩色超声诊断系统采购项目招标公告",
+        "buyer": "未知",
+        "supplier": "未知",
+        "contract_amount": "",
+        "contract_name": "2025年韶关市卫生健康系统医用设备采购项目（第二批）-彩色超声诊断系统采购项目招标公告"
+      }
+    },
+    {
+      "content": "招标项目2026年长期护理保险护理耗材第三方配送和辅具适配租赁服务项目，采购方: 汉中市医疗保障局，供应商: 未知，合同金额: 320.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "7ff7fd01c44c9e4a",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2026年长期护理保险护理耗材第三方配送和辅具适配租赁服务项目",
+        "buyer": "汉中市医疗保障局",
+        "supplier": "未知",
+        "contract_amount": "320.0",
+        "contract_name": "2026年长期护理保险护理耗材第三方配送和辅具适配租赁服务项目"
+      }
+    },
+    {
+      "content": "招标项目2025年黄冈市公安局刑事技术专业耗材第二次，采购方: 黄冈市公安局本级，供应商: 未知，合同金额: 280.32元",
+      "type": "zhaobiao_full",
+      "doc_id": "43b64f2c4847a279",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2025年黄冈市公安局刑事技术专业耗材第二次",
+        "buyer": "黄冈市公安局本级",
+        "supplier": "未知",
+        "contract_amount": "280.32",
+        "contract_name": "2025年黄冈市公安局刑事技术专业耗材第二次"
+      }
+    },
+    {
+      "content": "招标项目湖北省直属机关医院医疗设备采购，采购方: 湖北省直属机关医院，供应商: 未知，合同金额: 134.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "7e13d13853985e7c",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "湖北省直属机关医院医疗设备采购",
+        "buyer": "湖北省直属机关医院",
+        "supplier": "未知",
+        "contract_amount": "134.0",
+        "contract_name": "湖北省直属机关医院医疗设备采购"
+      }
+    },
+    {
+      "content": "招标项目顺义区文化中心运营项目-保安服务，采购方: 北京市顺义区文化和旅游局本级，供应商: 未知，合同金额: 202.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "26fe1942f9255171",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "顺义区文化中心运营项目-保安服务",
+        "buyer": "北京市顺义区文化和旅游局本级",
+        "supplier": "未知",
+        "contract_amount": "202.0",
+        "contract_name": "顺义区文化中心运营项目-保安服务"
+      }
+    },
+    {
+      "content": "招标项目国家统计局四川调查总队四川省第四次全国农业普查农作物种植用地和设施农业遥感测量服务，采购方: 国家统计局四川调查总队，供应商: 未知，合同金额: 563.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "1130571917653d8b",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "国家统计局四川调查总队四川省第四次全国农业普查农作物种植用地和设施农业遥感测量服务",
+        "buyer": "国家统计局四川调查总队",
+        "supplier": "未知",
+        "contract_amount": "563.0",
+        "contract_name": "国家统计局四川调查总队四川省第四次全国农业普查农作物种植用地和设施农业遥感测量服务"
+      }
+    },
+    {
+      "content": "招标项目祥云县公安局“天眼卫士”公共视频监控采购项目，采购方: 祥云县公安局，供应商: 未知，合同金额: 113.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "c3b7c1be09786fbc",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "祥云县公安局“天眼卫士”公共视频监控采购项目",
+        "buyer": "祥云县公安局",
+        "supplier": "未知",
+        "contract_amount": "113.0",
+        "contract_name": "祥云县公安局“天眼卫士”公共视频监控采购项目"
+      }
+    },
+    {
+      "content": "招标项目杭州市富阳中医骨伤医院柴油采购项目（2026年度），采购方: 杭州市富阳中医骨伤医院，供应商: 未知，合同金额: 600.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "4baa3ddbf87cf508",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "杭州市富阳中医骨伤医院柴油采购项目（2026年度）",
+        "buyer": "杭州市富阳中医骨伤医院",
+        "supplier": "未知",
+        "contract_amount": "600.0",
+        "contract_name": "杭州市富阳中医骨伤医院柴油采购项目（2026年度）"
+      }
+    },
+    {
+      "content": "招标项目2025年扩大学前教育资源奖补设备采购项目（重），采购方: 南宁市江南区教育局，供应商: 未知，合同金额: 630.86元",
+      "type": "zhaobiao_full",
+      "doc_id": "db50e5dcfd15c735",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2025年扩大学前教育资源奖补设备采购项目（重）",
+        "buyer": "南宁市江南区教育局",
+        "supplier": "未知",
+        "contract_amount": "630.86",
+        "contract_name": "2025年扩大学前教育资源奖补设备采购项目（重）"
+      }
+    },
+    {
+      "content": "招标项目普宁市中医医院医疗护理辅助服务项目（第二次）招标公告，采购方: 未知，供应商: 未知",
+      "type": "zhaobiao_full",
+      "doc_id": "8c7d9a1cf4134e22",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "普宁市中医医院医疗护理辅助服务项目（第二次）招标公告",
+        "buyer": "未知",
+        "supplier": "未知",
+        "contract_amount": "",
+        "contract_name": "普宁市中医医院医疗护理辅助服务项目（第二次）招标公告"
+      }
+    },
+    {
+      "content": "招标项目竹山县医共体公共卫生医疗救治综合能力提升项目（健康管理中心及医养康复中心（中医药服务能力提升）二期建设项目）（设备采购及安装），采购方: 竹山县中医医院，供应商: 未知，合同金额: 728.32元",
+      "type": "zhaobiao_full",
+      "doc_id": "a11948e32e49e82d",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "竹山县医共体公共卫生医疗救治综合能力提升项目（健康管理中心及医养康复中心（中医药服务能力提升）二期建设项目）（设备采购及安装）",
+        "buyer": "竹山县中医医院",
+        "supplier": "未知",
+        "contract_amount": "728.32",
+        "contract_name": "竹山县医共体公共卫生医疗救治综合能力提升项目（健康管理中心及医养康复中心（中医药服务能力提升）二期建设项目）（设备采购及安装）"
+      }
+    },
+    {
+      "content": "招标项目孝昌县环卫设施设备更新项目（一期）三标段，采购方: 孝昌县城市管理执法局本级，供应商: 未知，合同金额: 1058.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "551777519c427573",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "孝昌县环卫设施设备更新项目（一期）三标段",
+        "buyer": "孝昌县城市管理执法局本级",
+        "supplier": "未知",
+        "contract_amount": "1058.0",
+        "contract_name": "孝昌县环卫设施设备更新项目（一期）三标段"
+      }
+    },
+    {
+      "content": "招标项目2026年食品重点实验室分析类采购项目，采购方: 四川农业大学，供应商: 未知，合同金额: 146.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "6f3bbbe309e27f3e",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2026年食品重点实验室分析类采购项目",
+        "buyer": "四川农业大学",
+        "supplier": "未知",
+        "contract_amount": "146.0",
+        "contract_name": "2026年食品重点实验室分析类采购项目"
+      }
+    },
+    {
+      "content": "招标项目广州民航职业技术学院飞机维修工程学院教学实训系统建设项目，采购方: 广州民航职业技术学院，供应商: 未知，合同金额: 105.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "98ecb3948b4fefa2",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "广州民航职业技术学院飞机维修工程学院教学实训系统建设项目",
+        "buyer": "广州民航职业技术学院",
+        "supplier": "未知",
+        "contract_amount": "105.0",
+        "contract_name": "广州民航职业技术学院飞机维修工程学院教学实训系统建设项目"
+      }
+    },
+    {
+      "content": "招标项目标准化示范基地网络服务平台建设(三次)，采购方: 四川轻化工大学，供应商: 未知，合同金额: 19.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "429f6cb8646e6203",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "标准化示范基地网络服务平台建设(三次)",
+        "buyer": "四川轻化工大学",
+        "supplier": "未知",
+        "contract_amount": "19.0",
+        "contract_name": "标准化示范基地网络服务平台建设(三次)"
+      }
+    },
+    {
+      "content": "招标项目超高时空组学显微成像系统，采购方: 上海交通大学医学院，供应商: 未知，合同金额: 310.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "df24b70c738a7841",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "超高时空组学显微成像系统",
+        "buyer": "上海交通大学医学院",
+        "supplier": "未知",
+        "contract_amount": "310.0",
+        "contract_name": "超高时空组学显微成像系统"
+      }
+    },
+    {
+      "content": "招标项目福州市鼓楼区2025-2028年夜景灯光设施维护管养服务项目，采购方: 福州市鼓楼区景观综合整治管理中心，供应商: 未知，合同金额: 460.1元",
+      "type": "zhaobiao_full",
+      "doc_id": "61a425785211018c",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "福州市鼓楼区2025-2028年夜景灯光设施维护管养服务项目",
+        "buyer": "福州市鼓楼区景观综合整治管理中心",
+        "supplier": "未知",
+        "contract_amount": "460.1",
+        "contract_name": "福州市鼓楼区2025-2028年夜景灯光设施维护管养服务项目"
+      }
+    },
+    {
+      "content": "招标项目诏安县城市更新技术咨询项目，采购方: 诏安县住房和城乡建设局，供应商: 未知，合同金额: 300.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "d3542025fceb99d5",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "诏安县城市更新技术咨询项目",
+        "buyer": "诏安县住房和城乡建设局",
+        "supplier": "未知",
+        "contract_amount": "300.0",
+        "contract_name": "诏安县城市更新技术咨询项目"
+      }
+    },
+    {
+      "content": "招标项目“双高建设”智慧党建管理平台建设项目，采购方: 昆明幼儿师范高等专科学校，供应商: 未知，合同金额: 130.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "f023264c2009689b",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "“双高建设”智慧党建管理平台建设项目",
+        "buyer": "昆明幼儿师范高等专科学校",
+        "supplier": "未知",
+        "contract_amount": "130.0",
+        "contract_name": "“双高建设”智慧党建管理平台建设项目"
+      }
+    },
+    {
+      "content": "招标项目易门县紧密型县域医共体十街分院2025年医疗卫生综合服务能力提升项目设备购置，采购方: 易门县紧密型医共体总医院，供应商: 未知，合同金额: 29.98元",
+      "type": "zhaobiao_full",
+      "doc_id": "8207b324df4cbb33",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "易门县紧密型县域医共体十街分院2025年医疗卫生综合服务能力提升项目设备购置",
+        "buyer": "易门县紧密型医共体总医院",
+        "supplier": "未知",
+        "contract_amount": "29.98",
+        "contract_name": "易门县紧密型县域医共体十街分院2025年医疗卫生综合服务能力提升项目设备购置"
+      }
+    },
+    {
+      "content": "招标项目太原市汾河景区2026年度二期安保服务项目，采购方: 太原市汾河景区管理委员会，供应商: 未知，合同金额: 864.01元",
+      "type": "zhaobiao_full",
+      "doc_id": "2ed9f0cd69233c04",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "太原市汾河景区2026年度二期安保服务项目",
+        "buyer": "太原市汾河景区管理委员会",
+        "supplier": "未知",
+        "contract_amount": "864.01",
+        "contract_name": "太原市汾河景区2026年度二期安保服务项目"
+      }
+    },
+    {
+      "content": "招标项目2025年甘肃省庆阳市马莲河流域陇东地区生态保护修复和水土流失综合治理项目庆城县人工造乔木林(二次)，采购方: 庆城县林业和草原局，供应商: 未知，合同金额: 392.2元",
+      "type": "zhaobiao_full",
+      "doc_id": "2ea072badbe041e0",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "2025年甘肃省庆阳市马莲河流域陇东地区生态保护修复和水土流失综合治理项目庆城县人工造乔木林(二次)",
+        "buyer": "庆城县林业和草原局",
+        "supplier": "未知",
+        "contract_amount": "392.2",
+        "contract_name": "2025年甘肃省庆阳市马莲河流域陇东地区生态保护修复和水土流失综合治理项目庆城县人工造乔木林(二次)"
+      }
+    },
+    {
+      "content": "招标项目防灾减灾科学与工程教学实验室项目，采购方: 阿坝师范学院，供应商: 未知，合同金额: 330.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "1bab2ae76eefccb4",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "防灾减灾科学与工程教学实验室项目",
+        "buyer": "阿坝师范学院",
+        "supplier": "未知",
+        "contract_amount": "330.0",
+        "contract_name": "防灾减灾科学与工程教学实验室项目"
+      }
+    },
+    {
+      "content": "招标项目广东省重点医院先进医疗设备更新项目（珠三角一）-手术设备（CZ2025-1653）招标公告，采购方: 未知，供应商: 未知",
+      "type": "zhaobiao_full",
+      "doc_id": "08ac9b311fdefdab",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "广东省重点医院先进医疗设备更新项目（珠三角一）-手术设备（CZ2025-1653）招标公告",
+        "buyer": "未知",
+        "supplier": "未知",
+        "contract_amount": "",
+        "contract_name": "广东省重点医院先进医疗设备更新项目（珠三角一）-手术设备（CZ2025-1653）招标公告"
+      }
+    },
+    {
+      "content": "招标项目宁县早胜双通道苹果分拣线建设项目，采购方: 宁县果业发展中心，供应商: 未知，合同金额: 273.2元",
+      "type": "zhaobiao_full",
+      "doc_id": "36743d6f13566c55",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "宁县早胜双通道苹果分拣线建设项目",
+        "buyer": "宁县果业发展中心",
+        "supplier": "未知",
+        "contract_amount": "273.2",
+        "contract_name": "宁县早胜双通道苹果分拣线建设项目"
+      }
+    },
+    {
+      "content": "招标项目太原市汾河景区2026年度一期安保服务项目，采购方: 太原市汾河景区管理委员会，供应商: 未知，合同金额: 187.96元",
+      "type": "zhaobiao_full",
+      "doc_id": "bdc6653875e62950",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "太原市汾河景区2026年度一期安保服务项目",
+        "buyer": "太原市汾河景区管理委员会",
+        "supplier": "未知",
+        "contract_amount": "187.96",
+        "contract_name": "太原市汾河景区2026年度一期安保服务项目"
+      }
+    },
+    {
+      "content": "招标项目新疆维吾尔自治区天山东部国有林管理局2026年小蠹虫受害木采伐清理项目，采购方: 新疆维吾尔自治区天山东部国有林管理局，供应商: 未知，合同金额: 3992.89元",
+      "type": "zhaobiao_full",
+      "doc_id": "00df7ea3d5c46707",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "新疆维吾尔自治区天山东部国有林管理局2026年小蠹虫受害木采伐清理项目",
+        "buyer": "新疆维吾尔自治区天山东部国有林管理局",
+        "supplier": "未知",
+        "contract_amount": "3992.89",
+        "contract_name": "新疆维吾尔自治区天山东部国有林管理局2026年小蠹虫受害木采伐清理项目"
+      }
+    },
+    {
+      "content": "招标项目广东省重点医院先进医疗设备更新项目（珠三角一）-电子消化道内镜系统（CZ2025-1659）招标公告，采购方: 未知，供应商: 未知",
+      "type": "zhaobiao_full",
+      "doc_id": "3fbdf1194c3603ea",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "广东省重点医院先进医疗设备更新项目（珠三角一）-电子消化道内镜系统（CZ2025-1659）招标公告",
+        "buyer": "未知",
+        "supplier": "未知",
+        "contract_amount": "",
+        "contract_name": "广东省重点医院先进医疗设备更新项目（珠三角一）-电子消化道内镜系统（CZ2025-1659）招标公告"
+      }
+    },
+    {
+      "content": "招标项目上饶市中心医院病理科耗材、试剂采购项目-A包（病理常用试剂、耗材）（第四次），采购方: 上饶市中心医院，供应商: 未知，合同金额: 80.7元",
+      "type": "zhaobiao_full",
+      "doc_id": "dcc759e0b2fd05cc",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "上饶市中心医院病理科耗材、试剂采购项目-A包（病理常用试剂、耗材）（第四次）",
+        "buyer": "上饶市中心医院",
+        "supplier": "未知",
+        "contract_amount": "80.7",
+        "contract_name": "上饶市中心医院病理科耗材、试剂采购项目-A包（病理常用试剂、耗材）（第四次）"
+      }
+    },
+    {
+      "content": "招标项目上饶科技中专半军事化管理采购项目，采购方: 上饶科技中等专业学校，供应商: 未知，合同金额: 175.35元",
+      "type": "zhaobiao_full",
+      "doc_id": "e2b5daa9bdabee21",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "上饶科技中专半军事化管理采购项目",
+        "buyer": "上饶科技中等专业学校",
+        "supplier": "未知",
+        "contract_amount": "175.35",
+        "contract_name": "上饶科技中专半军事化管理采购项目"
+      }
+    },
+    {
+      "content": "招标项目江西省洪都监狱2026年罪犯生活物资(净菜)采购及配送项目，采购方: 江西省洪都监狱，供应商: 未知，合同金额: 1008.5元",
+      "type": "zhaobiao_full",
+      "doc_id": "ef8e0e082f1a51c9",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "江西省洪都监狱2026年罪犯生活物资(净菜)采购及配送项目",
+        "buyer": "江西省洪都监狱",
+        "supplier": "未知",
+        "contract_amount": "1008.5",
+        "contract_name": "江西省洪都监狱2026年罪犯生活物资(净菜)采购及配送项目"
+      }
+    },
+    {
+      "content": "招标项目上饶职业技术学院大数据学院数字现代产业学院建设项目，采购方: 上饶职业技术学院，供应商: 未知，合同金额: 108.47元",
+      "type": "zhaobiao_full",
+      "doc_id": "129f5468baadd83e",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "上饶职业技术学院大数据学院数字现代产业学院建设项目",
+        "buyer": "上饶职业技术学院",
+        "supplier": "未知",
+        "contract_amount": "108.47",
+        "contract_name": "上饶职业技术学院大数据学院数字现代产业学院建设项目"
+      }
+    },
+    {
+      "content": "招标项目宜丰县中医院医疗自助机系统及智慧共享中药房采购项目（2包），采购方: 宜丰县中医院，供应商: 未知，合同金额: 116.0元",
+      "type": "zhaobiao_full",
+      "doc_id": "0fd0bb1f92b06b1f",
+      "weight": 1.0,
+      "metadata": {
+        "project_name": "宜丰县中医院医疗自助机系统及智慧共享中药房采购项目（2包）",
+        "buyer": "宜丰县中医院",
+        "supplier": "未知",
+        "contract_amount": "116.0",
+        "contract_name": "宜丰县中医院医疗自助机系统及智慧共享中药房采购项目（2包）"
+      }
+    }
+  ]
+}

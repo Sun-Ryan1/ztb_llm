@@ -1,0 +1,108 @@
+{
+  "query": "安徽省程式环境科技有限公司",
+  "timestamp": "q_1770642078_a1c8b7bf",
+  "result": {
+    "query": "安徽省程式环境科技有限公司",
+    "total_retrieved": 5,
+    "retrieval_time": 0.018967151641845703,
+    "embedding_time": 0.014248132705688477,
+    "query_time": 0.004540443420410156,
+    "avg_similarity": 0.5161624610424042,
+    "query_id": "q_1770642078_a1c8b7bf",
+    "retrieved_documents": [
+      {
+        "id": "doc_0",
+        "content": "安徽省 程式 环境 科技 有限公司位于安徽宿州",
+        "similarity": 0.6490779221057892,
+        "metadata": {
+          "chunk_index": 0,
+          "original_doc_id": "fe74d0573a66edd0",
+          "total_chunks": 1,
+          "company_name": "安徽省 程式 环境 科技 有限公司",
+          "city": "宿州",
+          "type": "company_location",
+          "content_hash": "9b3f00986799271f",
+          "province": "安徽",
+          "registration_address": "安徽省 宿州市 埇 桥区 银河 绿苑 南区 70 栋 2 单元 204 室"
+        },
+        "rank": 1,
+        "content_preview": "安徽省 程式 环境 科技 有限公司位于安徽宿州"
+      },
+      {
+        "id": "doc_1",
+        "content": "安徽省 程式 环境 科技 有限公司，公司名称: 安徽省 程式 环境 科技 有限公司，法定代表人: 陶立文，统一社会信用代码: 91341302MA2TNTE94Y，注册地址: 安徽省 宿州市 埇 桥区 银河 绿苑 南区 70 栋 2 单元 204 室，注册资本: 0.0，公司类型: 有限责任公司",
+        "similarity": 0.6102376580238342,
+        "metadata": {
+          "province": "安徽",
+          "legal_representative": "陶立文",
+          "company_id": "19588",
+          "content_hash": "d6f86d0827032de5",
+          "original_doc_id": "c766d818ba21602c",
+          "total_chunks": 1,
+          "city": "宿州",
+          "credit_code": "91341302MA2TNTE94Y",
+          "type": "company_full",
+          "chunk_index": 0,
+          "company_type": "有限责任公司",
+          "registration_address": "安徽省 宿州市 埇 桥区 银河 绿苑 南区 70 栋 2 单元 204 室",
+          "business_scope": "环境保护 监测 ; 水电 安装 工程 ; 道路 及 生活 垃圾 清扫 收集 运输 服务 ; 普通 货运 ; 河道 水面 保洁 ; 小区 街巷 公园 广场 清扫 保洁 服务 ; 市政工程 城市道路 照明 工程 河湖 工程 物业管理 公厕 管理 维护 保洁 服务 ; 餐厨 垃圾 收集 运输 服务 ...",
+          "company_name": "安徽省 程式 环境 科技 有限公司"
+        },
+        "rank": 2,
+        "content_preview": "安徽省 程式 环境 科技 有限公司，公司名称: 安徽省 程式 环境 科技 有限公司，法定代表人: 陶立文，统一社会信用代码: 91341302MA2TNTE94Y，注册地址: 安徽省 宿州市 埇 桥区..."
+      },
+      {
+        "id": "doc_2",
+        "content": "安徽省 程式 环境 科技 有限公司的统一社会信用代码是91341302MA2TNTE94Y",
+        "similarity": 0.5741747319698334,
+        "metadata": {
+          "content_hash": "ac219e989070eada",
+          "total_chunks": 1,
+          "type": "company_credit_code",
+          "chunk_index": 0,
+          "original_doc_id": "4608cbc22382dbc0",
+          "company_name": "安徽省 程式 环境 科技 有限公司",
+          "credit_code": "91341302MA2TNTE94Y"
+        },
+        "rank": 3,
+        "content_preview": "安徽省 程式 环境 科技 有限公司的统一社会信用代码是91341302MA2TNTE94Y"
+      },
+      {
+        "id": "doc_3",
+        "content": "安徽省 程式 环境 科技 有限公司的注册地址是安徽省 宿州市 埇 桥区 银河 绿苑 南区 70 栋 2 单元 204 室",
+        "similarity": 0.5530425608158112,
+        "metadata": {
+          "city": "宿州",
+          "chunk_index": 0,
+          "original_doc_id": "7698a79e21bb1527",
+          "registration_address": "安徽省 宿州市 埇 桥区 银河 绿苑 南区 70 栋 2 单元 204 室",
+          "province": "安徽",
+          "content_hash": "f164ccae850d3096",
+          "company_name": "安徽省 程式 环境 科技 有限公司",
+          "total_chunks": 1,
+          "type": "company_location"
+        },
+        "rank": 4,
+        "content_preview": "安徽省 程式 环境 科技 有限公司的注册地址是安徽省 宿州市 埇 桥区 银河 绿苑 南区 70 栋 2 单元 204 室"
+      },
+      {
+        "id": "doc_4",
+        "content": "亳州 正源 环境 科技 有限公司位于安徽亳州",
+        "similarity": 0.19427943229675293,
+        "metadata": {
+          "company_name": "亳州 正源 环境 科技 有限公司",
+          "original_doc_id": "dc49b4a07b55d70b",
+          "registration_address": "安徽省 亳州市 谯城区 桐花路 国购 名城 23 栋 1 单元 203 室",
+          "total_chunks": 1,
+          "type": "company_location",
+          "city": "亳州",
+          "chunk_index": 0,
+          "province": "安徽",
+          "content_hash": "0ae3394162cf251e"
+        },
+        "rank": 5,
+        "content_preview": "亳州 正源 环境 科技 有限公司位于安徽亳州"
+      }
+    ]
+  }
+}

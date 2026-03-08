@@ -1,0 +1,155 @@
+{
+  "overview": {
+    "timestamp": "2026-02-11 14:49:08",
+    "total_cases": 496,
+    "success_rate": 1.0,
+    "valid_case_rate": 1.0,
+    "key_performance": {
+      "avg_retrieval_time": 0.1834734889768785,
+      "hit_at_1": 0.3084677419354839,
+      "avg_mrr": 0.4475299798043512,
+      "avg_recall": 0.7318548387096774
+    }
+  },
+  "issues": [
+    "⚠️ 严重问题: Hit@1命中率较低(30.8%)，检索准确性不足"
+  ],
+  "recommendations": [
+    "📊 定期运行测试评估，建立性能基线",
+    "🔧 实现持续集成，每次代码变更都运行核心测试集",
+    "📈 建立监控系统，实时跟踪生产环境检索性能",
+    "🧪 增加压力测试，模拟高并发场景",
+    "📚 建立知识库，记录常见问题和解决方案",
+    "🎯 优化embedding模型：尝试更大尺寸或专门训练的模型",
+    "🔍 增强查询理解：添加查询扩展、同义词替换",
+    "📄 改进文档处理：优化分块策略和元数据提取",
+    "🔄 引入重排序：使用交叉编码器对初筛结果重排序",
+    "🏷️ 加强元数据过滤：对特殊查询类型实施精确匹配"
+  ],
+  "detailed_analysis": {
+    "by_query_type": {},
+    "by_difficulty": {},
+    "by_retrieval_method": {
+      "natural_language": {
+        "count": 69,
+        "hit_at_1": 0.2898550724637681,
+        "avg_time": 0.17166442456452743,
+        "avg_mrr": 0.41639061421670115
+      },
+      "address_optimized": {
+        "count": 55,
+        "hit_at_1": 0.32727272727272727,
+        "avg_time": 0.5664029034701261,
+        "avg_mrr": 0.44348484848484854
+      },
+      "product_keyword": {
+        "count": 29,
+        "hit_at_1": 0.1724137931034483,
+        "avg_time": 0.20056031490194387,
+        "avg_mrr": 0.2584291187739463
+      },
+      "hybrid_search": {
+        "count": 167,
+        "hit_at_1": 0.2694610778443114,
+        "avg_time": 0.04383408095308407,
+        "avg_mrr": 0.44607473364958367
+      },
+      "credit_code_exact": {
+        "count": 31,
+        "hit_at_1": 0.7419354838709677,
+        "avg_time": 0.22262777820710214,
+        "avg_mrr": 0.8411910669975186
+      },
+      "product_supplier": {
+        "count": 97,
+        "hit_at_1": 0.30927835051546393,
+        "avg_time": 0.18376420945236363,
+        "avg_mrr": 0.4575917824174346
+      },
+      "business_scope_enhanced_v2": {
+        "count": 48,
+        "hit_at_1": 0.25,
+        "avg_time": 0.21130657196044922,
+        "avg_mrr": 0.34166666666666673
+      }
+    },
+    "failed_cases_analysis": {},
+    "performance_bottlenecks": {
+      "p95_high": {
+        "p95_time": 0.5765613317489624,
+        "avg_time": 0.1834734889768785,
+        "ratio": 3.1424776133276735,
+        "insight": "部分查询耗时远高于平均值，可能存在性能瓶颈"
+      },
+      "slowest_cases": [
+        {
+          "test_id": "company_name_35b253d9_2",
+          "query_type": "company_name",
+          "retrieval_method": "address_optimized",
+          "time": 0.7102067470550537,
+          "query_preview": "东莞市 今道 企业 管理 顾问 有限公司这家企业的基本情况..."
+        },
+        {
+          "test_id": "company_name_e2865f95_4",
+          "query_type": "company_name",
+          "retrieval_method": "address_optimized",
+          "time": 0.6738560199737549,
+          "query_preview": "中国 邮政储蓄 银行 股份 有限公司 来安县 汊 河镇 营业所的公司信息是什么..."
+        },
+        {
+          "test_id": "zb_buyer_7abcbcb2_2",
+          "query_type": "zhaobiao_buyer",
+          "retrieval_method": "address_optimized",
+          "time": 0.65364670753479,
+          "query_preview": "深圳市龙岗区第二人民医院的招标项目有哪些..."
+        },
+        {
+          "test_id": "company_name_e2865f95_2",
+          "query_type": "company_name",
+          "retrieval_method": "address_optimized",
+          "time": 0.6260108947753906,
+          "query_preview": "中国 邮政储蓄 银行 股份 有限公司 来安县 汊 河镇 营业所这家企业的基本情况..."
+        },
+        {
+          "test_id": "natural_language_a02fab40_1",
+          "query_type": "natural_language",
+          "retrieval_method": "address_optimized",
+          "time": 0.6257801055908203,
+          "query_preview": "请问东海县 加谷 生物科技 有限公司的注册地址在哪里？..."
+        }
+      ]
+    },
+    "worst_performing_types": [
+      {
+        "type": "business_scope",
+        "hit_at_1": 0.0,
+        "count": 18,
+        "issue": "business_scope类型查询命中率过低"
+      },
+      {
+        "type": "product_supplier",
+        "hit_at_1": 0.0,
+        "count": 13,
+        "issue": "product_supplier类型查询命中率过低"
+      },
+      {
+        "type": "product_keyword",
+        "hit_at_1": 0.0,
+        "count": 5,
+        "issue": "product_keyword类型查询命中率过低"
+      },
+      {
+        "type": "natural_language",
+        "hit_at_1": 0.13793103448275862,
+        "count": 29,
+        "issue": "natural_language类型查询命中率过低"
+      },
+      {
+        "type": "law_title",
+        "hit_at_1": 0.13924050632911392,
+        "count": 79,
+        "issue": "law_title类型查询命中率过低"
+      }
+    ]
+  }
+}

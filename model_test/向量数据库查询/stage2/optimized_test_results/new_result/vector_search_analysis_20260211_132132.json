@@ -1,0 +1,55 @@
+{
+  "overview": {
+    "timestamp": "2026-02-11 13:21:32",
+    "total_cases": 496,
+    "success_rate": 0.0,
+    "valid_case_rate": 0.0,
+    "key_performance": {
+      "avg_retrieval_time": 0.0,
+      "hit_at_1": 0.0,
+      "avg_mrr": 0.0,
+      "avg_recall": 0.0
+    }
+  },
+  "issues": [
+    "❌ 致命问题: Hit@1命中率极低(0.0%)，检索系统基本失效",
+    "❌ 致命问题: 测试用例失败率过高(100.0%)，代码稳定性差"
+  ],
+  "recommendations": [
+    "📊 定期运行测试评估，建立性能基线",
+    "🔧 实现持续集成，每次代码变更都运行核心测试集",
+    "📈 建立监控系统，实时跟踪生产环境检索性能",
+    "🧪 增加压力测试，模拟高并发场景",
+    "📚 建立知识库，记录常见问题和解决方案",
+    "🎯 优化embedding模型：尝试更大尺寸或专门训练的模型",
+    "🔍 增强查询理解：添加查询扩展、同义词替换",
+    "📄 改进文档处理：优化分块策略和元数据提取",
+    "🔄 引入重排序：使用交叉编码器对初筛结果重排序",
+    "🏷️ 加强元数据过滤：对特殊查询类型实施精确匹配",
+    "🐛 修复已知缺陷：针对失败用例逐一排查",
+    "🛡️ 增强异常处理：添加更全面的try-catch和参数校验",
+    "🔁 实现重试机制：对网络超时等临时失败自动重试",
+    "📝 完善日志记录：为失败用例添加上下文信息",
+    "🧪 增加边界测试：覆盖极端情况和边界条件"
+  ],
+  "detailed_analysis": {
+    "by_query_type": {},
+    "by_difficulty": {},
+    "by_retrieval_method": {},
+    "failed_cases_analysis": {
+      "total_failed": 496,
+      "error_distribution": {
+        "NameError": 496
+      },
+      "timeout_cases": [],
+      "failure_rate_by_query_type": {
+        "company_name": 1.0,
+        "address": 1.0,
+        "credit_code": 1.0,
+        "natural_language": 1.0,
+        "business_scope": 1.0
+      }
+    },
+    "performance_bottlenecks": {}
+  }
+}

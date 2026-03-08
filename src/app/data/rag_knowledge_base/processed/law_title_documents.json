@@ -1,0 +1,207 @@
+{
+  "type": "law_title",
+  "count": 20,
+  "weight": 0.8,
+  "documents": [
+    {
+      "content": "《中华人民共和国财政部》",
+      "type": "law_title",
+      "doc_id": "7b625bea7a199f5e",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国财政部令第110号《政府采购框架协议采购方式管理暂行办法》",
+        "law_name": "中华人民共和国财政部"
+      }
+    },
+    {
+      "content": "《中华人民共和国行政复议法》",
+      "type": "law_title",
+      "doc_id": "d46987345013a55d",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国行政复议法",
+        "law_name": "中华人民共和国行政复议法"
+      }
+    },
+    {
+      "content": "《中华人民共和国反间谍法》",
+      "type": "law_title",
+      "doc_id": "b7b0c3ae74d36efd",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国反间谍法",
+        "law_name": "中华人民共和国反间谍法"
+      }
+    },
+    {
+      "content": "《中华人民共和国审计法》",
+      "type": "law_title",
+      "doc_id": "60e74b24b624e478",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国审计法",
+        "law_name": "中华人民共和国审计法"
+      }
+    },
+    {
+      "content": "《中华人民共和国个人信息保护法》",
+      "type": "law_title",
+      "doc_id": "12db426bb43e589d",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国个人信息保护法",
+        "law_name": "中华人民共和国个人信息保护法"
+      }
+    },
+    {
+      "content": "《中华人民共和国数据安全法》",
+      "type": "law_title",
+      "doc_id": "8c167a52f7c48f57",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国数据安全法",
+        "law_name": "中华人民共和国数据安全法"
+      }
+    },
+    {
+      "content": "《中华人民共和国行政处罚法》",
+      "type": "law_title",
+      "doc_id": "17c1a86c7eee4390",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国行政处罚法",
+        "law_name": "中华人民共和国行政处罚法"
+      }
+    },
+    {
+      "content": "《中华人民共和国预算法实施条例》",
+      "type": "law_title",
+      "doc_id": "40f19183646cf496",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国预算法实施条例",
+        "law_name": "中华人民共和国预算法实施条例"
+      }
+    },
+    {
+      "content": "《中华人民共和国保守国家秘密法》",
+      "type": "law_title",
+      "doc_id": "c0c39da03c5124a0",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国保守国家秘密法",
+        "law_name": "中华人民共和国保守国家秘密法"
+      }
+    },
+    {
+      "content": "《中华人民共和国反不正当竞争法》",
+      "type": "law_title",
+      "doc_id": "cba55afa691bb321",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国反不正当竞争法",
+        "law_name": "中华人民共和国反不正当竞争法"
+      }
+    },
+    {
+      "content": "《中华人民共和国电子签名法》",
+      "type": "law_title",
+      "doc_id": "e3dbe7cf7a6d0c35",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国电子签名法",
+        "law_name": "中华人民共和国电子签名法"
+      }
+    },
+    {
+      "content": "《中华人民共和国招标投标法实施条例》",
+      "type": "law_title",
+      "doc_id": "6c3397182592d2b8",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国招标投标法实施条例",
+        "law_name": "中华人民共和国招标投标法实施条例"
+      }
+    },
+    {
+      "content": "《中华人民共和国产品质量法》",
+      "type": "law_title",
+      "doc_id": "4fe254696c130124",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国产品质量法",
+        "law_name": "中华人民共和国产品质量法"
+      }
+    },
+    {
+      "content": "《中华人民共和国预算法》",
+      "type": "law_title",
+      "doc_id": "a1d68d9163faed8e",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国预算法",
+        "law_name": "中华人民共和国预算法"
+      }
+    },
+    {
+      "content": "《中华人民共和国监察法》",
+      "type": "law_title",
+      "doc_id": "236fef37d5cf97b1",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国监察法",
+        "law_name": "中华人民共和国监察法"
+      }
+    },
+    {
+      "content": "《中华人民共和国招标投标法》",
+      "type": "law_title",
+      "doc_id": "9fa2e5eba42b43de",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国招标投标法",
+        "law_name": "中华人民共和国招标投标法"
+      }
+    },
+    {
+      "content": "《中华人民共和国仲裁法》",
+      "type": "law_title",
+      "doc_id": "a1712e73c3f40127",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国仲裁法",
+        "law_name": "中华人民共和国仲裁法"
+      }
+    },
+    {
+      "content": "《中华人民共和国行政诉讼法》",
+      "type": "law_title",
+      "doc_id": "57519bf43a2dfa94",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国行政诉讼法",
+        "law_name": "中华人民共和国行政诉讼法"
+      }
+    },
+    {
+      "content": "《中华人民共和国网络安全法》",
+      "type": "law_title",
+      "doc_id": "2e7acd42baf86fb5",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国网络安全法",
+        "law_name": "中华人民共和国网络安全法"
+      }
+    },
+    {
+      "content": "《中华人民共和国国家安全法》",
+      "type": "law_title",
+      "doc_id": "0ff9dbdf655e515d",
+      "weight": 0.8,
+      "metadata": {
+        "title": "中华人民共和国国家安全法",
+        "law_name": "中华人民共和国国家安全法"
+      }
+    }
+  ]
+}

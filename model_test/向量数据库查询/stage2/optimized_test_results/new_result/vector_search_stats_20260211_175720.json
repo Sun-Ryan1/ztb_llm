@@ -1,0 +1,177 @@
+{
+  "summary": {
+    "total_test_cases": 496,
+    "successful_cases": 496,
+    "failed_cases": 0,
+    "valid_metric_cases": 496,
+    "success_rate": 1.0,
+    "fail_rate": 0.0,
+    "valid_case_rate": 1.0
+  },
+  "performance": {
+    "total_retrieval_time": 291.45597672462463,
+    "avg_retrieval_time": 0.5876128562996464,
+    "retrieval_time_p95": 1.212005853652954,
+    "retrieval_time_p99": 3.174700725078583,
+    "hit_at_1": 0.31451612903225806,
+    "hit_at_3": 0.5786290322580645,
+    "hit_at_5": 0.6754032258064516,
+    "hit_at_10": 0.7056451612903226,
+    "hit_at_15": 0.7137096774193549,
+    "precision_at_1": 0.31451612903225806,
+    "precision_at_3": 0.20262096774193547,
+    "precision_at_5": 0.15262096774193545,
+    "precision_at_10": 0.09395161290322582,
+    "precision_at_15": 0.07291666666666666,
+    "recall_at_1": 0.31451612903225806,
+    "recall_at_3": 0.5786290322580645,
+    "recall_at_5": 0.6754032258064516,
+    "recall_at_10": 0.7056451612903226,
+    "recall_at_15": 0.7137096774193549,
+    "avg_mrr": 0.4574418301232817,
+    "avg_recall": 0.7157258064516129,
+    "avg_f1_score": 0.15664711632453565,
+    "avg_average_precision": 0.4574418301232817,
+    "avg_ndcg_at_10": 0.518397085747938,
+    "avg_first_hit_rank": 2.4056338028169013,
+    "median_first_hit_rank": 2.0,
+    "empty_result_count": 0,
+    "empty_result_rate": 0.0,
+    "no_hit_count": 141,
+    "no_hit_rate": 0.2842741935483871,
+    "avg_similarity": 0.7960908870967742,
+    "similarity_p25": 0.76919125,
+    "similarity_p75": 0.98755375,
+    "similarity_std": 0.25940411733867563
+  },
+  "by_query_type": {
+    "company_name": {
+      "count": 79,
+      "avg_time": 0.25351161896427976,
+      "avg_mrr": 0.4260096443640747,
+      "avg_recall": 0.7974683544303798,
+      "valid_cases": 79,
+      "hit_at_1": 0.21518987341772153
+    },
+    "address": {
+      "count": 23,
+      "avg_time": 0.35667565594548767,
+      "avg_mrr": 0.1358695652173913,
+      "avg_recall": 0.17391304347826086,
+      "valid_cases": 23,
+      "hit_at_1": 0.13043478260869565
+    },
+    "credit_code": {
+      "count": 29,
+      "avg_time": 0.232927314166365,
+      "avg_mrr": 0.896551724137931,
+      "avg_recall": 1.0,
+      "valid_cases": 29,
+      "hit_at_1": 0.7931034482758621
+    },
+    "natural_language": {
+      "count": 29,
+      "avg_time": 1.2809484416040882,
+      "avg_mrr": 0.293431855500821,
+      "avg_recall": 0.5172413793103449,
+      "valid_cases": 29,
+      "hit_at_1": 0.20689655172413793
+    },
+    "business_scope": {
+      "count": 18,
+      "avg_time": 1.0467957788043551,
+      "avg_mrr": 0.011111111111111112,
+      "avg_recall": 0.05555555555555555,
+      "valid_cases": 18,
+      "hit_at_1": 0.0
+    },
+    "legal_representative": {
+      "count": 21,
+      "avg_time": 0.6279777685801188,
+      "avg_mrr": 0.6666666666666666,
+      "avg_recall": 0.7142857142857143,
+      "valid_cases": 21,
+      "hit_at_1": 0.6190476190476191
+    },
+    "zhaobiao_buyer": {
+      "count": 54,
+      "avg_time": 0.7387089287793195,
+      "avg_mrr": 0.6706790123456792,
+      "avg_recall": 0.8703703703703703,
+      "valid_cases": 54,
+      "hit_at_1": 0.5370370370370371
+    },
+    "zhaobiao_supplier": {
+      "count": 23,
+      "avg_time": 1.0141016193058179,
+      "avg_mrr": 0.6482720178372352,
+      "avg_recall": 0.782608695652174,
+      "valid_cases": 23,
+      "hit_at_1": 0.5652173913043478
+    },
+    "zhaobiao_natural": {
+      "count": 32,
+      "avg_time": 1.0982088074088097,
+      "avg_mrr": 0.6338541666666667,
+      "avg_recall": 0.875,
+      "valid_cases": 32,
+      "hit_at_1": 0.46875
+    },
+    "zhaobiao_contract": {
+      "count": 16,
+      "avg_time": 1.1307915896177292,
+      "avg_mrr": 0.5729166666666667,
+      "avg_recall": 1.0,
+      "valid_cases": 16,
+      "hit_at_1": 0.25
+    },
+    "law_natural": {
+      "count": 44,
+      "avg_time": 0.3838305419141596,
+      "avg_mrr": 0.41098484848484845,
+      "avg_recall": 0.7045454545454546,
+      "valid_cases": 44,
+      "hit_at_1": 0.2727272727272727
+    },
+    "law_title": {
+      "count": 79,
+      "avg_time": 0.4401749991163423,
+      "avg_mrr": 0.34848727222144943,
+      "avg_recall": 0.7341772151898734,
+      "valid_cases": 79,
+      "hit_at_1": 0.16455696202531644
+    },
+    "product_supplier": {
+      "count": 13,
+      "avg_time": 0.41191139587989223,
+      "avg_mrr": 0.19957264957264959,
+      "avg_recall": 0.6153846153846154,
+      "valid_cases": 13,
+      "hit_at_1": 0.0
+    },
+    "product_name": {
+      "count": 19,
+      "avg_time": 0.6107915828102514,
+      "avg_mrr": 0.3921052631578947,
+      "avg_recall": 0.7894736842105263,
+      "valid_cases": 19,
+      "hit_at_1": 0.21052631578947367
+    },
+    "product_keyword": {
+      "count": 5,
+      "avg_time": 0.1278923511505127,
+      "avg_mrr": 0.0,
+      "avg_recall": 0.0,
+      "valid_cases": 5,
+      "hit_at_1": 0.0
+    },
+    "product_natural": {
+      "count": 12,
+      "avg_time": 0.13175660371780396,
+      "avg_mrr": 0.4305555555555555,
+      "avg_recall": 0.5833333333333334,
+      "valid_cases": 12,
+      "hit_at_1": 0.3333333333333333
+    }
+  }
+}

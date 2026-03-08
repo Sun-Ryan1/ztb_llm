@@ -1,0 +1,173 @@
+{
+  "query": "广州 伍郭 建材 有限公司的统一社会信用代码",
+  "total_retrieved": 10,
+  "retrieval_time": 0.0202786922454834,
+  "embedding_time": 0.014164447784423828,
+  "query_time": 0.0045623779296875,
+  "avg_similarity": 0.463861133903265,
+  "query_id": "q_1770694057_a1d2bfb7",
+  "retrieved_documents": [
+    {
+      "id": "doc_0",
+      "content": "广州 伍郭 建材 有限公司的统一社会信用代码是91440101MA5CLW8J58",
+      "similarity": 0.8796091303229332,
+      "metadata": {
+        "type": "company_credit_code",
+        "content_hash": "c72a4ea3ee1a5f6c",
+        "credit_code": "91440101MA5CLW8J58",
+        "total_chunks": 1,
+        "company_name": "广州 伍郭 建材 有限公司",
+        "chunk_index": 0,
+        "original_doc_id": "9d35595837308adc"
+      },
+      "rank": 1,
+      "content_preview": "广州 伍郭 建材 有限公司的统一社会信用代码是91440101MA5CLW8J58"
+    },
+    {
+      "id": "doc_1",
+      "content": "上海 伍诚 房地产 顾问 有限公司的统一社会信用代码是91310120MA1HRC16X3",
+      "similarity": 0.4473177194595337,
+      "metadata": {
+        "credit_code": "91310120MA1HRC16X3",
+        "type": "company_credit_code",
+        "content_hash": "d6e5987f7e1f24a9",
+        "company_name": "上海 伍诚 房地产 顾问 有限公司",
+        "original_doc_id": "34802f05be817788",
+        "chunk_index": 0,
+        "total_chunks": 1
+      },
+      "rank": 2,
+      "content_preview": "上海 伍诚 房地产 顾问 有限公司的统一社会信用代码是91310120MA1HRC16X3"
+    },
+    {
+      "id": "doc_2",
+      "content": "上海 伍御 电子 材料 有限公司的统一社会信用代码是91310113MA1GN8KJ3A",
+      "similarity": 0.4431377053260803,
+      "metadata": {
+        "credit_code": "91310113MA1GN8KJ3A",
+        "company_name": "上海 伍御 电子 材料 有限公司",
+        "content_hash": "e9f6e13b7c9f6997",
+        "type": "company_credit_code",
+        "original_doc_id": "5f72ea2ad4f10568",
+        "chunk_index": 0,
+        "total_chunks": 1
+      },
+      "rank": 3,
+      "content_preview": "上海 伍御 电子 材料 有限公司的统一社会信用代码是91310113MA1GN8KJ3A"
+    },
+    {
+      "id": "doc_3",
+      "content": "上海 伍集 网络 信息 科技 有限公司的统一社会信用代码是91310114MA1GW7GB9A",
+      "similarity": 0.42589348554611206,
+      "metadata": {
+        "original_doc_id": "3bc8b095e446405b",
+        "content_hash": "daa4464c595f1e9b",
+        "chunk_index": 0,
+        "credit_code": "91310114MA1GW7GB9A",
+        "type": "company_credit_code",
+        "company_name": "上海 伍集 网络 信息 科技 有限公司",
+        "total_chunks": 1
+      },
+      "rank": 4,
+      "content_preview": "上海 伍集 网络 信息 科技 有限公司的统一社会信用代码是91310114MA1GW7GB9A"
+    },
+    {
+      "id": "doc_4",
+      "content": "东莞市 伍川 新 材料 有限公司的统一社会信用代码是91441900MA530EAC9R",
+      "similarity": 0.4218406677246094,
+      "metadata": {
+        "type": "company_credit_code",
+        "total_chunks": 1,
+        "chunk_index": 0,
+        "content_hash": "9187b8f2938b4eae",
+        "original_doc_id": "fbc9ebc9cfddbb1b",
+        "credit_code": "91441900MA530EAC9R",
+        "company_name": "东莞市 伍川 新 材料 有限公司"
+      },
+      "rank": 5,
+      "content_preview": "东莞市 伍川 新 材料 有限公司的统一社会信用代码是91441900MA530EAC9R"
+    },
+    {
+      "id": "doc_5",
+      "content": "东莞 伍泓 科技 有限公司的统一社会信用代码是91441900MA53434G5Y",
+      "similarity": 0.4216683506965637,
+      "metadata": {
+        "original_doc_id": "1301a21637ae9d3a",
+        "content_hash": "19e956bb536fd872",
+        "type": "company_credit_code",
+        "company_name": "东莞 伍泓 科技 有限公司",
+        "total_chunks": 1,
+        "chunk_index": 0,
+        "credit_code": "91441900MA53434G5Y"
+      },
+      "rank": 6,
+      "content_preview": "东莞 伍泓 科技 有限公司的统一社会信用代码是91441900MA53434G5Y"
+    },
+    {
+      "id": "doc_6",
+      "content": "广东 纵横 建材 有限公司的统一社会信用代码是91441900MA533KRQ47",
+      "similarity": 0.4046422839164734,
+      "metadata": {
+        "original_doc_id": "8db2da4c0a8ead8c",
+        "chunk_index": 0,
+        "content_hash": "ee4fc69193977aed",
+        "total_chunks": 1,
+        "type": "company_credit_code",
+        "credit_code": "91441900MA533KRQ47",
+        "company_name": "广东 纵横 建材 有限公司"
+      },
+      "rank": 7,
+      "content_preview": "广东 纵横 建材 有限公司的统一社会信用代码是91441900MA533KRQ47"
+    },
+    {
+      "id": "doc_7",
+      "content": "上海 伍圣 建筑 劳务 有限公司的统一社会信用代码是91310113MA1GNDY519",
+      "similarity": 0.4037906527519226,
+      "metadata": {
+        "chunk_index": 0,
+        "company_name": "上海 伍圣 建筑 劳务 有限公司",
+        "credit_code": "91310113MA1GNDY519",
+        "original_doc_id": "bd1711aaed1cf59a",
+        "type": "company_credit_code",
+        "content_hash": "b46007280ae3a54c",
+        "total_chunks": 1
+      },
+      "rank": 8,
+      "content_preview": "上海 伍圣 建筑 劳务 有限公司的统一社会信用代码是91310113MA1GNDY519"
+    },
+    {
+      "id": "doc_8",
+      "content": "上海 伍舟 船舶 工程 有限公司的统一社会信用代码是91310120MA1HQQFU86",
+      "similarity": 0.3966761827468872,
+      "metadata": {
+        "content_hash": "fc988d8bd8dde976",
+        "chunk_index": 0,
+        "company_name": "上海 伍舟 船舶 工程 有限公司",
+        "type": "company_credit_code",
+        "original_doc_id": "3858502d9b957146",
+        "total_chunks": 1,
+        "credit_code": "91310120MA1HQQFU86"
+      },
+      "rank": 9,
+      "content_preview": "上海 伍舟 船舶 工程 有限公司的统一社会信用代码是91310120MA1HQQFU86"
+    },
+    {
+      "id": "doc_9",
+      "content": "广东 华铸 装饰 工程 有限公司的统一社会信用代码是91441302MA52YGPY4Q",
+      "similarity": 0.3940351605415344,
+      "metadata": {
+        "credit_code": "91441302MA52YGPY4Q",
+        "content_hash": "f56b9df9b58844fd",
+        "total_chunks": 1,
+        "original_doc_id": "c064b98a86eaede8",
+        "company_name": "广东 华铸 装饰 工程 有限公司",
+        "type": "company_credit_code",
+        "chunk_index": 0
+      },
+      "rank": 10,
+      "content_preview": "广东 华铸 装饰 工程 有限公司的统一社会信用代码是91441302MA52YGPY4Q"
+    }
+  ],
+  "intent_type": "company_credit_code",
+  "optimized_query": "广州 伍郭 建材 有限公司统一社会信用代码"
+}

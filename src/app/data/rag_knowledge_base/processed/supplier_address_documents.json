@@ -1,0 +1,1007 @@
+{
+  "type": "supplier_address",
+  "count": 1506,
+  "weight": 0.8,
+  "documents": [
+    {
+      "content": "南京鸿光环保科技有限公司的地址是南京市江宁区禄口街道神舟路37号创智产业园A栋A1-006",
+      "type": "supplier_address",
+      "doc_id": "2403f88de4e587ae",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "南京鸿光环保科技有限公司",
+        "address": "南京市江宁区禄口街道神舟路37号创智产业园A栋A1-006"
+      }
+    },
+    {
+      "content": "福建顺昌虹润精密仪器有限公司的地址是福建省顺昌县城南东路45号",
+      "type": "supplier_address",
+      "doc_id": "b6e7c23e27f46b7d",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "福建顺昌虹润精密仪器有限公司",
+        "address": "福建省顺昌县城南东路45号"
+      }
+    },
+    {
+      "content": "蚌埠羽丰仪器设备有限公司的地址是广东东莞",
+      "type": "supplier_address",
+      "doc_id": "84f47b107f262956",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "蚌埠羽丰仪器设备有限公司",
+        "address": "广东东莞"
+      }
+    },
+    {
+      "content": "上海禾工科学仪器有限公司的地址是闵行区立跃路778号216-H座",
+      "type": "supplier_address",
+      "doc_id": "c0dbb35dd46d760b",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "上海禾工科学仪器有限公司",
+        "address": "闵行区立跃路778号216-H座"
+      }
+    },
+    {
+      "content": "山东中天宇信信息技术有限公司的地址是山东省威海市火炬高技术产业开发区恒泰街-97-2号广源家具五楼东",
+      "type": "supplier_address",
+      "doc_id": "dbf28dadd3f90839",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东中天宇信信息技术有限公司",
+        "address": "山东省威海市火炬高技术产业开发区恒泰街-97-2号广源家具五楼东"
+      }
+    },
+    {
+      "content": "青岛明博环保科技有限公司的地址是山东青岛",
+      "type": "supplier_address",
+      "doc_id": "fdef966f458f8f02",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "青岛明博环保科技有限公司",
+        "address": "山东青岛"
+      }
+    },
+    {
+      "content": "青岛恒昌盛旭环保科技有限公司的地址是山东省青岛市李沧区九水东路130-145号创新园3号楼1201-2室",
+      "type": "supplier_address",
+      "doc_id": "18317e6286fef62d",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "青岛恒昌盛旭环保科技有限公司",
+        "address": "山东省青岛市李沧区九水东路130-145号创新园3号楼1201-2室"
+      }
+    },
+    {
+      "content": "山东鸣乔电子科技有限公司的地址是山东省潍坊高新区清池街道商城社区健康街以北惠贤路以东现代家具商城普通家具市场楼1号楼7号，6号",
+      "type": "supplier_address",
+      "doc_id": "b2e00385b79a8ecf",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东鸣乔电子科技有限公司",
+        "address": "山东省潍坊高新区清池街道商城社区健康街以北惠贤路以东现代家具商城普通家具市场楼1号楼7号，6号"
+      }
+    },
+    {
+      "content": "上海高致精密仪器有限公司的地址是上海",
+      "type": "supplier_address",
+      "doc_id": "d2b1d6156c9217dc",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "上海高致精密仪器有限公司",
+        "address": "上海"
+      }
+    },
+    {
+      "content": "中健计量检测（广东）有限公司的地址是广东深圳",
+      "type": "supplier_address",
+      "doc_id": "da4d3d34c3930693",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "中健计量检测（广东）有限公司",
+        "address": "广东深圳"
+      }
+    },
+    {
+      "content": "上海玄天环保科技有限公司的地址是上海市崇明区横沙乡富民支路58号9249室（上海横泰经济开发区）",
+      "type": "supplier_address",
+      "doc_id": "fffd0c5fec4ea0e1",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "上海玄天环保科技有限公司",
+        "address": "上海市崇明区横沙乡富民支路58号9249室（上海横泰经济开发区）"
+      }
+    },
+    {
+      "content": "青岛辰飞环保科技有限公司的地址是山东省青岛市高新区火炬路97号青岛中关村信息谷创新中心2层211号",
+      "type": "supplier_address",
+      "doc_id": "d0c1ee5a542a8fe6",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "青岛辰飞环保科技有限公司",
+        "address": "山东省青岛市高新区火炬路97号青岛中关村信息谷创新中心2层211号"
+      }
+    },
+    {
+      "content": "青岛新业环保科技有限公司的地址是山东省青岛市城阳区上马工业园青岛中超针织有限公司院内车间",
+      "type": "supplier_address",
+      "doc_id": "67375e89d094e502",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "青岛新业环保科技有限公司",
+        "address": "山东省青岛市城阳区上马工业园青岛中超针织有限公司院内车间"
+      }
+    },
+    {
+      "content": "杭州美控自动化技术有限公司的地址是浙江省杭州市钱塘新区白杨街道科技园路2号4幢501-502室",
+      "type": "supplier_address",
+      "doc_id": "10ea26976ba68f40",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "杭州美控自动化技术有限公司",
+        "address": "浙江省杭州市钱塘新区白杨街道科技园路2号4幢501-502室"
+      }
+    },
+    {
+      "content": "天尔分析仪ull有限公司的地址是山东省德州市禹城市东城水木清华沿街32号门市3楼301室",
+      "type": "supplier_address",
+      "doc_id": "5be2b8fb90410e2b",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "天尔分析仪ull有限公司",
+        "address": "山东省德州市禹城市东城水木清华沿街32号门市3楼301室"
+      }
+    },
+    {
+      "content": "海乐水质分析仪器（扬州）有限责任公司的地址是高邮市捍海路204号4层",
+      "type": "supplier_address",
+      "doc_id": "36dcb7844db10fd8",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "海乐水质分析仪器（扬州）有限责任公司",
+        "address": "高邮市捍海路204号4层"
+      }
+    },
+    {
+      "content": "润凝实业（上海）有限公司的地址是上海市崇明区向化镇陈彷公路4925号101-31室（上海永冠经济开发区）",
+      "type": "supplier_address",
+      "doc_id": "486602bafb912670",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "润凝实业（上海）有限公司",
+        "address": "上海市崇明区向化镇陈彷公路4925号101-31室（上海永冠经济开发区）"
+      }
+    },
+    {
+      "content": "天津瑞思拜科技有限公司的地址是天津市华苑产业区海泰大道42号B1号楼1206室",
+      "type": "supplier_address",
+      "doc_id": "604aa31e74968114",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "天津瑞思拜科技有限公司",
+        "address": "天津市华苑产业区海泰大道42号B1号楼1206室"
+      }
+    },
+    {
+      "content": "杭州联测自动化技术有限公司的地址是浙江省杭州经济技术开发区白杨街道科技园路2号4幢508-509室",
+      "type": "supplier_address",
+      "doc_id": "a438fe8f2aeecc87",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "杭州联测自动化技术有限公司",
+        "address": "浙江省杭州经济技术开发区白杨街道科技园路2号4幢508-509室"
+      }
+    },
+    {
+      "content": "佛山南北潮电子商务有限公司的地址是佛山市禅城区祖庙街道同济路66号D座2202房",
+      "type": "supplier_address",
+      "doc_id": "025d89a5bae8f6e5",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "佛山南北潮电子商务有限公司",
+        "address": "佛山市禅城区祖庙街道同济路66号D座2202房"
+      }
+    },
+    {
+      "content": "青岛华璟环保科技有限公司的地址是山东省青岛市高新区火炬路97号青岛中关村信息谷创新中心2层216A",
+      "type": "supplier_address",
+      "doc_id": "9110b83dd052879f",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "青岛华璟环保科技有限公司",
+        "address": "山东省青岛市高新区火炬路97号青岛中关村信息谷创新中心2层216A"
+      }
+    },
+    {
+      "content": "天津恒祥泰科技有限公司的地址是天津",
+      "type": "supplier_address",
+      "doc_id": "3f26fb09c5dd453c",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "天津恒祥泰科技有限公司",
+        "address": "天津"
+      }
+    },
+    {
+      "content": "深圳岩濑商业股份有限公司的地址是深圳市龙华新区龙华街道梅龙大道906号创业楼902室",
+      "type": "supplier_address",
+      "doc_id": "221af3661c50fa90",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "深圳岩濑商业股份有限公司",
+        "address": "深圳市龙华新区龙华街道梅龙大道906号创业楼902室"
+      }
+    },
+    {
+      "content": "杭州米科传感技术有限公司的地址是重庆",
+      "type": "supplier_address",
+      "doc_id": "3d237bccff3231e7",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "杭州米科传感技术有限公司",
+        "address": "重庆"
+      }
+    },
+    {
+      "content": "北京中瑞祥科技有限公司的地址是北京市门头沟区双峪路35号院2号20层2211",
+      "type": "supplier_address",
+      "doc_id": "afe6ace05d80158f",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "北京中瑞祥科技有限公司",
+        "address": "北京市门头沟区双峪路35号院2号20层2211"
+      }
+    },
+    {
+      "content": "北京美华仪科技有限公司的地址是北京",
+      "type": "supplier_address",
+      "doc_id": "b9030c8767b67c79",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "北京美华仪科技有限公司",
+        "address": "北京"
+      }
+    },
+    {
+      "content": "厦门仪迈环保科技有限公司的地址是厦门市海沧区东孚镇天竺一里196号601室",
+      "type": "supplier_address",
+      "doc_id": "9e534a9917c8df57",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "厦门仪迈环保科技有限公司",
+        "address": "厦门市海沧区东孚镇天竺一里196号601室"
+      }
+    },
+    {
+      "content": "深圳市诚信达办公设备有限公司的地址是深圳市龙岗区坂田街道南坑社区麒麟路9号4栋极雅致厂房2层203室",
+      "type": "supplier_address",
+      "doc_id": "13d94f87a6e5189f",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "深圳市诚信达办公设备有限公司",
+        "address": "深圳市龙岗区坂田街道南坑社区麒麟路9号4栋极雅致厂房2层203室"
+      }
+    },
+    {
+      "content": "南通中视同创科技有限公司的地址是南通市崇川区通欣路109号3号楼二层西半区",
+      "type": "supplier_address",
+      "doc_id": "13bdd4f6ccc54eb0",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "南通中视同创科技有限公司",
+        "address": "南通市崇川区通欣路109号3号楼二层西半区"
+      }
+    },
+    {
+      "content": "石家庄达林科技有限公司的地址是石家庄高新区长江大道280号院内厂区二楼",
+      "type": "supplier_address",
+      "doc_id": "8b2afae7a27e06c2",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "石家庄达林科技有限公司",
+        "address": "石家庄高新区长江大道280号院内厂区二楼"
+      }
+    },
+    {
+      "content": "南京谷谷办公设备有限公司的地址是南京市江北新区园西路旭升花苑19幢4052室",
+      "type": "supplier_address",
+      "doc_id": "93c9d986503e8c92",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "南京谷谷办公设备有限公司",
+        "address": "南京市江北新区园西路旭升花苑19幢4052室"
+      }
+    },
+    {
+      "content": "北京钱林恒兴科技股份有限公司的地址是北京市丰台区花乡高立庄616号新华国际中心C座2层228室",
+      "type": "supplier_address",
+      "doc_id": "8d01c204380235b3",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "北京钱林恒兴科技股份有限公司",
+        "address": "北京市丰台区花乡高立庄616号新华国际中心C座2层228室"
+      }
+    },
+    {
+      "content": "茂名市粤唯科技有限公司的地址是茂名市官山二路官南一街13号大院9号101、102房（住所信息自主申报）",
+      "type": "supplier_address",
+      "doc_id": "65f30e22476a37d4",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "茂名市粤唯科技有限公司",
+        "address": "茂名市官山二路官南一街13号大院9号101、102房（住所信息自主申报）"
+      }
+    },
+    {
+      "content": "上海森克电子科技有限公司的地址是上海市青浦区华浦路480号1幢一层106室",
+      "type": "supplier_address",
+      "doc_id": "9213e133b5ec7bd0",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "上海森克电子科技有限公司",
+        "address": "上海市青浦区华浦路480号1幢一层106室"
+      }
+    },
+    {
+      "content": "广州先尚计算机科技有限公司的地址是广州市天河区石牌西路8号2216房",
+      "type": "supplier_address",
+      "doc_id": "a422c9fda2b43143",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "广州先尚计算机科技有限公司",
+        "address": "广州市天河区石牌西路8号2216房"
+      }
+    },
+    {
+      "content": "阜阳亿恩仪器设备有限公司的地址是安徽省阜阳市颍上县慎城镇农贸大市场2期127号",
+      "type": "supplier_address",
+      "doc_id": "fc3faeb461116b87",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "阜阳亿恩仪器设备有限公司",
+        "address": "安徽省阜阳市颍上县慎城镇农贸大市场2期127号"
+      }
+    },
+    {
+      "content": "广州森克电子有限公司的地址是广州市番禺区大石街道石北工业路684号11栋201、207、208、209、210、211、212、213、214、215、216",
+      "type": "supplier_address",
+      "doc_id": "54bcd87fcab0ad28",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "广州森克电子有限公司",
+        "address": "广州市番禺区大石街道石北工业路684号11栋201、207、208、209、210、211、212、213、214、215、216"
+      }
+    },
+    {
+      "content": "河北创赢智能科技有限公司的地址是河北省保定市易县裴山镇中易水河南路南侧规划支路三十三东侧",
+      "type": "supplier_address",
+      "doc_id": "1da5c93abbea0031",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "河北创赢智能科技有限公司",
+        "address": "河北省保定市易县裴山镇中易水河南路南侧规划支路三十三东侧"
+      }
+    },
+    {
+      "content": "广州忠泰办公设备有限公司的地址是广东广州",
+      "type": "supplier_address",
+      "doc_id": "ec81397a12aa6f03",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "广州忠泰办公设备有限公司",
+        "address": "广东广州"
+      }
+    },
+    {
+      "content": "深圳市达林商显科技有限公司的地址是深圳市光明区公明街道上村社区明环东路松白工业园C区1号厂房205",
+      "type": "supplier_address",
+      "doc_id": "8f827b5a4d66d442",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "深圳市达林商显科技有限公司",
+        "address": "深圳市光明区公明街道上村社区明环东路松白工业园C区1号厂房205"
+      }
+    },
+    {
+      "content": "佛山市禅城区江湾乐讯办公设备经营部的地址是广东佛山",
+      "type": "supplier_address",
+      "doc_id": "3c8b9cf856d05058",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "佛山市禅城区江湾乐讯办公设备经营部",
+        "address": "广东佛山"
+      }
+    },
+    {
+      "content": "深圳市享安通科技有限公司的地址是深圳市福田区园岭街道华林社区八卦四路52号安吉尔大厦1436A",
+      "type": "supplier_address",
+      "doc_id": "cdb45282e536aae9",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "深圳市享安通科技有限公司",
+        "address": "深圳市福田区园岭街道华林社区八卦四路52号安吉尔大厦1436A"
+      }
+    },
+    {
+      "content": "深圳市天源腾创科技有限公司的地址是深圳市福田区莲花街道彩虹社区彩云路2号长城盛世家园一期A栋2801",
+      "type": "supplier_address",
+      "doc_id": "230508f6996f6c6e",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "深圳市天源腾创科技有限公司",
+        "address": "深圳市福田区莲花街道彩虹社区彩云路2号长城盛世家园一期A栋2801"
+      }
+    },
+    {
+      "content": "苏州绝对值智能科技有限公司的地址是苏州市吴中区木渎镇谢村路5号2幢三层、四层",
+      "type": "supplier_address",
+      "doc_id": "926312d6cdd16af4",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "苏州绝对值智能科技有限公司",
+        "address": "苏州市吴中区木渎镇谢村路5号2幢三层、四层"
+      }
+    },
+    {
+      "content": "亚辉世鼎信息科技（北京）有限公司的地址是北京市海淀区显龙山路19号1幢2层1座213-2",
+      "type": "supplier_address",
+      "doc_id": "5ef4752822762b4d",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "亚辉世鼎信息科技（北京）有限公司",
+        "address": "北京市海淀区显龙山路19号1幢2层1座213-2"
+      }
+    },
+    {
+      "content": "郑州中异电子科技有限公司的地址是河南省郑州市高新技术产业开发区药厂路81号1号楼1单元21层126号",
+      "type": "supplier_address",
+      "doc_id": "6b200b5e730bb62e",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "郑州中异电子科技有限公司",
+        "address": "河南省郑州市高新技术产业开发区药厂路81号1号楼1单元21层126号"
+      }
+    },
+    {
+      "content": "甘肃欣叶网络科技有限公司的地址是甘肃省兰州市城关区范家湾安置A区6号楼东单元705室",
+      "type": "supplier_address",
+      "doc_id": "62ab66d8298b1cc4",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "甘肃欣叶网络科技有限公司",
+        "address": "甘肃省兰州市城关区范家湾安置A区6号楼东单元705室"
+      }
+    },
+    {
+      "content": "广州市美格视听科技有限公司的地址是广州市白云区江高镇塘贝南环路1号B栋301房",
+      "type": "supplier_address",
+      "doc_id": "55cf903f65047c19",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "广州市美格视听科技有限公司",
+        "address": "广州市白云区江高镇塘贝南环路1号B栋301房"
+      }
+    },
+    {
+      "content": "河南品辰智能科技有限公司的地址是河南省郑州市高新技术产业开发区长椿路11号13号楼1单元23层243号",
+      "type": "supplier_address",
+      "doc_id": "0a9793ea2716d2b2",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "河南品辰智能科技有限公司",
+        "address": "河南省郑州市高新技术产业开发区长椿路11号13号楼1单元23层243号"
+      }
+    },
+    {
+      "content": "四川蓝光商显科技有限公司的地址是四川省成都市温江区锦绣大道南段281号2栋2单元501号",
+      "type": "supplier_address",
+      "doc_id": "153acc9c629d8413",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "四川蓝光商显科技有限公司",
+        "address": "四川省成都市温江区锦绣大道南段281号2栋2单元501号"
+      }
+    },
+    {
+      "content": "山东广晟环保科技有限公司的地址是山东省潍坊市诸城市开发区老泰薛路南",
+      "type": "supplier_address",
+      "doc_id": "feeb1276b7deaf1d",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东广晟环保科技有限公司",
+        "address": "山东省潍坊市诸城市开发区老泰薛路南"
+      }
+    },
+    {
+      "content": "成都隆炫科技有限公司的地址是四川德阳",
+      "type": "supplier_address",
+      "doc_id": "87b6389743c616ad",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "成都隆炫科技有限公司",
+        "address": "四川德阳"
+      }
+    },
+    {
+      "content": "圣兴办公伙伴（广东）商贸有限公司的地址是广东省东莞市寮步镇爱业路10号305室",
+      "type": "supplier_address",
+      "doc_id": "dc5713b891c06042",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "圣兴办公伙伴（广东）商贸有限公司",
+        "address": "广东省东莞市寮步镇爱业路10号305室"
+      }
+    },
+    {
+      "content": "上海善百智能科技有限公司的地址是上海市奉贤区汇丰北路1515弄1号2幢A119室",
+      "type": "supplier_address",
+      "doc_id": "9d096c9d3e7d2448",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "上海善百智能科技有限公司",
+        "address": "上海市奉贤区汇丰北路1515弄1号2幢A119室"
+      }
+    },
+    {
+      "content": "深圳星河智慧科技有限公司的地址是深圳市福田区沙头街道天安社区泰然八路18号深圳安华工业区4栋四层（东侧）420J",
+      "type": "supplier_address",
+      "doc_id": "2b734c29cd773de7",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "深圳星河智慧科技有限公司",
+        "address": "深圳市福田区沙头街道天安社区泰然八路18号深圳安华工业区4栋四层（东侧）420J"
+      }
+    },
+    {
+      "content": "广州浩田数码科技有限公司的地址是广州市番禺区大龙街市新路新水坑段41号217、218",
+      "type": "supplier_address",
+      "doc_id": "e358223ebb63437a",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "广州浩田数码科技有限公司",
+        "address": "广州市番禺区大龙街市新路新水坑段41号217、218"
+      }
+    },
+    {
+      "content": "无锡韦优金属构件有限公司的地址是无锡市惠山区玉祁街道隆祁路258",
+      "type": "supplier_address",
+      "doc_id": "fe5c52e36ec5dea9",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "无锡韦优金属构件有限公司",
+        "address": "无锡市惠山区玉祁街道隆祁路258"
+      }
+    },
+    {
+      "content": "广东钢墩墩金属制造有限公司的地址是佛山市南海区狮山镇官窑大榄ull“大坑桥”地段自编E区1号之二",
+      "type": "supplier_address",
+      "doc_id": "9aec7320104aca3e",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "广东钢墩墩金属制造有限公司",
+        "address": "佛山市南海区狮山镇官窑大榄ull“大坑桥”地段自编E区1号之二"
+      }
+    },
+    {
+      "content": "中ull电力科技有限公司的地址是山东淄博",
+      "type": "supplier_address",
+      "doc_id": "194b10c9fcad8cb7",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "中ull电力科技有限公司",
+        "address": "山东淄博"
+      }
+    },
+    {
+      "content": "安平县赛鑫丝网制品有限公司的地址是河北省衡水市安平县安平镇南张沃村村西260米处",
+      "type": "supplier_address",
+      "doc_id": "5ec02592ac02b6e1",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "安平县赛鑫丝网制品有限公司",
+        "address": "河北省衡水市安平县安平镇南张沃村村西260米处"
+      }
+    },
+    {
+      "content": "济宁中天杆塔有限公司的地址是山东省济宁市嘉祥县马村镇南陆村村东500米",
+      "type": "supplier_address",
+      "doc_id": "6ff11330227a119c",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "济宁中天杆塔有限公司",
+        "address": "山东省济宁市嘉祥县马村镇南陆村村东500米"
+      }
+    },
+    {
+      "content": "山东聊城健晖铸造有限公司的地址是山东省聊城经济技术开发区北城办事处王辉工业园6号",
+      "type": "supplier_address",
+      "doc_id": "af68ca431cda3cc4",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东聊城健晖铸造有限公司",
+        "address": "山东省聊城经济技术开发区北城办事处王辉工业园6号"
+      }
+    },
+    {
+      "content": "山西飞翔铸业有限公司的地址是山西省晋城市泽州县南村镇牛匠村村南200米处",
+      "type": "supplier_address",
+      "doc_id": "478878e51b4eb73f",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山西飞翔铸业有限公司",
+        "address": "山西省晋城市泽州县南村镇牛匠村村南200米处"
+      }
+    },
+    {
+      "content": "山东国钰新材料有限公司的地址是山东省淄博市淄博经济开发区沣水镇四角方村村委北300米院内北侧",
+      "type": "supplier_address",
+      "doc_id": "2957f0aac7d4fb9b",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东国钰新材料有限公司",
+        "address": "山东省淄博市淄博经济开发区沣水镇四角方村村委北300米院内北侧"
+      }
+    },
+    {
+      "content": "山东繁程金属制品有限公司的地址是山东省聊城市高新技术产业开发区许营镇潘庙村115号",
+      "type": "supplier_address",
+      "doc_id": "2c5a7e0c4fbce868",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东繁程金属制品有限公司",
+        "address": "山东省聊城市高新技术产业开发区许营镇潘庙村115号"
+      }
+    },
+    {
+      "content": "晋城市三通铸造有限公司的地址是山西省晋城市泽州县南村镇西峪村东南1300米",
+      "type": "supplier_address",
+      "doc_id": "727adb5f7253adaa",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "晋城市三通铸造有限公司",
+        "address": "山西省晋城市泽州县南村镇西峪村东南1300米"
+      }
+    },
+    {
+      "content": "山东鑫翔铭钢铁有限公司的地址是山东省聊城市高新区许营镇汪庄村6-1号",
+      "type": "supplier_address",
+      "doc_id": "d476c245d5db8e00",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东鑫翔铭钢铁有限公司",
+        "address": "山东省聊城市高新区许营镇汪庄村6-1号"
+      }
+    },
+    {
+      "content": "常州市华盛环保科技有限公司的地址是武进国家高新技术产业开发区万塔村工业集中区19-20号东边厂房二楼",
+      "type": "supplier_address",
+      "doc_id": "04efc337ce8964ca",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "常州市华盛环保科技有限公司",
+        "address": "武进国家高新技术产业开发区万塔村工业集中区19-20号东边厂房二楼"
+      }
+    },
+    {
+      "content": "武安市延时矿山机械有限公司的地址是河北省邯郸市武安市张里店村东",
+      "type": "supplier_address",
+      "doc_id": "301326dc4d362711",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "武安市延时矿山机械有限公司",
+        "address": "河北省邯郸市武安市张里店村东"
+      }
+    },
+    {
+      "content": "山东涵硕钢铁有限公司的地址是山东省聊城经济技术开发区蒋官屯街道辽河路东首兴隆钢管城A区21-1号",
+      "type": "supplier_address",
+      "doc_id": "7aa04ef7b1cff543",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东涵硕钢铁有限公司",
+        "address": "山东省聊城经济技术开发区蒋官屯街道辽河路东首兴隆钢管城A区21-1号"
+      }
+    },
+    {
+      "content": "山东昌驰金属材料有限公司的地址是山东省聊城市东昌府区韩集乡曹庄村156-2号",
+      "type": "supplier_address",
+      "doc_id": "6d941aefa1f7f4c3",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东昌驰金属材料有限公司",
+        "address": "山东省聊城市东昌府区韩集乡曹庄村156-2号"
+      }
+    },
+    {
+      "content": "保定达慧通建材有限公司的地址是河北省保定市徐水区瀑河乡解村",
+      "type": "supplier_address",
+      "doc_id": "33c110e548826e26",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "保定达慧通建材有限公司",
+        "address": "河北省保定市徐水区瀑河乡解村"
+      }
+    },
+    {
+      "content": "山东铭城金属制品有限公司的地址是山东省聊城经济技术开发区蒋官屯街道辽河路南大地实业有限责任公司院内办公楼4楼406室",
+      "type": "supplier_address",
+      "doc_id": "fcea193a18e6ad03",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东铭城金属制品有限公司",
+        "address": "山东省聊城经济技术开发区蒋官屯街道辽河路南大地实业有限责任公司院内办公楼4楼406室"
+      }
+    },
+    {
+      "content": "聊城市金泰来金属制品有限公司的地址是山东省聊城经济开发区中华路财智大厦6003号",
+      "type": "supplier_address",
+      "doc_id": "1d0db6164b05f397",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "聊城市金泰来金属制品有限公司",
+        "address": "山东省聊城经济开发区中华路财智大厦6003号"
+      }
+    },
+    {
+      "content": "成都京盛川贸易有限公司的地址是四川省成都市金牛区金丰路6号7栋3单元14层31402号",
+      "type": "supplier_address",
+      "doc_id": "4a51b62c857ee297",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "成都京盛川贸易有限公司",
+        "address": "四川省成都市金牛区金丰路6号7栋3单元14层31402号"
+      }
+    },
+    {
+      "content": "河北威力东方复合材料有限公司的地址是河北省衡水市枣强县枣强镇门庄村郑昔路路南",
+      "type": "supplier_address",
+      "doc_id": "8ea772e1d1a9994b",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "河北威力东方复合材料有限公司",
+        "address": "河北省衡水市枣强县枣强镇门庄村郑昔路路南"
+      }
+    },
+    {
+      "content": "山西晨晖斯诺尔铸业集团有限公司的地址是山西省晋城市泽州县南村镇南马匠村东300米",
+      "type": "supplier_address",
+      "doc_id": "d584ab973004cd0d",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山西晨晖斯诺尔铸业集团有限公司",
+        "address": "山西省晋城市泽州县南村镇南马匠村东300米"
+      }
+    },
+    {
+      "content": "聊城鑫晨钢铁有限公司的地址是山东省聊城经济技术开发区东城办事处东昌东路当代国际广场时尚办公5号楼1704室",
+      "type": "supplier_address",
+      "doc_id": "7e5d06d60b7ec1d4",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "聊城鑫晨钢铁有限公司",
+        "address": "山东省聊城经济技术开发区东城办事处东昌东路当代国际广场时尚办公5号楼1704室"
+      }
+    },
+    {
+      "content": "泊头市泰卓量具制造有限公司的地址是河北省沧州市泊头市交河镇新华街",
+      "type": "supplier_address",
+      "doc_id": "4105222761e7686c",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "泊头市泰卓量具制造有限公司",
+        "address": "河北省沧州市泊头市交河镇新华街"
+      }
+    },
+    {
+      "content": "广东泽巨钢铁有限公司的地址是佛山市顺德区乐从镇广东乐从钢铁世界A10区钢铁世界大道02号二层（住所申报）",
+      "type": "supplier_address",
+      "doc_id": "0e4cd603fe4e0e6d",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "广东泽巨钢铁有限公司",
+        "address": "佛山市顺德区乐从镇广东乐从钢铁世界A10区钢铁世界大道02号二层（住所申报）"
+      }
+    },
+    {
+      "content": "广西恒宥乾建材有限公司的地址是广西玉林市玉博大道鸿源铸造厂845号",
+      "type": "supplier_address",
+      "doc_id": "a79e8329f5a7358d",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "广西恒宥乾建材有限公司",
+        "address": "广西玉林市玉博大道鸿源铸造厂845号"
+      }
+    },
+    {
+      "content": "河北源真建材有限公司的地址是河北省沧州市泊头市齐桥镇齐桥村村委会西500米",
+      "type": "supplier_address",
+      "doc_id": "37c4b6f29325211c",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "河北源真建材有限公司",
+        "address": "河北省沧州市泊头市齐桥镇齐桥村村委会西500米"
+      }
+    },
+    {
+      "content": "苏州乐烁净化产品有限公司的地址是苏州市吴江区黎里镇金家庄村1组32号（农村住宅）",
+      "type": "supplier_address",
+      "doc_id": "2dcecaf7367223ea",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "苏州乐烁净化产品有限公司",
+        "address": "苏州市吴江区黎里镇金家庄村1组32号（农村住宅）"
+      }
+    },
+    {
+      "content": "苏州工业园区三兴净化科技有限公司的地址是苏州工业园区东环路378号1幢2092室",
+      "type": "supplier_address",
+      "doc_id": "ec308a888ba97510",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "苏州工业园区三兴净化科技有限公司",
+        "address": "苏州工业园区东环路378号1幢2092室"
+      }
+    },
+    {
+      "content": "瀚美瑞实验室系统设备（苏州）有限公司的地址是苏州市吴中区光福镇福利村101号1-76室",
+      "type": "supplier_address",
+      "doc_id": "1d60ee37ad492168",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "瀚美瑞实验室系统设备（苏州）有限公司",
+        "address": "苏州市吴中区光福镇福利村101号1-76室"
+      }
+    },
+    {
+      "content": "苏州市远大净化设备厂的地址是苏州市相城区渭塘镇渭北工业小区玉盘路555号1号厂房",
+      "type": "supplier_address",
+      "doc_id": "9b91e506a2861c94",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "苏州市远大净化设备厂",
+        "address": "苏州市相城区渭塘镇渭北工业小区玉盘路555号1号厂房"
+      }
+    },
+    {
+      "content": "苏州如卡本环保科技有限公司的地址是江苏省苏州市吴江区桃源镇梵香村（波士顿电梯（苏州）有限公司内）",
+      "type": "supplier_address",
+      "doc_id": "d7449172d3c54d2d",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "苏州如卡本环保科技有限公司",
+        "address": "江苏省苏州市吴江区桃源镇梵香村（波士顿电梯（苏州）有限公司内）"
+      }
+    },
+    {
+      "content": "南京伊希欧科技发展有限公司的地址是南京市六合区龙池街道新集东路1183号2号楼3号楼1层",
+      "type": "supplier_address",
+      "doc_id": "c4b1dae6262d089a",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "南京伊希欧科技发展有限公司",
+        "address": "南京市六合区龙池街道新集东路1183号2号楼3号楼1层"
+      }
+    },
+    {
+      "content": "四川川蜀净化设备有限公司的地址是四川新津工业园区兴化10路669号",
+      "type": "supplier_address",
+      "doc_id": "6bbee3ed8d700675",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "四川川蜀净化设备有限公司",
+        "address": "四川新津工业园区兴化10路669号"
+      }
+    },
+    {
+      "content": "沈阳广胜彩钢板有限公司的地址是辽宁省沈阳市新城子区虎石台镇双楼子村2幢",
+      "type": "supplier_address",
+      "doc_id": "24f1dec951d4d74e",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "沈阳广胜彩钢板有限公司",
+        "address": "辽宁省沈阳市新城子区虎石台镇双楼子村2幢"
+      }
+    },
+    {
+      "content": "成都斯迪沃机电设备有限公司的地址是成都高新区(西区)西芯大道4号",
+      "type": "supplier_address",
+      "doc_id": "1687ece406a42c46",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "成都斯迪沃机电设备有限公司",
+        "address": "成都高新区(西区)西芯大道4号"
+      }
+    },
+    {
+      "content": "山东捷诚门业有限公司的地址是山东省德州市德城区天衢街道办事处德贤大街3777号德州东北城建材二区11号楼1-2层3号1层",
+      "type": "supplier_address",
+      "doc_id": "d5df09c121a6daf2",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东捷诚门业有限公司",
+        "address": "山东省德州市德城区天衢街道办事处德贤大街3777号德州东北城建材二区11号楼1-2层3号1层"
+      }
+    },
+    {
+      "content": "山东玖特环境科技有限公司的地址是山东省德州市天衢新区袁桥镇尚德十一路以北崇德五大道以东德州大学科技园A座1号-143",
+      "type": "supplier_address",
+      "doc_id": "9d18728a96b2f499",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东玖特环境科技有限公司",
+        "address": "山东省德州市天衢新区袁桥镇尚德十一路以北崇德五大道以东德州大学科技园A座1号-143"
+      }
+    },
+    {
+      "content": "四川拓都净化设备有限公司的地址是成都市郫都区现代工业港北片区港北四路395号",
+      "type": "supplier_address",
+      "doc_id": "fe5ae78f3bea42f2",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "四川拓都净化设备有限公司",
+        "address": "成都市郫都区现代工业港北片区港北四路395号"
+      }
+    },
+    {
+      "content": "江西常鑫板业有限公司的地址是江西省南昌市青山湖区罗家镇竹山村88号",
+      "type": "supplier_address",
+      "doc_id": "0fc0fb1c5ed6f03c",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "江西常鑫板业有限公司",
+        "address": "江西省南昌市青山湖区罗家镇竹山村88号"
+      }
+    },
+    {
+      "content": "苏州久扬净化科技有限公司的地址是苏州市吴江区黎里镇金家坝金盛路848号",
+      "type": "supplier_address",
+      "doc_id": "850fb97a85d7f114",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "苏州久扬净化科技有限公司",
+        "address": "苏州市吴江区黎里镇金家坝金盛路848号"
+      }
+    },
+    {
+      "content": "苏州中南净化技术有限公司的地址是江苏省苏州市吴江区黎里镇金家坝金华路469号",
+      "type": "supplier_address",
+      "doc_id": "b44c8da30dba5265",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "苏州中南净化技术有限公司",
+        "address": "江苏省苏州市吴江区黎里镇金家坝金华路469号"
+      }
+    },
+    {
+      "content": "四川铂悦林实验室设备有限公司的地址是四川省成都市新都区大丰街道蓉北路一段2号附1号1栋2单元",
+      "type": "supplier_address",
+      "doc_id": "57e7e7fa2d947e55",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "四川铂悦林实验室设备有限公司",
+        "address": "四川省成都市新都区大丰街道蓉北路一段2号附1号1栋2单元"
+      }
+    },
+    {
+      "content": "深圳市中科美日净化设备有限公司的地址是广东深圳",
+      "type": "supplier_address",
+      "doc_id": "86eebbcfb9c48a23",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "深圳市中科美日净化设备有限公司",
+        "address": "广东深圳"
+      }
+    },
+    {
+      "content": "山东龙煤工矿机械集团有限公司的地址是山东省济宁市高新区黄屯街道第七工业园A区2号",
+      "type": "supplier_address",
+      "doc_id": "87d8633295c7cc80",
+      "weight": 0.8,
+      "metadata": {
+        "supplier": "山东龙煤工矿机械集团有限公司",
+        "address": "山东省济宁市高新区黄屯街道第七工业园A区2号"
+      }
+    }
+  ]
+}

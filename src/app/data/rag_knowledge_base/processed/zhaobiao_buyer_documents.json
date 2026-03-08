@@ -1,0 +1,1007 @@
+{
+  "type": "zhaobiao_buyer",
+  "count": 1151,
+  "weight": 0.9,
+  "documents": [
+    {
+      "content": "信息公告的采购方是未知",
+      "type": "zhaobiao_buyer",
+      "doc_id": "ad0ec8db10b0892d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "信息公告",
+        "buyer": "未知"
+      }
+    },
+    {
+      "content": "中山大学航空航天学院空间装备精密基准校验平台单元采购项目的采购方是中山大学",
+      "type": "zhaobiao_buyer",
+      "doc_id": "fc2c756890f9c159",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "中山大学航空航天学院空间装备精密基准校验平台单元采购项目",
+        "buyer": "中山大学"
+      }
+    },
+    {
+      "content": "2025年超长期特别国债医疗设备（双能X射线骨密度仪）的采购方是泸州市中医医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "d0726f6b6b5de51e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年超长期特别国债医疗设备（双能X射线骨密度仪）",
+        "buyer": "泸州市中医医院"
+      }
+    },
+    {
+      "content": "2025年超长期特别国债医疗设备（数字化医用X射线摄影系统（DR））的采购方是泸州市中医医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "9eb8451e61d745df",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年超长期特别国债医疗设备（数字化医用X射线摄影系统（DR））",
+        "buyer": "泸州市中医医院"
+      }
+    },
+    {
+      "content": "诸暨市老旧房屋动态监测服务采购的采购方是诸暨市住房和城乡建设局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "059ccda54242a824",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "诸暨市老旧房屋动态监测服务采购",
+        "buyer": "诸暨市住房和城乡建设局"
+      }
+    },
+    {
+      "content": "腹腔镜及配套设备采购的采购方是辽宁省肿瘤医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "1b656fa0b68af834",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "腹腔镜及配套设备采购",
+        "buyer": "辽宁省肿瘤医院"
+      }
+    },
+    {
+      "content": "部分省道桥梁定期检查一标的采购方是上海市道路运输事业发展中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "863069847c5b3a14",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "部分省道桥梁定期检查一标",
+        "buyer": "上海市道路运输事业发展中心"
+      }
+    },
+    {
+      "content": "福建省环境监测中心站应急监测能力提升项目的采购方是福建省环境监测中心站",
+      "type": "zhaobiao_buyer",
+      "doc_id": "5b943147bca88b9e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "福建省环境监测中心站应急监测能力提升项目",
+        "buyer": "福建省环境监测中心站"
+      }
+    },
+    {
+      "content": "超长期国债高水平公共研究平台设备更新项目-中医药创新研究科研平台创研采购项目1(二次)的采购方是成都中医药大学",
+      "type": "zhaobiao_buyer",
+      "doc_id": "30bbebbb47f7a6d4",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "超长期国债高水平公共研究平台设备更新项目-中医药创新研究科研平台创研采购项目1(二次)",
+        "buyer": "成都中医药大学"
+      }
+    },
+    {
+      "content": "宁夏回族自治区森林病虫防治检疫总站宁夏林业有害生物监测预警及应急防控体系能力提升更新补充采购项目的采购方是宁夏回族自治区森林病虫防治检疫总站",
+      "type": "zhaobiao_buyer",
+      "doc_id": "9e1a07d160eccf1d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "宁夏回族自治区森林病虫防治检疫总站宁夏林业有害生物监测预警及应急防控体系能力提升更新补充采购项目",
+        "buyer": "宁夏回族自治区森林病虫防治检疫总站"
+      }
+    },
+    {
+      "content": "绩效智算中心预算绩效数据治理服务(二次)的采购方是四川财经职业学院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "65de2f6be69074d6",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "绩效智算中心预算绩效数据治理服务(二次)",
+        "buyer": "四川财经职业学院"
+      }
+    },
+    {
+      "content": "天津大学精密仪器与光电子工程学院低压化学气相沉积采购项目（第三次）的采购方是天津大学",
+      "type": "zhaobiao_buyer",
+      "doc_id": "5c1d3dd713275961",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "天津大学精密仪器与光电子工程学院低压化学气相沉积采购项目（第三次）",
+        "buyer": "天津大学"
+      }
+    },
+    {
+      "content": "玉溪市公立医院改革与高质量发展示范项目--红塔区紧密型县域医共体医疗卫生服务能力提升项目有创呼吸机等设备采购的采购方是玉溪市红塔区医疗共同体",
+      "type": "zhaobiao_buyer",
+      "doc_id": "5c741083301af4e6",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "玉溪市公立医院改革与高质量发展示范项目--红塔区紧密型县域医共体医疗卫生服务能力提升项目有创呼吸机等设备采购",
+        "buyer": "玉溪市红塔区医疗共同体"
+      }
+    },
+    {
+      "content": "曲靖市沾益区花山街道中心幼儿园教玩具、厨房设备采购（二次）的采购方是曲靖市沾益区花山街道中心学校",
+      "type": "zhaobiao_buyer",
+      "doc_id": "8d58592923f0353f",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "曲靖市沾益区花山街道中心幼儿园教玩具、厨房设备采购（二次）",
+        "buyer": "曲靖市沾益区花山街道中心学校"
+      }
+    },
+    {
+      "content": "四川省人工影响天气水资源保障工程人工影响天气指挥能力建设音视频调度服务系统建设(二次)的采购方是四川省人工影响天气办公室",
+      "type": "zhaobiao_buyer",
+      "doc_id": "fa7fb88f40e7ed8c",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "四川省人工影响天气水资源保障工程人工影响天气指挥能力建设音视频调度服务系统建设(二次)",
+        "buyer": "四川省人工影响天气办公室"
+      }
+    },
+    {
+      "content": "石嘴山市公安局大武口区分局及派出所食堂食材集中配送项目第一标包的采购方是石嘴山市公安局大武口区分局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "4203112a5747d3b7",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "石嘴山市公安局大武口区分局及派出所食堂食材集中配送项目第一标包",
+        "buyer": "石嘴山市公安局大武口区分局"
+      }
+    },
+    {
+      "content": "察布查尔锡伯自治县人民医院数据中心基础设备项目的采购方是察布查尔锡伯自治县人民医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "1b0b942c34bd3f9a",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "察布查尔锡伯自治县人民医院数据中心基础设备项目",
+        "buyer": "察布查尔锡伯自治县人民医院"
+      }
+    },
+    {
+      "content": "2026年龙岩市政务云服务项目的采购方是龙岩市大数据中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "1792555b91ff0f1f",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026年龙岩市政务云服务项目",
+        "buyer": "龙岩市大数据中心"
+      }
+    },
+    {
+      "content": "江海区礼乐中学保安及宿管服务采购项目招标公告的采购方是未知",
+      "type": "zhaobiao_buyer",
+      "doc_id": "6e1b50026390a406",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "江海区礼乐中学保安及宿管服务采购项目招标公告",
+        "buyer": "未知"
+      }
+    },
+    {
+      "content": "购买医疗制氧系统的采购方是广元市利州区大石镇卫生院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "15acfd3acde920e5",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "购买医疗制氧系统",
+        "buyer": "广元市利州区大石镇卫生院"
+      }
+    },
+    {
+      "content": "博士后公寓家电采购的采购方是武汉理工大学",
+      "type": "zhaobiao_buyer",
+      "doc_id": "be3811712139e73f",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "博士后公寓家电采购",
+        "buyer": "武汉理工大学"
+      }
+    },
+    {
+      "content": "宜昌市12345热线运营项目第二次的采购方是宜昌市城市运行管理中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "6663d9a70581b72e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "宜昌市12345热线运营项目第二次",
+        "buyer": "宜昌市城市运行管理中心"
+      }
+    },
+    {
+      "content": "江门市财政局职工食堂食材配送服务项目招标公告的采购方是未知",
+      "type": "zhaobiao_buyer",
+      "doc_id": "0fc19def91efc4f4",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "江门市财政局职工食堂食材配送服务项目招标公告",
+        "buyer": "未知"
+      }
+    },
+    {
+      "content": "西吉县机关事务服务中心2025年-2026年1号餐厅、2号餐厅食材采购项目（一至三标段）的采购方是西吉县机关事务服务中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "13611eb81fca51a7",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "西吉县机关事务服务中心2025年-2026年1号餐厅、2号餐厅食材采购项目（一至三标段）",
+        "buyer": "西吉县机关事务服务中心"
+      }
+    },
+    {
+      "content": "凤庆县应急管理局登高平台消防车采购项目的采购方是凤庆县应急管理局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "d0edc1c4a7333b51",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "凤庆县应急管理局登高平台消防车采购项目",
+        "buyer": "凤庆县应急管理局"
+      }
+    },
+    {
+      "content": "牟定县人民医院全民健康管护体系建设--全民健康筛查管理系统、硬件及软件服务采购项目的采购方是牟定县人民医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "61ae9655c513be7b",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "牟定县人民医院全民健康管护体系建设--全民健康筛查管理系统、硬件及软件服务采购项目",
+        "buyer": "牟定县人民医院"
+      }
+    },
+    {
+      "content": "西吉县机关事务服务中心2025年-2026年1号餐厅、2号餐厅食材采购项目（四至五标段）的采购方是西吉县机关事务服务中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "6fe0ab4b66573171",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "西吉县机关事务服务中心2025年-2026年1号餐厅、2号餐厅食材采购项目（四至五标段）",
+        "buyer": "西吉县机关事务服务中心"
+      }
+    },
+    {
+      "content": "嘉定区妇幼保健院产后健康管理病区月嫂服务的采购方是上海市嘉定区妇幼保健院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "8f2facec5f1f79dd",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "嘉定区妇幼保健院产后健康管理病区月嫂服务",
+        "buyer": "上海市嘉定区妇幼保健院"
+      }
+    },
+    {
+      "content": "嘉闵高架定期检查一标的采购方是上海市道路运输事业发展中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "802011bdd0d3ad37",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "嘉闵高架定期检查一标",
+        "buyer": "上海市道路运输事业发展中心"
+      }
+    },
+    {
+      "content": "夏阳街道文体分中心、司法所、征收办物业管理服务项目的采购方是上海市青浦区人民政府夏阳街道办事处",
+      "type": "zhaobiao_buyer",
+      "doc_id": "df94615d1f301f5d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "夏阳街道文体分中心、司法所、征收办物业管理服务项目",
+        "buyer": "上海市青浦区人民政府夏阳街道办事处"
+      }
+    },
+    {
+      "content": "北翟、崧泽高架定期检查的采购方是上海市道路运输事业发展中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "809943f5045fe741",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "北翟、崧泽高架定期检查",
+        "buyer": "上海市道路运输事业发展中心"
+      }
+    },
+    {
+      "content": "夏阳街道办事处物业管理服务项目的采购方是上海市青浦区人民政府夏阳街道办事处",
+      "type": "zhaobiao_buyer",
+      "doc_id": "308be11db2cb37a0",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "夏阳街道办事处物业管理服务项目",
+        "buyer": "上海市青浦区人民政府夏阳街道办事处"
+      }
+    },
+    {
+      "content": "林州市交通运输综合行政执法大队林州市治超非现场执法系统后期运维服务项目的采购方是林州市交通运输综合行政执法大队",
+      "type": "zhaobiao_buyer",
+      "doc_id": "79b19a7310b97abf",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "林州市交通运输综合行政执法大队林州市治超非现场执法系统后期运维服务项目",
+        "buyer": "林州市交通运输综合行政执法大队"
+      }
+    },
+    {
+      "content": "南通市经济技术开发区新一代电子政务外网建设项目的采购方是南通市经济技术开发区管理委员会办公室（本级）",
+      "type": "zhaobiao_buyer",
+      "doc_id": "eb2423e42483a522",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "南通市经济技术开发区新一代电子政务外网建设项目",
+        "buyer": "南通市经济技术开发区管理委员会办公室（本级）"
+      }
+    },
+    {
+      "content": "图书馆2026年中文纸质图书的采购方是重庆师范大学",
+      "type": "zhaobiao_buyer",
+      "doc_id": "5ccb74fb624a48a6",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "图书馆2026年中文纸质图书",
+        "buyer": "重庆师范大学"
+      }
+    },
+    {
+      "content": "整体搬迁项目污水处理站设备及安装服务采购项目的采购方是贵港市中西医结合骨科医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "4610bc8a562a15c2",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "整体搬迁项目污水处理站设备及安装服务采购项目",
+        "buyer": "贵港市中西医结合骨科医院"
+      }
+    },
+    {
+      "content": "昆明医科大学第二附属医院3D4K荧光三合一影像系统等设备采购项目的采购方是昆明医科大学第二附属医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "6aaa27a65a13769e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "昆明医科大学第二附属医院3D4K荧光三合一影像系统等设备采购项目",
+        "buyer": "昆明医科大学第二附属医院"
+      }
+    },
+    {
+      "content": "昆明医科大学第二附属医院危重孕产妇救治中心建设设备采购项目二的采购方是昆明医科大学第二附属医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "8ba07f078c56ea35",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "昆明医科大学第二附属医院危重孕产妇救治中心建设设备采购项目二",
+        "buyer": "昆明医科大学第二附属医院"
+      }
+    },
+    {
+      "content": "昆明医科大学第二附属医院血气电解质分析仪等设备采购项目的采购方是昆明医科大学第二附属医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "b1d330c97e76397b",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "昆明医科大学第二附属医院血气电解质分析仪等设备采购项目",
+        "buyer": "昆明医科大学第二附属医院"
+      }
+    },
+    {
+      "content": "2026年春节元宵灯光亮化项目的采购方是水富市综合行政执法局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "128dbbb617c6bc4d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026年春节元宵灯光亮化项目",
+        "buyer": "水富市综合行政执法局"
+      }
+    },
+    {
+      "content": "2026年度区级社会工作服务指导中心及各街道（乡镇）社会工作服务站运营项目的采购方是武汉市新洲区民政局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "54a2bb352a6cc5b6",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026年度区级社会工作服务指导中心及各街道（乡镇）社会工作服务站运营项目",
+        "buyer": "武汉市新洲区民政局"
+      }
+    },
+    {
+      "content": "海南省统计大数据平台2025年升级改造项目的采购方是海南省统计局资料管理中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "a1698a2496e00756",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "海南省统计大数据平台2025年升级改造项目",
+        "buyer": "海南省统计局资料管理中心"
+      }
+    },
+    {
+      "content": "激光和脉冲光工作站等医疗设备(二次)的采购方是福建医科大学附属第二医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "bcdaf6a33e87917c",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "激光和脉冲光工作站等医疗设备(二次)",
+        "buyer": "福建医科大学附属第二医院"
+      }
+    },
+    {
+      "content": "咸宁市第一人民医院全院医疗设备整体维保服务项目的采购方是咸宁市第一人民医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "1da1f62e9d7a9dd9",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "咸宁市第一人民医院全院医疗设备整体维保服务项目",
+        "buyer": "咸宁市第一人民医院"
+      }
+    },
+    {
+      "content": "孝昌县环卫设施设备更新项目（一期）四标段的采购方是孝昌县城市管理执法局本级",
+      "type": "zhaobiao_buyer",
+      "doc_id": "0f07eb470f71df62",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "孝昌县环卫设施设备更新项目（一期）四标段",
+        "buyer": "孝昌县城市管理执法局本级"
+      }
+    },
+    {
+      "content": "西南交通大学犀浦校区环境与生物材料交叉技术创新中心第三方检测服务采购项目（第二次）的采购方是西南交通大学",
+      "type": "zhaobiao_buyer",
+      "doc_id": "cd0554ba23c27b1c",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "西南交通大学犀浦校区环境与生物材料交叉技术创新中心第三方检测服务采购项目（第二次）",
+        "buyer": "西南交通大学"
+      }
+    },
+    {
+      "content": "南京鼓楼医院集成应用门户系统的采购方是南京鼓楼医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "f0653a22ec7a72db",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "南京鼓楼医院集成应用门户系统",
+        "buyer": "南京鼓楼医院"
+      }
+    },
+    {
+      "content": "花果山水帘洞内多维体验营造项目的采购方是连云港市花果山风景区管理处（本级）",
+      "type": "zhaobiao_buyer",
+      "doc_id": "3cb563f922ca9aab",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "花果山水帘洞内多维体验营造项目",
+        "buyer": "连云港市花果山风景区管理处（本级）"
+      }
+    },
+    {
+      "content": "江苏省省级机关医院中药饮片及代煎服务项目的采购方是江苏省省级机关医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "71dc12d89cf37225",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "江苏省省级机关医院中药饮片及代煎服务项目",
+        "buyer": "江苏省省级机关医院"
+      }
+    },
+    {
+      "content": "2025年儿科医疗服务能力建设基础医疗设备采购项目(二次)的采购方是眉山市人民医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "b9333ed3feb96b44",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年儿科医疗服务能力建设基础医疗设备采购项目(二次)",
+        "buyer": "眉山市人民医院"
+      }
+    },
+    {
+      "content": "中山市坦洲人民医院（中山市中西医结合医院）外送检验及病理共建服务采购项目(五次)公开招标公告的采购方是未知",
+      "type": "zhaobiao_buyer",
+      "doc_id": "d37f6c920b3e5c2c",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "中山市坦洲人民医院（中山市中西医结合医院）外送检验及病理共建服务采购项目(五次)公开招标公告",
+        "buyer": "未知"
+      }
+    },
+    {
+      "content": "2026年度实验材料及办公用品政府采购提前采购项目的采购方是四川省药品检验研究院（四川省医疗器械检测中心、四川养麝研究所）",
+      "type": "zhaobiao_buyer",
+      "doc_id": "1b5a22c23c3562f8",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026年度实验材料及办公用品政府采购提前采购项目",
+        "buyer": "四川省药品检验研究院（四川省医疗器械检测中心、四川养麝研究所）"
+      }
+    },
+    {
+      "content": "海原县教育体育局2025年海原县薄弱环节改善和能力提升设备采购项目(二)四标段的采购方是海原县教育体育局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "c50eebf56708cddc",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "海原县教育体育局2025年海原县薄弱环节改善和能力提升设备采购项目(二)四标段",
+        "buyer": "海原县教育体育局"
+      }
+    },
+    {
+      "content": "中国科学院深圳先进技术研究院实验动物服务采购项目的采购方是中国科学院深圳先进技术研究院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "5106f3e1d59f5d0e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "中国科学院深圳先进技术研究院实验动物服务采购项目",
+        "buyer": "中国科学院深圳先进技术研究院"
+      }
+    },
+    {
+      "content": "2026年厅政府网站运行维护与内容监测服务的采购方是四川省交通运输厅信息中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "f549d11db3b7c34c",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026年厅政府网站运行维护与内容监测服务",
+        "buyer": "四川省交通运输厅信息中心"
+      }
+    },
+    {
+      "content": "南宁市城市更新规划（2025-2030年）的采购方是南宁市住房和城乡建设局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "edddcc830d4bfc62",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "南宁市城市更新规划（2025-2030年）",
+        "buyer": "南宁市住房和城乡建设局"
+      }
+    },
+    {
+      "content": "电子鼻咽喉镜的采购方是秦皇岛市第一医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "c5f49f5e17be1096",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "电子鼻咽喉镜",
+        "buyer": "秦皇岛市第一医院"
+      }
+    },
+    {
+      "content": "保定市市级成品粮油储备承储服务项目的采购方是保定市发展和改革委员会本级",
+      "type": "zhaobiao_buyer",
+      "doc_id": "23959bb26d751c5a",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "保定市市级成品粮油储备承储服务项目",
+        "buyer": "保定市发展和改革委员会本级"
+      }
+    },
+    {
+      "content": "保定市“好房子”优选地块及2025年度“土地云选”平台运维工作项目的采购方是保定市土地储备中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "bc48c4381302cb7a",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "保定市“好房子”优选地块及2025年度“土地云选”平台运维工作项目",
+        "buyer": "保定市土地储备中心"
+      }
+    },
+    {
+      "content": "百色市田阳区环卫清扫保洁政府购买服务项目的采购方是百色市田阳区城市管理监督局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "8761622acbabf29c",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "百色市田阳区环卫清扫保洁政府购买服务项目",
+        "buyer": "百色市田阳区城市管理监督局"
+      }
+    },
+    {
+      "content": "顺昌县2025年第三期死亡松树专业化除害处理服务采购项目的采购方是顺昌县林业局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "18e7cae6bb17242f",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "顺昌县2025年第三期死亡松树专业化除害处理服务采购项目",
+        "buyer": "顺昌县林业局"
+      }
+    },
+    {
+      "content": "庆阳市人民医院数字化医用X线摄影系统等医疗设备采购项目(二次)的采购方是庆阳市人民医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "831bf50597cb7ba3",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "庆阳市人民医院数字化医用X线摄影系统等医疗设备采购项目(二次)",
+        "buyer": "庆阳市人民医院"
+      }
+    },
+    {
+      "content": "保山市隆阳区2026年校园学生食堂大宗食品及配送服务采购的采购方是保山市隆阳区教育体育局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "f5ab79080456ea8a",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "保山市隆阳区2026年校园学生食堂大宗食品及配送服务采购",
+        "buyer": "保山市隆阳区教育体育局"
+      }
+    },
+    {
+      "content": "弥渡县中医医院医疗设备维修保养服务采购项目的采购方是弥渡县中医医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "952d138a9ee99dc5",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "弥渡县中医医院医疗设备维修保养服务采购项目",
+        "buyer": "弥渡县中医医院"
+      }
+    },
+    {
+      "content": "元谋县第一人民医院洗涤外包社会化服务采购项目的采购方是元谋县第一人民医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "030af78bc1998ef5",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "元谋县第一人民医院洗涤外包社会化服务采购项目",
+        "buyer": "元谋县第一人民医院"
+      }
+    },
+    {
+      "content": "曲靖市中医医院磁刺激仪等设备采购项目的采购方是曲靖市中医医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "afab4cbfa60db5a1",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "曲靖市中医医院磁刺激仪等设备采购项目",
+        "buyer": "曲靖市中医医院"
+      }
+    },
+    {
+      "content": "2025年韶关市卫生健康系统医用设备采购项目（第二批）-彩色超声诊断系统采购项目招标公告的采购方是未知",
+      "type": "zhaobiao_buyer",
+      "doc_id": "01de21abdeaca24f",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年韶关市卫生健康系统医用设备采购项目（第二批）-彩色超声诊断系统采购项目招标公告",
+        "buyer": "未知"
+      }
+    },
+    {
+      "content": "2026年长期护理保险护理耗材第三方配送和辅具适配租赁服务项目的采购方是汉中市医疗保障局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "428c476967415ce6",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026年长期护理保险护理耗材第三方配送和辅具适配租赁服务项目",
+        "buyer": "汉中市医疗保障局"
+      }
+    },
+    {
+      "content": "2025年黄冈市公安局刑事技术专业耗材第二次的采购方是黄冈市公安局本级",
+      "type": "zhaobiao_buyer",
+      "doc_id": "7857312859f34bb2",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年黄冈市公安局刑事技术专业耗材第二次",
+        "buyer": "黄冈市公安局本级"
+      }
+    },
+    {
+      "content": "湖北省直属机关医院医疗设备采购的采购方是湖北省直属机关医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "c927b355d5a22ca3",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "湖北省直属机关医院医疗设备采购",
+        "buyer": "湖北省直属机关医院"
+      }
+    },
+    {
+      "content": "顺义区文化中心运营项目-保安服务的采购方是北京市顺义区文化和旅游局本级",
+      "type": "zhaobiao_buyer",
+      "doc_id": "12b2b55bb8961f49",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "顺义区文化中心运营项目-保安服务",
+        "buyer": "北京市顺义区文化和旅游局本级"
+      }
+    },
+    {
+      "content": "国家统计局四川调查总队四川省第四次全国农业普查农作物种植用地和设施农业遥感测量服务的采购方是国家统计局四川调查总队",
+      "type": "zhaobiao_buyer",
+      "doc_id": "f483ec97c84e0a7a",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "国家统计局四川调查总队四川省第四次全国农业普查农作物种植用地和设施农业遥感测量服务",
+        "buyer": "国家统计局四川调查总队"
+      }
+    },
+    {
+      "content": "祥云县公安局“天眼卫士”公共视频监控采购项目的采购方是祥云县公安局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "33acb83218082522",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "祥云县公安局“天眼卫士”公共视频监控采购项目",
+        "buyer": "祥云县公安局"
+      }
+    },
+    {
+      "content": "杭州市富阳中医骨伤医院柴油采购项目（2026年度）的采购方是杭州市富阳中医骨伤医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "0f5595fb676347e3",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "杭州市富阳中医骨伤医院柴油采购项目（2026年度）",
+        "buyer": "杭州市富阳中医骨伤医院"
+      }
+    },
+    {
+      "content": "2025年扩大学前教育资源奖补设备采购项目（重）的采购方是南宁市江南区教育局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "b7d8c9afb5471077",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年扩大学前教育资源奖补设备采购项目（重）",
+        "buyer": "南宁市江南区教育局"
+      }
+    },
+    {
+      "content": "普宁市中医医院医疗护理辅助服务项目（第二次）招标公告的采购方是未知",
+      "type": "zhaobiao_buyer",
+      "doc_id": "0cacef4a42fc6c44",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "普宁市中医医院医疗护理辅助服务项目（第二次）招标公告",
+        "buyer": "未知"
+      }
+    },
+    {
+      "content": "竹山县医共体公共卫生医疗救治综合能力提升项目（健康管理中心及医养康复中心（中医药服务能力提升）二期建设项目）（设备采购及安装）的采购方是竹山县中医医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "35d2a1aafbae9617",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "竹山县医共体公共卫生医疗救治综合能力提升项目（健康管理中心及医养康复中心（中医药服务能力提升）二期建设项目）（设备采购及安装）",
+        "buyer": "竹山县中医医院"
+      }
+    },
+    {
+      "content": "孝昌县环卫设施设备更新项目（一期）三标段的采购方是孝昌县城市管理执法局本级",
+      "type": "zhaobiao_buyer",
+      "doc_id": "ae1201a5b0d9072e",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "孝昌县环卫设施设备更新项目（一期）三标段",
+        "buyer": "孝昌县城市管理执法局本级"
+      }
+    },
+    {
+      "content": "2026年食品重点实验室分析类采购项目的采购方是四川农业大学",
+      "type": "zhaobiao_buyer",
+      "doc_id": "da937c85891964cb",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2026年食品重点实验室分析类采购项目",
+        "buyer": "四川农业大学"
+      }
+    },
+    {
+      "content": "广州民航职业技术学院飞机维修工程学院教学实训系统建设项目的采购方是广州民航职业技术学院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "7259560fb56cc1c8",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "广州民航职业技术学院飞机维修工程学院教学实训系统建设项目",
+        "buyer": "广州民航职业技术学院"
+      }
+    },
+    {
+      "content": "标准化示范基地网络服务平台建设(三次)的采购方是四川轻化工大学",
+      "type": "zhaobiao_buyer",
+      "doc_id": "e2fb74952ef5b285",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "标准化示范基地网络服务平台建设(三次)",
+        "buyer": "四川轻化工大学"
+      }
+    },
+    {
+      "content": "超高时空组学显微成像系统的采购方是上海交通大学医学院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "6ea099236d78b589",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "超高时空组学显微成像系统",
+        "buyer": "上海交通大学医学院"
+      }
+    },
+    {
+      "content": "福州市鼓楼区2025-2028年夜景灯光设施维护管养服务项目的采购方是福州市鼓楼区景观综合整治管理中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "4c2116b50c68e582",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "福州市鼓楼区2025-2028年夜景灯光设施维护管养服务项目",
+        "buyer": "福州市鼓楼区景观综合整治管理中心"
+      }
+    },
+    {
+      "content": "诏安县城市更新技术咨询项目的采购方是诏安县住房和城乡建设局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "2a6d962ad2e7a3b7",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "诏安县城市更新技术咨询项目",
+        "buyer": "诏安县住房和城乡建设局"
+      }
+    },
+    {
+      "content": "“双高建设”智慧党建管理平台建设项目的采购方是昆明幼儿师范高等专科学校",
+      "type": "zhaobiao_buyer",
+      "doc_id": "eb1972fa1e16a311",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "“双高建设”智慧党建管理平台建设项目",
+        "buyer": "昆明幼儿师范高等专科学校"
+      }
+    },
+    {
+      "content": "易门县紧密型县域医共体十街分院2025年医疗卫生综合服务能力提升项目设备购置的采购方是易门县紧密型医共体总医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "1f5ae92649a3eceb",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "易门县紧密型县域医共体十街分院2025年医疗卫生综合服务能力提升项目设备购置",
+        "buyer": "易门县紧密型医共体总医院"
+      }
+    },
+    {
+      "content": "太原市汾河景区2026年度二期安保服务项目的采购方是太原市汾河景区管理委员会",
+      "type": "zhaobiao_buyer",
+      "doc_id": "83133c994ba5951c",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "太原市汾河景区2026年度二期安保服务项目",
+        "buyer": "太原市汾河景区管理委员会"
+      }
+    },
+    {
+      "content": "2025年甘肃省庆阳市马莲河流域陇东地区生态保护修复和水土流失综合治理项目庆城县人工造乔木林(二次)的采购方是庆城县林业和草原局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "0e0c8387c21f15ed",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "2025年甘肃省庆阳市马莲河流域陇东地区生态保护修复和水土流失综合治理项目庆城县人工造乔木林(二次)",
+        "buyer": "庆城县林业和草原局"
+      }
+    },
+    {
+      "content": "防灾减灾科学与工程教学实验室项目的采购方是阿坝师范学院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "95c4e91ea2aabeb4",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "防灾减灾科学与工程教学实验室项目",
+        "buyer": "阿坝师范学院"
+      }
+    },
+    {
+      "content": "广东省重点医院先进医疗设备更新项目（珠三角一）-手术设备（CZ2025-1653）招标公告的采购方是未知",
+      "type": "zhaobiao_buyer",
+      "doc_id": "925ec706a33b0166",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "广东省重点医院先进医疗设备更新项目（珠三角一）-手术设备（CZ2025-1653）招标公告",
+        "buyer": "未知"
+      }
+    },
+    {
+      "content": "宁县早胜双通道苹果分拣线建设项目的采购方是宁县果业发展中心",
+      "type": "zhaobiao_buyer",
+      "doc_id": "fc622049b7173a68",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "宁县早胜双通道苹果分拣线建设项目",
+        "buyer": "宁县果业发展中心"
+      }
+    },
+    {
+      "content": "太原市汾河景区2026年度一期安保服务项目的采购方是太原市汾河景区管理委员会",
+      "type": "zhaobiao_buyer",
+      "doc_id": "8da7d60502c170aa",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "太原市汾河景区2026年度一期安保服务项目",
+        "buyer": "太原市汾河景区管理委员会"
+      }
+    },
+    {
+      "content": "新疆维吾尔自治区天山东部国有林管理局2026年小蠹虫受害木采伐清理项目的采购方是新疆维吾尔自治区天山东部国有林管理局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "b42bf807b7ff7e9b",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "新疆维吾尔自治区天山东部国有林管理局2026年小蠹虫受害木采伐清理项目",
+        "buyer": "新疆维吾尔自治区天山东部国有林管理局"
+      }
+    },
+    {
+      "content": "广东省重点医院先进医疗设备更新项目（珠三角一）-电子消化道内镜系统（CZ2025-1659）招标公告的采购方是未知",
+      "type": "zhaobiao_buyer",
+      "doc_id": "bfad769f958ec521",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "广东省重点医院先进医疗设备更新项目（珠三角一）-电子消化道内镜系统（CZ2025-1659）招标公告",
+        "buyer": "未知"
+      }
+    },
+    {
+      "content": "上饶市中心医院病理科耗材、试剂采购项目-A包（病理常用试剂、耗材）（第四次）的采购方是上饶市中心医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "ad3bbe9b17fe8d4d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "上饶市中心医院病理科耗材、试剂采购项目-A包（病理常用试剂、耗材）（第四次）",
+        "buyer": "上饶市中心医院"
+      }
+    },
+    {
+      "content": "上饶科技中专半军事化管理采购项目的采购方是上饶科技中等专业学校",
+      "type": "zhaobiao_buyer",
+      "doc_id": "de2a25f197a9529d",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "上饶科技中专半军事化管理采购项目",
+        "buyer": "上饶科技中等专业学校"
+      }
+    },
+    {
+      "content": "江西省洪都监狱2026年罪犯生活物资(净菜)采购及配送项目的采购方是江西省洪都监狱",
+      "type": "zhaobiao_buyer",
+      "doc_id": "d3e992b148b21b66",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "江西省洪都监狱2026年罪犯生活物资(净菜)采购及配送项目",
+        "buyer": "江西省洪都监狱"
+      }
+    },
+    {
+      "content": "上饶职业技术学院大数据学院数字现代产业学院建设项目的采购方是上饶职业技术学院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "855d5e090cfa4ff2",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "上饶职业技术学院大数据学院数字现代产业学院建设项目",
+        "buyer": "上饶职业技术学院"
+      }
+    },
+    {
+      "content": "宜丰县中医院医疗自助机系统及智慧共享中药房采购项目（2包）的采购方是宜丰县中医院",
+      "type": "zhaobiao_buyer",
+      "doc_id": "4950af87427843ed",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "宜丰县中医院医疗自助机系统及智慧共享中药房采购项目（2包）",
+        "buyer": "宜丰县中医院"
+      }
+    },
+    {
+      "content": "上饶市公安局广信分局移动警务终端采购的采购方是上饶市公安局广信分局",
+      "type": "zhaobiao_buyer",
+      "doc_id": "aec323cf9763697f",
+      "weight": 0.9,
+      "metadata": {
+        "project_name": "上饶市公安局广信分局移动警务终端采购",
+        "buyer": "上饶市公安局广信分局"
+      }
+    }
+  ]
+}

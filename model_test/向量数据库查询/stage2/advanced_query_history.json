@@ -1,0 +1,42 @@
+[
+  {
+    "timestamp": "2026-02-10T11:30:10.576491",
+    "query": "伍郭 代码",
+    "duration": 0.1317441463470459,
+    "retrieved_count": 0,
+    "from_cache": false,
+    "retrieval_method": "vector_search"
+  },
+  {
+    "timestamp": "2026-02-10T11:30:10.590391",
+    "query": "广州 伍郭 建材 有限公司的统一社会信用代码",
+    "duration": 0.01376485824584961,
+    "retrieved_count": 0,
+    "from_cache": false,
+    "retrieval_method": "vector_search"
+  },
+  {
+    "timestamp": "2026-02-10T11:30:10.603217",
+    "query": "代码 建材",
+    "duration": 0.01268625259399414,
+    "retrieved_count": 0,
+    "from_cache": false,
+    "retrieval_method": "vector_search"
+  },
+  {
+    "timestamp": "2026-02-10T11:30:10.617162",
+    "query": "代码",
+    "duration": 0.01383829116821289,
+    "retrieved_count": 0,
+    "from_cache": false,
+    "retrieval_method": "vector_search"
+  },
+  {
+    "timestamp": "2026-02-10T11:30:10.629831",
+    "query": "广州伍郭建材有限公司标准社会信用代码",
+    "duration": 0.012544393539428711,
+    "retrieved_count": 0,
+    "from_cache": false,
+    "retrieval_method": "vector_search"
+  }
+]

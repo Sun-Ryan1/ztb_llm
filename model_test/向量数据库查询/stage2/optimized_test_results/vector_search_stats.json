@@ -1,0 +1,32 @@
+{
+  "summary": {
+    "total_test_cases": 496,
+    "successful_cases": 496,
+    "failed_cases": 0,
+    "success_rate": 1.0,
+    "fail_rate": 0.0
+  },
+  "performance": {
+    "total_retrieval_time": 36.34262442588806,
+    "avg_retrieval_time": 0.073271420213484,
+    "hit_at_1": 0.25806451612903225,
+    "hit_at_3": 0.46169354838709675,
+    "hit_at_5": 0.5685483870967742,
+    "hit_at_10": 0.6169354838709677,
+    "hit_at_15": 0.6229838709677419,
+    "precision_at_1": 0.25806451612903225,
+    "precision_at_3": 0.1538978494623656,
+    "precision_at_5": 0.11370967741935536,
+    "precision_at_10": 0.061693548387097105,
+    "precision_at_15": 0.04153225806451603,
+    "recall_at_1": 0.25806451612903225,
+    "recall_at_3": 0.46169354838709675,
+    "recall_at_5": 0.5685483870967742,
+    "recall_at_10": 0.6169354838709677,
+    "recall_at_15": 0.6229838709677419,
+    "avg_mrr": 0.3759651386919532,
+    "empty_result_count": 68,
+    "empty_result_rate": 0.13709677419354838,
+    "avg_similarity": 0.7848211471833698
+  }
+}
