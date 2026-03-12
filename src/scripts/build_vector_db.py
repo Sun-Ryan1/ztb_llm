@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""DSW环境专用RAG向量数据库构建脚本
+"""
+DSW环境专用RAG向量数据库构建脚本
 使用容器本地存储避免OSS I/O问题
 """
 
@@ -23,8 +24,14 @@ import uuid
 # 配置日志
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s
-"""DSW环境专用向量数据库构建器"""def __init__(self, 
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+class DSWVectorDatabaseBuilder:
+    """DSW环境专用向量数据库构建器"""
+    
+    def __init__(self, 
                  knowledge_base_path: str,
                  embedding_local_path: str = "/mnt/workspace/data/modelscope/cache/bge-m3/BAAI/bge-m3",
                  llm_local_path: str = "/mnt/workspace/data/modelscope/cache/qwen/Qwen2___5-3B-Instruct",
@@ -34,11 +41,11 @@ logging.basicConfig(
         初始化向量数据库构建器
         
         Args:
-            _base_path: （可以在OSS中）
-            embedding_local_path: 
-            _local_path: 大语言模型路径
-            chroma_persist_dir: （使用容器本地存储）
-            device: 
+            knowledge_base_path: 知识库JSON文件路径（可以在OSS中）
+            embedding_local_path: embedding模型路径
+            llm_local_path: 大语言模型路径
+            chroma_persist_dir: ChromaDB持久化目录（使用容器本地存储）
+            device: 运行设备
         """
         self.knowledge_base_path = knowledge_base_path
         self.embedding_local_path = embedding_local_path
@@ -149,8 +156,22 @@ logging.basicConfig(
             # 显示前几个文档类型
             type_stats = stats.get('documents_by_type', {})
             for doc_type, count in list(type_stats.items())[:5]:
-                logger.info(f"
-"""初始化embedding模型"""logger.info(f"正在加载embedding模型...")
+                logger.info(f"  - {doc_type}: {count} 个文档")
+            
+            return documents
+        except Exception as e:
+            logger.error(f"加载知识库失败: {e}")
+            logger.info(f"尝试的文件路径: {self.knowledge_base_path}")
+            
+            # 列出可能的文件
+            logger.info("查找当前目录下的文件:")
+            os.system("ls -la | grep -i json || echo '没有找到JSON文件'")
+            
+            return []
+    
+    def initialize_embedding_model(self):
+        """初始化embedding模型"""
+        logger.info(f"正在加载embedding模型...")
         
         try:
             # 使用sentence-transformers加载BGE模型
@@ -369,8 +390,30 @@ logging.basicConfig(
         all_ids = [doc["id"] for doc in chunked_docs]
         unique_ids = set(all_ids)
         if len(all_ids) != len(unique_ids):
-            logger.warning(f"发现重复ID: {len(all_ids)
-"""修复重复ID"""id_count = {}
+            logger.warning(f"发现重复ID: {len(all_ids) - len(unique_ids)} 个重复")
+            # 找到重复的ID
+            from collections import Counter
+            duplicates = [item for item, count in Counter(all_ids).items() if count > 1]
+            logger.warning(f"重复ID示例: {duplicates[:10]}")
+            
+            # 特别检查特定的重复ID
+            if "6663d9a70581b72e" in duplicates:
+                logger.error(f"找到特定重复ID 6663d9a70581b72e 的详细信息:")
+                for doc in chunked_docs:
+                    if doc["id"] == "6663d9a70581b72e":
+                        logger.error(f"文档内容前100字符: {doc['content'][:100]}")
+                        logger.error(f"文档元数据: {doc['metadata']}")
+            
+            # 修复重复ID
+            chunked_docs = self.fix_duplicate_ids(chunked_docs)
+        
+        self.stats["total_chunks"] = len(chunked_docs)
+        
+        return chunked_docs
+    
+    def fix_duplicate_ids(self, chunked_docs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """修复重复ID"""
+        id_count = {}
         fixed_docs = []
         
         for doc in chunked_docs:
@@ -450,8 +493,112 @@ logging.basicConfig(
         # 先收集所有ID，检查是否有重复
         all_ids = [doc["id"] for doc in chunked_docs]
         if len(all_ids) != len(set(all_ids)):
-            logger.error(f"仍然存在重复ID: {len(all_ids)
-"""保存构建统计信息"""
+            logger.error(f"仍然存在重复ID: {len(all_ids) - len(set(all_ids))} 个重复")
+            # 找到重复的ID
+            from collections import Counter
+            duplicates = [item for item, count in Counter(all_ids).items() if count > 1]
+            logger.error(f"重复ID: {duplicates[:20]}")
+            
+            # 使用新的UUID替换所有重复ID
+            id_map = {}
+            for i, doc_id in enumerate(all_ids):
+                if doc_id in duplicates:
+                    # 对于重复的ID，使用UUID替换
+                    new_id = f"{doc_id}_fixed_{uuid.uuid4().hex[:8]}"
+                    chunked_docs[i]["id"] = new_id
+                    id_map[doc_id] = new_id
+                    logger.info(f"替换重复ID: {doc_id} -> {new_id}")
+        
+        for i in tqdm(range(0, total_chunks, batch_size), desc="向量化处理", unit="batch"):
+            batch = chunked_docs[i:i+batch_size]
+            
+            # 提取内容和元数据
+            contents = [doc["content"] for doc in batch]
+            ids = [doc["id"] for doc in batch]
+            metadatas = [doc["metadata"] for doc in batch]
+            
+            # 检查批次内是否有重复ID
+            if len(ids) != len(set(ids)):
+                logger.warning(f"批次 {i//batch_size} 发现重复ID，正在修复...")
+                # 修复批次内重复ID
+                id_map = {}
+                for j, doc_id in enumerate(ids):
+                    if doc_id not in id_map:
+                        id_map[doc_id] = 0
+                    else:
+                        id_map[doc_id] += 1
+                        ids[j] = f"{doc_id}_batch_dup_{id_map[doc_id]}_{uuid.uuid4().hex[:6]}"
+                        metadatas[j]["fixed_id"] = True
+            
+            # 生成向量
+            embeddings = self.embedding_model.encode(
+                contents,
+                batch_size=min(batch_size, 32),
+                show_progress_bar=False,
+                normalize_embeddings=True
+            )
+            
+            # 添加到集合
+            try:
+                self.collection.add(
+                    embeddings=embeddings.tolist(),
+                    documents=contents,
+                    metadatas=metadatas,
+                    ids=ids
+                )
+            except Exception as e:
+                logger.error(f"添加批次 {i//batch_size} 失败: {e}")
+                
+                # 记录详细的错误信息
+                if "6663d9a70581b72e" in str(e):
+                    logger.error(f"特定错误：ID 6663d9a70581b72e 重复")
+                    # 找出这个ID在哪个位置
+                    for j, doc_id in enumerate(ids):
+                        if doc_id == "6663d9a70581b72e":
+                            logger.error(f"重复ID位置: 批次 {i//batch_size}, 索引 {j}")
+                            logger.error(f"内容前100字符: {contents[j][:100]}")
+                
+                # 尝试逐个添加
+                successful_adds = 0
+                for j in range(len(batch)):
+                    try:
+                        self.collection.add(
+                            embeddings=[embeddings[j].tolist()],
+                            documents=[contents[j]],
+                            metadatas=[metadatas[j]],
+                            ids=[ids[j]]
+                        )
+                        successful_adds += 1
+                    except Exception as e2:
+                        logger.warning(f"添加单个文档失败 {ids[j]}: {e2}")
+                        # 尝试使用新的UUID
+                        try:
+                            new_id = f"uuid_{uuid.uuid4().hex}"
+                            self.collection.add(
+                                embeddings=[embeddings[j].tolist()],
+                                documents=[contents[j]],
+                                metadatas=[metadatas[j]],
+                                ids=[new_id]
+                            )
+                            successful_adds += 1
+                            logger.info(f"使用新UUID {new_id} 添加成功")
+                        except Exception as e3:
+                            logger.error(f"重试也失败: {e3}")
+                
+                logger.info(f"批次 {i//batch_size} 成功添加 {successful_adds}/{len(batch)} 个文档")
+        
+        # 保存统计信息
+        self.save_statistics(chunked_docs)
+        
+        logger.info(f"✅ 向量数据库构建完成！")
+        logger.info(f"   共存储 {total_chunks} 个文档块")
+        logger.info(f"   存储位置: {self.chroma_persist_dir}")
+        
+        # 测试检索
+        self.test_retrieval()
+    
+    def save_statistics(self, chunked_docs: List[Dict[str, Any]]):
+        """保存构建统计信息"""
         stats = {
             "total_documents": len(self.documents),
             "total_chunks": len(chunked_docs),
