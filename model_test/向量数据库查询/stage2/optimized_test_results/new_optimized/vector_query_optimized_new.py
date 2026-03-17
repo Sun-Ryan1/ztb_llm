@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""向量数据库查询器（性能模式可配置版
-"""
+"""向量数据库查询器（性能模式可配置版）"""
 
 import os
 import json
@@ -35,19 +34,19 @@ class BaseReranker(ABC):
         pass
 
 class CrossEncoderReranker(BaseReranker):
-    """基于交叉编码器的重排序器（兼容所有 sentence-transformers 版本）
-"""
+    """基于交叉编码器的重排序器（兼容所有 sentence-transformers 版本）"""
     def __init__(
         self,
         model_name: str = "BAAI/bge-reranker-base",
         device: Optional[str] = None,
         batch_size: int = 32,
     ):
-        """Args:
-            _name: 
-            device: （cuda/cpu），默认自动选择
-            batch_size:
-"""
+        """
+        Args:
+        _name: 
+        device: （cuda/cpu），默认自动选择
+        batch_size:
+        """
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.batch_size = batch_size
         logger.info(f"加载重排序模型: {model_name} | 设备: {self.device}")
