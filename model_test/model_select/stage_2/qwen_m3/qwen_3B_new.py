@@ -16,8 +16,7 @@ LOG_LEVEL = "INFO"  # DEBUG, INFO, WARNING, ERROR
 LOG_FILE_PATH = None
 
 def log(message: str, level: str = "INFO") -> None:
-    """日志记录函数
-"""
+    """日志记录函数"""
     levels = {"DEBUG": 0, "INFO": 1, "WARNING": 2, "ERROR": 3}
     if levels[level] >= levels[LOG_LEVEL]:
         log_str = f"[{level}] {message}"
@@ -32,8 +31,7 @@ def log(message: str, level: str = "INFO") -> None:
 
 # ====================== 配置类 ======================
 class ModelConfig:
-    """模型配置类
-"""
+    """模型配置类"""
     def __init__(self, llm_name, llm_local_path, embedding_local_path):
         self.llm_name = llm_name
         self.llm_local_path = llm_local_path
@@ -41,8 +39,7 @@ class ModelConfig:
 
 # ====================== Qwen模型配置 ======================
 class QwenTestConfig:
-    """Qwen模型测试配置
-"""
+    """Qwen模型测试配置"""
     def __init__(self):
         # Qwen模型配置
         self.llm_config = {
@@ -80,13 +77,11 @@ class QwenTestConfig:
 
 # ====================== 模型管理器 ======================
 class ModelManager:
-    """模型管理器
-"""
+    """模型管理器"""
     
     @staticmethod
     def get_bnb_config():
-        """获取量化参数配置
-"""
+        """获取量化参数配置"""
         return BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_use_double_quant=True,
@@ -96,9 +91,10 @@ class ModelManager:
     
     @staticmethod
     def load_local_models(config):
-        """加载本地模型
+        """
+        加载本地模型
         返回: (tokenizer, llm_model, embedding_models)
-"""
+        """
         log(f"正在加载Qwen模型：{config['llm_name']}", "INFO")
         
         try:
@@ -115,9 +111,68 @@ class ModelManager:
             if tokenizer.pad_token is None:
                 tokenizer.pad_token = tokenizer.eos_token
             
-            # 2. 加载大模型
-"""清理模型资源
-"""try:
+            # 2. 加载大模型 - 启用Flash Attention（如果支持）
+            try:
+                llm_model = AutoModelForCausalLM.from_pretrained(
+                    config["llm_local_path"],
+                    trust_remote_code=True,
+                    device_map="auto",
+                    quantization_config=ModelManager.get_bnb_config(),
+                    dtype=torch.bfloat16,
+                    low_cpu_mem_usage=True,
+                    local_files_only=True,
+                    offload_folder="./offload",  # 内存不足时的卸载目录
+                    attn_implementation="flash_attention_2"  # 启用Flash Attention加速
+                )
+                log("✅ Flash Attention已启用，将加速模型推理", "INFO")
+            except Exception as e:
+                # 如果Flash Attention不支持，回退到默认实现
+                log(f"⚠️  Flash Attention不可用，使用默认实现: {e}", "WARNING")
+                llm_model = AutoModelForCausalLM.from_pretrained(
+                    config["llm_local_path"],
+                    trust_remote_code=True,
+                    device_map="auto",
+                    quantization_config=ModelManager.get_bnb_config(),
+                    dtype=torch.bfloat16,
+                    low_cpu_mem_usage=True,
+                    local_files_only=True,
+                    offload_folder="./offload"  # 内存不足时的卸载目录
+                )
+            llm_model.eval()
+            log(f"✅ Qwen模型 {config['llm_name']} 加载成功", "INFO")
+        except Exception as e:
+            log(f"❌ Qwen模型加载失败，错误信息：{e}", "ERROR")
+            return None, None, None
+        
+        # 3. 加载Embedding模型
+        log(f"正在加载BGE Embedding模型", "INFO")
+        try:
+            embedding_tokenizer = AutoTokenizer.from_pretrained(
+                config["embedding_local_path"],
+                trust_remote_code=True,
+                local_files_only=True,
+                use_fast=True  # 使用快速tokenizer
+            )
+            embedding_model = AutoModel.from_pretrained(
+                config["embedding_local_path"],
+                trust_remote_code=True,
+                device_map="auto",
+                dtype=torch.float16,
+                low_cpu_mem_usage=True,
+                local_files_only=True
+            )
+            embedding_model.eval()
+            log(f"✅ BGE Embedding模型加载成功", "INFO")
+        except Exception as e:
+            log(f"❌ BGE Embedding模型加载失败，错误信息：{e}", "ERROR")
+            return None, None, None
+        
+        return tokenizer, llm_model, (embedding_tokenizer, embedding_model)
+    
+    @staticmethod
+    def cleanup_models(llm_model, embedding_models=None):
+        """清理模型资源"""
+        try:
             if llm_model is not None:
                 del llm_model
             
@@ -137,13 +192,13 @@ def bge_embedding_encode(embedding_models, text: Union[str, List[str]], batch_mo
     """BGE文本转向量函数
     
     Args:
-        _models: _tokenizer和embedding_model的元组
-        text: 
-        _mode: 是否使用批量模式
+        embedding_models: 包含embedding_tokenizer和embedding_model的元组
+        text: 单个文本字符串或文本列表
+        batch_mode: 是否使用批量模式
     
     Returns:
-        .ndarray: 文本的向量表示
-"""
+        np.ndarray: 文本的向量表示
+    """
     embedding_tokenizer, embedding_model = embedding_models
     
     # 处理空输入
@@ -203,13 +258,13 @@ def build_vector_index(embedding_models, docs: List[str], batch_size: int = 32) 
     """构建FAISS向量索引
     
     Args:
-        _models: _tokenizer和embedding_model的元组
-        docs: 
-        _size: 批处理大小
+        embedding_models: 包含embedding_tokenizer和embedding_model的元组
+        docs: 文档列表
+        batch_size: 批处理大小
     
     Returns:
-        [Optional[faiss.Index], Optional[List[str]]]: FAISS索引和有效文档列表
-"""
+        Tuple[Optional[faiss.Index], Optional[List[str]]]: FAISS索引和有效文档列表
+    """
     doc_vectors = []
     valid_docs = []
     
@@ -235,26 +290,112 @@ def build_vector_index(embedding_models, docs: List[str], batch_size: int = 32) 
         
         # 日志输出，减少打印频率
         if (i // batch_size + 1) % 20 == 0:
-            elapsed_time = time.time()
-"""改进的检索函数
-    Args:
-        _models: _tokenizer和embedding_model的元组
-        index: 
-        : 文档列表
-        question: 
-        _k: 返回的文档数量
-        similarity_threshold: 
+            elapsed_time = time.time() - start_time
+            processed = min(i+batch_size, len(docs))
+            log(f"  已编码 {processed}/{len(docs)} 条文档，耗时: {elapsed_time:.2f}s", "INFO")
+    
+    if not doc_vectors:
+        log("❌ 无有效文档向量，无法构建FAISS索引", "ERROR")
+        return None, None
+    
+    # 合并向量
+    doc_vectors = np.concatenate(doc_vectors, axis=0).astype(np.float32)
+    vector_dim = doc_vectors.shape[1]
+    
+    # 构建FAISS索引
+    index = faiss.IndexFlatIP(vector_dim)
+    index.add(doc_vectors)
+    
+    # 构建倒排索引，用于加速关键词检索
+    build_inverted_index(valid_docs)
+    
+    elapsed_time = time.time() - start_time
+    log(f"✅ 共构建 {len(valid_docs)} 条有效文档的FAISS索引，耗时: {elapsed_time:.2f}s", "INFO")
+    log(f"  向量维度: {vector_dim}", "INFO")
+    log(f"  索引类型: IndexFlatIP (内积相似度)", "INFO")
+    log(f"  倒排索引已构建，用于加速关键词检索", "INFO")
+    
+    return index, valid_docs
 
-    :
+# ====================== 检索函数 ======================
+# 问题向量缓存，减少重复计算
+question_vector_cache = {}
+
+def enhanced_retrieval(embedding_models, index, docs: List[str], question: str, top_k: int = 5, similarity_threshold: float = 0.75) -> List[str]:
+    """改进的检索函数
+    Args:
+        embedding_models: 包含embedding_tokenizer和embedding_model的元组
+        index: FAISS索引
+        docs: 文档列表
+        question: 查询问题
+        top_k: 返回的文档数量
+        similarity_threshold: 相似度阈值
+
+    Returns:
         List[str]: 检索到的文档列表
-"""results = []
+    """
+    results = []
     
-    # 1. 向量检索
-"""构建倒排索引，用于加速关键词检索
+    # 1. 向量检索 - 使用缓存优化
+    global question_vector_cache
+    question_key = question.strip()
+    
+    # 检查缓存中是否已有该问题的向量
+    if question_key in question_vector_cache:
+        question_vector = question_vector_cache[question_key]
+    else:
+        # 计算新的问题向量并缓存
+        question_vector = bge_embedding_encode(embedding_models, question)
+        if question_vector.size > 0:
+            question_vector_cache[question_key] = question_vector
+    
+    if question_vector.size == 0:
+        return []
+    
+    # 搜索更多候选文档，然后过滤
+    distances, indices = index.search(question_vector.reshape(1, -1), top_k * 10)
+    
+    # 批量处理结果
+    for dist, idx in zip(distances[0], indices[0]):
+        if idx < len(docs) and dist > similarity_threshold:
+            results.append({
+                "doc": docs[idx],
+                "similarity": float(dist),
+                "type": "vector",
+                "index": idx
+            })
+    
+    # 2. 关键词检索（后备）
+    if len(results) < 2:
+        keyword_results = keyword_based_retrieval(question, docs)
+        results.extend(keyword_results)
+    
+    # 3. 去重和排序
+    seen_indices = set()
+    unique_results = []
+    
+    for result in results:
+        idx = result.get("index", -1)
+        if idx >= 0 and idx not in seen_indices:
+            seen_indices.add(idx)
+            unique_results.append(result)
+    
+    # 排序并返回前top_k个结果
+    unique_results.sort(key=lambda x: x["similarity"], reverse=True)
+    
+    return [r["doc"] for r in unique_results[:top_k]]
+
+# 倒排索引缓存，提高关键词检索效率
+inverted_index = None
+
+# 初始化倒排索引
+def build_inverted_index(docs: List[str]):
+    """构建倒排索引，用于加速关键词检索
     
     Args:
-        : 文档列表
-"""global inverted_index
+        docs: 文档列表
+    """
+    global inverted_index
     inverted_index = {}
     
     for idx, doc in enumerate(docs):
@@ -279,12 +420,12 @@ def keyword_based_retrieval(query: str, docs: List[str]) -> List[Dict[str, Any]]
     """关键词检索（后备）
     
     Args:
-        : 查询问题
-        docs: 
+        query: 查询问题
+        docs: 文档列表
     
     Returns:
         List[Dict]: 检索结果列表
-"""
+    """
     results = []
     
     # 提取关键词
@@ -351,8 +492,7 @@ def keyword_based_retrieval(query: str, docs: List[str]) -> List[Dict[str, Any]]
     return results
 
 def extract_company_names(text):
-    """提取公司名
-"""
+    """提取公司名"""
     patterns = [
         r'([\u4e00-\u9fa5a-zA-Z0-9]{2,})(?:有限公司|公司|集团)',
         r'(?:关于|咨询|查询)([\u4e00-\u9fa5a-zA-Z0-9]{2,})(?:的|信息)?'
@@ -371,8 +511,7 @@ def extract_company_names(text):
     return list(set(companies))
 
 def extract_keywords(text):
-    """提取关键词
-"""
+    """提取关键词"""
     keywords = []
     
     bid_keywords = [
@@ -395,17 +534,17 @@ def direct_inference_no_prompt(tokenizer, llm_model, question, max_new_tokens=20
     """场景1：无任何提示词，直接让模型回答问题
     
     Args:
-        : 模型tokenizer
-        llm_model: 
+        tokenizer: 模型tokenizer
+        llm_model: 大语言模型
         question: 查询问题
-        max_new_tokens: 
+        max_new_tokens: 最大生成token数
         temperature: 生成温度
-        top_p: 
+        top_p: 核采样参数
         do_sample: 是否使用采样解码
     
     Returns:
-        [str, List]: 模型回答和检索文档列表（此处为空）
-"""
+        Tuple[str, List]: 模型回答和检索文档列表（此处为空）
+    """
     inputs = tokenizer(
         question,  # 只输入问题，不加任何提示
         return_tensors="pt",
@@ -439,17 +578,17 @@ def batch_inference_no_prompt(tokenizer, llm_model, questions, max_new_tokens=20
     """批量进行无提示词推理
     
     Args:
-        : 模型tokenizer
-        llm_model: 
+        tokenizer: 模型tokenizer
+        llm_model: 大语言模型
         questions: 查询问题列表
-        max_new_tokens: 
+        max_new_tokens: 最大生成token数
         temperature: 生成温度
-        top_p: 
+        top_p: 核采样参数
         do_sample: 是否使用采样解码
     
     Returns:
-        [Tuple[str, List]]: 模型回答和检索文档列表（此处为空）的列表
-"""
+        List[Tuple[str, List]]: 模型回答和检索文档列表（此处为空）的列表
+    """
     if not questions:
         return []
     
@@ -488,22 +627,22 @@ def optimized_rag_inference(tokenizer, llm_model, embedding_models, index, docs,
     """场景2：使用专业提示词模板的RAG推理
     
     Args:
-        : 模型tokenizer
-        llm_model: 
+        tokenizer: 模型tokenizer
+        llm_model: 大语言模型
         embedding_models: 包含embedding_tokenizer和embedding_model的元组
-        index: 
+        index: FAISS索引
         docs: 文档列表
-        question: 
+        question: 查询问题
         top_k: 检索文档数量
-        similarity_threshold: 
+        similarity_threshold: 相似度阈值
         max_new_tokens: 最大生成token数
-        temperature: 
+        temperature: 生成温度
         top_p: 核采样参数
-        do_sample: 
+        do_sample: 是否使用采样解码
     
     Returns:
         Tuple[str, List[str]]: 模型回答和检索文档列表
-"""
+    """
     retrieved_docs = enhanced_retrieval(embedding_models, index, docs, question, top_k=top_k, similarity_threshold=similarity_threshold)
     
     if not retrieved_docs:
@@ -541,7 +680,9 @@ def optimized_rag_inference(tokenizer, llm_model, embedding_models, index, docs,
 {question}
 
 请根据以上信息和示例风格，按照回答要求给出专业回答。
-答："""inputs = tokenizer(
+答："""
+    
+    inputs = tokenizer(
         prompt,
         return_tensors="pt",
         truncation=True,
@@ -580,25 +721,26 @@ def optimized_rag_inference(tokenizer, llm_model, embedding_models, index, docs,
     return model_answer, retrieved_docs
 
 def batch_rag_inference(tokenizer, llm_model, embedding_models, index, docs, questions, top_k=5, similarity_threshold=0.75, max_new_tokens=300, temperature=0.1, top_p=0.9, do_sample=False):
-"""批量进行RAG推理
+    """批量进行RAG推理
     
     Args:
-        : 模型tokenizer
-        llm_model: 
+        tokenizer: 模型tokenizer
+        llm_model: 大语言模型
         embedding_models: 包含embedding_tokenizer和embedding_model的元组
-        index: 
+        index: FAISS索引
         docs: 文档列表
-        questions: 
+        questions: 查询问题列表
         top_k: 检索文档数量
-        similarity_threshold: 
+        similarity_threshold: 相似度阈值
         max_new_tokens: 最大生成token数
-        temperature: 
+        temperature: 生成温度
         top_p: 核采样参数
-        do_sample: 
+        do_sample: 是否使用采样解码
     
     Returns:
         List[Tuple[str, List[str]]]: 模型回答和检索文档列表的列表
-    """if not questions:
+    """
+    if not questions:
         return []
     
     # 1. 批量检索所有问题的相关文档
@@ -612,8 +754,7 @@ def batch_rag_inference(tokenizer, llm_model, embedding_models, index, docs, que
     prompts = []
     for question, retrieved_docs in zip(questions, all_retrieved_docs):
         if not retrieved_docs:
-            prompt = f
-"""# 角色定位
+            prompt = f"""# 角色定位
 你是聚焦招投标采购全流程的专业智能问答系统，需严格依据《招标投标法》《政府采购法》等法规，精准解答政策合规、业务操作、物资产品、电子系统操作等领域问题。
 
 # 回答要求
@@ -641,10 +782,10 @@ def batch_rag_inference(tokenizer, llm_model, embedding_models, index, docs, que
 {question}
 
 请按照回答要求给出专业回答。
-答："""else:
+答："""
+        else:
             context = "\n".join([f"信息{i+1}: {doc}" for i, doc in enumerate(retrieved_docs)])
-            prompt = f
-"""# 角色定位
+            prompt = f"""# 角色定位
 你是聚焦招投标采购全流程的专业智能问答系统，需严格依据《招标投标法》《政府采购法》等法规，精准解答政策合规、业务操作、物资产品、电子系统操作等领域问题。
 
 # 回答要求
@@ -673,7 +814,9 @@ def batch_rag_inference(tokenizer, llm_model, embedding_models, index, docs, que
 {question}
 
 请根据以上信息和示例风格，按照回答要求给出专业回答。
-答："""prompts.append(prompt)
+答："""
+        
+        prompts.append(prompt)
     
     # 3. 批量生成回答
     inputs = tokenizer(
@@ -720,15 +863,16 @@ def batch_rag_inference(tokenizer, llm_model, embedding_models, index, docs, que
 
 # ====================== 数据加载器 ======================
 def load_qa_data(qa_file_path="qa_data/100_qa.json", kb_file_path="qa_data/knowledge_base.txt"):
-"""加载QA数据
+    """加载QA数据
     
     Args:
-        _file_path: 
-        kb_file_path: 
+        qa_file_path: QA数据文件路径
+        kb_file_path: 知识库文件路径
     
     Returns:
         Tuple[List[Dict], List[str]]: 测试用例列表和知识库文档列表
-    """try:
+    """
+    try:
         # 1. 加载知识库文档
         knowledge_docs = []
         if os.path.exists(kb_file_path):
@@ -811,14 +955,15 @@ IMPORTANT_KEYWORDS = {"法定代表人", "公司", "地址", "金额", "供应�
 ERROR_PREFIXES = {"对不起", "抱歉", "我不确定", "无法回答", "我不知道"}
 
 def extract_entities_from_text(text):
-"""从文本中提取实体
+    """从文本中提取实体
     
     Args:
-        : 输入文本
+        text: 输入文本
     
     Returns:
-        [str]: 实体列表
-    """entities = set()  # 使用set避免重复
+        List[str]: 实体列表
+    """
+    entities = set()  # 使用set避免重复
     
     # 提取公司名
     for pattern in COMPANY_PATTERNS:
@@ -837,14 +982,14 @@ def extract_entities_from_text(text):
     return list(entities)
 
 def is_doc_related(doc1, doc2):
-"""检查文档是否相关
+    """检查文档是否相关
     
     Args:
-        1: 1
-        doc2: 2
+        doc1: 文档1
+        doc2: 文档2
     
     Returns:
-        : 是否相关
+        bool: 是否相关
     """
     # 快速检查：如果有完全匹配的情况
     if doc1 == doc2:
@@ -875,12 +1020,12 @@ def calculate_recall(retrieved_docs, relevant_docs):
     """计算召回率
     
     Args:
-        _docs: 
-        relevant_docs: 
+        retrieved_docs: 检索到的文档列表
+        relevant_docs: 相关文档列表
     
     Returns:
-        float:
-"""
+        float: 召回率
+    """
     if not retrieved_docs or not relevant_docs:
         return 0.0
     
@@ -896,13 +1041,13 @@ def calculate_accuracy(model_answer, reference_answer, threshold=0.6):
     """计算准确率
     
     Args:
-        _answer: 
-        reference_answer: 
-        threshold: 
+        model_answer: 模型回答
+        reference_answer: 参考回答
+        threshold: 相似度阈值
     
     Returns:
-        : 准确率
-"""
+        float: 准确率
+    """
     if not model_answer or not reference_answer:
         return 0.0
     
@@ -941,16 +1086,17 @@ def calculate_accuracy(model_answer, reference_answer, threshold=0.6):
     return 0.0
 
 def calculate_answer_quality(model_answer, reference_answer):
-    """评估回答质量：包括相关性、完整性、一致性
+    """
+    评估回答质量：包括相关性、完整性、一致性
     返回一个综合质量分数（0-1）
     
     Args:
-        _answer: 
-        reference_answer: 
+        model_answer: 模型回答
+        reference_answer: 参考回答
     
     Returns:
-        Dict:
-"""
+        Dict: 质量评估结果
+    """
     # 1. 简化的文本相似度检查
     # 使用更快速的字符串匹配方法，避免SequenceMatcher的O(n²)复杂度
     reference_lower = reference_answer.lower()
@@ -997,8 +1143,7 @@ def calculate_answer_quality(model_answer, reference_answer):
 
 # ====================== 测试运行器 ======================
 class QwenModelTestRunner:
-    """Qwen模型测试运行器
-"""
+    """Qwen模型测试运行器"""
     
     def __init__(self, config):
         self.config = config
@@ -1022,8 +1167,7 @@ class QwenModelTestRunner:
         log(f"{'='*60}\n", "INFO")
     
     def _setup_output_dir(self):
-        """设置输出目录
-"""
+        """设置输出目录"""
         # 使用模型名称和时间戳创建唯一目录
         model_name = self.config.llm_config['llm_name'].replace('/', '_')
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -1041,8 +1185,7 @@ class QwenModelTestRunner:
         return output_dir
     
     def run_qwen_tests(self):
-        """运行Qwen模型测试
-"""
+        """运行Qwen模型测试"""
         log(f"\n{'='*60}", "INFO")
         log(f"开始Qwen模型测试", "INFO")
         log(f"模型: {self.config.llm_config['llm_name']}", "INFO")
@@ -1074,9 +1217,266 @@ class QwenModelTestRunner:
         for idx in range(0, total_test_cases, batch_size):
             batch_test_cases = self.test_cases[idx:idx+batch_size]
             
-            # 场景1：无提示词直接回答
-"""计算测试结果摘要
-"""
+            # 场景1：无提示词直接回答 - 支持批量处理
+            try:
+                log(f"  正在处理场景1（无提示词）：批量 {idx//batch_size + 1}/{total_test_cases//batch_size + 1}", "INFO")
+                questions = [case["question"] for case in batch_test_cases]
+                
+                log(f"    开始批量推理，问题数量：{len(questions)}", "INFO")
+                batch_answers = batch_inference_no_prompt(
+                    tokenizer, llm_model, questions,
+                    max_new_tokens=self.config.max_new_tokens,
+                    temperature=self.config.temperature,
+                    top_p=self.config.top_p,
+                    do_sample=self.config.do_sample
+                )
+                log(f"    批量推理完成，获得 {len(batch_answers)} 个回答", "INFO")
+                
+                # 处理批量结果
+                for i, (model_answer1, _) in enumerate(batch_answers):
+                    case_idx = idx + i
+                    test_case = batch_test_cases[i]
+                    reference_answer = test_case["reference_answer"]
+                    
+                    accuracy1 = calculate_accuracy(model_answer1, reference_answer)
+                    quality_metrics1 = calculate_answer_quality(model_answer1, reference_answer)
+                    
+                    result1 = {
+                        "scenario": "no_prompt",
+                        "test_case_id": case_idx + 1,
+                        "question": test_case["question"],
+                        "reference_answer": reference_answer,
+                        "model_answer": model_answer1,
+                        "accuracy": accuracy1,
+                        "answer_length": len(model_answer1),
+                        "quality_score": quality_metrics1["quality_score"],
+                        "similarity": quality_metrics1["similarity"],
+                        "keyword_score": quality_metrics1["keyword_score"]
+                    }
+                    scenario1_results.append(result1)
+                
+            except Exception as e:
+                log(f"❌ 场景1批量测试失败：{e}", "ERROR")
+                # 回退到单样本处理
+                for i, test_case in enumerate(batch_test_cases):
+                    case_idx = idx + i
+                    try:
+                        model_answer1, _ = direct_inference_no_prompt(
+                            tokenizer, llm_model, test_case["question"],
+                            max_new_tokens=self.config.max_new_tokens,
+                            temperature=self.config.temperature,
+                            top_p=self.config.top_p,
+                            do_sample=self.config.do_sample
+                        )
+                        accuracy1 = calculate_accuracy(model_answer1, test_case["reference_answer"])
+                        quality_metrics1 = calculate_answer_quality(model_answer1, test_case["reference_answer"])
+                        
+                        result1 = {
+                            "scenario": "no_prompt",
+                            "test_case_id": case_idx + 1,
+                            "question": test_case["question"],
+                            "reference_answer": test_case["reference_answer"],
+                            "model_answer": model_answer1,
+                            "accuracy": accuracy1,
+                            "answer_length": len(model_answer1),
+                            "quality_score": quality_metrics1["quality_score"],
+                            "similarity": quality_metrics1["similarity"],
+                            "keyword_score": quality_metrics1["keyword_score"]
+                        }
+                        scenario1_results.append(result1)
+                    except Exception as e2:
+                        scenario1_results.append({
+                            "scenario": "no_prompt",
+                            "test_case_id": case_idx + 1,
+                            "question": test_case["question"],
+                            "error": str(e2)
+                        })
+            
+            # 场景2：有提示词的RAG回答 - 使用批量处理
+            if index is not None:
+                log(f"  正在处理场景2（RAG）：批量 {idx//batch_size + 1}/{total_test_cases//batch_size + 1}", "INFO")
+                try:
+                    questions = [case["question"] for case in batch_test_cases]
+                    
+                    log(f"    开始批量RAG推理，问题数量：{len(questions)}", "INFO")
+                    batch_answers = batch_rag_inference(
+                        tokenizer, llm_model, embedding_models, index, enhanced_docs, questions,
+                        top_k=self.config.top_k_retrieval,
+                        similarity_threshold=self.config.similarity_threshold,
+                        max_new_tokens=self.config.rag_max_new_tokens,
+                        temperature=self.config.temperature,
+                        top_p=self.config.top_p,
+                        do_sample=self.config.do_sample
+                    )
+                    log(f"    批量RAG推理完成，获得 {len(batch_answers)} 个回答", "INFO")
+                    
+                    # 处理批量结果
+                    for i, (model_answer2, retrieved_docs) in enumerate(batch_answers):
+                        case_idx = idx + i
+                        test_case = batch_test_cases[i]
+                        reference_answer = test_case["reference_answer"]
+                        relevant_docs = test_case["relevant_docs"]
+                        
+                        recall2 = calculate_recall(retrieved_docs, relevant_docs)
+                        accuracy2 = calculate_accuracy(model_answer2, reference_answer)
+                        quality_metrics2 = calculate_answer_quality(model_answer2, reference_answer)
+                        
+                        result2 = {
+                            "scenario": "with_prompt_rag",
+                            "test_case_id": case_idx + 1,
+                            "question": questions[i],
+                            "reference_answer": reference_answer,
+                            "model_answer": model_answer2,
+                            "retrieved_docs": retrieved_docs[:3] if retrieved_docs else [],
+                            "relevant_docs": relevant_docs,
+                            "recall_score": recall2,
+                            "accuracy": accuracy2,
+                            "answer_length": len(model_answer2),
+                            "quality_score": quality_metrics2["quality_score"],
+                            "similarity": quality_metrics2["similarity"],
+                            "keyword_score": quality_metrics2["keyword_score"],
+                            "retrieved_count": len(retrieved_docs),
+                            "relevant_count": len(relevant_docs)
+                        }
+                        scenario2_results.append(result2)
+                        
+                except Exception as e:
+                    log(f"❌ 场景2批量测试失败：{e}", "ERROR")
+                    # 回退到单样本处理
+                    for i, test_case in enumerate(batch_test_cases):
+                        case_idx = idx + i
+                        question = test_case["question"]
+                        reference_answer = test_case["reference_answer"]
+                        relevant_docs = test_case["relevant_docs"]
+                        
+                        try:
+                            model_answer2, retrieved_docs = optimized_rag_inference(
+                                tokenizer, llm_model, embedding_models, index, enhanced_docs, question,
+                                top_k=self.config.top_k_retrieval,
+                                similarity_threshold=self.config.similarity_threshold,
+                                max_new_tokens=self.config.rag_max_new_tokens,
+                                temperature=self.config.temperature,
+                                top_p=self.config.top_p,
+                                do_sample=self.config.do_sample
+                            )
+                            
+                            recall2 = calculate_recall(retrieved_docs, relevant_docs)
+                            accuracy2 = calculate_accuracy(model_answer2, reference_answer)
+                            quality_metrics2 = calculate_answer_quality(model_answer2, reference_answer)
+                            
+                            result2 = {
+                                "scenario": "with_prompt_rag",
+                                "test_case_id": case_idx + 1,
+                                "question": question,
+                                "reference_answer": reference_answer,
+                                "model_answer": model_answer2,
+                                "retrieved_docs": retrieved_docs[:3] if retrieved_docs else [],
+                                "relevant_docs": relevant_docs,
+                                "recall_score": recall2,
+                                "accuracy": accuracy2,
+                                "answer_length": len(model_answer2),
+                                "quality_score": quality_metrics2["quality_score"],
+                                "similarity": quality_metrics2["similarity"],
+                                "keyword_score": quality_metrics2["keyword_score"],
+                                "retrieved_count": len(retrieved_docs),
+                                "relevant_count": len(relevant_docs)
+                            }
+                            scenario2_results.append(result2)
+                            
+                        except Exception as e2:
+                            scenario2_results.append({
+                                "scenario": "with_prompt_rag",
+                                "test_case_id": case_idx + 1,
+                                "question": question,
+                                "error": str(e2)
+                            })
+            else:
+                for i, test_case in enumerate(batch_test_cases):
+                    case_idx = idx + i
+                    scenario2_results.append({
+                        "scenario": "with_prompt_rag",
+                        "test_case_id": case_idx + 1,
+                        "question": test_case["question"],
+                        "error": "FAISS索引未构建"
+                    })
+            
+            # 清理GPU缓存，优化内存利用
+            torch.cuda.empty_cache()
+            gc.collect()
+            
+            # 进度报告
+            processed = min(idx + batch_size, total_test_cases)
+            if processed % self.config.log_interval == 0 or processed == total_test_cases:
+                elapsed = time.time() - start_time
+                log(f"\n📊 当前进度：{processed}/{total_test_cases}，耗时: {elapsed:.2f}s", "INFO")
+                
+                if scenario1_results:
+                    valid_results1 = [r for r in scenario1_results if "accuracy" in r]
+                    if valid_results1:
+                        avg_acc1 = sum([r["accuracy"] for r in valid_results1]) / len(valid_results1)
+                        log(f"  场景1平均准确率：{avg_acc1:.4f}", "INFO")
+                
+                if scenario2_results:
+                    valid_results2 = [r for r in scenario2_results if "accuracy" in r]
+                    if valid_results2:
+                        avg_acc2 = sum([r["accuracy"] for r in valid_results2]) / len(valid_results2)
+                        avg_recall2 = sum([r.get("recall_score", 0) for r in valid_results2]) / len(valid_results2)
+                        log(f"  场景2平均准确率：{avg_acc2:.4f}，平均召回率：{avg_recall2:.4f}", "INFO")
+        
+        # 保存Qwen模型的测试结果
+        qwen_results = {
+            "llm_config": self.config.llm_config,
+            "test_config": {
+                "test_cases_count": len(self.test_cases),
+                "knowledge_docs_count": len(self.knowledge_docs),
+                "max_test_cases": self.config.max_test_cases,
+                "batch_size": self.config.batch_size,
+                "top_k_retrieval": self.config.top_k_retrieval,
+                "similarity_threshold": self.config.similarity_threshold
+            },
+            "scenario1_results": scenario1_results,
+            "scenario2_results": scenario2_results,
+            "summary": self._calculate_summary(scenario1_results, scenario2_results),
+            "test_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "total_execution_time": time.time() - start_time
+        }
+        
+        # 保存结果文件
+        result_file = os.path.join(self.output_dir, "llm_results", 
+                                  f"qwen_test_results_{datetime.now().strftime('%H%M%S')}.json")
+        with open(result_file, "w", encoding="utf-8") as f:
+            json.dump(qwen_results, f, ensure_ascii=False, indent=2)
+        
+        total_time = time.time() - start_time
+        log(f"\n✅ Qwen模型测试完成，总耗时: {total_time:.2f}s", "INFO")
+        log(f"   场景1平均准确率: {qwen_results['summary']['scenario1_avg_accuracy']:.4f}", "INFO")
+        log(f"   场景2平均准确率: {qwen_results['summary']['scenario2_avg_accuracy']:.4f}", "INFO")
+        log(f"   场景2平均召回率: {qwen_results['summary']['scenario2_avg_recall']:.4f}", "INFO")
+        log(f"   结果文件: {result_file}", "INFO")
+        
+        # 生成日志文件
+        self._generate_log_file(qwen_results)
+        
+        # 清理资源
+        ModelManager.cleanup_models(llm_model, embedding_models)
+        
+        # 清理缓存
+        global question_vector_cache, inverted_index
+        question_vector_cache.clear()
+        inverted_index = None
+        
+        if index is not None:
+            del index
+        if enhanced_docs is not None:
+            del enhanced_docs
+        
+        log(f"\n{'='*60}", "INFO")
+        log("Qwen模型测试完成", "INFO")
+        log(f"结果目录: {self.output_dir}", "INFO")
+        log(f"{'='*60}", "INFO")
+    
+    def _calculate_summary(self, scenario1_results, scenario2_results):
+        """计算测试结果摘要"""
         # 场景1统计
         scenario1_accuracies = [r.get("accuracy", 0) for r in scenario1_results if "accuracy" in r]
         scenario1_quality_scores = [r.get("quality_score", 0) for r in scenario1_results if "quality_score" in r]
@@ -1102,8 +1502,7 @@ class QwenModelTestRunner:
         }
     
     def _generate_log_file(self, qwen_results):
-        """生成日志文件
-"""
+        """生成日志文件"""
         log_content = f"""Qwen模型测试日志
 测试时间: {qwen_results['test_time']}
 总执行时间: {qwen_results.get('total_execution_time', 0):.2f}s
@@ -1139,8 +1538,7 @@ class QwenModelTestRunner:
 
 # ====================== 主函数 ======================
 def main():
-    """主函数：运行Qwen模型测试
-"""
+    """主函数：运行Qwen模型测试"""
     
     log(f"{'='*60}", "INFO")
     log("Qwen模型测试", "INFO")
