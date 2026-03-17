@@ -13,16 +13,14 @@ from difflib import SequenceMatcher
 
 # ====================== 配置类 ======================
 class ModelConfig:
-    """模型配置类
-"""
+    """模型配置类"""
     def __init__(self, llm_name, llm_local_path):
         self.llm_name = llm_name
         self.llm_local_path = llm_local_path
 
 # ====================== InternLM2模型配置 ======================
 class ILM2TestConfig:
-    """InternLM2模型测试配置
-"""
+    """InternLM2模型测试配置"""
     def __init__(self):
         # InternLM2模型配置
         self.llm_config = {
@@ -44,13 +42,11 @@ class ILM2TestConfig:
 
 # ====================== 模型管理器 ======================
 class ModelManager:
-    """模型管理器（针对InternLM2优化）
-"""
+    """模型管理器（针对InternLM2优化）"""
     
     @staticmethod
     def get_bnb_config():
-        """获取量化参数配置
-"""
+        """获取量化参数配置"""
         return BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_use_double_quant=True,
@@ -60,9 +56,10 @@ class ModelManager:
     
     @staticmethod
     def load_local_models(config):
-        """加载本地模型（针对InternLM2优化）
+        """
+        加载本地模型（针对InternLM2优化）
         返回: (tokenizer, llm_model)
-"""
+        """
         print(f"正在加载本地大模型：{config['llm_name']}")
         
         try:
@@ -103,8 +100,7 @@ class ModelManager:
     
     @staticmethod
     def cleanup_models(llm_model):
-        """清理模型资源
-"""
+        """清理模型资源"""
         if llm_model is not None:
             del llm_model
         
@@ -114,8 +110,9 @@ class ModelManager:
 
 # ====================== InternLM2专用生成函数 ======================
 def safe_generate_internlm2_response(tokenizer, model, prompt, max_new_tokens=200):
-    """InternLM2专用生成函数
-"""
+    """
+    InternLM2专用生成函数
+    """
     try:
         # 清理prompt中的特殊字符
         prompt = clean_special_characters(prompt)
@@ -187,8 +184,7 @@ def safe_generate_internlm2_response(tokenizer, model, prompt, max_new_tokens=20
         return "生成失败"
 
 def safe_generate_simple(tokenizer, model, prompt, max_new_tokens=200):
-    """简化生成方法，避免复杂参数
-"""
+    """简化生成方法，避免复杂参数"""
     try:
         # 超简化的prompt
         simple_prompt = f"请回答：{prompt[:200]}"
@@ -226,8 +222,7 @@ def safe_generate_simple(tokenizer, model, prompt, max_new_tokens=200):
         return "生成失败"
 
 def clean_special_characters(text):
-    """清理文本中的特殊字符
-"""
+    """清理文本中的特殊字符"""
     if not text:
         return ""
     
@@ -241,8 +236,7 @@ def clean_special_characters(text):
 
 # ====================== 推理函数 ======================
 def direct_inference_no_prompt(tokenizer, llm_model, question):
-    """场景1：无任何提示词，直接让模型回答问题
-"""
+    """场景1：无任何提示词，直接让模型回答问题"""
     # 清理问题中的特殊字符
     question = clean_special_characters(question)
     
@@ -254,8 +248,7 @@ def direct_inference_no_prompt(tokenizer, llm_model, question):
     return model_answer
 
 def inference_with_professional_prompt(tokenizer, llm_model, question):
-    """场景2：使用专业提示词模板
-"""
+    """场景2：使用专业提示词模板"""
     # 使用专业提示词模板
     prompt = f"""# 角色定位
 你是聚焦招投标采购全流程的专业智能问答系统，需严格依据《招标投标法》《政府采购法》等法规，精准解答政策合规、业务操作、物资产品、电子系统操作等领域问题。
@@ -281,13 +274,16 @@ def inference_with_professional_prompt(tokenizer, llm_model, question):
 
 # 现在请回答以下问题
 问：{question}
-答："""model_answer = safe_generate_internlm2_response(tokenizer, llm_model, prompt, max_new_tokens=300)
+答："""
+    
+    model_answer = safe_generate_internlm2_response(tokenizer, llm_model, prompt, max_new_tokens=300)
     
     return model_answer
 
 # ====================== 数据加载器 ======================
 def load_qa_data(qa_file_path="qa_data/100_qa.json"):
-"""加载QA数据"""try:
+    """加载QA数据"""
+    try:
         # 加载问答对
         with open(qa_file_path, "r", encoding="utf-8") as f:
             qa_data = json.load(f)
@@ -320,7 +316,8 @@ def load_qa_data(qa_file_path="qa_data/100_qa.json"):
 
 # ====================== 评估函数 ======================
 def calculate_accuracy(model_answer, reference_answer, threshold=0.6):
-"""计算准确率"""if not model_answer or not reference_answer:
+    """计算准确率"""
+    if not model_answer or not reference_answer:
         return 0
     
     # 清理答案
@@ -355,7 +352,8 @@ def calculate_accuracy(model_answer, reference_answer, threshold=0.6):
     return 1 if similarity > threshold else 0
 
 def extract_entities_from_text(text):
-"""从文本中提取实体"""entities = []
+    """从文本中提取实体"""
+    entities = []
     
     company_patterns = [
         r'([\u4e00-\u9fa5a-zA-Z0-9]{2,})(?:有限公司|公司|集团)',
@@ -379,7 +377,7 @@ def extract_entities_from_text(text):
     return list(set(entities))
 
 def calculate_answer_quality(model_answer, reference_answer):
-"""
+    """
     评估回答质量：包括相关性、完整性、一致性
     返回一个综合质量分数（0-1）
     """
@@ -415,8 +413,7 @@ def calculate_answer_quality(model_answer, reference_answer):
 
 # ====================== 日志重定向类 ======================
 class LoggerRedirect:
-    """日志重定向类，将控制台输出同时写入文件
-"""
+    """日志重定向类，将控制台输出同时写入文件"""
     def __init__(self, log_file_path):
         self.terminal = sys.stdout
         self.log_file = open(log_file_path, "a", encoding="utf-8")
@@ -436,8 +433,7 @@ class LoggerRedirect:
 
 # ====================== 测试运行器 ======================
 class ILM2ModelTestRunner:
-    """InternLM2模型测试运行器
-"""
+    """InternLM2模型测试运行器"""
     
     def __init__(self, config):
         self.config = config
@@ -456,8 +452,7 @@ class ILM2ModelTestRunner:
         print(f"{'='*60}\n")
     
     def _setup_output_dir(self):
-        """设置输出目录，包含模型名称
-"""
+        """设置输出目录，包含模型名称"""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         # 创建模型专属的输出目录
         model_output_dir = os.path.join(
@@ -471,8 +466,7 @@ class ILM2ModelTestRunner:
         return model_output_dir
     
     def run_ilm2_tests(self):
-        """运行InternLM2模型测试
-"""
+        """运行InternLM2模型测试"""
         print(f"\n{'='*60}")
         print(f"开始 {self.config.llm_config['llm_name']} 模型测试")
         print(f"测试场景：1.无提示词 2.有专业提示词")
@@ -497,9 +491,124 @@ class ILM2ModelTestRunner:
             print(f"问题：{question[:100]}..." if len(question) > 100 else f"问题：{question}")
             
             # 场景1：无提示词直接回答
-            print("\n--
-"""计算测试结果摘要
-"""
+            print("\n--- 场景1：无提示词直接回答（测试学习能力） ---")
+            try:
+                model_answer1 = direct_inference_no_prompt(tokenizer, llm_model, question)
+                accuracy1 = calculate_accuracy(model_answer1, reference_answer)
+                quality_metrics1 = calculate_answer_quality(model_answer1, reference_answer)
+                
+                result1 = {
+                    "scenario": "no_prompt",
+                    "test_case_id": idx + 1,
+                    "question": question,
+                    "reference_answer": reference_answer,
+                    "model_answer": model_answer1,
+                    "accuracy": accuracy1,
+                    "answer_length": len(model_answer1),
+                    "quality_score": quality_metrics1["quality_score"],
+                    "similarity": quality_metrics1["similarity"],
+                    "keyword_score": quality_metrics1["keyword_score"]
+                }
+                
+                print(f"  模型回答：{model_answer1[:80]}..." if len(model_answer1) > 80 else f"  模型回答：{model_answer1}")
+                print(f"  准确率：{accuracy1:.4f} | 质量分：{quality_metrics1['quality_score']:.4f} | 长度：{len(model_answer1)}")
+                
+                scenario1_results.append(result1)
+                
+            except Exception as e:
+                print(f"❌ 场景1测试失败：{str(e)[:200]}")
+                scenario1_results.append({
+                    "scenario": "no_prompt",
+                    "test_case_id": idx + 1,
+                    "question": question,
+                    "error": str(e)[:200]
+                })
+            
+            # 场景2：有专业提示词
+            print("\n--- 场景2：有专业提示词（测试可训练能力） ---")
+            try:
+                model_answer2 = inference_with_professional_prompt(tokenizer, llm_model, question)
+                accuracy2 = calculate_accuracy(model_answer2, reference_answer)
+                quality_metrics2 = calculate_answer_quality(model_answer2, reference_answer)
+                
+                result2 = {
+                    "scenario": "with_professional_prompt",
+                    "test_case_id": idx + 1,
+                    "question": question,
+                    "reference_answer": reference_answer,
+                    "model_answer": model_answer2,
+                    "accuracy": accuracy2,
+                    "answer_length": len(model_answer2),
+                    "quality_score": quality_metrics2["quality_score"],
+                    "similarity": quality_metrics2["similarity"],
+                    "keyword_score": quality_metrics2["keyword_score"]
+                }
+                
+                print(f"  模型回答：{model_answer2[:80]}..." if len(model_answer2) > 80 else f"  模型回答：{model_answer2}")
+                print(f"  准确率：{accuracy2:.4f} | 质量分：{quality_metrics2['quality_score']:.4f} | 长度：{len(model_answer2)}")
+                
+                scenario2_results.append(result2)
+                
+            except Exception as e:
+                print(f"❌ 场景2测试失败：{str(e)[:200]}")
+                scenario2_results.append({
+                    "scenario": "with_professional_prompt",
+                    "test_case_id": idx + 1,
+                    "question": question,
+                    "error": str(e)[:200]
+                })
+            
+            # 进度报告
+            if (idx + 1) % 5 == 0:
+                if scenario1_results:
+                    valid_scenario1 = [r for r in scenario1_results if "accuracy" in r]
+                    if valid_scenario1:
+                        avg_acc1 = sum([r.get("accuracy", 0) for r in valid_scenario1]) / len(valid_scenario1)
+                        print(f"\n📊 当前进度：{idx+1}/{len(self.test_cases)}")
+                        print(f"  场景1平均准确率：{avg_acc1:.4f}")
+                
+                if scenario2_results:
+                    valid_scenario2 = [r for r in scenario2_results if "accuracy" in r]
+                    if valid_scenario2:
+                        avg_acc2 = sum([r["accuracy"] for r in valid_scenario2]) / len(valid_scenario2)
+                        print(f"  场景2平均准确率：{avg_acc2:.4f}")
+            
+            # 添加延迟，避免GPU过载
+            time.sleep(0.2)
+        
+        # 保存测试结果
+        llm_results = {
+            "model_config": self.config.llm_config,
+            "model_name": self.config.llm_config["llm_name"],
+            "test_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "test_cases_count": len(self.test_cases),
+            "scenario1_results": scenario1_results,
+            "scenario2_results": scenario2_results,
+            "summary": self._calculate_summary(scenario1_results, scenario2_results)
+        }
+        
+        result_file = os.path.join(self.output_dir, "results", f"{self.config.llm_config['llm_name']}_test_results.json")
+        with open(result_file, "w", encoding="utf-8") as f:
+            json.dump(llm_results, f, ensure_ascii=False, indent=2)
+        
+        print(f"\n✅ {self.config.llm_config['llm_name']} 模型测试完成")
+        print(f"   场景1平均准确率: {llm_results['summary']['scenario1_avg_accuracy']:.4f}")
+        print(f"   场景2平均准确率: {llm_results['summary']['scenario2_avg_accuracy']:.4f}")
+        print(f"   结果文件: {result_file}")
+        
+        # 生成简要统计报告
+        self._generate_brief_statistics(llm_results)
+        
+        # 清理资源
+        ModelManager.cleanup_models(llm_model)
+        
+        print(f"\n{'='*60}")
+        print(f"{self.config.llm_config['llm_name']} 模型测试完成")
+        print(f"结果目录: {self.output_dir}")
+        print(f"{'='*60}")
+    
+    def _calculate_summary(self, scenario1_results, scenario2_results):
+        """计算测试结果摘要"""
         # 场景1统计
         scenario1_accuracies = [r.get("accuracy", 0) for r in scenario1_results if "accuracy" in r]
         scenario1_quality_scores = [r.get("quality_score", 0) for r in scenario1_results if "quality_score" in r]
@@ -521,8 +630,7 @@ class ILM2ModelTestRunner:
         }
     
     def _generate_brief_statistics(self, llm_results):
-        """生成简要统计报告
-"""
+        """生成简要统计报告"""
         stats_file = os.path.join(self.output_dir, f"{self.config.llm_config['llm_name']}_brief_statistics.txt")
         
         with open(stats_file, "w", encoding="utf-8") as f:
@@ -545,9 +653,35 @@ class ILM2ModelTestRunner:
             
             # 成功/失败统计
             scenario1_success = sum(1 for r in llm_results['scenario1_results'] if r.get("accuracy", 0) == 1)
-            scenario1_fail = len(llm_results['scenario1_results'])
-"""主函数：运行InternLM2模型测试
-"""
+            scenario1_fail = len(llm_results['scenario1_results']) - scenario1_success
+            
+            scenario2_success = sum(1 for r in llm_results['scenario2_results'] if r.get("accuracy", 0) == 1)
+            scenario2_fail = len(llm_results['scenario2_results']) - scenario2_success
+            
+            f.write("📈 成功/失败统计:\n")
+            f.write(f"   场景1: 成功 {scenario1_success} 条，失败 {scenario1_fail} 条\n")
+            f.write(f"   场景2: 成功 {scenario2_success} 条，失败 {scenario2_fail} 条\n\n")
+            
+            # 错误分析
+            f.write("⚠️  错误分析:\n")
+            errors = []
+            for result in llm_results['scenario1_results'] + llm_results['scenario2_results']:
+                if "error" in result:
+                    errors.append(result["error"])
+            
+            if errors:
+                unique_errors = list(set(errors))
+                f.write(f"   共发现 {len(errors)} 个错误，{len(unique_errors)} 种类型:\n")
+                for error in unique_errors[:5]:  # 只显示前5种错误类型
+                    f.write(f"     - {error[:100]}\n")
+            else:
+                f.write("   无错误记录\n")
+        
+        print(f"📊 简要统计已保存: {stats_file}")
+
+# ====================== 主函数 ======================
+def main():
+    """主函数：运行InternLM2模型测试"""
     
     print(f"{'='*60}")
     print("模型选型第一阶段测试框架")

@@ -24,16 +24,76 @@ question_type_stats = {
 
 # ====================== 1. 智能提示词选择器 ======================
 class SmartPromptSelector:
-    """智能提示词选择器
+    """
+    智能提示词选择器
     根据问题类型、内容、检索结果动态选择最合适的提示词策略
-"""
+    """
     
     def __init__(self):
         # 不同问题类型的最佳提示词策略配置
         self.prompt_strategies = {
-            # 强招投标相关类型
-"""分析问题复杂度
-"""question_lower = question.lower()
+            # 强招投标相关类型 - 使用专业提示词
+            "company_legal_representative": {
+                "strategy": "professional",
+                "confidence_threshold": 0.7,  # 置信度阈值
+                "fallback": "simple"  # 降级策略
+            },
+            "price_info": {
+                "strategy": "professional",
+                "confidence_threshold": 0.6,
+                "fallback": "simple"
+            },
+            "supplier_info": {
+                "strategy": "professional",  # 保持专业但降低置信度要求
+                "confidence_threshold": 0.5,
+                "fallback": "simple"
+            },
+            "bid_winner_info": {
+                "strategy": "professional",
+                "confidence_threshold": 0.7,
+                "fallback": "simple"
+            },
+            "buyer_info": {
+                "strategy": "professional",
+                "confidence_threshold": 0.6,
+                "fallback": "simple"
+            },
+            "project_info": {
+                "strategy": "professional",
+                "confidence_threshold": 0.7,
+                "fallback": "simple"
+            },
+            # 弱招投标相关类型 - 根据内容动态选择
+            "company_basic_info": {
+                "strategy": "adaptive",  # 自适应策略
+                "confidence_threshold": 0.4,
+                "fallback": "simple"
+            },
+            "general_info": {
+                "strategy": "adaptive",  # 自适应策略
+                "confidence_threshold": 0.3,
+                "fallback": "simple"
+            }
+        }
+        
+        # 招投标关键词库
+        self.bidding_keywords = [
+            "招标", "投标", "采购", "中标", "供应商", "采购方", "合同", 
+            "投标人", "招标文件", "评标", "开标", "保证金", "标书",
+            "政府采购", "公开招标", "邀请招标", "竞争性谈判", "询价"
+        ]
+        
+        # 非招投标通用关键词
+        self.general_keywords = [
+            "什么", "如何", "怎样", "为什么", "何时", "哪里", "谁",
+            "是否", "可以", "能够", "需要", "要求", "流程", "步骤"
+        ]
+    
+    def analyze_question_complexity(self, question):
+        """
+        分析问题复杂度
+        """
+        question_lower = question.lower()
         
         # 判断是否招投标相关问题
         bidding_score = sum(1 for kw in self.bidding_keywords if kw in question_lower)
@@ -60,8 +120,9 @@ class SmartPromptSelector:
         }
     
     def analyze_retrieval_confidence(self, retrieved_docs, question):
-        """分析检索结果的置信度
-"""
+        """
+        分析检索结果的置信度
+        """
         if not retrieved_docs:
             return {"confidence": 0.0, "relevant_count": 0, "avg_similarity": 0.0}
         
@@ -94,8 +155,9 @@ class SmartPromptSelector:
         }
     
     def extract_entities(self, text):
-        """提取文本中的实体
-"""
+        """
+        提取文本中的实体
+        """
         entities = []
         
         # 公司名称
@@ -130,9 +192,10 @@ class SmartPromptSelector:
         return list(set(entities))
     
     def select_prompt_strategy(self, question, question_type, retrieved_docs):
-        """智能选择提示词策略
+        """
+        智能选择提示词策略
         返回: (strategy_type, confidence, reason)
-"""
+        """
         # 分析问题和检索结果
         question_analysis = self.analyze_question_complexity(question)
         retrieval_analysis = self.analyze_retrieval_confidence(retrieved_docs, question)
@@ -207,9 +270,12 @@ class SmartPromptSelector:
 
 # ====================== 2. 初始化output目录 ======================
 def init_output_dir(test_mode="with_prompt"):
-    """根据测试模式初始化输出目录
-    test_mode: "with_prompt"
-"""
+    """
+    根据测试模式初始化输出目录
+    test_mode: "with_prompt" - 使用提示词模板
+               "without_prompt" - 不使用提示词模板
+               "smart_prompt" - 使用智能提示词选择
+    """
     if test_mode == "with_prompt":
         output_dir = "./output_glm3_with_prompt"
     elif test_mode == "without_prompt":
@@ -255,9 +321,10 @@ def init_tensorboard(tb_log_dir):
     return writer
 
 def log_to_tensorboard(writer, step, metrics, test_mode):
-    """记录到TensorBoard
+    """
+    记录到TensorBoard
     根据测试模式添加不同的前缀
-"""
+    """
     prefix = f"{test_mode}/"
     
     writer.add_scalar(f"{prefix}召回率/单条用例", metrics["recall_score"], step)
@@ -288,8 +355,9 @@ def get_bnb_config():
 
 # ====================== 6. 加载GLM3模型 ======================
 def load_glm3_model(glm3_path):
-    """专门加载GLM3模型，适配GLM3的特殊设置
-"""
+    """
+    专门加载GLM3模型，适配GLM3的特殊设置
+    """
     print(f"正在加载GLM3模型：{glm3_path}")
     
     try:
@@ -340,8 +408,9 @@ def load_glm3_model(glm3_path):
 
 # ====================== 7. 加载BGE Embedding模型 ======================
 def load_bge_embedding_model(embedding_path):
-    """加载BGE Embedding模型
-"""
+    """
+    加载BGE Embedding模型
+    """
     print(f"正在加载BGE Embedding模型：{embedding_path}")
     
     try:
@@ -371,8 +440,9 @@ def load_bge_embedding_model(embedding_path):
 
 # ====================== 8. BGE文本转向量函数 ======================
 def bge_embedding_encode(embedding_models, text, batch_mode=False):
-    """BGE文本编码函数
-"""
+    """
+    BGE文本编码函数
+    """
     embedding_tokenizer, embedding_model, *_ = embedding_models
     
     if batch_mode:
@@ -424,13 +494,48 @@ def bge_embedding_encode(embedding_models, text, batch_mode=False):
 
 # ====================== 9. 分析问题类型 ======================
 def analyze_question_type(question):
-    """分析问题类型，返回对应的类型标签
-"""
+    """
+    分析问题类型，返回对应的类型标签
+    """
     question_lower = question.lower()
     
-    # 法定代表人相关
-"""提取文本中的所有关键实体
-"""entities = []
+    # 法定代表人相关 - 增加更多关键词
+    if any(keyword in question_lower for keyword in ["法定代表人", "法人", "法人代表", "负责人", "代表人是", "法定代表", "谁是法人", "谁是法定代表人"]):
+        return "company_legal_representative"
+    
+    # 价格相关 - 增加更多表达
+    elif any(keyword in question_lower for keyword in ["价格", "多少钱", "费用", "成本", "价格是", "金额", "报价", "成交价", "总价", "预算", "合同价", "中标价"]):
+        return "price_info"
+    
+    # 供应商相关
+    elif any(keyword in question_lower for keyword in ["供应商", "供应", "提供", "供货", "供应商是", "供应商为", "供货商", "谁提供", "谁供应"]):
+        return "supplier_info"
+    
+    # 采购方相关
+    elif any(keyword in question_lower for keyword in ["采购方", "采购", "购买", "买方", "采购方是", "采购方为", "购买方", "谁采购", "谁购买"]):
+        return "buyer_info"
+    
+    # 中标方相关
+    elif any(keyword in question_lower for keyword in ["中标", "中标供应商", "中标方", "中标公司", "中标单位", "中标人是", "中标方是", "谁中标", "中标人"]):
+        return "bid_winner_info"
+    
+    # 项目相关
+    elif any(keyword in question_lower for keyword in ["项目", "招标", "投标", "项目基本情况", "项目名称", "项目是", "什么项目", "项目内容"]):
+        return "project_info"
+    
+    # 公司基本信息
+    elif any(keyword in question_lower for keyword in ["基本信息", "公司信息", "是什么", "公司名称", "公司地址", "注册地址", "经营范围", "注册资本", "成立时间"]):
+        return "company_basic_info"
+    
+    else:
+        return "general_info"
+
+# ====================== 10. 增强的实体提取函数 ======================
+def extract_all_entities(text):
+    """
+    提取文本中的所有关键实体
+    """
+    entities = []
     
     # 1. 公司名称（增强模式）
     company_patterns = [
@@ -487,8 +592,9 @@ def analyze_question_type(question):
 
 # ====================== 11. 增强的检索函数 ======================
 def enhanced_retrieval_with_reranking(embedding_models, index, docs, question, top_k=10, similarity_threshold=0.03):
-    """增强版检索，包含重新排序和问题类型优先级调整
-"""
+    """
+    增强版检索，包含重新排序和问题类型优先级调整
+    """
     results = []
     
     # 1. 向量检索（仅当索引有效时）
@@ -584,8 +690,9 @@ def enhanced_retrieval_with_reranking(embedding_models, index, docs, question, t
     return final_docs
 
 def keyword_enhanced_retrieval(query, docs):
-    """增强版关键词检索
-"""
+    """
+    增强版关键词检索
+    """
     results = []
     
     # 提取关键实体
@@ -638,8 +745,9 @@ def keyword_enhanced_retrieval(query, docs):
     return results
 
 def extract_keywords(text):
-    """提取关键词
-"""
+    """
+    提取关键词
+    """
     keywords = []
     
     bid_keywords = [
@@ -661,9 +769,10 @@ def extract_keywords(text):
 
 # ====================== 12. 智能提示词生成器 ======================
 class SmartPromptGenerator:
-    """智能提示词生成器
+    """
+    智能提示词生成器
     根据策略生成不同风格的提示词
-"""
+    """
     
     def __init__(self):
         # 专业提示词系统指令
@@ -680,16 +789,15 @@ class SmartPromptGenerator:
 请根据提供的招投标相关信息，回答用户的提问。如果信息中有明确答案，请直接提取并回答。如果信息不完整或没有相关信息，请如实告知。"""
         
         # 简单提示词系统指令
-        self.simple_system_prompt = """请根据提供的信息回答问题。如果信息中有明确答案，请直接回答。如果信息中没有相关信息，请如实告知。
-"""
+        self.simple_system_prompt = """请根据提供的信息回答问题。如果信息中有明确答案，请直接回答。如果信息中没有相关信息，请如实告知。"""
         
         # 自适应提示词系统指令
-        self.adaptive_system_prompt = """请根据提供的信息，以清晰、准确的方式回答问题。注意使用适当的专业术语，但不要过度复杂化回答。
-"""
+        self.adaptive_system_prompt = """请根据提供的信息，以清晰、准确的方式回答问题。注意使用适当的专业术语，但不要过度复杂化回答。"""
     
     def get_professional_prompt(self, question_type, context, question):
-        """获取专业提示词
-"""
+        """
+        获取专业提示词
+        """
         # 根据不同问题类型定制具体指令
         if question_type == "company_legal_representative":
             instruction = f"""请根据以下招投标信息回答问题：
@@ -698,8 +806,7 @@ class SmartPromptGenerator:
 
 问题：{question}
 
-请直接回答法定代表人的姓名。如果信息中有明确的'法定代表人是XXX'，直接回答'XXX'。如果信息中没有相关信息，请回答'无法确定'。
-"""
+请直接回答法定代表人的姓名。如果信息中有明确的'法定代表人是XXX'，直接回答'XXX'。如果信息中没有相关信息，请回答'无法确定'。"""
         
         elif question_type == "price_info":
             instruction = f"""请根据以下招投标信息回答问题：
@@ -708,8 +815,7 @@ class SmartPromptGenerator:
 
 问题：{question}
 
-请直接回答价格或金额信息。如果信息中有明确的'价格为XXX元'或'合同金额为XXX元'，直接回答'XXX元'。如果信息中没有价格信息，请如实告知。
-"""
+请直接回答价格或金额信息。如果信息中有明确的'价格为XXX元'或'合同金额为XXX元'，直接回答'XXX元'。如果信息中没有价格信息，请如实告知。"""
         
         elif question_type == "supplier_info":
             instruction = f"""请根据以下招投标信息回答问题：
@@ -718,8 +824,7 @@ class SmartPromptGenerator:
 
 问题：{question}
 
-请直接回答供应商信息。如果信息中有明确的'供应商是XXX'或'中标供应商为XXX'，直接回答'XXX'。如果信息中没有供应商信息，请如实告知。
-"""
+请直接回答供应商信息。如果信息中有明确的'供应商是XXX'或'中标供应商为XXX'，直接回答'XXX'。如果信息中没有供应商信息，请如实告知。"""
         
         elif question_type == "bid_winner_info":
             instruction = f"""请根据以下招投标信息回答问题：
@@ -728,8 +833,7 @@ class SmartPromptGenerator:
 
 问题：{question}
 
-请直接回答中标单位信息。如果信息中有明确的'中标供应商为XXX'，直接回答'XXX'。如果信息中没有中标信息，请如实告知。
-"""
+请直接回答中标单位信息。如果信息中有明确的'中标供应商为XXX'，直接回答'XXX'。如果信息中没有中标信息，请如实告知。"""
         
         elif question_type == "buyer_info":
             instruction = f"""请根据以下招投标信息回答问题：
@@ -738,8 +842,7 @@ class SmartPromptGenerator:
 
 问题：{question}
 
-请直接回答采购方信息。如果信息中有明确的'采购方为XXX'，直接回答'XXX'。如果信息中没有采购方信息，请如实告知。
-"""
+请直接回答采购方信息。如果信息中有明确的'采购方为XXX'，直接回答'XXX'。如果信息中没有采购方信息，请如实告知。"""
         
         elif question_type == "project_info":
             instruction = f"""请根据以下招投标信息回答问题：
@@ -748,8 +851,7 @@ class SmartPromptGenerator:
 
 问题：{question}
 
-请从招投标信息中提取项目名称、招标编号、预算金额、中标单位、合同金额、采购方式等关键信息。如果信息不完整，请说明缺少的信息项。
-"""
+请从招投标信息中提取项目名称、招标编号、预算金额、中标单位、合同金额、采购方式等关键信息。如果信息不完整，请说明缺少的信息项。"""
         
         elif question_type == "company_basic_info":
             instruction = f"""请根据以下招投标信息回答问题：
@@ -758,8 +860,7 @@ class SmartPromptGenerator:
 
 问题：{question}
 
-请回答公司基本信息，包括公司名称、注册地址、经营范围等。如果信息不完整，请如实告知。
-"""
+请回答公司基本信息，包括公司名称、注册地址、经营范围等。如果信息不完整，请如实告知。"""
         
         else:  # general_info
             instruction = f"""请根据以下招投标信息回答问题：
@@ -768,20 +869,22 @@ class SmartPromptGenerator:
 
 问题：{question}
 
-请直接根据信息回答问题，不需要引用法规。
-"""
+请直接根据信息回答问题，不需要引用法规。"""
         
         return f"{self.professional_system_prompt}\n\n{instruction}"
     
     def get_simple_prompt(self, context, question):
-        """获取简单提示词
-"""
+        """
+        获取简单提示词
+        """
         return f"""{context}
 
 问题：{question}
 
-请直接回答："""def get_adaptive_prompt(self, question_type, context, question):
-"""
+请直接回答："""
+    
+    def get_adaptive_prompt(self, question_type, context, question):
+        """
         获取自适应提示词
         """
         # 根据问题类型适度调整提示词
@@ -794,17 +897,20 @@ class SmartPromptGenerator:
 
 问题：{question}
 
-请基于招投标相关信息回答问题："""else:
+请基于招投标相关信息回答问题："""
+        else:
             # 通用类型，保持简单
-            return f
-"""{context}
+            return f"""{context}
 
 问题：{question}
 
-请根据提供的信息回答问题："""def generate_prompt(self, strategy, question_type, context, question):
-"""
+请根据提供的信息回答问题："""
+    
+    def generate_prompt(self, strategy, question_type, context, question):
+        """
         根据策略生成提示词
-        """if strategy == "professional":
+        """
+        if strategy == "professional":
             return self.get_professional_prompt(question_type, context, question)
         elif strategy == "simple":
             return self.get_simple_prompt(context, question)
@@ -817,10 +923,11 @@ class SmartPromptGenerator:
 # ====================== 13. 适配GLM3的智能RAG推理函数 ======================
 def glm3_smart_rag_inference(tokenizer, glm3_model, embedding_models, index, docs, question, 
                            prompt_selector=None, prompt_generator=None, test_mode="smart_prompt"):
-"""
+    """
     智能RAG推理函数
     test_mode: "with_prompt", "without_prompt", "smart_prompt"
-    """retrieved_docs = enhanced_retrieval_with_reranking(embedding_models, index, docs, question, top_k=8, similarity_threshold=0.03)
+    """
+    retrieved_docs = enhanced_retrieval_with_reranking(embedding_models, index, docs, question, top_k=8, similarity_threshold=0.03)
     
     if not retrieved_docs:
         retrieved_docs = enhanced_retrieval_with_reranking(embedding_models, index, docs, question, top_k=3, similarity_threshold=0.01)
@@ -867,8 +974,117 @@ def glm3_smart_rag_inference(tokenizer, glm3_model, embedding_models, index, doc
             "retrieval_analysis": strategy_selection["retrieval_analysis"]
         }
     
-    # GLM3推理
-"""判断答案是否模糊不清"""ambiguous_keywords = ["无法确定", "不知道", "未提供", "没有提到", "未知", "不清楚", "信息不足"]
+    # GLM3推理 - 使用ChatGLM3的对话格式
+    try:
+        # 构建对话格式
+        if test_mode == "without_prompt":
+            formatted_prompt = f"<|user|>\n{prompt}\n<|assistant|>\n"
+        else:
+            # 根据策略选择系统提示
+            if test_mode == "with_prompt":
+                system_prompt = "你是专业智能问答系统。"
+            elif strategy_info["strategy"] == "professional":
+                system_prompt = prompt_generator.professional_system_prompt
+            elif strategy_info["strategy"] == "simple":
+                system_prompt = prompt_generator.simple_system_prompt
+            else:
+                system_prompt = prompt_generator.adaptive_system_prompt
+                
+            formatted_prompt = f"<|system|>\n{system_prompt}\n<|user|>\n{prompt}\n<|assistant|>\n"
+        
+        inputs = tokenizer(
+            formatted_prompt,
+            return_tensors="pt",
+            truncation=True,
+            max_length=2048
+        ).to(glm3_model.device)
+        
+        # 确保有pad_token_id
+        pad_token_id = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else tokenizer.eos_token_id
+        
+        with torch.no_grad():
+            outputs = glm3_model.generate(
+                **inputs,
+                max_new_tokens=150,
+                temperature=0.7,
+                top_p=0.9,
+                do_sample=True,
+                eos_token_id=tokenizer.eos_token_id,
+                pad_token_id=pad_token_id,
+                repetition_penalty=1.1,
+                no_repeat_ngram_size=3
+            )
+        
+        # 解码响应
+        full_response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        
+        # 提取assistant的回答
+        model_answer = ""
+        if "<|assistant|>" in full_response:
+            parts = full_response.split("<|assistant|>")
+            if len(parts) > 1:
+                model_answer = parts[-1].strip()
+        elif formatted_prompt in full_response:
+            model_answer = full_response[len(formatted_prompt):].strip()
+        else:
+            model_answer = full_response.strip()
+            
+    except Exception as e:
+        print(f"GLM3生成失败: {e}")
+        # 备用方法
+        inputs = tokenizer(
+            prompt,
+            return_tensors="pt",
+            truncation=True,
+            max_length=2048
+        ).to(glm3_model.device)
+        
+        pad_token_id = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else tokenizer.eos_token_id
+        
+        with torch.no_grad():
+            outputs = glm3_model.generate(
+                **inputs,
+                max_new_tokens=150,
+                temperature=0.7,
+                top_p=0.9,
+                do_sample=True,
+                eos_token_id=tokenizer.eos_token_id,
+                pad_token_id=pad_token_id
+            )
+        
+        full_response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        if full_response.startswith(prompt):
+            model_answer = full_response[len(prompt):].strip()
+        else:
+            model_answer = full_response.strip()
+    
+    # 仅在模型回答不明确时从文档提取
+    if is_answer_ambiguous(model_answer, question_type):
+        extracted_answer = extract_professional_answer_from_docs(retrieved_docs, question, question_type)
+        if extracted_answer:
+            # 对于某些类型，需要格式化答案
+            if question_type == "company_legal_representative":
+                model_answer = f"法定代表人是{extracted_answer}"
+            elif question_type == "price_info" and "元" not in model_answer:
+                model_answer = extracted_answer
+            elif question_type == "supplier_info" and "供应商" not in model_answer:
+                model_answer = f"供应商是{extracted_answer}"
+            elif question_type == "bid_winner_info" and "中标" not in model_answer:
+                model_answer = f"中标方是{extracted_answer}"
+            elif question_type == "buyer_info" and "采购方" not in model_answer:
+                model_answer = f"采购方是{extracted_answer}"
+            elif question_type == "project_info" and "项目" not in model_answer:
+                model_answer = extracted_answer
+            elif question_type == "company_basic_info" and "公司" not in model_answer:
+                model_answer = f"公司名称是{extracted_answer}"
+    
+    model_answer = post_process_answer(model_answer, retrieved_docs, question, question_type, test_mode)
+    
+    return model_answer, retrieved_docs, strategy_info
+
+def is_answer_ambiguous(answer, question_type):
+    """判断答案是否模糊不清"""
+    ambiguous_keywords = ["无法确定", "不知道", "未提供", "没有提到", "未知", "不清楚", "信息不足"]
     
     # 如果答案是空的或太短
     if not answer or len(answer.strip()) < 3:
@@ -910,7 +1126,7 @@ def glm3_smart_rag_inference(tokenizer, glm3_model, embedding_models, index, doc
     return False
 
 def post_process_answer(answer, retrieved_docs, question, question_type, test_mode):
-"""
+    """
     后处理答案，根据测试模式调整
     """
     # 1. 清理答案
@@ -945,8 +1161,9 @@ def post_process_answer(answer, retrieved_docs, question, question_type, test_mo
     return answer
 
 def extract_professional_answer_from_docs(docs, question, question_type):
-    """从检索文档中直接提取答案
-"""
+    """
+    从检索文档中直接提取答案
+    """
     # 针对法定代表人问题
     if question_type == "company_legal_representative":
         for doc in docs:
@@ -1205,8 +1422,9 @@ def load_project_qa_data(qa_file_path="qa_data/520_qa.json", kb_file_path="qa_da
 
 # ====================== 16. 评估函数 ======================
 def calculate_recall(retrieved_docs, relevant_docs):
-    """计算召回率：检索到的文档中是否包含至少一个相关文档
-"""
+    """
+    计算召回率：检索到的文档中是否包含至少一个相关文档
+    """
     if not retrieved_docs or not relevant_docs:
         return 0
     
@@ -1218,8 +1436,9 @@ def calculate_recall(retrieved_docs, relevant_docs):
     return 0
 
 def is_doc_related(doc1, doc2):
-    """判断两个文档是否相关
-"""
+    """
+    判断两个文档是否相关
+    """
     # 直接包含关系
     if doc1 in doc2 or doc2 in doc1:
         return True
@@ -1237,8 +1456,9 @@ def is_doc_related(doc1, doc2):
     return similarity > 0.5  # 降低阈值
 
 def extract_entities_from_text(text):
-    """从文本中提取实体
-"""
+    """
+    从文本中提取实体
+    """
     entities = []
     
     # 公司名称
@@ -1275,8 +1495,9 @@ def extract_entities_from_text(text):
     return list(set(entities))
 
 def enhanced_accuracy_calculation(model_answer, reference_answer, question):
-    """增强版准确率计算，考虑更多匹配情况
-"""
+    """
+    增强版准确率计算，考虑更多匹配情况
+    """
     if not model_answer or not reference_answer:
         return 0
     
@@ -1324,8 +1545,9 @@ def enhanced_accuracy_calculation(model_answer, reference_answer, question):
     return 1 if similarity > 0.7 else 0  # 恢复0.7阈值
 
 def extract_key_info(text, question):
-    """根据问题类型提取关键信息
-"""
+    """
+    根据问题类型提取关键信息
+    """
     info = {}
     
     # 法定代表人
@@ -1399,9 +1621,12 @@ def extract_key_info(text, question):
 
 # ====================== 17. GLM3模型智能测试流程 ======================
 def run_glm3_smart_test(test_mode="smart_prompt"):
-    """GLM3模型智能测试流程
-    test_mode: "with_prompt"
-"""
+    """
+    GLM3模型智能测试流程
+    test_mode: "with_prompt" - 使用专业提示词模板
+               "without_prompt" - 不使用任何提示词
+               "smart_prompt" - 使用智能提示词选择
+    """
     # 初始化问题类型统计（每个测试模式单独统计）
     question_type_stats = {
         "company_legal_representative": {"total": 0, "correct": 0, "recall": 0},
@@ -1434,9 +1659,222 @@ def run_glm3_smart_test(test_mode="smart_prompt"):
     test_config = {
         "llm_name": "chatglm3-6b",
         "glm3_local_path": "/mnt/workspace/data/modelscope/cache/ZhipuAI/chatglm3-6b",
-        "embedding_local_path": "/mnt/workspace/data/modelscope/cache/bge-large-zh-
-"""对比三种测试模式的结果
-"""
+        "embedding_local_path": "/mnt/workspace/data/modelscope/cache/bge-large-zh-v1.5/BAAI/bge-large-zh-v1___5"
+    }
+    
+    # 1. 加载数据
+    qa_file_path = "qa_data/520_qa.json"
+    kb_file_path = "qa_data/knowledge_base.txt"
+    test_cases, test_docs = load_project_qa_data(qa_file_path, kb_file_path)
+    if not test_cases or not test_docs:
+        print("\n❌ 无有效测试数据，测试终止")
+        tb_writer.close()
+        return []
+    
+    # 2. 加载GLM3模型
+    print("\n" + "="*60)
+    print("加载GLM3模型...")
+    glm3_tokenizer, glm3_model = load_glm3_model(test_config["glm3_local_path"])
+    if glm3_tokenizer is None or glm3_model is None:
+        print("\n❌ GLM3模型加载失败，测试终止")
+        tb_writer.close()
+        return []
+    
+    # 3. 加载BGE Embedding模型
+    print("\n加载BGE Embedding模型...")
+    embedding_models = load_bge_embedding_model(test_config["embedding_local_path"])
+    if embedding_models is None:
+        print("\n❌ BGE Embedding模型加载失败，测试终止")
+        tb_writer.close()
+        return []
+    
+    # 4. 构建FAISS索引
+    print("\n正在构建FAISS向量索引...")
+    index, enhanced_docs = build_optimized_vector_index(embedding_models, test_docs, batch_size=16)
+    if index is None:
+        print("\n❌ FAISS索引构建失败，测试终止")
+        tb_writer.close()
+        return []
+    print("✅ FAISS索引构建完成")
+    
+    # 5. 初始化智能提示词组件（仅智能模式需要）
+    prompt_selector = None
+    prompt_generator = None
+    if test_mode == "smart_prompt":
+        prompt_selector = SmartPromptSelector()
+        prompt_generator = SmartPromptGenerator()
+    elif test_mode == "with_prompt":
+        prompt_generator = SmartPromptGenerator()
+    
+    # 执行测试
+    test_results = []
+    print(f"\n开始GLM3模型测试 - 模式：{test_mode}")
+    print(f"提示词策略：{'智能选择' if test_mode == 'smart_prompt' else ('专业提示词' if test_mode == 'with_prompt' else '无提示词')}")
+    
+    for idx, case in enumerate(test_cases):
+        question = case["question"]
+        reference_answer = case["reference_answer"]
+        relevant_docs = case["relevant_docs"]
+        
+        question_type = analyze_question_type(question)
+        question_type_stats[question_type]["total"] += 1
+        
+        print(f"\n--- 测试用例 {idx+1}/{len(test_cases)} [{question_type}] ---")
+        print(f"问题：{question[:80]}..." if len(question) > 80 else f"问题：{question}")
+        
+        # 使用智能RAG推理
+        model_answer, retrieved_docs, strategy_info = glm3_smart_rag_inference(
+            glm3_tokenizer, glm3_model, embedding_models, index, enhanced_docs, 
+            question, prompt_selector, prompt_generator, test_mode
+        )
+        
+        # 记录策略使用情况
+        strategy = strategy_info["strategy"]
+        strategy_stats[strategy]["count"] += 1
+        
+        # 计算召回率
+        recall_score = calculate_recall(retrieved_docs, relevant_docs)
+        question_type_stats[question_type]["recall"] += recall_score
+        
+        # 使用增强版准确率计算
+        accuracy = enhanced_accuracy_calculation(model_answer, reference_answer, question)
+        if accuracy == 1:
+            question_type_stats[question_type]["correct"] += 1
+            strategy_stats[strategy]["correct"] += 1
+        
+        answer_length = len(model_answer)
+        reference_length = len(reference_answer)
+        
+        single_result = {
+            "test_case_id": idx + 1,
+            "question": question,
+            "question_type": question_type,
+            "reference_answer": reference_answer,
+            "model_answer": model_answer,
+            "retrieved_docs": retrieved_docs,
+            "relevant_docs": relevant_docs,
+            "recall_score": recall_score,
+            "accuracy": accuracy,
+            "answer_length": answer_length,
+            "reference_length": reference_length,
+            "retrieved_count": len(retrieved_docs),
+            "relevant_count": len(relevant_docs),
+            "model_name": "chatglm3-6b",
+            "test_mode": test_mode,
+            "prompt_strategy": strategy_info
+        }
+        
+        # 输出调试信息
+        print(f"提示词策略：{strategy} ({strategy_info['reason']})")
+        print(f"模型回答：{model_answer[:80]}..." if len(model_answer) > 80 else f"模型回答：{model_answer}")
+        print(f"标准答案：{reference_answer[:80]}..." if len(reference_answer) > 80 else f"标准答案：{reference_answer}")
+        print(f"召回率：{recall_score} | 准确率：{accuracy} | 检索文档数：{len(retrieved_docs)}")
+        
+        # 如果召回率=1但准确率=0，说明检索到了但没回答对
+        if recall_score == 1 and accuracy == 0:
+            print("⚠️  注意：检索到了相关文档，但模型回答错误！")
+            if retrieved_docs:
+                print(f"检索到相关文档示例：{retrieved_docs[0][:100]}...")
+        
+        # 准备TensorBoard日志数据
+        tb_metrics = {
+            "recall_score": recall_score,
+            "accuracy": accuracy,
+            "answer_length": answer_length,
+            "reference_length": reference_length,
+            "retrieved_count": len(retrieved_docs),
+            "prompt_strategy": strategy_info
+        }
+        
+        log_to_tensorboard(tb_writer, step=idx+1, metrics=tb_metrics, test_mode=test_mode)
+        
+        test_results.append(single_result)
+        
+        # 每20条输出一次进度
+        if (idx + 1) % 20 == 0:
+            avg_recall = sum([r["recall_score"] for r in test_results]) / len(test_results)
+            avg_accuracy = sum([r["accuracy"] for r in test_results]) / len(test_results)
+            print(f"\n📊 当前进度：{idx+1}/{len(test_cases)}，平均召回率：{avg_recall:.4f}，平均准确率：{avg_accuracy:.4f}")
+    
+    # 6. 保存测试结果
+    result_file_name = f"GLM3_Selection_Test_{test_mode}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    result_file_path = os.path.join(result_dir, result_file_name)
+    with open(result_file_path, "w", encoding="utf-8") as f:
+        json.dump(test_results, f, ensure_ascii=False, indent=2)
+    
+    # 7. 测试总结
+    print("\n" + "="*60)
+    print(f"✅ GLM3模型智能测试完成！所有文件已保存到 {output_dir} 目录")
+    print(f"📊 测试结果JSON：{result_file_path}")
+    print(f"📈 TensorBoard日志：{tb_log_dir}")
+    print(f"📝 运行日志：{log_file_path}")
+    
+    # 计算总体统计信息
+    if test_results:
+        total_recall = sum([res["recall_score"] for res in test_results]) / len(test_results)
+        total_accuracy = sum([res["accuracy"] for res in test_results]) / len(test_results)
+        avg_retrieved = sum([res["retrieved_count"] for res in test_results]) / len(test_results)
+    else:
+        total_recall = total_accuracy = avg_retrieved = 0
+    
+    print(f"\n📊 GLM3模型详细统计（{test_mode}模式）：")
+    print(f"  平均召回率：{total_recall:.4f}")
+    print(f"  平均准确率：{total_accuracy:.4f}")
+    print(f"  平均检索文档数：{avg_retrieved:.1f}")
+    print(f"  总测试用例：{len(test_results)}")
+    
+    # 策略使用统计
+    if test_mode == "smart_prompt":
+        print(f"\n🎯 智能提示词策略使用统计：")
+        for strategy, stats in strategy_stats.items():
+            if stats["count"] > 0:
+                accuracy = stats["correct"] / stats["count"] if stats["count"] > 0 else 0
+                print(f"  {strategy}: {stats['count']}次 ({stats['count']/len(test_results)*100:.1f}%)，准确率：{accuracy:.1%}")
+    
+    # 召回率分布
+    recall_dist = {}
+    for res in test_results:
+        score = res["recall_score"]
+        recall_dist[score] = recall_dist.get(score, 0) + 1
+    
+    print(f"\n📈 召回率分布：")
+    for score in sorted(recall_dist.keys()):
+        count = recall_dist[score]
+        percentage = (count / len(test_results)) * 100
+        print(f"  召回率 {score}: {count} 条 ({percentage:.1f}%)")
+    
+    # 准确率分布
+    accuracy_dist = {}
+    for res in test_results:
+        score = res["accuracy"]
+        accuracy_dist[score] = accuracy_dist.get(score, 0) + 1
+    
+    print(f"\n📈 准确率分布：")
+    for score in sorted(accuracy_dist.keys()):
+        count = accuracy_dist[score]
+        percentage = (count / len(test_results)) * 100
+        print(f"  准确率 {score}: {count} 条 ({percentage:.1f}%)")
+    
+    # 问题类型分析
+    print(f"\n🔍 按问题类型分析：")
+    for q_type, stats in question_type_stats.items():
+        total = stats["total"]
+        if total > 0:
+            correct = stats["correct"]
+            recall = stats["recall"] / total if total > 0 else 0
+            accuracy = correct / total if total > 0 else 0
+            print(f"  {q_type}: {total}条，召回率{recall:.1%}，准确率{accuracy:.1%} ({correct}/{total} 正确)")
+    
+    print("="*60)
+    
+    tb_writer.close()
+    return test_results
+
+# ====================== 18. 对比三种测试模式的结果 ======================
+def compare_all_test_results(with_prompt_results, without_prompt_results, smart_prompt_results):
+    """
+    对比三种测试模式的结果
+    """
     print("\n" + "="*80)
     print("📊 三种测试模式结果对比")
     print("="*80)

@@ -9,16 +9,14 @@ import sys
 
 # ====================== 配置类 ======================
 class ModelConfig:
-    """模型配置类
-"""
+    """模型配置类"""
     def __init__(self, llm_name, llm_local_path):
         self.llm_name = llm_name
         self.llm_local_path = llm_local_path
 
 # ====================== GLM3模型配置 ======================
 class GLM3TestConfig:
-    """GLM3模型测试配置
-"""
+    """GLM3模型测试配置"""
     def __init__(self):
         # GLM3模型配置
         self.llm_config = {
@@ -40,14 +38,14 @@ class GLM3TestConfig:
 
 # ====================== 模型管理器 ======================
 class ModelManager:
-    """模型管理器
-"""
+    """模型管理器"""
     
     @staticmethod
     def load_local_models(config):
-        """加载本地模型
+        """
+        加载本地模型
         返回: (tokenizer, llm_model)
-"""
+        """
         print(f"正在加载GLM3模型：{config['llm_name']}")
         
         try:
@@ -88,8 +86,7 @@ class ModelManager:
     
     @staticmethod
     def cleanup_models(llm_model):
-        """清理模型资源
-"""
+        """清理模型资源"""
         if llm_model is not None:
             del llm_model
         
@@ -100,8 +97,7 @@ class ModelManager:
 
 # ====================== 推理函数 ======================
 def direct_inference_no_prompt(tokenizer, glm3_model, question):
-    """场景1：无任何提示词，直接让模型回答问题
-"""
+    """场景1：无任何提示词，直接让模型回答问题"""
     # GLM3需要构建对话格式
     formatted_prompt = f"<|user|>\n{question}\n<|assistant|>\n"
     
@@ -147,8 +143,7 @@ def direct_inference_no_prompt(tokenizer, glm3_model, question):
     return model_answer
 
 def prompt_inference(tokenizer, glm3_model, question):
-    """场景2：使用提示词模板的推理
-"""
+    """场景2：使用提示词模板的推理"""
     # 使用专业提示词模板
     prompt = f"""# 角色定位
 你是聚焦招投标采购全流程的专业智能问答系统，需严格依据《招标投标法》《政府采购法》等法规，精准解答政策合规、业务操作、物资产品、电子系统操作等领域问题。
@@ -209,8 +204,7 @@ def prompt_inference(tokenizer, glm3_model, question):
 
 # ====================== 数据加载器 ======================
 def load_qa_data(qa_file_path="qa_data/100_qa.json"):
-    """加载QA数据
-"""
+    """加载QA数据"""
     try:
         # 加载问答对
         with open(qa_file_path, "r", encoding="utf-8") as f:
@@ -244,8 +238,7 @@ def load_qa_data(qa_file_path="qa_data/100_qa.json"):
 
 # ====================== 评估函数 ======================
 def calculate_accuracy(model_answer, reference_answer, threshold=0.6):
-    """计算准确率
-"""
+    """计算准确率"""
     if not model_answer or not reference_answer:
         return 0
     
@@ -269,8 +262,7 @@ def calculate_accuracy(model_answer, reference_answer, threshold=0.6):
 
 # ====================== 测试运行器 ======================
 class GLM3ModelTestRunner:
-    """GLM3模型测试运行器
-"""
+    """GLM3模型测试运行器"""
     
     def __init__(self, config):
         self.config = config
@@ -290,8 +282,7 @@ class GLM3ModelTestRunner:
         print(f"{'='*60}\n")
     
     def _setup_output_dir(self):
-        """设置输出目录
-"""
+        """设置输出目录"""
         model_name = self.config.llm_config['llm_name'].replace('/', '_')
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         output_dir = os.path.join(self.config.output_dir, f"{model_name}_{timestamp}")
@@ -303,8 +294,7 @@ class GLM3ModelTestRunner:
         return output_dir
     
     def run_glm3_tests(self):
-        """运行GLM3模型测试
-"""
+        """运行GLM3模型测试"""
         print(f"\n{'='*60}")
         print(f"开始GLM3模型测试")
         print(f"模型: {self.config.llm_config['llm_name']}")
@@ -328,9 +318,133 @@ class GLM3ModelTestRunner:
             print(f"问题：{question}")
             
             # 场景1：无提示词直接回答
-            print("\n--
-"""生成日志文件
-"""
+            print("\n--- 场景1：无提示词 ---")
+            try:
+                model_answer1 = direct_inference_no_prompt(tokenizer, glm3_model, question)
+                accuracy1 = calculate_accuracy(model_answer1, reference_answer)
+                
+                result1 = {
+                    "scenario": "no_prompt",
+                    "test_case_id": idx + 1,
+                    "question": question,
+                    "reference_answer": reference_answer,
+                    "model_answer": model_answer1,
+                    "accuracy": accuracy1
+                }
+                
+                print(f"  模型回答：{model_answer1[:80]}..." if len(model_answer1) > 80 else f"  模型回答：{model_answer1}")
+                print(f"  准确率：{accuracy1}")
+                
+                scenario1_results.append(result1)
+                
+            except Exception as e:
+                print(f"❌ 场景1测试失败：{e}")
+                scenario1_results.append({
+                    "scenario": "no_prompt",
+                    "test_case_id": idx + 1,
+                    "question": question,
+                    "error": str(e)
+                })
+            
+            # 场景2：有提示词回答
+            print("\n--- 场景2：有提示词 ---")
+            try:
+                model_answer2 = prompt_inference(tokenizer, glm3_model, question)
+                accuracy2 = calculate_accuracy(model_answer2, reference_answer)
+                
+                result2 = {
+                    "scenario": "with_prompt",
+                    "test_case_id": idx + 1,
+                    "question": question,
+                    "reference_answer": reference_answer,
+                    "model_answer": model_answer2,
+                    "accuracy": accuracy2
+                }
+                
+                print(f"  模型回答：{model_answer2[:80]}..." if len(model_answer2) > 80 else f"  模型回答：{model_answer2}")
+                print(f"  准确率：{accuracy2}")
+                
+                scenario2_results.append(result2)
+                
+            except Exception as e:
+                print(f"❌ 场景2测试失败：{e}")
+                scenario2_results.append({
+                    "scenario": "with_prompt",
+                    "test_case_id": idx + 1,
+                    "question": question,
+                    "error": str(e)
+                })
+            
+            # 进度报告
+            if (idx + 1) % 5 == 0:
+                if scenario1_results:
+                    avg_acc1 = sum([r.get("accuracy", 0) for r in scenario1_results if "accuracy" in r]) / len([r for r in scenario1_results if "accuracy" in r])
+                    print(f"\n📊 当前进度：{idx+1}/{len(self.test_cases)}")
+                    print(f"  场景1平均准确率：{avg_acc1:.4f}")
+                
+                if scenario2_results:
+                    avg_acc2 = sum([r.get("accuracy", 0) for r in scenario2_results if "accuracy" in r]) / len([r for r in scenario2_results if "accuracy" in r])
+                    print(f"  场景2平均准确率：{avg_acc2:.4f}")
+        
+        # 计算总准确率
+        total_acc1 = sum([r.get("accuracy", 0) for r in scenario1_results if "accuracy" in r]) 
+        total_acc2 = sum([r.get("accuracy", 0) for r in scenario2_results if "accuracy" in r])
+        valid_count1 = len([r for r in scenario1_results if "accuracy" in r])
+        valid_count2 = len([r for r in scenario2_results if "accuracy" in r])
+        
+        avg_acc1 = total_acc1 / valid_count1 if valid_count1 > 0 else 0
+        avg_acc2 = total_acc2 / valid_count2 if valid_count2 > 0 else 0
+        
+        print(f"\n{'='*60}")
+        print(f"GLM3模型测试结果摘要")
+        print(f"模型名称: {self.config.llm_config['llm_name']}")
+        print(f"测试用例数: {len(self.test_cases)}")
+        print(f"场景1平均准确率: {avg_acc1:.4f}")
+        print(f"场景2平均准确率: {avg_acc2:.4f}")
+        print(f"{'='*60}")
+        
+        # 保存测试结果
+        test_results = {
+            "llm_config": self.config.llm_config,
+            "test_config": {
+                "test_cases_count": len(self.test_cases),
+                "max_test_cases": self.config.max_test_cases
+            },
+            "scenario1_results": scenario1_results,
+            "scenario2_results": scenario2_results,
+            "summary": {
+                "scenario1_avg_accuracy": avg_acc1,
+                "scenario2_avg_accuracy": avg_acc2,
+                "scenario1_valid_count": valid_count1,
+                "scenario2_valid_count": valid_count2
+            },
+            "test_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+        
+        # 保存结果文件
+        result_file = os.path.join(self.output_dir, "results", 
+                                  f"glm3_test_results_{datetime.now().strftime('%H%M%S')}.json")
+        with open(result_file, "w", encoding="utf-8") as f:
+            json.dump(test_results, f, ensure_ascii=False, indent=2)
+        
+        print(f"\n✅ GLM3模型测试完成")
+        print(f"   场景1平均准确率: {avg_acc1:.4f}")
+        print(f"   场景2平均准确率: {avg_acc2:.4f}")
+        print(f"   结果文件: {result_file}")
+        
+        # 生成日志文件
+        self._generate_log_file(test_results)
+        
+        # 清理资源
+        ModelManager.cleanup_models(glm3_model)
+        
+        print(f"\n{'='*60}")
+        print("GLM3模型测试完成")
+        print(f"结果目录: {self.output_dir}")
+        print(f"{'='*60}")
+    
+    def _generate_log_file(self, test_results):
+        """生成日志文件"""
         log_content = f"""GLM3模型测试日志
 测试时间: {test_results['test_time']}
 模型名称: {test_results['llm_config']['llm_name']}
@@ -357,8 +471,7 @@ class GLM3ModelTestRunner:
 
 # ====================== 主函数 ======================
 def main():
-    """主函数：运行GLM3模型测试
-"""
+    """主函数：运行GLM3模型测试"""
     
     print(f"{'='*60}")
     print("GLM3模型测试")

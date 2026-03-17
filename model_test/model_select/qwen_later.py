@@ -43,14 +43,121 @@ def init_tensorboard(tb_log_dir):
     return writer
 
 def log_to_tensorboard(writer, step, metrics, scenario):
-    """记录TensorBoard日志，区分场景
-"""
+    """记录TensorBoard日志，区分场景"""
     for metric_name, metric_value in metrics.items():
         writer.add_scalar(f"{metric_name}/{scenario}", metric_value, step)
 
-# ---------------------
-"""场景1：无任何提示词，直接让模型回答问题
-"""inputs = tokenizer(
+# ---------------------- 4. 配置量化参数 ----------------------
+def get_bnb_config():
+    return BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.bfloat16
+    )
+
+# ---------------------- 5. 加载本地模型 ----------------------
+def load_local_models(llm_name, llm_local_path, embedding_local_path):
+    print(f"正在加载本地大模型：{llm_name}")
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(
+            llm_local_path,
+            trust_remote_code=True,
+            padding_side="right",
+            local_files_only=True
+        )
+        
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
+        
+        llm_model = AutoModelForCausalLM.from_pretrained(
+            llm_local_path,
+            trust_remote_code=True,
+            device_map="auto",
+            quantization_config=get_bnb_config(),
+            torch_dtype=torch.bfloat16,
+            low_cpu_mem_usage=True,
+            local_files_only=True
+        )
+        llm_model.eval()
+        print(f"✅ 大模型 {llm_name} 加载成功")
+    except Exception as e:
+        print(f"❌ 大模型加载失败，错误信息：{e}")
+        return None, None, None
+    
+    print(f"正在加载本地BGE Embedding模型：{embedding_local_path.split('/')[-1]}")
+    try:
+        embedding_tokenizer = AutoTokenizer.from_pretrained(
+            embedding_local_path,
+            trust_remote_code=True,
+            local_files_only=True
+        )
+        embedding_model = AutoModel.from_pretrained(
+            embedding_local_path,
+            trust_remote_code=True,
+            device_map="auto",
+            torch_dtype=torch.float16,
+            low_cpu_mem_usage=True,
+            local_files_only=True
+        )
+        embedding_model.eval()
+        print(f"✅ BGE Embedding模型 加载成功")
+    except Exception as e:
+        print(f"❌ BGE Embedding模型加载失败，错误信息：{e}")
+        return None, None, None
+    
+    return tokenizer, llm_model, (embedding_tokenizer, embedding_model)
+
+# ---------------------- 6. BGE文本转向量函数 ----------------------
+def bge_embedding_encode(embedding_models, text, batch_mode=False):
+    embedding_tokenizer, embedding_model = embedding_models
+    text = str(text).strip()
+    if not text:
+        return np.array([])
+    
+    max_length = 512
+    
+    if batch_mode:
+        inputs = embedding_tokenizer(
+            text,
+            return_tensors="pt",
+            padding=True,
+            truncation=True,
+            max_length=max_length
+        ).to(embedding_model.device)
+        
+        with torch.no_grad():
+            outputs = embedding_model(**inputs)
+            embeddings = outputs.last_hidden_state[:, 0]
+            embeddings = embeddings / embeddings.norm(dim=1, keepdim=True)
+        
+        return embeddings.cpu().numpy()
+    else:
+        inputs = embedding_tokenizer(
+            text,
+            return_tensors="pt",
+            padding=True,
+            truncation=True,
+            max_length=max_length
+        ).to(embedding_model.device)
+        
+        with torch.no_grad():
+            outputs = embedding_model(**inputs)
+            hidden_state = outputs.last_hidden_state[:, 0]
+            vec = hidden_state.cpu().numpy().squeeze()
+        
+        norm = np.linalg.norm(vec)
+        if norm == 0:
+            return vec
+        return vec / norm
+
+
+
+# ---------------------- 10. 直接推理函数（无提示词） ----------------------
+def direct_inference_no_prompt(tokenizer, llm_model, question):
+    """场景1：无任何提示词，直接让模型回答问题"""
+    
+    inputs = tokenizer(
         question,  # 只输入问题，不加任何提示
         return_tensors="pt",
         truncation=True,
@@ -74,9 +181,11 @@ def log_to_tensorboard(writer, step, metrics, scenario):
     
     return model_answer, []  # 无检索文档
 
-# ---------------------
-"""场景2：使用提示词模板的直接推理，无RAG
-"""prompt = f"""你是一个招投标领域的助手。请根据你的知识回答以下问题：
+# ---------------------- 11. 直接推理函数（有提示词） ----------------------
+def direct_inference_with_prompt(tokenizer, llm_model, question):
+    """场景2：使用提示词模板的直接推理，无RAG"""
+    
+    prompt = f"""你是一个招投标领域的助手。请根据你的知识回答以下问题：
 
 问题：{question}
 
@@ -85,8 +194,7 @@ def log_to_tensorboard(writer, step, metrics, scenario):
 2. 如果不知道，请说"根据现有信息无法确定"
 3. 答案要简洁准确
 
-回答：
-"""
+回答："""
     
     inputs = tokenizer(
         prompt,
@@ -113,10 +221,157 @@ def log_to_tensorboard(writer, step, metrics, scenario):
     
     return model_answer, []  # 无检索文档
 
-# ---------------------
-"""评估回答质量：包括相关性、完整性、一致性
+# ---------------------- 11. 加载问答对（新版本） ----------------------
+def load_project_qa_data(qa_file_path="qa_data/520_qa.json", kb_file_path="qa_data/knowledge_base.txt"):
+    try:
+        # 1. 加载知识库文档
+        if os.path.exists(kb_file_path):
+            with open(kb_file_path, "r", encoding="utf-8") as f:
+                knowledge_docs = [line.strip() for line in f if line.strip()]
+            print(f"✅ 加载 {len(knowledge_docs)} 条知识库文档")
+        else:
+            print("⚠️  未找到知识库文件，将从问答对中构建")
+            knowledge_docs = []
+        
+        # 2. 加载问答对
+        with open(qa_file_path, "r", encoding="utf-8") as f:
+            qa_data = json.load(f)
+        
+        test_cases = []
+        for idx, item in enumerate(qa_data):
+            question = str(item.get("question", "")).strip()
+            answer = str(item.get("answer", "")).strip()
+            
+            if not question or not answer:
+                continue
+            
+            # 获取相关文档
+            relevant_docs = []
+            
+            if "relevant_documents" in item:
+                relevant_docs = item["relevant_documents"]
+            elif "relevant_doc_indices" in item and knowledge_docs:
+                for doc_idx in item["relevant_doc_indices"]:
+                    if doc_idx < len(knowledge_docs):
+                        relevant_docs.append(knowledge_docs[doc_idx])
+            
+            # 如果没有找到相关文档，使用答案作为备选
+            if not relevant_docs:
+                relevant_docs = [answer]
+            
+            test_cases.append({
+                "question": question,
+                "reference_answer": answer,
+                "relevant_docs": relevant_docs,
+                "scene": item.get("scene", "unknown"),
+                "source_table": item.get("source_table", "unknown")
+            })
+        
+        print(f"✅ 加载 {len(test_cases)} 条有效测试用例")
+        
+        # 3. 合并知识库（如果知识库为空）
+        if not knowledge_docs:
+            all_docs_set = set()
+            for case in test_cases:
+                for doc in case["relevant_docs"]:
+                    all_docs_set.add(doc)
+            knowledge_docs = list(all_docs_set)
+            print(f"📚 从问答对构建 {len(knowledge_docs)} 条知识库文档")
+        
+        return test_cases, knowledge_docs
+    
+    except FileNotFoundError:
+        print(f"❌ 未找到文件：{qa_file_path}")
+        return [], []
+    except Exception as e:
+        print(f"❌ 加载问答对失败：{e}")
+        return [], []
+
+# ---------------------- 12. 评估函数 ----------------------
+def calculate_recall(retrieved_docs, relevant_docs):
+    if not retrieved_docs or not relevant_docs:
+        return 0
+    
+    for retrieved_doc in retrieved_docs:
+        for relevant_doc in relevant_docs:
+            if is_doc_related(retrieved_doc, relevant_doc):
+                return 1
+    
+    return 0
+
+def is_doc_related(doc1, doc2):
+    entities1 = extract_entities_from_text(doc1)
+    entities2 = extract_entities_from_text(doc2)
+    
+    common_entities = set(entities1) & set(entities2)
+    if common_entities:
+        return True
+    
+    from difflib import SequenceMatcher
+    similarity = SequenceMatcher(None, doc1, doc2).ratio()
+    return similarity > 0.6
+
+def extract_entities_from_text(text):
+    entities = []
+    
+    company_patterns = [
+        r'([\u4e00-\u9fa5a-zA-Z0-9]{2,})(?:有限公司|公司|集团)',
+        r'供应商[：:]?([\u4e00-\u9fa5a-zA-Z0-9]{2,})',
+        r'由([\u4e00-\u9fa5a-zA-Z0-9]{2,})提供'
+    ]
+    
+    for pattern in company_patterns:
+        matches = re.findall(pattern, text)
+        entities.extend(matches)
+    
+    product_indicators = ["产品", "设备", "仪器", "系统", "项目", "服务"]
+    words = text.split()
+    for word in words:
+        if any(indicator in word for indicator in product_indicators):
+            entities.append(word)
+    
+    price_matches = re.findall(r'(\d+\.?\d*)元', text)
+    entities.extend(price_matches)
+    
+    return list(set(entities))
+
+def calculate_accuracy(model_answer, reference_answer, threshold=0.6):
+    if not model_answer or not reference_answer:
+        return 0
+    
+    if reference_answer in model_answer or model_answer in reference_answer:
+        return 1
+    
+    important_keywords = ["法定代表人", "公司", "地址", "金额", "供应商", "采购方", "中标", "价格", "项目"]
+    match_count = 0
+    total_keywords = 0
+    
+    for keyword in important_keywords:
+        if keyword in reference_answer:
+            total_keywords += 1
+            if keyword in model_answer:
+                match_count += 1
+    
+    if total_keywords > 0 and match_count / total_keywords >= threshold:
+        return 1
+    
+    ref_entities = extract_entities_from_text(reference_answer)
+    model_entities = extract_entities_from_text(model_answer)
+    
+    if ref_entities:
+        common_entities = set(ref_entities) & set(model_entities)
+        if len(common_entities) / len(ref_entities) >= 0.5:
+            return 1
+    
+    from difflib import SequenceMatcher
+    similarity = SequenceMatcher(None, model_answer, reference_answer).ratio()
+    return 1 if similarity > threshold else 0
+
+def calculate_answer_quality(model_answer, reference_answer):
+    """
+    评估回答质量：包括相关性、完整性、一致性
     返回一个综合质量分数（0-1）
-"""
+    """
     # 1. 计算相似度
     from difflib import SequenceMatcher
     similarity = SequenceMatcher(None, model_answer, reference_answer).ratio()
@@ -148,9 +403,9 @@ def log_to_tensorboard(writer, step, metrics, scenario):
         "format_score": format_score
     }
 
-# ---------------------
-"""运行双场景测试：无提示词 vs 有提示词
-"""
+# ---------------------- 13. 双场景测试流程 ----------------------
+def run_dual_scenario_test():
+    """运行双场景测试：无提示词 vs 有提示词"""
     output_dir, tb_log_dir, result_dir, log_dir = init_output_dir()
     log_file_path = os.path.join(log_dir, f"run_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
     sys.stdout = LoggerRedirect(log_file_path)

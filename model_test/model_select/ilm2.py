@@ -20,8 +20,7 @@ from difflib import SequenceMatcher
 
 # ====================== 1. 初始化output目录 ======================
 def init_output_dir(test_mode="with_prompt"):
-    """根据测试模式初始化输出目录
-"""
+    """根据测试模式初始化输出目录"""
     if test_mode == "with_prompt":
         output_dir = "./output_internlm2.5_with_prompt"
     else:
@@ -89,11 +88,12 @@ def log_to_tensorboard(writer, step, metrics):
 
 # ====================== 4. 配置量化参数 ======================
 def get_quantization_config():
-    """获取模型量化配置
+    """
+    获取模型量化配置
     
     Returns:
         BitsAndBytesConfig: 4-bit量化配置实例
-"""
+    """
     return BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_use_double_quant=True,
@@ -103,15 +103,16 @@ def get_quantization_config():
 
 # ====================== 5. 加载InternLM2.5模型 ======================
 def load_internlm2_5_model(model_path, cache_dir=None):
-    """加载InternLM2.5模型和对应的分词器
+    """
+    加载InternLM2.5模型和对应的分词器
     
     Args:
-        _path: 
-        cache_dir: ，用于存储模型文件
+        model_path: 模型文件路径
+        cache_dir: 缓存目录路径，用于存储模型文件
     
     Returns:
-        : (tokenizer, model)，分词器和模型实例
-"""
+        tuple: (tokenizer, model)，分词器和模型实例
+    """
     print(f"正在加载InternLM2.5模型：{model_path}")
     
     try:
@@ -158,15 +159,16 @@ def load_internlm2_5_model(model_path, cache_dir=None):
 
 # ====================== 6. 加载BGE Embedding模型 ======================
 def load_bge_embedding_model(embedding_path, cache_dir=None):
-    """加载BGE Embedding模型，用于文本向量化
+    """
+    加载BGE Embedding模型，用于文本向量化
     
     Args:
-        _path: 
-        cache_dir: 
+        embedding_path: 模型文件路径
+        cache_dir: 缓存目录路径
     
     Returns:
         tuple: (tokenizer, model)，分词器和Embedding模型实例
-"""
+    """
     print(f"正在加载BGE Embedding模型：{embedding_path}")
     
     try:
@@ -205,16 +207,17 @@ def load_bge_embedding_model(embedding_path, cache_dir=None):
 
 # ====================== 7. 文本向量化函数 ======================
 def generate_text_embedding(embedding_models, text, batch_mode=False):
-    """使用BGE模型将文本转换为向量表示
+    """
+    使用BGE模型将文本转换为向量表示
     
     Args:
-        _models: ，包含(embedding_tokenizer, embedding_model)
-        text: ，要转换的文本或文本列表
-        batch_mode: ，是否使用批量处理
+        embedding_models: tuple，包含(embedding_tokenizer, embedding_model)
+        text: str或list，要转换的文本或文本列表
+        batch_mode: bool，是否使用批量处理
     
     Returns:
-        .ndarray: 文本的向量表示
-"""
+        np.ndarray: 文本的向量表示
+    """
     # 解包模型组件
     tokenizer, model = embedding_models
     
@@ -291,8 +294,9 @@ def generate_text_embedding(embedding_models, text, batch_mode=False):
 
 # ====================== 7. 分析问题类型 ======================
 def analyze_question_type(question):
-    """分析问题类型，返回对应的类型标签
-"""
+    """
+    分析问题类型，返回对应的类型标签
+    """
     question_lower = question.lower()
     
     # 法定代表人查询
@@ -336,14 +340,15 @@ def analyze_question_type(question):
 
 # ====================== 8. 实体提取函数 ======================
 def extract_key_entities(text):
-    """从文本中提取关键实体，包括公司名、产品名、项目名和地名
+    """
+    从文本中提取关键实体，包括公司名、产品名、项目名和地名
     
     Args:
-        : str，要提取实体的文本
+        text: str，要提取实体的文本
     
     Returns:
-        : 提取的关键实体列表
-"""
+        list: 提取的关键实体列表
+    """
     entities = []
     
     # 1. 提取公司名称（完整名称）
@@ -414,8 +419,7 @@ class MultiPathRetrievalSystem:
         self.inverted_index = self.build_inverted_index()
     
     def build_vector_index(self):
-        """构建向量索引
-"""
+        """构建向量索引"""
         print("正在构建向量索引...")
         doc_vectors = []
         
@@ -441,8 +445,7 @@ class MultiPathRetrievalSystem:
         print(f"✅ 向量索引构建完成，维度：{vector_dim}，文档数：{len(doc_vectors)}")
     
     def build_inverted_index(self):
-        """构建倒排索引（关键词->文档索引）
-"""
+        """构建倒排索引（关键词->文档索引）"""
         print("正在构建倒排索引...")
         inverted_index = defaultdict(set)
         
@@ -459,8 +462,7 @@ class MultiPathRetrievalSystem:
         return inverted_index
     
     def extract_keywords_from_doc(self, doc):
-        """从文档中提取关键词
-"""
+        """从文档中提取关键词"""
         keywords = []
         
         # 提取公司名
@@ -488,10 +490,81 @@ class MultiPathRetrievalSystem:
         return list(set(keywords))
     
     def vector_retrieval(self, query, top_k=10, similarity_threshold=0.05):
-        """向量检索
-"""关键词检索
-"""基于规则的检索
-"""results = []
+        """向量检索 - 优化版本"""
+        if self.faiss_index is None or self.doc_vectors is None:
+            return []
+        
+        # 快速生成查询向量
+        query_vector = generate_text_embedding(self.embedding_models, query)
+        if query_vector.size == 0:
+            return []
+        
+        # 减少搜索候选数量，提高速度
+        search_k = min(top_k * 3, len(self.docs))  # 从5倍减少到3倍
+        distances, indices = self.faiss_index.search(query_vector.reshape(1, -1), search_k)
+        
+        results = []
+        # 只保留相似度较高的结果，提前过滤
+        for dist, idx in zip(distances[0], indices[0]):
+            if idx < len(self.docs) and dist > similarity_threshold:
+                results.append({
+                    "doc": self.docs[idx],
+                    "score": float(dist),
+                    "type": "vector",
+                    "index": idx
+                })
+                # 如果已经收集到足够的结果，提前返回
+                if len(results) >= top_k:
+                    break
+        
+        return results
+    
+    def keyword_retrieval(self, query, top_k=10):
+        """关键词检索 - 增强版"""
+        if not self.inverted_index:
+            return []
+        
+        # 提取查询中的关键词
+        query_entities = extract_key_entities(query)
+        
+        # 计算文档得分
+        doc_scores = defaultdict(float)
+        
+        for entity in query_entities:
+            if entity in self.inverted_index:
+                for doc_idx in self.inverted_index[entity]:
+                    # 公司名完全匹配得分更高
+                    if "有限公司" in entity or "公司" in entity:
+                        # 公司名完全匹配给予更高权重
+                        doc_scores[doc_idx] += 2.0
+                    else:
+                        doc_scores[doc_idx] += 1.0
+        
+        # 检查是否有完整的公司名，如果没有，尝试部分匹配
+        if not any("有限公司" in entity or "公司" in entity for entity in query_entities):
+            # 尝试从查询中提取可能的公司名关键词
+            query_words = query.split()
+            for word in query_words:
+                if len(word) >= 2 and word in self.inverted_index:
+                    for doc_idx in self.inverted_index[word]:
+                        doc_scores[doc_idx] += 0.5  # 部分匹配得分较低
+        
+        # 转换为结果列表
+        results = []
+        for doc_idx, score in sorted(doc_scores.items(), key=lambda x: x[1], reverse=True)[:top_k*3]:
+            if doc_idx < len(self.docs):
+                results.append({
+                    "doc": self.docs[doc_idx],
+                    "score": score,
+                    "type": "keyword",
+                    "index": doc_idx
+                })
+        
+        return results
+    
+    def rule_based_retrieval(self, query, top_k=5):
+        """基于规则的检索"""
+        results = []
         question_type = analyze_question_type(query)
         
         # 根据问题类型匹配特定模式
@@ -525,8 +598,9 @@ class MultiPathRetrievalSystem:
         return results
     
     def hybrid_retrieval(self, query, top_k=10, weights=None):
-        """混合检索：结合向量、关键词和规则检索
-"""
+        """
+        混合检索：结合向量、关键词和规则检索
+        """
         if weights is None:
             weights = {"vector": 0.4, "keyword": 0.3, "rule": 0.3}
         
@@ -585,18 +659,205 @@ class MultiPathRetrievalSystem:
             # 类型多样性奖励，增加奖励权重
             type_count = len(data["types"])
             if type_count > 1:
-                total_score *= (1.0 + 0.2 * (type_count
-"""重排序结果
-"""
+                total_score *= (1.0 + 0.2 * (type_count - 1))  # 从0.1提高到0.2
+            
+            scored_results.append({
+                "doc": data["doc"],
+                "score": total_score,
+                "types": list(data["types"]),
+                "index": doc_idx
+            })
+        
+        # 按分数排序
+        scored_results.sort(key=lambda x: x["score"], reverse=True)
+        
+        # 重排序：确保高相关性的文档在前
+        reranked_results = self.rerank_results(query, scored_results[:top_k*3])  # 增加重排序候选数量
+        
+        # 确保返回足够数量的结果，如果不足则补充
+        if len(reranked_results) < top_k:
+            # 从原始文档中补充一些可能相关的文档
+            for i, doc in enumerate(self.docs):
+                if i not in all_results and len(reranked_results) < top_k:
+                    reranked_results.append({
+                        "doc": doc,
+                        "score": 0.1,  # 给予较低分数
+                        "types": ["fallback"],
+                        "index": i
+                    })
+        
+        return reranked_results[:top_k]
+    
+    def rerank_results(self, query, results):
+        """重排序结果 - 增强精确匹配"""
+        if not results:
+            return []
+        
+        # 提取查询实体
+        query_entities = extract_key_entities(query)
+        
+        for result in results:
+            doc = result["doc"]
+            
+            # 实体匹配奖励
+            entity_match_score = 0
+            
+            for entity in query_entities:
+                if entity in doc:
+                    # 公司名完全匹配给予最高奖励
+                    if ("有限公司" in entity or "公司" in entity) and entity in doc:
+                        entity_match_score += 3.0
+                    # 人名匹配
+                    elif "法定代表人是" in query and entity in doc and "法定代表人是" in doc:
+                        entity_match_score += 2.0
+                    # 其他实体匹配
+                    else:
+                        entity_match_score += 0.5
+            
+            # 检查是否有完整的公司名匹配
+            full_company_match = False
+            for entity in query_entities:
+                if ("有限公司" in entity or "公司" in entity) and entity in doc:
+                    full_company_match = True
+                    break
+            
+            if full_company_match:
+                entity_match_score += 5.0  # 完整的公司名匹配给予最高奖励
+            
+            # 问题类型匹配奖励
+            question_type = analyze_question_type(query)
+            doc_lower = doc.lower()
+            
+            if question_type == "company_legal_representative" and "法定代表人是" in doc_lower:
+                # 如果文档中包含"法定代表人是"，给予额外奖励
+                entity_match_score += 2.0
+                
+                # 检查是否匹配查询中的公司名
+                for entity in query_entities:
+                    if ("有限公司" in entity or "公司" in entity) and entity in doc:
+                        entity_match_score += 3.0
+            elif question_type == "price_info" and ("价格为" in doc_lower or "价格是" in doc_lower):
+                entity_match_score += 1.0
+            elif question_type == "supplier_info" and ("供应商是" in doc_lower or "由" in doc_lower and "提供" in doc_lower):
+                entity_match_score += 1.0
+            elif question_type == "bid_winner_info" and ("中标供应商为" in doc_lower or "中标供应商是" in doc_lower):
+                entity_match_score += 1.0
+            elif question_type == "buyer_info" and ("采购方为" in doc_lower or "采购方是" in doc_lower):
+                entity_match_score += 1.0
+            
+            # 更新分数 - 增加实体匹配的权重
+            result["score"] = result["score"] * 0.6 + entity_match_score * 0.4
+        
+        # 重新排序
+        results.sort(key=lambda x: x["score"], reverse=True)
+        
+        return results
+
+# ====================== 10. InternLM2.5 生成函数 ======================
+def generate_answer(tokenizer, model, prompt, max_new_tokens=100):
+    """
     安全地生成InternLM2.5回答，优化生成质量和准确性
-    """try:
+    """
+    try:
         # 使用简化的prompt格式，避免复杂的对话标记
         formatted_prompt = f"问题：{prompt}\n请直接回答，不要添加任何解释："
         
-        # 编码输入
-"""
+        # 编码输入 - 确保正确处理attention_mask
+        inputs = tokenizer(
+            formatted_prompt,
+            return_tensors="pt",
+            truncation=True,
+            max_length=1024,
+            padding=False,  # 不使用padding，因为只有一个样本
+            return_attention_mask=True  # 确保返回attention_mask
+        )
+        
+        # 确保所有张量的batch维度都是1
+        for key in inputs:
+            if inputs[key].dim() > 0:
+                # 确保是2D张量 (batch_size, sequence_length)
+                if inputs[key].dim() == 1:
+                    inputs[key] = inputs[key].unsqueeze(0)  # 增加batch维度
+                elif inputs[key].shape[0] != 1:
+                    inputs[key] = inputs[key][:1]  # 只取第一个样本
+        
+        # 确保attention_mask正确，避免与eos_token冲突
+        input_ids = inputs.input_ids
+        attention_mask = inputs.attention_mask
+        
+        # 确保input_ids和attention_mask的长度相同
+        if input_ids.shape[1] != attention_mask.shape[1]:
+            min_len = min(input_ids.shape[1], attention_mask.shape[1])
+            input_ids = input_ids[:, :min_len]
+            attention_mask = attention_mask[:, :min_len]
+        
+        # 将张量移动到GPU上
+        input_ids = input_ids.to(model.device)
+        attention_mask = attention_mask.to(model.device)
+        
+        # 使用InternLM2.5支持的生成参数，移除不支持的参数
+        with torch.no_grad():
+            outputs = model.generate(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                max_new_tokens=min(max_new_tokens, 80),  # 进一步限制生成长度
+                do_sample=False,  # 不使用采样
+                eos_token_id=tokenizer.eos_token_id,
+                pad_token_id=tokenizer.pad_token_id if tokenizer.pad_token_id else tokenizer.eos_token_id,
+                repetition_penalty=1.1,  # 适当的重复惩罚
+                no_repeat_ngram_size=3,  # 适当的n-gram大小
+                use_cache=False,  # 禁用缓存，避免内存问题
+            )
+        
+        # 解码并清理回答
+        response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        
+        # 提取回答部分
+        if "请直接回答，不要添加任何解释：" in response:
+            response = response.split("请直接回答，不要添加任何解释：")[-1].strip()
+        elif "回答：" in response:
+            response = response.split("回答：")[-1].strip()
+        
+        # 进一步清理回答，只保留核心内容
+        cleaned_response = response.strip()
+        
+        # 移除多余的解释和说明
+        if "根据提供的信息" in cleaned_response:
+            cleaned_response = cleaned_response.replace("根据提供的信息", "")
+        if "这一结论直接来源于" in cleaned_response:
+            cleaned_response = cleaned_response.split("这一结论直接来源于")[0]
+        if "因此，可以确认" in cleaned_response:
+            cleaned_response = cleaned_response.split("因此，可以确认")[0]
+        if "综上所述" in cleaned_response:
+            cleaned_response = cleaned_response.split("综上所述")[0]
+        
+        # 移除多余的标点符号和空格
+        cleaned_response = re.sub(r'[，。；：、\s]+', '', cleaned_response)
+        
+        # 限制回答长度
+        if len(cleaned_response) > 50:
+            cleaned_response = cleaned_response[:50]
+        
+        # 如果回答为空，返回未知
+        return cleaned_response if cleaned_response else "未知"
+    
+    except RuntimeError as e:
+        if "dimension" in str(e).lower() or "size" in str(e).lower():
+            print(f"⚠️ 检测到维度不匹配错误，使用简化方法...")
+            return generate_answer_simple(tokenizer, model, prompt, max_new_tokens)
+        else:
+            print(f"❌ InternLM2.5生成失败: {e}")
+            return "未知"
+    
+    except Exception as e:
+        print(f"❌ InternLM2.5生成失败: {e}")
+        return "未知"
+
+def generate_answer_simple(tokenizer, model, prompt, max_new_tokens=100):
+    """
     简化的回答生成方法，用于处理复杂生成失败的情况
-    """try:
+    """
+    try:
         # 最简单的prompt格式
         simple_prompt = f"问题：{prompt}\n回答："
         
@@ -669,16 +930,16 @@ class MultiPathRetrievalSystem:
         return "未知"
 
 def rag_inference(tokenizer, model, retrieval_system, question, test_mode="with_prompt", max_new_tokens=100):
-"""
+    """
     InternLM2.5 RAG推理函数，结合检索和生成
     
     Args:
-        : 分词器实例
-        model: 
+        tokenizer: 分词器实例
+        model: 模型实例
         retrieval_system: 检索系统实例
-        question: 
+        question: 用户问题
         test_mode: 测试模式，"with_prompt"或"without_prompt"
-        max_new_tokens: 
+        max_new_tokens: 最大生成token数
     
     Returns:
         tuple: (生成的回答, 检索到的文档列表)
@@ -703,8 +964,9 @@ def rag_inference(tokenizer, model, retrieval_system, question, test_mode="with_
     return model_answer, retrieved_docs
 
 def get_prompt_with_template(question, retrieved_docs):
-    """获取使用提示词模板的prompt（第二个调研方向）
-"""
+    """
+    获取使用提示词模板的prompt（第二个调研方向）
+    """
     # 分析问题类型
     question_type = analyze_question_type(question)
     
@@ -734,9 +996,30 @@ def get_prompt_with_template(question, retrieved_docs):
     
     instruction = instruction_templates.get(question_type, instruction_templates["general_info"])
     
-    # 构建用户消息
-"""获取不使用提示词模板的prompt（第一个调研方向）
-"""
+    # 构建用户消息 - 更加简洁明确，强调直接提取答案
+    user_message = f"""你是一个专业的信息提取助手，只能根据提供的上下文回答问题，严格遵循以下规则：
+- 只提取上下文中明确提到的信息，不进行任何推理或扩展
+- 答案必须简洁，不超过20个字
+- 不要添加任何解释、说明或多余的文字
+- 只回答问题所要求的内容，不要回答其他无关信息
+- 如果上下文中没有相关信息，直接回答'未知'
+- 如果上下文中明确提到'未知'，直接回答'未知'
+
+上下文信息：
+{context}
+
+问题：{question}
+
+{instruction}
+
+答案："""
+    
+    return user_message
+
+def get_prompt_without_template(question, retrieved_docs):
+    """
+    获取不使用提示词模板的prompt（第一个调研方向）
+    """
     # 构建上下文（限制文档数量和长度）
     context_parts = []
     for i, doc in enumerate(retrieved_docs[:2]):  # 最多2个文档
@@ -754,15 +1037,15 @@ def get_prompt_with_template(question, retrieved_docs):
 
 问题：{question}
 
-请根据以上信息回答问题：
-"""
+请根据以上信息回答问题："""
     
     return prompt
 
 # ====================== 11. 加载问答对 ======================
 def load_and_prepare_test_data(qa_file_path="qa_data/520_qa.json", kb_file_path="qa_data/knowledge_base.txt"):
-    """加载和准备测试数据
-"""
+    """
+    加载和准备测试数据
+    """
     print("正在加载测试数据...")
     
     try:
@@ -849,8 +1132,7 @@ def load_and_prepare_test_data(qa_file_path="qa_data/520_qa.json", kb_file_path=
         return [], []
 
 def create_sample_test_cases():
-    """创建示例测试用例（用于测试）
-"""
+    """创建示例测试用例（用于测试）"""
     return [
         {
             "test_case_id": 1,
@@ -870,8 +1152,9 @@ def create_sample_test_cases():
 
 # ====================== 12. 评估函数（包含F1和F2指标）======================
 def calculate_enhanced_recall(retrieved_docs, relevant_docs):
-    """增强版召回率计算
-"""
+    """
+    增强版召回率计算
+    """
     if not retrieved_docs or not relevant_docs:
         return 0
     
@@ -884,8 +1167,9 @@ def calculate_enhanced_recall(retrieved_docs, relevant_docs):
     return 0
 
 def is_document_match(doc1, doc2):
-    """判断两个文档是否匹配
-"""
+    """
+    判断两个文档是否匹配
+    """
     # 直接包含关系
     if doc1 in doc2 or doc2 in doc1:
         return True
@@ -904,8 +1188,7 @@ def is_document_match(doc1, doc2):
     return similarity > 0.7
 
 def extract_key_entities(text):
-    """提取关键实体
-"""
+    """提取关键实体"""
     entities = []
     
     # 公司名
@@ -930,14 +1213,14 @@ def extract_key_entities(text):
     return list(set(entities))
 
 def calculate_text_similarity(text1, text2):
-    """计算文本相似度
-"""
+    """计算文本相似度"""
     # 简单实现：使用SequenceMatcher
     return SequenceMatcher(None, text1, text2).ratio()
 
 def calculate_enhanced_accuracy(model_answer, reference_answer, question):
-    """增强版准确率计算
-"""
+    """
+    增强版准确率计算 - 针对不同类型问题使用不同评估策略
+    """
     if not model_answer or not reference_answer:
         return 0
     
@@ -1044,8 +1327,9 @@ def calculate_enhanced_accuracy(model_answer, reference_answer, question):
     return 0
 
 def calculate_basic_info_accuracy(model_answer, reference_answer):
-    """计算基本信息类问题的准确率（更宽松的评估）
-"""
+    """
+    计算基本信息类问题的准确率（更宽松的评估）
+    """
     # 提取关键信息进行比较
     key_info_pairs = [
         # (模型提取函数, 参考提取函数, 权重)
@@ -1075,8 +1359,7 @@ def calculate_basic_info_accuracy(model_answer, reference_answer):
     return 1 if accuracy_score > 0.6 else 0
 
 def extract_product_name(text):
-    """提取产品名称
-"""
+    """提取产品名称"""
     patterns = [
         r'产品名称为([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-\s]{3,})',
         r'([\u4e00-\u9fa5a-zA-Z0-9（）()《》\-\s]{3,})是一款',
@@ -1096,8 +1379,7 @@ def extract_product_name(text):
     return None
 
 def extract_company_name(text):
-    """提取公司名称
-"""
+    """提取公司名称"""
     patterns = [
         r'由([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})提供',
         r'供应商是([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
@@ -1114,8 +1396,7 @@ def extract_company_name(text):
     return None
 
 def extract_product_category(text):
-    """提取产品类别
-"""
+    """提取产品类别"""
     categories = ["其他类别", "仪器仪表", "测试仪器", "水质测试", "电导率仪表"]
     
     for category in categories:
@@ -1125,16 +1406,16 @@ def extract_product_category(text):
     return None
 
 def extract_standard_info(text):
-    """提取标准信息
-"""
+    """提取标准信息"""
     if "符合" in text and ("标准" in text or "规格" in text):
         # 简化处理：只要有"符合标准"相关表述
         return "符合标准"
     return None
 
 def is_info_match(info1, info2):
-    """判断两个信息是否匹配（允许部分匹配）
-"""
+    """
+    判断两个信息是否匹配（允许部分匹配）
+    """
     if not info1 or not info2:
         return False
     
@@ -1165,8 +1446,7 @@ def is_info_match(info1, info2):
     return similarity > 0.7
 
 def preprocess_answer(answer):
-    """预处理答案
-"""
+    """预处理答案"""
     if not answer:
         return ""
     
@@ -1179,18 +1459,46 @@ def preprocess_answer(answer):
     return answer
 
 def is_unknown_answer(answer):
-    """判断是否为未知答案
-"""
+    """判断是否为未知答案"""
     unknown_keywords = ["未知", "无法确定", "不能确定", "不清楚", "不明确", "暂无", "没有", "无"]
     return any(keyword in answer for keyword in unknown_keywords)
 
 def extract_name(text):
-    """提取人名
-"""提取价格"""match = re.search(r'(\d+\.?\d*)元', text)
+    """提取人名 - 优化版"""
+    # 针对法定代表人问题，优先匹配明确的人名模式
+    name_patterns = [
+        r'法定代表人是([\u4e00-\u9fa5]{2,4})',
+        r'法人是([\u4e00-\u9fa5]{2,4})',
+        r'法人代表是([\u4e00-\u9fa5]{2,4})',
+        r'代表人为([\u4e00-\u9fa5]{2,4})',
+        r'负责人是([\u4e00-\u9fa5]{2,4})',
+        r'([\u4e00-\u9fa5]{2,4})是法定代表人',
+        r'([\u4e00-\u9fa5]{2,4})是法人',
+    ]
+    
+    for pattern in name_patterns:
+        match = re.search(pattern, text)
+        if match:
+            return match.group(1) if match.group(1) else match.group(2)
+    
+    # 如果没有明确的法定代表人模式，尝试提取文本中的人名
+    # 只提取2-4个汉字的人名，排除常见错误
+    match = re.search(r'([\u4e00-\u9fa5]{2,4})', text)
+    if match:
+        name = match.group(1)
+        # 排除明显不是人名的情况
+        if name not in ["有限公司", "公司", "集团", "未知", "无法", "不能", "清楚", "明确", "暂无", "没有", "无"]:
+            return name
+    
+    return None
+
+def extract_price(text):
+    """提取价格"""
+    match = re.search(r'(\d+\.?\d*)元', text)
     return match.group(1) if match else None
 
 def extract_supplier(text):
-"""提取供应商"""
+    """提取供应商"""
     # 尝试多种模式
     patterns = [
         r'供应商是([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
@@ -1206,8 +1514,7 @@ def extract_supplier(text):
     return None
 
 def extract_winner(text):
-    """提取中标方
-"""
+    """提取中标方"""
     patterns = [
         r'中标供应商为([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
         r'中标供应商是([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
@@ -1223,8 +1530,7 @@ def extract_winner(text):
     return None
 
 def extract_buyer(text):
-    """提取采购方
-"""
+    """提取采购方"""
     patterns = [
         r'采购方为([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
         r'采购方是([\u4e00-\u9fa5a-zA-Z0-9（）()]{4,})',
@@ -1241,23 +1547,22 @@ def extract_buyer(text):
 
 # ====================== 12b. F1和F2指标计算函数 ======================
 def calculate_f1_score(precision, recall):
-    """计算F1分数
-"""
+    """计算F1分数"""
     if precision + recall == 0:
         return 0
     return 2 * precision * recall / (precision + recall)
 
 def calculate_f2_score(precision, recall):
-    """计算F2分数（更重视召回率）
-"""
+    """计算F2分数（更重视召回率）"""
     if precision + recall == 0:
         return 0
     return 5 * precision * recall / (4 * precision + recall)
 
 def calculate_all_metrics(model_answer, reference_answer, retrieved_docs, relevant_docs, question):
-    """计算所有评估指标
+    """
+    计算所有评估指标
     返回：precision, recall, f1, f2
-"""
+    """
     # 计算准确率（作为precision）
     precision = calculate_enhanced_accuracy(model_answer, reference_answer, question)
     
@@ -1277,9 +1582,12 @@ def calculate_all_metrics(model_answer, reference_answer, retrieved_docs, releva
 
 # ====================== 13. 主测试流程 ======================
 def run_optimized_internlm2_5_test(test_mode="with_prompt"):
-    """优化的InternLM2.5模型测试流程
-    test_mode:
-"""
+    """
+    优化的InternLM2.5模型测试流程
+    test_mode: 
+        - "with_prompt": 使用提示词模板（第二个调研方向）
+        - "without_prompt": 不使用提示词模板（第一个调研方向）
+    """
     # 根据测试模式初始化
     if test_mode == "with_prompt":
         print("="*60)
@@ -1301,9 +1609,225 @@ def run_optimized_internlm2_5_test(test_mode="with_prompt"):
     test_config = {
         "llm_name": "internlm2_5-7b-chat",
         "model_local_path": "/mnt/workspace/data/modelscope/cache/Shanghai_AI_Laboratory/internlm2_5-7b-chat",
-        "embedding_local_path": "/mnt/workspace/data/modelscope/cache/bge-large-zh-
-"""生成详细统计报告，包含F1和F2指标
-"""
+        "embedding_local_path": "/mnt/workspace/data/modelscope/cache/bge-large-zh-v1.5/BAAI/bge-large-zh-v1___5"
+    }
+    
+    # 1. 加载测试数据
+    print("\n📂 加载测试数据...")
+    qa_file_path = "qa_data/520_qa.json"
+    kb_file_path = "qa_data/knowledge_base.txt"
+    
+    test_cases, knowledge_docs = load_and_prepare_test_data(qa_file_path, kb_file_path)
+    
+    if not test_cases:
+        print("❌ 无测试用例，测试终止")
+        tb_writer.close()
+        return
+    
+    print(f"\n✅ 数据加载完成:")
+    print(f"   测试用例: {len(test_cases)} 条")
+    print(f"   知识库文档: {len(knowledge_docs)} 条")
+    
+    # 2. 加载InternLM2.5模型
+    print("\n🤖 加载InternLM2.5模型...")
+    tokenizer, model = load_internlm2_5_model(test_config["model_local_path"], cache_dir)
+    
+    if tokenizer is None or model is None:
+        print("❌ 模型加载失败，测试终止")
+        tb_writer.close()
+        return
+    
+    # 3. 加载BGE Embedding模型
+    print("\n🔍 加载BGE Embedding模型...")
+    embedding_models = load_bge_embedding_model(test_config["embedding_local_path"], cache_dir)
+    
+    if embedding_models is None:
+        print("❌ Embedding模型加载失败，测试终止")
+        tb_writer.close()
+        return
+    
+    # 4. 构建多路召回检索系统
+    print("\n🔧 构建多路召回检索系统...")
+    retrieval_system = MultiPathRetrievalSystem(embedding_models, knowledge_docs)
+    
+    if retrieval_system.faiss_index is None:
+        print("❌ 检索系统构建失败，测试终止")
+        tb_writer.close()
+        return
+    
+    # 5. 执行测试
+    print("\n" + "="*60)
+    print("开始执行测试...")
+    print("="*60)
+    
+    test_results = []
+    successful_generations = 0
+    failed_generations = 0
+    
+    for idx, case in enumerate(test_cases):
+        question = case["question"]
+        reference_answer = case["reference_answer"]
+        relevant_docs = case["relevant_docs"]
+        question_type = case["question_type"]
+        
+        print(f"\n--- 测试用例 {idx+1}/{len(test_cases)} [{question_type}] ---")
+        print(f"问题: {question[:80]}..." if len(question) > 80 else f"问题: {question}")
+        
+        # 调试：显示提取的实体
+        query_entities = extract_key_entities(question)
+        print(f"📝 提取的实体: {query_entities}")
+        
+        # 记录时间
+        start_time = time.time()
+        retrieval_start = time.time()
+        
+        # 执行推理（根据测试模式选择不同的推理方式）
+        model_answer, retrieved_docs = rag_inference(
+            tokenizer, model, retrieval_system, question, test_mode
+        )
+        
+        # 调试：显示检索到的文档
+        print(f"🔍 检索到 {len(retrieved_docs)} 个文档:")
+        for i, doc in enumerate(retrieved_docs[:3]):  # 只显示前3个
+            print(f"  文档{i+1}: {doc[:100]}...")
+        
+        retrieval_time = time.time() - retrieval_start
+        generation_time = time.time() - start_time - retrieval_time
+        total_time = time.time() - start_time
+        
+        # 统计生成成功/失败
+        if model_answer != "未知" and "生成失败" not in model_answer:
+            successful_generations += 1
+        else:
+            failed_generations += 1
+        
+        # 计算所有指标（包含F1和F2）
+        metrics = calculate_all_metrics(model_answer, reference_answer, retrieved_docs, relevant_docs, question)
+        precision = metrics["precision"]
+        recall = metrics["recall"]
+        f1_score = metrics["f1"]
+        f2_score = metrics["f2"]
+        
+        # 记录结果
+        single_result = {
+            "test_case_id": idx + 1,
+            "question": question,
+            "reference_answer": reference_answer,
+            "model_answer": model_answer,
+            "retrieved_docs": retrieved_docs,
+            "relevant_docs": relevant_docs,
+            "precision": precision,
+            "recall": recall,
+            "f1_score": f1_score,
+            "f2_score": f2_score,
+            "answer_length": len(model_answer),
+            "reference_length": len(reference_answer),
+            "retrieved_count": len(retrieved_docs),
+            "relevant_count": len(relevant_docs),
+            "question_type": question_type,
+            "test_mode": test_mode,
+            "model_name": "internlm2_5-7b-chat",
+            "generation_time": generation_time,
+            "retrieval_time": retrieval_time,
+            "total_time": total_time,
+            "generation_success": model_answer != "未知" and "生成失败" not in model_answer
+        }
+        
+        # 输出结果
+        print(f"模型回答: {model_answer}")
+        print(f"标准答案: {reference_answer[:80]}..." if len(reference_answer) > 80 else f"标准答案: {reference_answer}")
+        print(f"准确率: {precision:.4f} | 召回率: {recall:.4f} | F1: {f1_score:.4f} | F2: {f2_score:.4f}")
+        print(f"时间: 检索{retrieval_time:.2f}s + 生成{generation_time:.2f}s = 总计{total_time:.2f}s")
+        
+        if recall == 1 and precision == 0:
+            print("⚠️  检索成功但回答错误!")
+            # 调试：显示评估详情
+            print(f"\n🔍 评估详情:")
+            print(f"  相似度: {calculate_text_similarity(model_answer, reference_answer):.4f}")
+            
+            if question_type == "basic_info":
+                model_company = extract_company_name(model_answer)
+                ref_company = extract_company_name(reference_answer)
+                print(f"  公司名匹配: 模型'{model_company}' vs 标准'{ref_company}'")
+                
+                model_product = extract_product_name(model_answer)
+                ref_product = extract_product_name(reference_answer)
+                print(f"  产品名匹配: 模型'{model_product}' vs 标准'{ref_product}'")
+        
+        # 记录到TensorBoard
+        log_to_tensorboard(tb_writer, step=idx+1, metrics={
+            "precision": precision,
+            "recall": recall,
+            "f1_score": f1_score,
+            "f2_score": f2_score,
+            "answer_length": len(model_answer),
+            "reference_length": len(reference_answer),
+            "retrieved_count": len(retrieved_docs),
+            "generation_time": generation_time,
+            "retrieval_time": retrieval_time,
+            "total_time": total_time
+        })
+        
+        test_results.append(single_result)
+        
+        # 每10条输出一次进度
+        if (idx + 1) % 10 == 0:
+            avg_precision = sum([r["precision"] for r in test_results]) / len(test_results)
+            avg_recall = sum([r["recall"] for r in test_results]) / len(test_results)
+            avg_f1 = sum([r["f1_score"] for r in test_results]) / len(test_results)
+            avg_f2 = sum([r["f2_score"] for r in test_results]) / len(test_results)
+            avg_generation_time = sum([r["generation_time"] for r in test_results]) / len(test_results)
+            success_rate = successful_generations / (successful_generations + failed_generations) * 100 if (successful_generations + failed_generations) > 0 else 0
+            
+            print(f"\n📊 进度: {idx+1}/{len(test_cases)}，平均准确率: {avg_precision:.4f}，平均召回率: {avg_recall:.4f}")
+            print(f"平均F1: {avg_f1:.4f}，平均F2: {avg_f2:.4f}")
+            print(f"生成成功率: {success_rate:.1f}% ({successful_generations}成功/{failed_generations}失败)")
+            
+            # 将平均指标也记录到TensorBoard
+            tb_writer.add_scalar("平均指标/准确率", avg_precision, idx+1)
+            tb_writer.add_scalar("平均指标/召回率", avg_recall, idx+1)
+            tb_writer.add_scalar("平均指标/F1分数", avg_f1, idx+1)
+            tb_writer.add_scalar("平均指标/F2分数", avg_f2, idx+1)
+            tb_writer.add_scalar("平均指标/生成时间", avg_generation_time, idx+1)
+            tb_writer.add_scalar("平均指标/生成成功率", success_rate, idx+1)
+        
+        # 每50条保存一次中间结果
+        if (idx + 1) % 50 == 0:
+            temp_result_file = os.path.join(result_dir, f"temp_results_{timestamp}_{idx+1}.json")
+            with open(temp_result_file, "w", encoding="utf-8") as f:
+                json.dump(test_results, f, ensure_ascii=False, indent=2)
+            print(f"💾 已保存中间结果到: {temp_result_file}")
+    
+    # 6. 保存测试结果
+    if test_mode == "with_prompt":
+        result_file_name = f"InternLM2_5_With_Prompt_Test_{timestamp}.json"
+    else:
+        result_file_name = f"InternLM2_5_Without_Prompt_Test_{timestamp}.json"
+    
+    result_file_path = os.path.join(result_dir, result_file_name)
+    
+    with open(result_file_path, "w", encoding="utf-8") as f:
+        json.dump(test_results, f, ensure_ascii=False, indent=2)
+    
+    print(f"\n✅ 测试结果已保存: {result_file_path}")
+    
+    # 7. 生成详细统计报告（包含F1和F2指标）
+    generate_detailed_statistics(test_results, output_dir, test_mode, tb_writer, successful_generations, failed_generations)
+    
+    # 8. 输出总结
+    print("\n" + "="*60)
+    print("🎉 测试完成!")
+    print("="*60)
+    
+    # 关闭TensorBoard
+    tb_writer.close()
+    
+    return test_results
+
+def generate_detailed_statistics(test_results, output_dir, test_mode, tb_writer=None, successful_generations=0, failed_generations=0):
+    """
+    生成详细统计报告，包含F1和F2指标
+    """
     if not test_results:
         print("❌ 无测试结果，无法生成统计")
         return
@@ -1460,9 +1984,39 @@ def run_optimized_internlm2_5_test(test_mode="with_prompt"):
             for q_type, cases in error_by_type.items():
                 f.write(f"\n   {q_type} 错误 ({len(cases)} 条):\n")
                 for case in cases[:3]:  # 每个类型显示前3条
-                    f.write(f"
-"""对比两种模式的结果
-"""print("\n" + "="*80)
+                    f.write(f"       - {case['question'][:50]}...\n")
+                    f.write(f"         模型: {case['model_answer'][:50]}...\n")
+                    f.write(f"         标准: {case['reference_answer'][:50]}...\n")
+                    f.write(f"         召回率: {case['recall']:.4f}, F1: {case['f1_score']:.4f}\n")
+        else:
+            f.write("   无错误案例！\n")
+        
+        # 性能分析
+        f.write("\n" + "="*60 + "\n")
+        f.write("📈 性能分析:\n")
+        generation_times = [r["generation_time"] for r in test_results]
+        if generation_times:
+            f.write(f"   生成时间统计:\n")
+            f.write(f"       最短: {min(generation_times):.2f}s\n")
+            f.write(f"       最长: {max(generation_times):.2f}s\n")
+            f.write(f"       中位数: {np.median(generation_times):.2f}s\n")
+            f.write(f"       标准差: {np.std(generation_times):.2f}s\n")
+        
+        # 生成失败分析
+        if failed_generations > 0:
+            f.write(f"\n⚠️  生成失败分析:\n")
+            f.write(f"   生成失败次数: {failed_generations}\n")
+            f.write(f"   生成成功率: {successful_generations/total_cases*100:.1f}%\n")
+            f.write(f"   主要失败类型: 张量维度不匹配错误\n")
+    
+    print(f"📊 详细统计已保存: {stats_file}")
+
+# ====================== 14. 对比分析函数 ======================
+def compare_two_modes(results_without_prompt, results_with_prompt):
+    """
+    对比两种模式的结果
+    """
+    print("\n" + "="*80)
     print("两种调研模式对比分析")
     print("="*80)
     
@@ -1494,12 +2048,135 @@ def run_optimized_internlm2_5_test(test_mode="with_prompt"):
     avg_gen_time_with = sum([r["generation_time"] for r in results_with_prompt]) / total_cases
     
     # 计算提升
-    precision_improvement = avg_precision_with
-"""主函数：支持三种运行模式
+    precision_improvement = avg_precision_with - avg_precision_without
+    recall_improvement = avg_recall_with - avg_recall_without
+    f1_improvement = avg_f1_with - avg_f1_without
+    f2_improvement = avg_f2_with - avg_f2_without
+    gen_time_change = avg_gen_time_with - avg_gen_time_without
+    
+    with open(compare_file, "w", encoding="utf-8") as f:
+        f.write("="*80 + "\n")
+        f.write("两种调研模式对比报告\n")
+        f.write("="*80 + "\n\n")
+        
+        f.write("调研目标:\n")
+        f.write("1. 第一种调研（不使用提示词）：不做任何处理情况下，观察模型的回答情况\n")
+        f.write("2. 第二种调研（使用提示词）：构建提示词模板对大模型加以训练\n\n")
+        
+        f.write("📊 总体对比:\n")
+        f.write(f"                 | 不使用提示词 | 使用提示词 | 变化\n")
+        f.write(f"-----------------|------------|------------|------------\n")
+        f.write(f"测试用例数       | {total_cases:^10} | {total_cases:^10} | -\n")
+        f.write(f"平均准确率       | {avg_precision_without:.4f}     | {avg_precision_with:.4f}     | {precision_improvement:+.4f}\n")
+        f.write(f"平均召回率       | {avg_recall_without:.4f}     | {avg_recall_with:.4f}     | {recall_improvement:+.4f}\n")
+        f.write(f"平均F1分数       | {avg_f1_without:.4f}     | {avg_f1_with:.4f}     | {f1_improvement:+.4f}\n")
+        f.write(f"平均F2分数       | {avg_f2_without:.4f}     | {avg_f2_with:.4f}     | {f2_improvement:+.4f}\n")
+        f.write(f"平均生成时间     | {avg_gen_time_without:.2f}s   | {avg_gen_time_with:.2f}s   | {gen_time_change:+.2f}s\n\n")
+        
+        # 按问题类型对比
+        f.write("🔍 按问题类型对比:\n")
+        
+        # 按类型分组
+        type_results_without = defaultdict(list)
+        type_results_with = defaultdict(list)
+        
+        for result in results_without_prompt:
+            type_results_without[result["question_type"]].append(result)
+        
+        for result in results_with_prompt:
+            type_results_with[result["question_type"]].append(result)
+        
+        for q_type in sorted(set(list(type_results_without.keys()) + list(type_results_with.keys()))):
+            if q_type in type_results_without and q_type in type_results_with:
+                without_list = type_results_without[q_type]
+                with_list = type_results_with[q_type]
+                
+                if without_list and with_list:
+                    precision_without_avg = sum([r.get("precision", 0) for r in without_list]) / len(without_list)
+                    precision_with_avg = sum([r.get("precision", 0) for r in with_list]) / len(with_list)
+                    f1_without_avg = sum([r.get("f1_score", 0) for r in without_list]) / len(without_list)
+                    f1_with_avg = sum([r.get("f1_score", 0) for r in with_list]) / len(with_list)
+                    gen_time_without_avg = sum([r["generation_time"] for r in without_list]) / len(without_list)
+                    gen_time_with_avg = sum([r["generation_time"] for r in with_list]) / len(with_list)
+                    
+                    precision_improvement = precision_with_avg - precision_without_avg
+                    f1_improvement = f1_with_avg - f1_without_avg
+                    time_change = gen_time_with_avg - gen_time_without_avg
+                    precision_sign = "↑" if precision_improvement > 0 else "↓" if precision_improvement < 0 else "→"
+                    f1_sign = "↑" if f1_improvement > 0 else "↓" if f1_improvement < 0 else "→"
+                    time_sign = "↑" if time_change > 0 else "↓" if time_change < 0 else "→"
+                    
+                    f.write(f"\n{q_type:25}:\n")
+                    f.write(f"    不使用提示词: 准确率{precision_without_avg:.4f}, F1{f1_without_avg:.4f}, 生成时间{gen_time_without_avg:.2f}s\n")
+                    f.write(f"    使用提示词: 准确率{precision_with_avg:.4f}, F1{f1_with_avg:.4f}, 生成时间{gen_time_with_avg:.2f}s\n")
+                    f.write(f"    准确率变化: {precision_improvement:+.4f} {precision_sign}\n")
+                    f.write(f"    F1变化: {f1_improvement:+.4f} {f1_sign}\n")
+                    f.write(f"    生成时间变化: {time_change:+.2f}s {time_sign}\n")
+        
+        f.write("\n" + "="*80 + "\n")
+        f.write("结论:\n")
+        
+        if f1_improvement > 0.1:
+            f.write(f"✅ 提示词模板显著提高了模型表现，F1分数提升了 {f1_improvement*100:.2f}%\n")
+        elif f1_improvement > 0:
+            f.write(f"✅ 提示词模板在一定程度上提高了模型表现，F1分数提升了 {f1_improvement*100:.2f}%\n")
+        elif f1_improvement == 0:
+            f.write("⚠️  提示词模板对模型表现没有明显影响\n")
+        else:
+            f.write(f"❌ 提示词模板反而降低了模型表现，F1分数降低了 {-f1_improvement*100:.2f}%\n")
+        
+        f.write("\n建议:\n")
+        if f1_improvement > 0:
+            f.write("1. 提示词模板在招投标领域是有效的\n")
+            f.write("2. 可以考虑进一步优化提示词模板以获得更好的效果\n")
+            if gen_time_change > 0:
+                f.write(f"3. 提示词模板增加了生成时间({gen_time_change:.2f}s)，可能需要优化提示词长度\n")
+            else:
+                f.write(f"3. 提示词模板减少了生成时间({-gen_time_change:.2f}s)，这是一个积极的信号\n")
+        else:
+            f.write("1. 可能需要重新设计提示词模板\n")
+            f.write("2. 可以考虑使用更细致的指令或示例\n")
+            f.write("3. 检查模型的fine-tuning情况\n")
+    
+    # 控制台输出
+    print(f"\n📊 总体对比:")
+    print(f"                 | 不使用提示词 | 使用提示词 | 变化")
+    print(f"-----------------|------------|------------|------------")
+    print(f"测试用例数       | {total_cases:^10} | {total_cases:^10} | -")
+    print(f"平均准确率       | {avg_precision_without:.4f}     | {avg_precision_with:.4f}     | {precision_improvement:+.4f}")
+    print(f"平均召回率       | {avg_recall_without:.4f}     | {avg_recall_with:.4f}     | {recall_improvement:+.4f}")
+    print(f"平均F1分数       | {avg_f1_without:.4f}     | {avg_f1_with:.4f}     | {f1_improvement:+.4f}")
+    print(f"平均F2分数       | {avg_f2_without:.4f}     | {avg_f2_with:.4f}     | {f2_improvement:+.4f}")
+    print(f"平均生成时间     | {avg_gen_time_without:.2f}s   | {avg_gen_time_with:.2f}s   | {gen_time_change:+.2f}s")
+    
+    print(f"\n🎯 提示词模板效果总结:")
+    if f1_improvement > 0.1:
+        print(f"  ✅ 提示词模板显著有效，F1分数提升了 {f1_improvement*100:.2f}%")
+    elif f1_improvement > 0:
+        print(f"  ✅ 提示词模板有一定效果，F1分数提升了 {f1_improvement*100:.2f}%")
+    elif f1_improvement == 0:
+        print(f"  ⚠️  提示词模板效果不明显")
+    else:
+        print(f"  ❌ 提示词模板有负作用，F1分数降低了 {-f1_improvement*100:.2f}%")
+    
+    print(f"\n⏱️  性能影响:")
+    if gen_time_change > 0:
+        print(f"  ⚠️  提示词模板增加了生成时间: {gen_time_change:.2f}s")
+    elif gen_time_change < 0:
+        print(f"  ✅ 提示词模板减少了生成时间: {-gen_time_change:.2f}s")
+    else:
+        print(f"  ⚠️  提示词模板对生成时间无影响")
+    
+    print(f"\n📄 对比报告已保存: {compare_file}")
+
+# ====================== 15. 主函数：支持多种运行模式 ======================
+if __name__ == "__main__":
+    """
+    主函数：支持三种运行模式
     1. 只运行第一种调研（不使用提示词）
     2. 只运行第二种调研（使用提示词）
     3. 同时运行两种调研并进行对比
-"""
+    """
     print("="*80)
     print("InternLM2.5 模型调研测试")
     print("="*80)
